@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nocito — Snap it. Done.</title>
+  <meta name="description" content="Nocito — The expense tracker built for real life. Snap receipts, import PDFs, dictate expenses. Your data stays on your phone.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:  #1B2A4A;
+      --amber: #F5A623;
+      --teal:  #2A9D8F;
+      --cream: #F5EDD6;
+      --slate: #8899AA;
+      --dark:  #0F1B2D;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .logo-icon {
+      width: 64px; height: 64px;
+      background: var(--amber);
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .logo-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 42px; font-weight: 700;
+      color: var(--cream); letter-spacing: -0.025em;
+    }
+
+    .logo-name span { color: var(--amber); }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 700;
+      color: var(--cream);
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+    }
+
+    p.sub {
+      font-size: 18px;
+      color: var(--slate);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.25);
+      color: var(--amber);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .links a {
+      font-size: 14px;
+      color: var(--slate);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .links a:hover { color: var(--cream); }
+
+    footer {
+      margin-top: 60px;
+      font-size: 13px;
+      color: #3A5070;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">
+    <div class="logo-icon">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <rect x="7" y="4" width="22" height="28" rx="3" fill="#1B2A4A"/>
+        <line x1="11" y1="9" x2="25" y2="9" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round"/>
+        <line x1="11" y1="13" x2="20" y2="13" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round"/>
+        <path d="M24 13 L13 26 L19 26 L17 35 L28 22 L22 22 Z" fill="#F5A623"/>
+      </svg>
+    </div>
+    <div class="logo-name">No<span>c</span>ito</div>
+  </div>
+
+  <div class="badge">Coming to Google Play</div>
+
+  <h1>Snap it. Done.</h1>
+
+  <p class="sub">The expense tracker built for real life — cash, paper receipts, PDFs, and your voice. Your data never leaves your phone.</p>
+
+  <div class="links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="mailto:hello@nocito.app">hello@nocito.app</a>
+  </div>
+
+  <footer>© 2026 Nocito</footer>
+
+</body>
+</html>
