@@ -3,366 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Nocito</title>
+  <title>Privacy Policy — Nocito™</title>
   <meta name="description" content="Nocito Privacy Policy. Your expense data stays on your phone.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --navy:  #1B2A4A;
-      --amber: #F5A623;
-      --teal:  #2A9D8F;
-      --cream: #F5EDD6;
-      --card:  #243550;
-      --slate: #8899AA;
-      --dark:  #0F1B2D;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--dark);
-      color: var(--cream);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      line-height: 1.75;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(15,27,45,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 0 24px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .nav-icon {
-      width: 32px;
-      height: 32px;
-      background: var(--amber);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .nav-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--cream);
-      letter-spacing: -0.02em;
-    }
-
-    .nav-name span { color: var(--amber); }
-
-    nav a.back {
-      font-size: 13px;
-      color: var(--slate);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    nav a.back:hover { color: var(--cream); }
-
-    /* ── HERO ── */
-    .hero {
-      background: var(--navy);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 64px 24px 48px;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--teal);
-      border: 1px solid rgba(42,157,143,0.3);
-      border-radius: 100px;
-      padding: 4px 14px;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(28px, 5vw, 42px);
-      font-weight: 700;
-      color: var(--cream);
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      font-size: 16px;
-      color: var(--slate);
-      max-width: 500px;
-      margin: 0 auto 24px;
-    }
-
-    .hero-meta {
-      font-size: 13px;
-      color: #4A6080;
-    }
-
-    /* ── PRIVACY HIGHLIGHT BOX ── */
-    .privacy-highlight {
-      max-width: 760px;
-      margin: 40px auto;
-      padding: 0 24px;
-    }
-
-    .highlight-box {
-      background: rgba(42,157,143,0.08);
-      border: 1px solid rgba(42,157,143,0.25);
-      border-radius: 12px;
-      padding: 24px 28px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .highlight-icon {
-      font-size: 24px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .highlight-box h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--teal);
-      margin-bottom: 6px;
-    }
-
-    .highlight-box p {
-      font-size: 14px;
-      color: var(--slate);
-      line-height: 1.65;
-    }
-
-    /* ── CONTENT ── */
-    .content {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
-    }
-
-    .section {
-      margin-bottom: 48px;
-    }
-
-    .section h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--cream);
-      letter-spacing: -0.01em;
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .section h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--amber);
-      margin: 24px 0 8px;
-    }
-
-    .section p {
-      font-size: 15px;
-      color: #B8C8D8;
-      margin-bottom: 14px;
-      line-height: 1.75;
-    }
-
-    .section ul {
-      list-style: none;
-      margin-bottom: 14px;
-    }
-
-    .section ul li {
-      font-size: 15px;
-      color: #B8C8D8;
-      padding: 4px 0 4px 20px;
-      position: relative;
-      line-height: 1.65;
-    }
-
-    .section ul li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 12px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--teal);
-      opacity: 0.7;
-    }
-
-    /* table */
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0 24px;
-      font-size: 14px;
-    }
-
-    .data-table th {
-      background: var(--navy);
-      color: var(--cream);
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 10px 14px;
-      text-align: left;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .data-table td {
-      padding: 10px 14px;
-      color: #B8C8D8;
-      border: 1px solid rgba(255,255,255,0.06);
-      vertical-align: top;
-      line-height: 1.5;
-    }
-
-    .data-table tr:nth-child(even) td {
-      background: rgba(255,255,255,0.02);
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      padding: 2px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.06em;
-    }
-
-    .tag-local { background: rgba(42,157,143,0.15); color: var(--teal); }
-    .tag-cloud { background: rgba(245,166,35,0.15); color: var(--amber); }
-
-    /* warning box */
-    .warning-box {
-      background: rgba(245,166,35,0.07);
-      border: 1px solid rgba(245,166,35,0.2);
-      border-radius: 10px;
-      padding: 16px 20px;
-      margin: 16px 0;
-    }
-
-    .warning-box p {
-      font-size: 14px;
-      color: #C8A060;
-      margin: 0;
-    }
-
-    .warning-box strong { color: var(--amber); }
-
-    a { color: var(--teal); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    strong { color: var(--cream); font-weight: 500; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 32px 24px;
-      text-align: center;
-    }
-
-    footer p {
-      font-size: 13px;
-      color: var(--slate);
-      margin-bottom: 6px;
-    }
-
-    footer a { color: var(--teal); font-size: 13px; }
+    :root { --navy:#1B2A4A; --amber:#F5A623; --teal:#2A9D8F; --cream:#F5EDD6; --card:#243550; --slate:#8899AA; --dark:#0F1B2D; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.75;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(15,27,45,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-icon{width:32px;height:32px;border-radius:8px;overflow:hidden;flex-shrink:0;}
+    .nav-icon img{width:100%;height:100%;object-fit:cover;display:block;}
+    .nav-name{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--cream);letter-spacing:-0.02em;}
+    .nav-name span{color:var(--amber);}
+    .nav-name sup{font-size:10px;color:var(--slate);font-weight:400;vertical-align:super;}
+    nav a.back{font-size:13px;color:var(--slate);text-decoration:none;transition:color 0.2s;}
+    nav a.back:hover{color:var(--cream);}
+    .hero{background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.06);padding:64px 24px 48px;text-align:center;}
+    .hero-badge{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(42,157,143,0.3);border-radius:100px;padding:4px 14px;margin-bottom:20px;}
+    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:var(--cream);letter-spacing:-0.02em;margin-bottom:12px;}
+    .hero p{font-size:16px;color:var(--slate);max-width:500px;margin:0 auto 24px;}
+    .hero-meta{font-size:13px;color:#4A6080;}
+    .privacy-highlight{max-width:760px;margin:40px auto;padding:0 24px;}
+    .highlight-box{background:rgba(42,157,143,0.08);border:1px solid rgba(42,157,143,0.25);border-radius:12px;padding:24px 28px;display:flex;gap:16px;align-items:flex-start;}
+    .highlight-icon{font-size:24px;flex-shrink:0;margin-top:2px;}
+    .highlight-box h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--teal);margin-bottom:6px;}
+    .highlight-box p{font-size:14px;color:var(--slate);line-height:1.65;}
+    .content{max-width:760px;margin:0 auto;padding:0 24px 80px;}
+    .section{margin-bottom:48px;}
+    .section h2{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:var(--cream);letter-spacing:-0.01em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .section h3{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--amber);margin:24px 0 8px;}
+    .section p{font-size:15px;color:#B8C8D8;margin-bottom:14px;line-height:1.75;}
+    .section ul{list-style:none;margin-bottom:14px;}
+    .section ul li{font-size:15px;color:#B8C8D8;padding:4px 0 4px 20px;position:relative;line-height:1.65;}
+    .section ul li::before{content:'';position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--teal);opacity:0.7;}
+    .data-table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:14px;}
+    .data-table th{background:var(--navy);color:var(--cream);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;text-align:left;border:1px solid rgba(255,255,255,0.08);}
+    .data-table td{padding:10px 14px;color:#B8C8D8;border:1px solid rgba(255,255,255,0.06);vertical-align:top;line-height:1.5;}
+    .data-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
+    .tag{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:4px;letter-spacing:0.06em;}
+    .tag-local{background:rgba(42,157,143,0.15);color:var(--teal);}
+    .tag-cloud{background:rgba(245,166,35,0.15);color:var(--amber);}
+    .warning-box{background:rgba(245,166,35,0.07);border:1px solid rgba(245,166,35,0.2);border-radius:10px;padding:16px 20px;margin:16px 0;}
+    .warning-box p{font-size:14px;color:#C8A060;margin:0;}
+    .warning-box strong{color:var(--amber);}
+    a{color:var(--teal);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    strong{color:var(--cream);font-weight:500;}
+    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:32px 24px;text-align:center;}
+    footer p{font-size:13px;color:var(--slate);margin-bottom:6px;}
+    footer a{color:var(--teal);font-size:13px;}
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <div class="nav-icon">
-      <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
-        <rect x="7" y="4" width="22" height="28" rx="3" fill="#1B2A4A"/>
-        <line x1="11" y1="9" x2="25" y2="9" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round"/>
-        <line x1="11" y1="13" x2="20" y2="13" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round"/>
-        <path d="M24 13 L13 26 L19 26 L17 35 L28 22 L22 22 Z" fill="#F5A623"/>
-      </svg>
-    </div>
-    <div class="nav-name">No<span>c</span>ito</div>
+    <div class="nav-icon"><img src="icon.png" alt="Nocito icon"></div>
+    <div class="nav-name">No<span>c</span>ito<sup>™</sup></div>
   </a>
   <a href="index.html" class="back">← Back to home</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-badge">Legal</div>
   <h1>Privacy Policy</h1>
-  <p>How Nocito handles your data — and why most of it never leaves your phone.</p>
+  <p>How Nocito™ handles your data — and why most of it never leaves your phone.</p>
   <div class="hero-meta">Effective date: 1 June 2025 &nbsp;·&nbsp; Last updated: May 2026</div>
 </div>
 
-<!-- HIGHLIGHT -->
 <div class="privacy-highlight">
   <div class="highlight-box">
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>The short version</h3>
-      <p>Nocito stores all your expenses, receipts, images, and audio <strong>locally on your device</strong>. We do not have a server with your data. The only exception is voice dictation, which uses a cloud transcription service — and we tell you this clearly before you use it.</p>
+      <p>Nocito™ stores all your expenses, receipts, images, and audio <strong>locally on your device</strong>. We do not have a server with your data. The main exceptions are: voice dictation, which uses a cloud transcription service, and PDF import in v1.0, which sends the document to an AI service for parsing. Both are disclosed clearly in this policy.</p>
     </div>
   </div>
 </div>
 
-<!-- CONTENT -->
 <div class="content">
 
-  <!-- 1. Who we are -->
   <div class="section">
     <h2>1. Who We Are</h2>
-    <p>Nocito is a personal expense tracking mobile application developed and published by <strong>Nocito</strong> ("we", "us", "our"). The app is available on Android via Google Play.</p>
-    <p>You can contact us at: <a href="mailto:hello@nocito.app">hello@nocito.app</a></p>
+    <p>Nocito™ is a personal expense tracking mobile application developed and published by <strong>Nocito™</strong> ("we", "us", "our"). The app is available on Android via Google Play.</p>
+    <p>You can contact us at: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
   </div>
 
-  <!-- 2. What data we collect -->
   <div class="section">
     <h2>2. What Data We Collect and How</h2>
-    <p>Nocito is designed around a privacy-first architecture. The vast majority of data never leaves your device.</p>
+    <p>Nocito™ is designed around a privacy-first architecture. The vast majority of data never leaves your device.</p>
 
     <h3>Data stored locally on your device only</h3>
     <table class="data-table">
       <tr><th>Data type</th><th>Where stored</th><th>Purpose</th></tr>
       <tr><td>Expense records (amount, merchant, date, category, note)</td><td><span class="tag tag-local">Local SQLite</span></td><td>Core app functionality</td></tr>
-      <tr><td>Receipt images (photos, screenshots, PDFs)</td><td><span class="tag tag-local">Local storage</span></td><td>Reference and review</td></tr>
+      <tr><td>Receipt images (photos, screenshots)</td><td><span class="tag tag-local">Local storage</span></td><td>Reference and review</td></tr>
       <tr><td>Audio recordings (voice dictation)</td><td><span class="tag tag-local">Local storage</span></td><td>Reference and playback</td></tr>
       <tr><td>App settings and preferences</td><td><span class="tag tag-local">Local storage</span></td><td>App configuration</td></tr>
       <tr><td>Onboarding consent timestamp</td><td><span class="tag tag-local">Local storage</span></td><td>Consent record</td></tr>
@@ -375,18 +113,24 @@
         <td>Sanitized OCR text (receipt text with personal info removed)</td>
         <td><span class="tag tag-cloud">Google Gemini</span></td>
         <td>AI expense categorisation</td>
-        <td>Every standard snap, import, or PDF scan</td>
+        <td>Every standard snap and photo import</td>
+      </tr>
+      <tr>
+        <td>Full PDF document</td>
+        <td><span class="tag tag-cloud">Google Gemini</span></td>
+        <td>AI parsing of PDF receipts</td>
+        <td>When you import a PDF (v1.0 only — see section 4b)</td>
       </tr>
       <tr>
         <td>Audio recording</td>
         <td><span class="tag tag-cloud">OpenAI Whisper</span></td>
         <td>Voice-to-text transcription</td>
-        <td>Only when you use Dictate (v1.0). You are informed before first use.</td>
+        <td>When you use Dictate — you are informed before first use</td>
       </tr>
     </table>
 
     <div class="warning-box">
-      <p><strong>Important note about the privacy pre-filter:</strong> Before any text is sent to an AI service, Nocito automatically strips personal information from it — including names, addresses, Croatian OIB/JMBG numbers, phone numbers, and email addresses. Only amounts, dates, merchant names, and product names are sent. Your original receipt image is never transmitted.</p>
+      <p><strong>Privacy pre-filter note:</strong> Before OCR text from snaps and photo imports is sent to AI, your phone automatically strips personal information — names, addresses, Croatian OIB/JMBG numbers, phone numbers, and email addresses. Only amounts, dates, merchant names, and product names are sent. This filter does not apply to PDF import in v1.0 (see section 4b).</p>
     </div>
 
     <h3>Data we never collect</h3>
@@ -399,10 +143,9 @@
     </ul>
   </div>
 
-  <!-- 3. Privacy pre-filter -->
   <div class="section">
     <h2>3. Privacy Pre-Filter — Local Data Sanitisation</h2>
-    <p>Every time Nocito sends text to an AI service, it first runs a local sanitisation process on your device. This process removes:</p>
+    <p>For snaps and photo imports, Nocito™ runs a local sanitisation process on your device before sending any text to AI. This process removes:</p>
     <ul>
       <li>Personal names (first and last name patterns)</li>
       <li>Physical addresses (street, house number, postal code, city)</li>
@@ -410,82 +153,88 @@
       <li>Phone numbers and email addresses</li>
     </ul>
     <p>What it keeps: amounts, prices, dates, times, merchant and business names, product names, categories, and business VAT numbers.</p>
-    <p>This process runs entirely on your device before any network call is made.</p>
+    <p>This process runs entirely on your device. Note: the pre-filter does not apply to PDF import in v1.0 (see section 4b).</p>
   </div>
 
-  <!-- 4. Voice dictation -->
   <div class="section">
     <h2>4. Voice Dictation and Cloud Transcription</h2>
-    <p>In v1.0, when you use the Dictate feature, your audio recording is sent to <strong>OpenAI's Whisper API</strong> for transcription. This is the only feature that sends audio data off-device.</p>
-    <p>We inform you of this clearly the first time you use Dictate, via an in-app disclosure modal. You can choose not to use Dictate and rely on Snap, Import, or Manual Entry instead — all of which are fully on-device.</p>
+    <p>When you use the Dictate feature, your audio recording is sent to <strong>OpenAI's Whisper API</strong> for transcription. We inform you of this clearly the first time you use Dictate, via an in-app disclosure modal. You can choose not to use Dictate and rely on Snap, Import, or Manual Entry instead.</p>
     <p>After transcription, the resulting text is processed through the privacy pre-filter (section 3) before being sent to Gemini for expense extraction.</p>
     <p>OpenAI's privacy policy applies to data processed by their Whisper service: <a href="https://openai.com/privacy" target="_blank">openai.com/privacy</a></p>
-    <p>In v1.1, Nocito plans to introduce local on-device transcription, which will eliminate the need to send audio off-device for standard dictation.</p>
+    <p>In a future version, Nocito™ plans to introduce local on-device transcription, which will eliminate the need to send audio off-device for standard dictation.</p>
+
+    <h3 id="pdf">4b. PDF Import — v1.0</h3>
+    <p>In v1.0, when you import a PDF receipt, the full PDF document is sent to <strong>Google Gemini Flash</strong> for parsing and data extraction. Unlike standard snap and photo import, the PDF is not pre-filtered locally before sending.</p>
+    <div class="warning-box">
+      <p><strong>PDF import in v1.0 sends the full document to Google Gemini.</strong> We recommend avoiding importing PDFs that contain sensitive personal information beyond standard receipt data. This behaviour is temporary — in a future version we plan to introduce local PDF extraction so that only parsed text is sent to AI, consistent with our standard snap flow.</p>
+    </div>
+    <p>Google's privacy policy applies to data processed by Gemini: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
   </div>
 
-  <!-- 5. Super Snap & Super Dictate -->
   <div class="section">
     <h2>5. Super Snap and Super Dictate (Pro — future)</h2>
-    <p>Future Pro versions of Nocito will include Super Snap and Super Dictate — premium features that send full receipt images or audio directly to an AI Vision service for higher-accuracy extraction. These bypass the standard OCR and privacy pre-filter flow.</p>
+    <p>Future Pro versions of Nocito™ will include Super Snap — a premium feature that sends full receipt images directly to an AI Vision service for higher-accuracy extraction, bypassing the standard OCR and privacy pre-filter flow.</p>
+    <p>Super Dictate, which sends audio to OpenAI Whisper API for higher-accuracy transcription, is available in the current version as an option within the Pro tier.</p>
     <div class="warning-box">
       <p><strong>When using Super Snap or Super Dictate:</strong> your full image or audio recording is transmitted to an external AI service. You will always be asked to confirm before any such transmission occurs. Avoid using these features with documents containing sensitive personal information.</p>
     </div>
-    <p>These features are not available in v1.0 and will be clearly disclosed when introduced.</p>
   </div>
 
-  <!-- 6. Third party services -->
   <div class="section">
     <h2>6. Third-Party Services</h2>
     <table class="data-table">
       <tr><th>Service</th><th>Provider</th><th>Data sent</th><th>Their privacy policy</th></tr>
       <tr>
-        <td>AI expense extraction</td>
+        <td>AI expense extraction (snap/photo)</td>
         <td>Google Gemini Flash</td>
         <td>Sanitized OCR text only</td>
         <td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></td>
       </tr>
       <tr>
-        <td>Voice transcription (Dictate, v1.0)</td>
+        <td>PDF receipt parsing (v1.0)</td>
+        <td>Google Gemini Flash</td>
+        <td>Full PDF document</td>
+        <td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></td>
+      </tr>
+      <tr>
+        <td>Voice transcription (Dictate)</td>
         <td>OpenAI Whisper API</td>
         <td>Audio recording</td>
         <td><a href="https://openai.com/privacy" target="_blank">openai.com/privacy</a></td>
       </tr>
     </table>
-    <p>No other third-party services receive your data in v1.0. There are no advertising networks, analytics platforms, or social media SDKs integrated into Nocito.</p>
+    <p>No other third-party services receive your data in v1.0. There are no advertising networks, analytics platforms, or social media SDKs integrated into Nocito™.</p>
   </div>
 
-  <!-- 7. Image and audio storage -->
   <div class="section">
     <h2>7. Image and Audio Storage</h2>
-    <p>Receipt images and audio recordings are stored in your device's <strong>app-private directory</strong> — a location that other apps cannot access. They are not uploaded to any cloud service in Free or Pro tiers (v1.0).</p>
+    <p>Receipt images and audio recordings are stored in your device's <strong>app-private directory</strong> — a location that other apps cannot access. They are not uploaded to any cloud service in Free or Pro tiers.</p>
     <p>You can control this behaviour:</p>
     <ul>
       <li><strong>Save original images</strong> — ON by default. Can be disabled in Settings or Onboarding.</li>
       <li><strong>Save original audio</strong> — ON by default. Can be disabled in Settings or Onboarding.</li>
     </ul>
-    <p>If you disable these settings, images and audio are deleted after processing and never stored on your device. If you uninstall the app, all locally stored data is permanently deleted.</p>
+    <p>If you uninstall the app, all locally stored data is permanently deleted.</p>
   </div>
 
-  <!-- 8. Future cloud tiers -->
   <div class="section">
-    <h2>8. Future Cloud Tiers (v1.1)</h2>
-    <p>In v1.1, Nocito plans to introduce optional cloud sync tiers (Pro Online and Business Online). These tiers will store your data on servers provided by <strong>Supabase</strong>.</p>
-    <p>Cloud sync will be <strong>entirely opt-in</strong>. Free and local Pro users will not be affected. If and when you upgrade to a cloud tier, a separate disclosure and consent will be presented before any data is uploaded.</p>
+    <h2>8. Future Cloud Storage</h2>
+    <p>Nocito™ may introduce optional cloud sync features in future versions. Any such feature would store your data on external servers and would be <strong>entirely opt-in</strong>. Free and local Pro users would not be affected. A separate disclosure and consent would be presented before any data is uploaded to external servers.</p>
+    <p>No cloud sync is available in the current version.</p>
   </div>
 
-  <!-- 9. Legal basis GDPR -->
   <div class="section">
     <h2>9. Legal Basis for Processing (GDPR)</h2>
     <p>For users in the European Union and European Economic Area, we process data under the following legal bases:</p>
     <ul>
       <li><strong>Contract performance</strong> — processing your expense data to provide the core functionality you requested</li>
-      <li><strong>Legitimate interests</strong> — sending sanitised text to AI services to provide accurate expense categorisation</li>
+      <li><strong>Legitimate interests</strong> — sending sanitised OCR text to AI services to provide accurate expense categorisation</li>
       <li><strong>Consent</strong> — sending audio to OpenAI Whisper for voice transcription (you are explicitly informed and can decline)</li>
+      <li><strong>Consent</strong> — sending full PDF documents to Google Gemini in v1.0 (disclosed in app and in this policy)</li>
     </ul>
-    <p>As the app operates primarily on-device with no account system in v1.0, the personal data we process is minimal. The primary controller of your personal data is you — it lives on your device.</p>
+    <p>As the app operates primarily on-device with no account system, the personal data we process is minimal. The primary controller of your personal data is you — it lives on your device.</p>
   </div>
 
-  <!-- 10. Your rights -->
   <div class="section">
     <h2>10. Your Rights</h2>
     <p>Under GDPR and other applicable laws, you have the right to:</p>
@@ -495,38 +244,34 @@
       <li><strong>Portability</strong> — export your data as CSV at any time (Pro feature)</li>
       <li><strong>Correction</strong> — edit any expense directly in the app</li>
     </ul>
-    <p>Since we do not maintain a server-side copy of your data in v1.0, most rights can be exercised directly within the app. For any questions or requests, contact us at <a href="mailto:hello@nocito.app">hello@nocito.app</a>.</p>
+    <p>Since we do not maintain a server-side copy of your data, most rights can be exercised directly within the app. For any questions: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
   </div>
 
-  <!-- 11. Children -->
   <div class="section">
     <h2>11. Children's Privacy</h2>
-    <p>Nocito is not directed at children under the age of 13 (or under 16 in the EU). We do not knowingly collect personal information from children. If you believe a child has provided personal information to us, please contact us at <a href="mailto:hello@nocito.app">hello@nocito.app</a>.</p>
+    <p>Nocito™ is not directed at children under the age of 13 (or under 16 in the EU). We do not knowingly collect personal information from children. If you believe a child has provided personal information to us, please contact us at <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
   </div>
 
-  <!-- 12. Changes -->
   <div class="section">
     <h2>12. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy as the app evolves — particularly when new features involving data transmission are introduced (such as cloud sync in v1.1 or Super Snap). When we make significant changes, we will notify you through the app's "What's New" popup and update the effective date above.</p>
-    <p>Continued use of Nocito after changes constitutes acceptance of the updated policy.</p>
+    <p>We may update this Privacy Policy as the app evolves — particularly when new features involving data transmission are introduced (such as Super Snap in a future version, or changes to how PDF and Dictate are handled). When we make significant changes, we will notify you through the app's "What's New" popup and update the effective date above.</p>
+    <p>Continued use of Nocito™ after changes constitutes acceptance of the updated policy.</p>
   </div>
 
-  <!-- 13. Contact -->
   <div class="section">
     <h2>13. Contact</h2>
     <p>For privacy-related questions, data requests, or concerns:</p>
     <ul>
-      <li>Email: <a href="mailto:hello@nocito.app">hello@nocito.app</a></li>
+      <li>Email: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></li>
       <li>Website: <a href="https://nocito.app">nocito.app</a></li>
     </ul>
   </div>
 
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <p>© 2026 Nocito &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="mailto:hello@nocito.app">hello@nocito.app</a></p>
-  <p style="margin-top:8px; font-size:12px; color:#3A5070;">nocito.app</p>
+  <p>© 2026 Nocito™ &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  <p style="margin-top:8px;font-size:12px;color:#3A5070;">nocito.app</p>
 </footer>
 
 </body>

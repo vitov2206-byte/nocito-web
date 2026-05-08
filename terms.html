@@ -3,179 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service — Nocito</title>
+  <title>Terms of Service — Nocito™</title>
   <meta name="description" content="Nocito Terms of Service. Personal expense tracking for your own use.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --navy:  #1B2A4A;
-      --amber: #F5A623;
-      --teal:  #2A9D8F;
-      --cream: #F5EDD6;
-      --card:  #243550;
-      --slate: #8899AA;
-      --dark:  #0F1B2D;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--dark);
-      color: var(--cream);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      line-height: 1.75;
-    }
-
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(15,27,45,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 0 24px; height: 60px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-
-    .nav-icon {
-      width: 32px; height: 32px;
-      background: var(--amber); border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-    }
-
-    .nav-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 18px; font-weight: 700;
-      color: var(--cream); letter-spacing: -0.02em;
-    }
-    .nav-name span { color: var(--amber); }
-
-    nav a.back { font-size: 13px; color: var(--slate); text-decoration: none; transition: color 0.2s; }
-    nav a.back:hover { color: var(--cream); }
-
-    .hero {
-      background: var(--navy);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 64px 24px 48px;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--amber);
-      border: 1px solid rgba(245,166,35,0.3);
-      border-radius: 100px; padding: 4px 14px; margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(28px, 5vw, 42px);
-      font-weight: 700; color: var(--cream);
-      letter-spacing: -0.02em; margin-bottom: 12px;
-    }
-
-    .hero p { font-size: 16px; color: var(--slate); max-width: 500px; margin: 0 auto 24px; }
-    .hero-meta { font-size: 13px; color: #4A6080; }
-
-    .disclaimer-highlight {
-      max-width: 760px; margin: 40px auto; padding: 0 24px;
-    }
-
-    .disclaimer-box {
-      background: rgba(245,166,35,0.07);
-      border: 1px solid rgba(245,166,35,0.25);
-      border-radius: 12px; padding: 24px 28px;
-      display: flex; gap: 16px; align-items: flex-start;
-    }
-
-    .disclaimer-box .icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
-
-    .disclaimer-box h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 16px; font-weight: 600;
-      color: var(--amber); margin-bottom: 6px;
-    }
-
-    .disclaimer-box p { font-size: 14px; color: #C8A060; line-height: 1.65; }
-
-    .content { max-width: 760px; margin: 0 auto; padding: 0 24px 80px; }
-
-    .section { margin-bottom: 48px; }
-
-    .section h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 20px; font-weight: 600;
-      color: var(--cream); letter-spacing: -0.01em;
-      margin-bottom: 16px; padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .section h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 15px; font-weight: 600;
-      color: var(--amber); margin: 24px 0 8px;
-    }
-
-    .section p {
-      font-size: 15px; color: #B8C8D8;
-      margin-bottom: 14px; line-height: 1.75;
-    }
-
-    .section ul { list-style: none; margin-bottom: 14px; }
-
-    .section ul li {
-      font-size: 15px; color: #B8C8D8;
-      padding: 4px 0 4px 20px; position: relative; line-height: 1.65;
-    }
-
-    .section ul li::before {
-      content: ''; position: absolute;
-      left: 0; top: 12px;
-      width: 6px; height: 6px;
-      border-radius: 50%; background: var(--amber); opacity: 0.5;
-    }
-
-    .info-box {
-      background: rgba(42,157,143,0.07);
-      border: 1px solid rgba(42,157,143,0.2);
-      border-radius: 10px; padding: 16px 20px; margin: 16px 0;
-    }
-
-    .info-box p { font-size: 14px; color: #80B8B0; margin: 0; }
-    .info-box strong { color: var(--teal); }
-
-    a { color: var(--teal); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    strong { color: var(--cream); font-weight: 500; }
-
-    footer {
-      background: var(--navy);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 32px 24px; text-align: center;
-    }
-
-    footer p { font-size: 13px; color: var(--slate); margin-bottom: 6px; }
-    footer a { color: var(--teal); font-size: 13px; }
+    :root{--navy:#1B2A4A;--amber:#F5A623;--teal:#2A9D8F;--cream:#F5EDD6;--card:#243550;--slate:#8899AA;--dark:#0F1B2D;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.75;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(15,27,45,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-icon{width:32px;height:32px;border-radius:8px;overflow:hidden;flex-shrink:0;}
+    .nav-icon img{width:100%;height:100%;object-fit:cover;display:block;}
+    .nav-name{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--cream);letter-spacing:-0.02em;}
+    .nav-name span{color:var(--amber);}
+    .nav-name sup{font-size:10px;color:var(--slate);font-weight:400;vertical-align:super;}
+    nav a.back{font-size:13px;color:var(--slate);text-decoration:none;transition:color 0.2s;}
+    nav a.back:hover{color:var(--cream);}
+    .hero{background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.06);padding:64px 24px 48px;text-align:center;}
+    .hero-badge{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(245,166,35,0.3);border-radius:100px;padding:4px 14px;margin-bottom:20px;}
+    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:var(--cream);letter-spacing:-0.02em;margin-bottom:12px;}
+    .hero p{font-size:16px;color:var(--slate);max-width:500px;margin:0 auto 24px;}
+    .hero-meta{font-size:13px;color:#4A6080;}
+    .disclaimer-highlight{max-width:760px;margin:40px auto;padding:0 24px;}
+    .disclaimer-box{background:rgba(245,166,35,0.07);border:1px solid rgba(245,166,35,0.25);border-radius:12px;padding:24px 28px;display:flex;gap:16px;align-items:flex-start;}
+    .disclaimer-box .icon{font-size:24px;flex-shrink:0;margin-top:2px;}
+    .disclaimer-box h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--amber);margin-bottom:6px;}
+    .disclaimer-box p{font-size:14px;color:#C8A060;line-height:1.65;}
+    .content{max-width:760px;margin:0 auto;padding:0 24px 80px;}
+    .section{margin-bottom:48px;}
+    .section h2{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:var(--cream);letter-spacing:-0.01em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .section h3{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--amber);margin:24px 0 8px;}
+    .section p{font-size:15px;color:#B8C8D8;margin-bottom:14px;line-height:1.75;}
+    .section ul{list-style:none;margin-bottom:14px;}
+    .section ul li{font-size:15px;color:#B8C8D8;padding:4px 0 4px 20px;position:relative;line-height:1.65;}
+    .section ul li::before{content:'';position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--amber);opacity:0.5;}
+    .info-box{background:rgba(42,157,143,0.07);border:1px solid rgba(42,157,143,0.2);border-radius:10px;padding:16px 20px;margin:16px 0;}
+    .info-box p{font-size:14px;color:#80B8B0;margin:0;}
+    .info-box strong{color:var(--teal);}
+    a{color:var(--teal);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    strong{color:var(--cream);font-weight:500;}
+    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:32px 24px;text-align:center;}
+    footer p{font-size:13px;color:var(--slate);margin-bottom:6px;}
+    footer a{color:var(--teal);font-size:13px;}
   </style>
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <div class="nav-icon">
-      <svg width="20" height="20" viewBox="0 0 40 40" fill="none">
-        <rect x="7" y="4" width="22" height="28" rx="3" fill="#1B2A4A"/>
-        <line x1="11" y1="9" x2="25" y2="9" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round"/>
-        <line x1="11" y1="13" x2="20" y2="13" stroke="#2A9D8F" stroke-width="2" stroke-linecap="round"/>
-        <path d="M24 13 L13 26 L19 26 L17 35 L28 22 L22 22 Z" fill="#F5A623"/>
-      </svg>
-    </div>
-    <div class="nav-name">No<span>c</span>ito</div>
+    <div class="nav-icon"><img src="icon.png" alt="Nocito icon"></div>
+    <div class="nav-name">No<span>c</span>ito<sup>™</sup></div>
   </a>
   <a href="index.html" class="back">← Back to home</a>
 </nav>
@@ -183,7 +63,7 @@
 <div class="hero">
   <div class="hero-badge">Legal</div>
   <h1>Terms of Service</h1>
-  <p>The rules for using Nocito. Plain language, no surprises.</p>
+  <p>The rules for using Nocito™. Plain language, no surprises.</p>
   <div class="hero-meta">Effective date: 1 June 2025 &nbsp;·&nbsp; Last updated: May 2026</div>
 </div>
 
@@ -192,7 +72,7 @@
     <div class="icon">⚠️</div>
     <div>
       <h3>Not accounting software</h3>
-      <p>Nocito is a personal expense tracking tool for your own convenience. It is <strong>not</strong> accounting software and should not be used as the sole or official record for tax filings, legal proceedings, audits, or business accounting purposes. AI extraction can make errors. You are responsible for verifying the accuracy of your data.</p>
+      <p>Nocito™ is a personal expense tracking tool for your own convenience. It is <strong>not</strong> accounting software and should not be used as the sole or official record for tax filings, legal proceedings, audits, or business accounting purposes. AI extraction can make errors. You are responsible for verifying the accuracy of your data.</p>
     </div>
   </div>
 </div>
@@ -201,19 +81,19 @@
 
   <div class="section">
     <h2>1. Acceptance of Terms</h2>
-    <p>By downloading, installing, or using Nocito ("the app", "the service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the app.</p>
-    <p>These Terms apply to all versions of Nocito on all platforms where it is available.</p>
+    <p>By downloading, installing, or using Nocito™ ("the app", "the service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the app.</p>
+    <p>These Terms apply to all versions of Nocito™ on all platforms where it is available.</p>
   </div>
 
   <div class="section">
-    <h2>2. What Nocito Is — and Is Not</h2>
-    <h3>Nocito is</h3>
+    <h2>2. What Nocito™ Is — and Is Not</h2>
+    <h3>Nocito™ is</h3>
     <ul>
       <li>A personal expense tracking tool for capturing and organising your own spending</li>
       <li>An AI-assisted utility for extracting data from receipts, PDFs, screenshots, and voice input</li>
       <li>A private, local-first app — your data stays on your device by default</li>
     </ul>
-    <h3>Nocito is not</h3>
+    <h3>Nocito™ is not</h3>
     <ul>
       <li>Accounting software or a replacement for professional bookkeeping</li>
       <li>A tax preparation or tax filing tool</li>
@@ -222,13 +102,13 @@
       <li>A banking or payment application</li>
     </ul>
     <div class="info-box">
-      <p><strong>Important:</strong> Tax regulations, receipt formats, and legal record-keeping requirements vary by country. Nocito makes no representations about compliance with any specific national tax or accounting laws. Consult a qualified accountant or tax advisor for official financial records.</p>
+      <p><strong>Important:</strong> Tax regulations, receipt formats, and legal record-keeping requirements vary by country. Nocito™ makes no representations about compliance with any specific national tax or accounting laws. Consult a qualified accountant or tax advisor for official financial records.</p>
     </div>
   </div>
 
   <div class="section">
     <h2>3. AI Accuracy and Limitations</h2>
-    <p>Nocito uses AI models (Google Gemini Flash) to extract information from receipts and other documents. This process can produce errors, including but not limited to:</p>
+    <p>Nocito™ uses AI models (Google Gemini Flash) to extract information from receipts and other documents. This process can produce errors, including but not limited to:</p>
     <ul>
       <li>Incorrect amounts, dates, or merchant names</li>
       <li>Misclassified expense categories</li>
@@ -236,18 +116,17 @@
       <li>Inaccurate handling of non-standard or handwritten receipts</li>
       <li>Errors due to poor image quality, unusual formatting, or unsupported languages</li>
     </ul>
-    <p><strong>You are responsible for reviewing and verifying all extracted data before relying on it.</strong> The Quick Review screen is provided for exactly this purpose. Nocito provides a correction interface for all extracted fields.</p>
-    <p>We do not guarantee the accuracy of AI extraction and accept no liability for decisions made based on incorrectly extracted data.</p>
+    <p><strong>You are responsible for reviewing and verifying all extracted data before relying on it.</strong> The Quick Review screen is provided for exactly this purpose. We do not guarantee the accuracy of AI extraction and accept no liability for decisions made based on incorrectly extracted data.</p>
   </div>
 
   <div class="section">
     <h2>4. Your Responsibilities</h2>
-    <p>By using Nocito, you agree to:</p>
+    <p>By using Nocito™, you agree to:</p>
     <ul>
       <li>Use the app for lawful purposes only</li>
       <li>Not use the app to process documents belonging to others without their consent</li>
       <li>Verify the accuracy of AI-extracted data before relying on it for any important purpose</li>
-      <li>Maintain your own official financial records separately from Nocito if required by law or for business purposes</li>
+      <li>Maintain your own official financial records separately from Nocito™ if required by law or for business purposes</li>
       <li>Not attempt to reverse-engineer, modify, or redistribute the app</li>
       <li>Not use the app in any way that could harm other users, third parties, or the integrity of the service</li>
     </ul>
@@ -256,9 +135,10 @@
   <div class="section">
     <h2>5. Subscriptions and Payments</h2>
     <h3>Free tier</h3>
-    <p>Nocito offers a free tier with limited AI captures per month. No payment information is required to use the free tier.</p>
+    <p>Nocito™ offers a free tier with limited AI captures per month. No payment information is required to use the free tier.</p>
+
     <h3>Paid tiers</h3>
-    <p>Nocito offers paid subscription tiers (currently Lite and Pro) via Google Play in-app purchases. By purchasing a subscription:</p>
+    <p>Nocito™ currently offers a <strong>Pro</strong> subscription tier via Google Play in-app purchases. Additional paid tiers are planned for future versions. By purchasing a subscription:</p>
     <ul>
       <li>You agree to the pricing displayed at time of purchase</li>
       <li>Subscriptions automatically renew unless cancelled before the renewal date</li>
@@ -266,8 +146,10 @@
       <li>Refunds are subject to Google Play's refund policy</li>
       <li>We reserve the right to change pricing with reasonable notice</li>
     </ul>
+
     <h3>Credit add-ons</h3>
-    <p>Some features (Super Snap, Super Dictate) require credit purchases beyond the subscription quota. These are non-refundable once consumed.</p>
+    <p>Future Pro versions of Nocito™ will introduce Super Quality Credits — a premium add-on for features requiring higher-accuracy AI processing (such as Super Snap). These credits will be available as in-app purchases and will be non-refundable once consumed. Super Quality Credits are not available in the current version.</p>
+
     <div class="info-box">
       <p><strong>Platform fees:</strong> Google Play charges a platform fee (15–30%) on all in-app purchases. This fee is deducted before we receive payment and is not within our control.</p>
     </div>
@@ -275,18 +157,19 @@
 
   <div class="section">
     <h2>6. Intellectual Property</h2>
-    <p>All content, design, code, and branding in Nocito — including the Nocito name, logo, and app icon — are the property of Nocito and are protected by applicable intellectual property laws.</p>
+    <p>All content, design, code, and branding in Nocito™ — including the Nocito™ name, logo, and app icon — are the property of Nocito™ and are protected by applicable intellectual property laws.</p>
     <p>Your expense data belongs to you. We claim no ownership over the data you enter or capture in the app.</p>
-    <p>You may not use the Nocito name, logo, or any of our branding without prior written permission.</p>
+    <p>You may not use the Nocito™ name, logo, or any of our branding without prior written permission.</p>
   </div>
 
   <div class="section">
     <h2>7. Data and Privacy</h2>
-    <p>Your use of Nocito is also governed by our <a href="privacy.html">Privacy Policy</a>, which is incorporated into these Terms by reference. Please read it carefully.</p>
+    <p>Your use of Nocito™ is also governed by our <a href="privacy.html">Privacy Policy</a>, which is incorporated into these Terms by reference. Please read it carefully.</p>
     <p>The key privacy commitments:</p>
     <ul>
       <li>Your expense data is stored locally on your device by default</li>
-      <li>Receipt images are never sent to AI services — only sanitised extracted text</li>
+      <li>Receipt images from snaps and photo imports are never sent to AI — only sanitised extracted text</li>
+      <li>PDF import in v1.0 sends the full PDF document to Google Gemini for parsing — this is disclosed in the Privacy Policy and planned to be replaced with local extraction in a future version</li>
       <li>Voice dictation sends audio to OpenAI Whisper — you are informed before first use</li>
       <li>No advertising, tracking, or analytics SDKs are included in the app</li>
     </ul>
@@ -294,19 +177,18 @@
 
   <div class="section">
     <h2>8. Disclaimer of Warranties</h2>
-    <p>Nocito is provided <strong>"as is"</strong> and <strong>"as available"</strong> without any warranties of any kind, express or implied, including but not limited to:</p>
+    <p>Nocito™ is provided <strong>"as is"</strong> and <strong>"as available"</strong> without any warranties of any kind, express or implied, including but not limited to:</p>
     <ul>
       <li>Warranties of merchantability or fitness for a particular purpose</li>
       <li>Warranties that the service will be uninterrupted, error-free, or secure</li>
       <li>Warranties regarding the accuracy of AI-extracted data</li>
       <li>Warranties that the app will meet your specific requirements</li>
     </ul>
-    <p>We do not warrant that any errors will be corrected or that the app will be compatible with all devices or operating system versions.</p>
   </div>
 
   <div class="section">
     <h2>9. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by applicable law, Nocito and its developers shall not be liable for:</p>
+    <p>To the maximum extent permitted by applicable law, Nocito™ and its developers shall not be liable for:</p>
     <ul>
       <li>Any indirect, incidental, special, or consequential damages</li>
       <li>Loss of data, profits, or business opportunities</li>
@@ -319,15 +201,13 @@
 
   <div class="section">
     <h2>10. Termination</h2>
-    <p>You may stop using Nocito at any time by uninstalling the app. This will delete all locally stored data.</p>
-    <p>We reserve the right to suspend or terminate access to paid features if you violate these Terms, with or without notice depending on the severity of the violation.</p>
-    <p>For subscription cancellation, use Google Play's built-in subscription management.</p>
+    <p>You may stop using Nocito™ at any time by uninstalling the app. This will delete all locally stored data.</p>
+    <p>We reserve the right to suspend or terminate access to paid features if you violate these Terms. For subscription cancellation, use Google Play's built-in subscription management.</p>
   </div>
 
   <div class="section">
     <h2>11. Changes to These Terms</h2>
-    <p>We may update these Terms as the app evolves. When we make material changes, we will notify you through the in-app "What's New" popup and update the effective date above.</p>
-    <p>Continued use of Nocito after changes take effect constitutes your acceptance of the new Terms.</p>
+    <p>We may update these Terms as the app evolves. When we make material changes, we will notify you through the in-app "What's New" popup and update the effective date above. Continued use of Nocito™ after changes take effect constitutes your acceptance of the new Terms.</p>
   </div>
 
   <div class="section">
@@ -340,7 +220,7 @@
     <h2>13. Contact</h2>
     <p>For questions about these Terms:</p>
     <ul>
-      <li>Email: <a href="mailto:hello@nocito.app">hello@nocito.app</a></li>
+      <li>Email: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></li>
       <li>Website: <a href="https://nocito.app">nocito.app</a></li>
     </ul>
   </div>
@@ -348,8 +228,8 @@
 </div>
 
 <footer>
-  <p>© 2026 Nocito &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="mailto:hello@nocito.app">hello@nocito.app</a></p>
-  <p style="margin-top:8px; font-size:12px; color:#3A5070;">nocito.app</p>
+  <p>© 2026 Nocito™ &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  <p style="margin-top:8px;font-size:12px;color:#3A5070;">nocito.app</p>
 </footer>
 
 </body>
