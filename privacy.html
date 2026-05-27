@@ -71,7 +71,7 @@
   <div class="hero-badge">Legal</div>
   <h1>Privacy Policy</h1>
   <p>How Nocito™ handles your data — and why most of it never leaves your phone.</p>
-  <div class="hero-meta">Effective date: 1 June 2025 &nbsp;·&nbsp; Last updated: May 2026</div>
+  <div class="hero-meta">Effective date: 1 June 2025 &nbsp;·&nbsp; Last updated: May 2026 (v1.0 release)</div>
 </div>
 
 <div class="privacy-highlight">
@@ -79,7 +79,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>The short version</h3>
-      <p>Nocito™ stores all your expenses, receipts, images, and audio <strong>locally on your device</strong>. We do not have a server with your data. The main exceptions are: voice dictation, which uses a cloud transcription service, and PDF import in v1.0, which sends the document to an AI service for parsing. Both are disclosed clearly in this policy.</p>
+      <p>Nocito™ stores all your expenses, receipts, images, and audio <strong>locally on your device</strong>. We do not have a server with your data. By default, sanitised OCR text is sent to a cloud AI service for expense parsing, and voice dictation uses cloud transcription. You can switch to fully on-device AI processing and transcription by enabling local models in Settings — this requires a one-time download within the app. PDF import extracts text locally by default; sending the full PDF to cloud is an opt-in setting. The app uses Sentry for anonymous crash reporting. Everything is disclosed in this policy.</p>
     </div>
   </div>
 </div>
@@ -110,35 +110,53 @@
     <table class="data-table">
       <tr><th>Data type</th><th>Service</th><th>Purpose</th><th>When</th></tr>
       <tr>
-        <td>Sanitized OCR text (receipt text with personal info removed)</td>
-        <td><span class="tag tag-cloud">Google Gemini</span></td>
+        <td>Sanitised OCR text (receipt text with personal info removed)</td>
+        <td><span class="tag tag-cloud">Cloud AI service</span></td>
         <td>AI expense categorisation</td>
-        <td>Every standard snap and photo import</td>
+        <td>Every snap and photo import when Cloud AI Processing is enabled (default: ON)</td>
+      </tr>
+      <tr>
+        <td>Locally extracted OCR text from PDF</td>
+        <td><span class="tag tag-cloud">Cloud AI service</span></td>
+        <td>AI parsing of PDF receipts</td>
+        <td>PDF import when Cloud PDF Extraction is disabled (default: OFF — local only)</td>
       </tr>
       <tr>
         <td>Full PDF document</td>
-        <td><span class="tag tag-cloud">Google Gemini</span></td>
-        <td>AI parsing of PDF receipts</td>
-        <td>When you import a PDF (v1.0 only — see section 4b)</td>
+        <td><span class="tag tag-cloud">Cloud AI service</span></td>
+        <td>Higher-accuracy PDF parsing</td>
+        <td>Only when Cloud PDF Extraction toggle is enabled in Settings (opt-in)</td>
       </tr>
       <tr>
         <td>Audio recording</td>
-        <td><span class="tag tag-cloud">OpenAI Whisper</span></td>
+        <td><span class="tag tag-cloud">Cloud AI service</span></td>
         <td>Voice-to-text transcription</td>
-        <td>When you use Dictate — you are informed before first use</td>
+        <td>Default for voice dictation. Can be replaced with local on-device transcription by enabling the Local Transcription toggle in Settings and downloading a local model.</td>
+      </tr>
+      <tr>
+        <td>Locally transcribed text</td>
+        <td><span class="tag tag-cloud">Cloud AI service</span></td>
+        <td>Expense parsing from voice input</td>
+        <td>When Local Transcription is active and Cloud AI Processing is enabled. Disable Cloud AI Processing to keep all processing fully on-device.</td>
+      </tr>
+      <tr>
+        <td>Anonymous crash data (stack traces, device info, app version)</td>
+        <td><span class="tag tag-cloud">Sentry</span></td>
+        <td>Crash reporting and stability monitoring</td>
+        <td>Automatically on app crash — no personal data included</td>
       </tr>
     </table>
 
     <div class="warning-box">
-      <p><strong>Privacy pre-filter note:</strong> Before OCR text from snaps and photo imports is sent to AI, your phone automatically strips personal information — names, addresses, Croatian OIB/JMBG numbers, phone numbers, and email addresses. Only amounts, dates, merchant names, and product names are sent. This filter does not apply to PDF import in v1.0 (see section 4b).</p>
+      <p><strong>Privacy pre-filter note:</strong> Before any OCR text is sent to a cloud AI service, your phone automatically strips personal information — names, addresses, national ID numbers, phone numbers, and email addresses. Only amounts, dates, merchant names, and product names are sent. Note that <strong>Cloud PDF Extraction</strong> (opt-in) sends the full PDF without pre-filtering, and <strong>Cloud Transcription</strong> (default) sends raw audio without pre-filtering — the pre-filter only applies to the transcribed text before it reaches the AI parsing step. The only 100% guaranteed private option is enabling Local AI Processing, Local Transcription, and keeping Cloud PDF Extraction off — in this configuration no data of any kind is sent to external services.</p>
     </div>
 
     <h3>Data we never collect</h3>
     <ul>
-      <li>We do not collect your name, email address, or any account information (there is no account in v1.0)</li>
-      <li>We do not collect analytics, usage statistics, or crash reports</li>
+      <li>We do not collect your name, email address, or any account information (there is no account)</li>
+      <li>We do not collect analytics or usage statistics</li>
       <li>We do not use advertising SDKs or tracking pixels</li>
-      <li>We do not sync your data to any server (Free and Pro tiers, v1.0)</li>
+      <li>We do not sync your expense data to any server</li>
       <li>We do not sell your data to anyone</li>
     </ul>
   </div>
@@ -149,26 +167,63 @@
     <ul>
       <li>Personal names (first and last name patterns)</li>
       <li>Physical addresses (street, house number, postal code, city)</li>
-      <li>Croatian personal identification numbers (OIB) and JMBG numbers</li>
+      <li>National ID numbers (e.g. tax identification numbers, personal identification numbers)</li>
       <li>Phone numbers and email addresses</li>
     </ul>
     <p>What it keeps: amounts, prices, dates, times, merchant and business names, product names, categories, and business VAT numbers.</p>
-    <p>This process runs entirely on your device. Note: the pre-filter does not apply to PDF import in v1.0 (see section 4b).</p>
+    <p>This process runs entirely on your device before any network call is made. Note that the pre-filter applies to OCR text from snaps and photo imports. It does not apply when Cloud PDF Extraction is enabled (full PDF sent to cloud) or to raw audio during Cloud Transcription (audio sent to cloud before any text extraction).</p>
   </div>
 
   <div class="section">
-    <h2>4. Voice Dictation and Cloud Transcription</h2>
-    <p>When you use the Dictate feature, your audio recording is sent to <strong>OpenAI's Whisper API</strong> for transcription. We inform you of this clearly the first time you use Dictate, via an in-app disclosure modal. You can choose not to use Dictate and rely on Snap, Import, or Manual Entry instead.</p>
-    <p>After transcription, the resulting text is processed through the privacy pre-filter (section 3) before being sent to Gemini for expense extraction.</p>
-    <p>OpenAI's privacy policy applies to data processed by their Whisper service: <a href="https://openai.com/privacy" target="_blank">openai.com/privacy</a></p>
-    <p>In a future version, Nocito™ plans to introduce local on-device transcription, which will eliminate the need to send audio off-device for standard dictation.</p>
+    <h2>4. Voice Dictation</h2>
+    <p>Nocito™ supports two modes of voice dictation. Cloud transcription is active by default on a fresh install. Local transcription is available as an opt-in that requires a one-time model download.</p>
 
-    <h3 id="pdf">4b. PDF Import — v1.0</h3>
-    <p>In v1.0, when you import a PDF receipt, the full PDF document is sent to <strong>Google Gemini Flash</strong> for parsing and data extraction. Unlike standard snap and photo import, the PDF is not pre-filtered locally before sending.</p>
+    <h3>Cloud transcription (default)</h3>
+    <p>On a fresh install, tapping the Dictate button records audio and sends it to a cloud AI service for transcription. The transcribed text is then processed through the privacy pre-filter (section 3) and sent to a cloud AI service for expense parsing.</p>
+
+    <h3>Local transcription (opt-in)</h3>
+    <p>You can switch to fully on-device transcription in Settings by enabling the <strong>Local Transcription</strong> toggle and downloading one of the two available local Whisper models. The download button is available directly in the Dictate screen as well as in Settings. Once set up:</p>
+    <ul>
+      <li><strong>Tap to record</strong> — uses local on-device transcription. No audio leaves your phone.</li>
+      <li><strong>Hold 1 second to record</strong> — activates Super Dictate (cloud transcription) for higher accuracy when needed.</li>
+    </ul>
+    <p>With local transcription active, the transcribed text is still sent to a cloud AI service for expense parsing by default — unless you also enable <strong>Local AI Processing</strong> (see section 4c).</p>
+
     <div class="warning-box">
-      <p><strong>PDF import in v1.0 sends the full document to Google Gemini.</strong> We recommend avoiding importing PDFs that contain sensitive personal information beyond standard receipt data. This behaviour is temporary — in a future version we plan to introduce local PDF extraction so that only parsed text is sent to AI, consistent with our standard snap flow.</p>
+      <p><strong>100% private dictation:</strong> to ensure no voice or text data leaves your device, enable both Local Transcription and Local AI Processing in Settings. Both require a one-time model download. This is recommended for users for whom privacy is more important than maximum accuracy, and who have a sufficiently fast device.</p>
     </div>
-    <p>Google's privacy policy applies to data processed by Gemini: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+
+    <h3 id="pdf">4b. PDF Import</h3>
+    <p>Nocito™ processes PDF receipts locally by default. The app uses on-device OCR (ML Kit) to extract text from the PDF, applies the privacy pre-filter, and sends only the sanitised text to a cloud AI service for expense parsing.</p>
+    <p>An optional <strong>Cloud PDF Extraction</strong> toggle is available in Settings. When enabled, the full PDF document is sent directly to a cloud AI service for higher-accuracy parsing. This is opt-in and off by default.</p>
+    <p>To keep PDF processing 100% on-device, keep Cloud PDF Extraction off and enable Local AI Processing in Settings (requires model download).</p>
+    <div class="warning-box">
+      <p><strong>When Cloud PDF Extraction is enabled:</strong> the full PDF document is sent to an external service without local pre-filtering. We recommend keeping this disabled unless you need higher accuracy on complex PDFs, and avoid using it with PDFs containing sensitive personal information.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4c. Privacy Level Settings</h2>
+    <p>Nocito™ gives you direct control over which processing happens locally and which uses cloud services. These settings are available in the app's Settings screen:</p>
+    <table class="data-table">
+      <tr><th>Toggle in app</th><th>Default</th><th>What it controls</th></tr>
+      <tr>
+        <td><strong>Cloud AI Processing</strong></td>
+        <td>ON</td>
+        <td>When ON, sanitised OCR text is sent to a cloud AI service for expense categorisation (default). Switch OFF and download a local AI model to process all expense extraction fully on-device. Download available in Settings.</td>
+      </tr>
+      <tr>
+        <td><strong>Cloud Transcription</strong></td>
+        <td>ON</td>
+        <td>When ON, voice dictation sends audio to a cloud AI service for transcription (default). Switch OFF and download a local Whisper model to transcribe audio entirely on-device. Download available in the Dictate screen and in Settings. Once local model is downloaded and toggle is OFF, tap = local transcription, hold 1s = cloud (Super Dictate).</td>
+      </tr>
+      <tr>
+        <td><strong>Cloud PDF Extraction</strong></td>
+        <td>OFF</td>
+        <td>When OFF, PDF text is extracted locally via OCR and only the sanitised result is sent to AI (default). Switch ON to send the full PDF document to a cloud service for higher-accuracy parsing.</td>
+      </tr>
+    </table>
+    <p>Changing these settings takes effect immediately. Your existing expenses are not affected.</p>
   </div>
 
   <div class="section">
@@ -183,38 +238,42 @@
   <div class="section">
     <h2>6. Third-Party Services</h2>
     <table class="data-table">
-      <tr><th>Service</th><th>Provider</th><th>Data sent</th><th>Their privacy policy</th></tr>
+      <tr><th>Service</th><th>Provider</th><th>Data sent</th></tr>
       <tr>
-        <td>AI expense extraction (snap/photo)</td>
-        <td>Google Gemini Flash</td>
-        <td>Sanitized OCR text only</td>
-        <td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></td>
+        <td>AI expense extraction and categorisation</td>
+        <td>Cloud AI service</td>
+        <td>Sanitised OCR text only (personal info pre-filtered locally)</td>
       </tr>
       <tr>
-        <td>PDF receipt parsing (v1.0)</td>
-        <td>Google Gemini Flash</td>
-        <td>Full PDF document</td>
-        <td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></td>
+        <td>PDF parsing (when Cloud PDF Extraction is enabled)</td>
+        <td>Cloud AI service</td>
+        <td>Full PDF document (opt-in only)</td>
       </tr>
       <tr>
-        <td>Voice transcription (Dictate)</td>
-        <td>OpenAI Whisper API</td>
-        <td>Audio recording</td>
-        <td><a href="https://openai.com/privacy" target="_blank">openai.com/privacy</a></td>
+        <td>Voice transcription (when Cloud Transcription is enabled)</td>
+        <td>Cloud AI service</td>
+        <td>Audio recording (opt-in only)</td>
+      </tr>
+      <tr>
+        <td>Crash reporting</td>
+        <td>Sentry (sentry.io)</td>
+        <td>Anonymous crash data: stack traces, device model, OS version, app version. No personal data, no expense data.</td>
       </tr>
     </table>
-    <p>No other third-party services receive your data in v1.0. There are no advertising networks, analytics platforms, or social media SDKs integrated into Nocito™.</p>
+    <p>The specific cloud AI services used for expense extraction and transcription may change as better or more privacy-preserving options become available. Any material change to the types of data transmitted will be reflected in an updated Privacy Policy.</p>
+    <p>There are no advertising networks, analytics platforms, or social media SDKs integrated into Nocito™.</p>
+    <p>Sentry's privacy policy: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 
   <div class="section">
     <h2>7. Image and Audio Storage</h2>
-    <p>Receipt images and audio recordings are stored in your device's <strong>app-private directory</strong> — a location that other apps cannot access. They are not uploaded to any cloud service in Free or Pro tiers.</p>
+    <p>Receipt images and audio recordings are stored in your device's <strong>app-private directory</strong> — a location that other apps cannot access. They are not uploaded to any cloud service.</p>
     <p>You can control this behaviour:</p>
     <ul>
       <li><strong>Save original images</strong> — ON by default. Can be disabled in Settings or Onboarding.</li>
       <li><strong>Save original audio</strong> — ON by default. Can be disabled in Settings or Onboarding.</li>
     </ul>
-    <p>If you uninstall the app, all locally stored data is permanently deleted.</p>
+    <p><strong>Local backup:</strong> Nocito™ provides a local ZIP backup feature that exports a JSON file containing all your expense records along with any original images, PDFs, and audio recordings attached to those expenses. You can restore from this backup at any time. You are responsible for keeping your own backup copies — Nocito™ does not maintain any server-side copy of your data. If you uninstall the app without backing up, all data is permanently deleted.</p>
   </div>
 
   <div class="section">
@@ -228,9 +287,10 @@
     <p>For users in the European Union and European Economic Area, we process data under the following legal bases:</p>
     <ul>
       <li><strong>Contract performance</strong> — processing your expense data to provide the core functionality you requested</li>
-      <li><strong>Legitimate interests</strong> — sending sanitised OCR text to AI services to provide accurate expense categorisation</li>
-      <li><strong>Consent</strong> — sending audio to OpenAI Whisper for voice transcription (you are explicitly informed and can decline)</li>
-      <li><strong>Consent</strong> — sending full PDF documents to Google Gemini in v1.0 (disclosed in app and in this policy)</li>
+      <li><strong>Legitimate interests</strong> — sending sanitised OCR text to cloud AI services to provide accurate expense categorisation</li>
+      <li><strong>Legitimate interests</strong> — anonymous crash reporting via Sentry to maintain app stability</li>
+      <li><strong>Consent</strong> — sending audio to a cloud transcription service (only when Cloud Transcription is enabled in Settings)</li>
+      <li><strong>Consent</strong> — sending full PDF documents to a cloud AI service (only when Cloud PDF Extraction is enabled in Settings)</li>
     </ul>
     <p>As the app operates primarily on-device with no account system, the personal data we process is minimal. The primary controller of your personal data is you — it lives on your device.</p>
   </div>
@@ -240,11 +300,24 @@
     <p>Under GDPR and other applicable laws, you have the right to:</p>
     <ul>
       <li><strong>Access</strong> — export your expenses as CSV from within the app (Pro feature)</li>
+      <li><strong>Backup and restore</strong> — export all your data as a JSON backup and restore it on any device (available to all users)</li>
       <li><strong>Deletion</strong> — delete individual expenses or all data from within the app, or uninstall the app to delete everything</li>
-      <li><strong>Portability</strong> — export your data as CSV at any time (Pro feature)</li>
+      <li><strong>Portability</strong> — export your data as CSV or JSON at any time</li>
       <li><strong>Correction</strong> — edit any expense directly in the app</li>
     </ul>
     <p>Since we do not maintain a server-side copy of your data, most rights can be exercised directly within the app. For any questions: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  </div>
+
+  <div class="section">
+    <h2>10b. Crash Reporting</h2>
+    <p>Nocito™ uses <strong>Sentry</strong> (sentry.io) for crash reporting. When the app crashes or encounters an unexpected error, Sentry automatically sends an anonymous report containing:</p>
+    <ul>
+      <li>Stack trace (technical description of where the error occurred in the code)</li>
+      <li>Device model and manufacturer</li>
+      <li>Android OS version</li>
+      <li>App version</li>
+    </ul>
+    <p>Crash reports do <strong>not</strong> contain your expense data, receipt images, audio recordings, or any personally identifiable information. They are used solely to identify and fix bugs.</p>
   </div>
 
   <div class="section">

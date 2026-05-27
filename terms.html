@@ -64,7 +64,7 @@
   <div class="hero-badge">Legal</div>
   <h1>Terms of Service</h1>
   <p>The rules for using Nocito™. Plain language, no surprises.</p>
-  <div class="hero-meta">Effective date: 1 June 2025 &nbsp;·&nbsp; Last updated: May 2026</div>
+  <div class="hero-meta">Effective date: 1 June 2025 &nbsp;·&nbsp; Last updated: May 2026 (v1.0 release)</div>
 </div>
 
 <div class="disclaimer-highlight">
@@ -108,7 +108,7 @@
 
   <div class="section">
     <h2>3. AI Accuracy and Limitations</h2>
-    <p>Nocito™ uses AI models (Google Gemini Flash) to extract information from receipts and other documents. This process can produce errors, including but not limited to:</p>
+    <p>Nocito™ uses cloud and local AI models to extract information from receipts and other documents. This process can produce errors, including but not limited to:</p>
     <ul>
       <li>Incorrect amounts, dates, or merchant names</li>
       <li>Misclassified expense categories</li>
@@ -116,6 +116,7 @@
       <li>Inaccurate handling of non-standard or handwritten receipts</li>
       <li>Errors due to poor image quality, unusual formatting, or unsupported languages</li>
     </ul>
+    <p>Note that local AI models, which run entirely on your device for privacy, may produce less accurate results than cloud models on certain documents. You can switch between local and cloud processing in Settings.</p>
     <p><strong>You are responsible for reviewing and verifying all extracted data before relying on it.</strong> The Quick Review screen is provided for exactly this purpose. We do not guarantee the accuracy of AI extraction and accept no liability for decisions made based on incorrectly extracted data.</p>
   </div>
 
@@ -168,9 +169,11 @@
     <p>The key privacy commitments:</p>
     <ul>
       <li>Your expense data is stored locally on your device by default</li>
-      <li>Receipt images from snaps and photo imports are never sent to AI — only sanitised extracted text</li>
-      <li>PDF import in v1.0 sends the full PDF document to Google Gemini for parsing — this is disclosed in the Privacy Policy and planned to be replaced with local extraction in a future version</li>
-      <li>Voice dictation sends audio to OpenAI Whisper — you are informed before first use</li>
+      <li>Receipt images are never sent to AI — only sanitised extracted text</li>
+      <li>PDF import uses local OCR extraction by default — cloud PDF processing is an opt-in setting</li>
+      <li>Voice dictation uses cloud transcription by default — local on-device transcription is an opt-in setting that requires downloading a local model within the app</li>
+      <li>AI expense parsing uses cloud processing by default — local on-device AI is an opt-in setting that requires downloading a local model within the app</li>
+      <li>Anonymous crash reports are sent to Sentry for stability monitoring — no personal data included</li>
       <li>No advertising, tracking, or analytics SDKs are included in the app</li>
     </ul>
   </div>
