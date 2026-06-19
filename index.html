@@ -1,509 +1,654 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nocito™ — Snap it. Done.</title>
-  <meta name="description" content="The only AI expense tracker that's fully local, fully private — and gives you smart insights into your real spending habits.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --navy:  #1B2A4A;
-      --amber: #F5A623;
-      --teal:  #2A9D8F;
-      --cream: #F5EDD6;
-      --slate: #8899AA;
-      --dark:  #0F1B2D;
-      --card:  #1E3158;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nocito™ — Snap it. Done.</title>
+<meta name="description" content="Nocito is a privacy-first expense tracker for Android. Snap receipts, import PDFs, dictate expenses, use local AI, and keep your spending data on your phone." />
+<meta property="og:title" content="Nocito™ — Snap it. Done." />
+<meta property="og:description" content="The privacy-first expense tracker that captures receipts, PDFs and voice notes — without bank sync, accounts or tracking." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://nocito.app/" />
+<meta name="theme-color" content="#1B2A4A" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+<style>
+  :root {
+    --bg: #0F1B2D;
+    --bg-2: #0B1422;
+    --navy: #1B2A4A;
+    --panel: #1E3158;
+    --panel-2: #243a66;
+    --text: #F5EDD6;
+    --muted: #9AAABB;
+    --muted-2: #6B7A90;
+    --line: rgba(255,255,255,.10);
+    --amber: #F5A623;
+    --amber-2: #D88A12;
+    --teal: #2A9D8F;
+    --teal-2: #1D6B61;
+    --shadow: 0 24px 70px rgba(0,0,0,.35);
+    --radius-xl: 30px;
+    --radius-lg: 22px;
+    --radius-md: 16px;
+    --container: 1120px;
+    --font-head: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
 
-    body {
-      background: var(--dark);
-      color: var(--cream);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-    }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--text);
+    background:
+      radial-gradient(circle at 18% 0%, rgba(245,166,35,.10), transparent 26%),
+      radial-gradient(circle at 88% 20%, rgba(42,157,143,.14), transparent 28%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 52%, #070D18 100%);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
 
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(15,27,45,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 0 24px; height: 60px;
-      display: flex; align-items: center; justify-content: space-between;
-      max-width: 100%;
-    }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
 
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-icon { width: 32px; height: 32px; border-radius: 8px; overflow: hidden; flex-shrink: 0; }
-    .nav-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .nav-name { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: var(--cream); letter-spacing: -0.02em; }
-    .nav-name span { color: var(--amber); }
-    .nav-name sup { font-size: 10px; color: var(--slate); font-weight: 400; vertical-align: super; }
+  .container { width: min(var(--container), calc(100% - 40px)); margin: 0 auto; }
 
-    .nav-cta {
-      background: var(--amber); color: var(--navy);
-      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
-      padding: 8px 18px; border-radius: 8px; text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .nav-cta:hover { opacity: 0.85; }
+  /* ── NAV ── */
+  .nav {
+    position: sticky; top: 0; z-index: 20;
+    backdrop-filter: blur(18px);
+    background: rgba(15,27,45,.78);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; white-space: nowrap; }
+  .brand-icon { width: 36px; height: 36px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .brand-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .brand-name { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; color: var(--text); white-space: nowrap; }
+  .brand-name span { color: var(--amber); }
+  .brand-name sup { font-size: 0.55em; color: var(--muted); font-weight: 400; vertical-align: super; }
 
-    /* ── SECTIONS ── */
-    section { padding: 80px 24px; max-width: 900px; margin: 0 auto; }
+  .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: .92rem; }
+  .nav-links a:hover { color: var(--text); }
 
-    /* ── HERO ── */
-    .hero {
-      text-align: center;
-      padding: 100px 24px 80px;
-      max-width: 760px;
-      margin: 0 auto;
-    }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    min-height: 46px; padding: 0 20px; border-radius: 999px;
+    font-weight: 700; font-family: var(--font-body);
+    border: 1px solid transparent;
+    transition: transform .18s ease, opacity .18s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { color: var(--navy); background: linear-gradient(180deg, var(--amber), var(--amber-2)); box-shadow: 0 16px 38px rgba(245,166,35,.25); }
+  .btn-secondary { color: var(--text); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+  .play-dot { width:0; height:0; border-top:6px solid transparent; border-bottom:6px solid transparent; border-left:9px solid currentColor; opacity:.9; }
 
-    .hero-badge {
-      display: inline-block;
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--teal);
-      border: 1px solid rgba(42,157,143,0.3);
-      border-radius: 100px; padding: 4px 14px; margin-bottom: 28px;
-    }
+  .section { padding: 84px 0; }
+  .section-tight { padding: 52px 0; }
 
-    .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(44px, 8vw, 72px);
-      font-weight: 700;
-      color: var(--cream);
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      margin-bottom: 24px;
-    }
+  /* ── HERO ── */
+  .hero { padding: 64px 0 64px; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(320px,.8fr); gap: 52px; align-items: center; }
 
-    .hero h1 span { color: var(--amber); }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 13px; border-radius: 999px;
+    background: rgba(245,166,35,.12); border: 1px solid rgba(245,166,35,.25);
+    color: var(--amber); font-weight: 700; font-size: .85rem; margin-bottom: 22px;
+  }
 
-    .hero-sub {
-      font-size: clamp(17px, 2.5vw, 20px);
-      color: #9AAABB;
-      max-width: 600px;
-      margin: 0 auto 16px;
-      line-height: 1.6;
-    }
+  h1, h2, h3, p { margin-top: 0; font-family: var(--font-body); }
+  h1, h2, h3 { font-family: var(--font-head); }
 
-    .hero-trust {
-      font-size: 14px;
-      color: var(--slate);
-      margin-bottom: 44px;
-      letter-spacing: 0.02em;
-    }
+  h1 {
+    font-weight: 700;
+    font-size: clamp(3rem, 7.5vw, 5.6rem);
+    line-height: .98; letter-spacing: -.035em;
+    margin-bottom: 22px; max-width: 640px;
+  }
+  h1 span { display: block; }
+  h1 .accent { color: var(--amber); }
 
-    .hero-trust span {
-      display: inline-block;
-      margin: 0 8px;
-    }
+  .hero-copy { color: var(--muted); font-size: clamp(1.05rem, 1.8vw, 1.25rem); max-width: 620px; margin-bottom: 14px; }
+  .hero-copy strong { color: var(--text); font-weight: 600; }
 
-    .hero-trust span::before {
-      content: '·';
-      margin-right: 8px;
-      color: #3A5070;
-    }
-    .hero-trust span:first-child::before { display: none; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 26px 0 18px; }
 
-    /* store buttons */
-    .store-buttons {
-      display: flex; gap: 14px;
-      justify-content: center; flex-wrap: wrap;
-    }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .chip { padding: 8px 13px; border-radius: 999px; color: var(--text); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09); font-weight: 600; font-size: .85rem; }
 
-    .btn-store {
-      display: flex; align-items: center; gap: 10px;
-      padding: 12px 22px; border-radius: 12px;
-      text-decoration: none;
-      font-family: 'DM Sans', sans-serif;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-    .btn-store:hover { transform: translateY(-2px); opacity: 0.9; }
+  .coming-ios { color: var(--muted-2); font-size: .9rem; margin-top: 16px; }
 
-    .btn-android { background: var(--amber); color: var(--navy); }
-    .btn-ios {
-      background: rgba(255,255,255,0.05); color: var(--slate);
-      border: 1px solid rgba(255,255,255,0.1); pointer-events: none;
-    }
+  /* ── PHONE PLACEHOLDER ── */
+  .phone-wrap { display: flex; justify-content: center; position: relative; }
+  .phone-glow {
+    position: absolute; width: 360px; height: 360px; border-radius: 999px;
+    background: radial-gradient(circle, rgba(42,157,143,.20), transparent 68%);
+    filter: blur(8px); top: 30px; z-index: 0;
+  }
+  .phone {
+    position: relative; z-index: 1; width: min(330px, 100%);
+    border-radius: 32px; padding: 14px;
+    background: var(--bg-2); border: 1px solid rgba(255,255,255,.12);
+    box-shadow: var(--shadow);
+  }
+  .screen {
+    border-radius: 24px; overflow: hidden;
+    background: var(--navy); border: 1px solid rgba(255,255,255,.07);
+    aspect-ratio: 1080 / 2340;
+    display: flex; flex-direction: column;
+  }
+  .screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .phone-status { height: 14px; display: flex; align-items: center; justify-content: space-between; color: rgba(255,255,255,.4); font-size: 10px; margin-bottom: 18px; flex-shrink: 0; }
+  .screenshot-placeholder {
+    flex: 1; border: 1.5px dashed rgba(245,166,35,.35); border-radius: 16px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; padding: 24px; text-align: center;
+    background: rgba(245,166,35,.04);
+  }
+  .screenshot-placeholder .ph-icon { font-size: 34px; opacity: .55; }
+  .screenshot-placeholder .ph-label { font-family: var(--font-head); font-size: .78rem; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
+  .screenshot-placeholder .ph-sub { font-size: .72rem; color: var(--muted-2); max-width: 200px; line-height: 1.5; }
 
-    .btn-label { display: flex; flex-direction: column; align-items: flex-start; }
-    .btn-label .sub-text { font-size: 10px; opacity: 0.7; line-height: 1; margin-bottom: 2px; }
-    .btn-label .main-text { font-size: 15px; font-weight: 600; line-height: 1; }
-    .soon-badge {
-      font-size: 9px; background: rgba(255,255,255,0.1);
-      padding: 1px 5px; border-radius: 3px;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      margin-left: 5px; vertical-align: middle;
-    }
+  /* ── QUOTE BAND ── */
+  .quote-band {
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    background: linear-gradient(90deg, rgba(245,166,35,.07), rgba(255,255,255,.02), rgba(42,157,143,.06));
+  }
+  .quote {
+    max-width: 920px; margin: 0 auto; text-align: center;
+    font-family: var(--font-head); font-weight: 700;
+    font-size: clamp(1.7rem, 4.2vw, 3.2rem); line-height: 1.12; letter-spacing: -.03em;
+  }
+  .quote strong { color: var(--amber); font-weight: 700; }
+  .intro-copy { max-width: 760px; margin: 24px auto 0; color: var(--muted); text-align: center; font-size: 1.05rem; line-height: 1.7; }
 
-    /* ── DIVIDER ── */
-    .divider {
-      width: 100%; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent);
-      margin: 0 auto;
-    }
+  /* ── SECTION HEAD ── */
+  .section-head { max-width: 720px; margin-bottom: 36px; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .kicker { color: var(--teal); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; margin-bottom: 12px; }
+  .kicker.amber { color: var(--amber); }
+  h2 { font-weight: 700; font-size: clamp(1.7rem, 3.6vw, 2.7rem); line-height: 1.12; letter-spacing: -.025em; margin-bottom: 16px; }
+  .section-head p { color: var(--muted); font-size: 1.02rem; margin: 0; line-height: 1.7; }
 
-    /* ── PROBLEM SECTION ── */
-    .problem-section {
-      text-align: center;
-      padding: 80px 24px;
-      max-width: 760px;
-      margin: 0 auto;
-    }
+  /* ── CARDS ── */
+  .card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .card-grid.two { grid-template-columns: repeat(2,1fr); }
+  .card-grid.four { grid-template-columns: repeat(4,1fr); }
+  .card-grid.six { grid-template-columns: repeat(3,1fr); }
 
-    .problem-section h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(22px, 4vw, 32px);
-      font-weight: 700;
-      color: var(--cream);
-      letter-spacing: -0.02em;
-      line-height: 1.25;
-      margin-bottom: 24px;
-    }
+  .card {
+    background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018));
+    border: 1px solid var(--line); border-radius: var(--radius-lg);
+    padding: 24px; min-height: 100%; box-shadow: 0 18px 44px rgba(0,0,0,.16);
+  }
+  .card.featured { background: linear-gradient(180deg, rgba(245,166,35,.13), rgba(255,255,255,.025)); border-color: rgba(245,166,35,.28); }
+  .card.featured.teal-tint { background: linear-gradient(180deg, rgba(42,157,143,.13), rgba(255,255,255,.025)); border-color: rgba(42,157,143,.28); }
 
-    .problem-section h2 em {
-      font-style: normal;
-      color: var(--amber);
-    }
+  .icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 16px; background: rgba(245,166,35,.13); color: var(--amber); font-size: 1.3rem; }
+  .icon.teal { background: rgba(42,157,143,.13); color: var(--teal); }
+  .icon.slate { background: rgba(136,153,170,.13); color: var(--muted); }
 
-    .problem-section p {
-      font-size: 17px;
-      color: #9AAABB;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.75;
-    }
+  .card h3 { font-size: 1.18rem; line-height: 1.18; margin-bottom: 9px; letter-spacing: -.015em; }
+  .card p, .card li { color: var(--muted); font-size: .92rem; }
+  .card p { margin-bottom: 0; line-height: 1.6; }
 
-    .problem-section p strong {
-      color: var(--cream);
-      font-weight: 500;
-    }
+  .tag { display: inline-flex; align-items: center; margin-bottom: 12px; color: var(--teal); font-weight: 700; font-size: .74rem; text-transform: uppercase; letter-spacing: .08em; }
+  .tag.amber { color: var(--amber); }
 
-    /* ── THREE PILLARS ── */
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      padding: 0 24px 80px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
+  .list { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; }
+  .list li { position: relative; padding-left: 22px; font-size: .92rem; }
+  .list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; border-radius: 99px; background: var(--teal); box-shadow: 0 0 0 4px rgba(42,157,143,.12); }
+  .price-card.featured .list li::before { background: var(--amber); box-shadow: 0 0 0 4px rgba(245,166,35,.12); }
 
-    .pillar {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 32px 28px;
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: border-color 0.2s;
-    }
-    .pillar:hover { border-color: rgba(245,166,35,0.2); }
+  .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 34px; align-items: center; }
 
-    .pillar-icon {
-      font-size: 28px;
-      margin-bottom: 16px;
-      display: block;
-    }
+  .mini-ui { background: linear-gradient(180deg, var(--panel-2), var(--panel)); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow); }
+  .mini-row { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.08); color: var(--muted); font-size: .92rem; }
+  .mini-row:last-child { border-bottom: 0; }
+  .mini-row strong { color: var(--text); font-weight: 600; }
 
-    .pillar h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 18px; font-weight: 700;
-      color: var(--cream);
-      letter-spacing: -0.01em;
-      margin-bottom: 10px;
-    }
+  .pill { display: inline-flex; align-items: center; justify-content: center; padding: 6px 11px; border-radius: 999px; background: rgba(255,255,255,.07); color: var(--muted); font-size: .78rem; font-weight: 700; }
+  .pill.amber { background: rgba(245,166,35,.16); color: var(--amber); }
+  .pill.teal { background: rgba(42,157,143,.15); color: var(--teal); }
 
-    .pillar-tag {
-      display: inline-block;
-      font-size: 10px; font-weight: 500;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--teal);
-      border: 1px solid rgba(42,157,143,0.3);
-      border-radius: 4px; padding: 2px 7px;
-      margin-bottom: 10px;
-    }
+  .chart-card { min-height: 340px; display: flex; flex-direction: column; justify-content: space-between; }
+  .bars { height: 150px; display: flex; align-items: end; gap: 14px; padding: 20px 0 4px; }
+  .bar { flex: 1; border-radius: 10px 10px 4px 4px; background: linear-gradient(180deg, var(--amber), var(--amber-2)); min-height: 22px; }
+  .bar:nth-child(2) { height: 50%; background: linear-gradient(180deg, var(--teal), var(--teal-2)); }
+  .bar:nth-child(3) { height: 70%; background: linear-gradient(180deg, var(--text), var(--muted)); }
+  .bar:nth-child(4) { height: 38%; background: linear-gradient(180deg, var(--teal), var(--teal-2)); }
+  .bar:nth-child(5) { height: 84%; }
+  .bar:nth-child(1) { height: 58%; }
+  .bar:nth-child(6) { height: 30%; background: linear-gradient(180deg, var(--text), var(--muted)); }
 
-    .pillar-tag.amber { color: var(--amber); border-color: rgba(245,166,35,0.3); }
+  .donut {
+    width: 150px; height: 150px; border-radius: 50%; margin: 20px auto 16px;
+    background: conic-gradient(var(--amber) 0% 35%, var(--teal) 35% 62%, var(--text) 62% 80%, var(--muted-2) 80% 100%);
+    position: relative;
+  }
+  .donut::after { content: ""; position: absolute; inset: 36px; border-radius: 50%; background: var(--panel); box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
 
-    .pillar p {
-      font-size: 14px;
-      color: var(--slate);
-      line-height: 1.65;
-    }
+  /* ── PRICING ── */
+  .pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+  .price-card {
+    border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 32px;
+    background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+    box-shadow: 0 18px 44px rgba(0,0,0,.16);
+    display: flex; flex-direction: column;
+  }
+  .price-card.featured {
+    background: radial-gradient(circle at top right, rgba(245,166,35,.18), transparent 36%), linear-gradient(180deg, rgba(245,166,35,.10), rgba(255,255,255,.025));
+    border-color: rgba(245,166,35,.28); box-shadow: var(--shadow); position: relative;
+  }
+  .price-card.featured::before {
+    content: 'Most popular'; position: absolute; top: -12px; left: 28px;
+    background: var(--amber); color: var(--navy); font-size: .68rem; font-weight: 700;
+    letter-spacing: .05em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px;
+  }
+  .price-card h3 { font-size: 1.3rem; margin-bottom: 4px; }
+  .price-card .price-sub-label { color: var(--muted); font-size: .85rem; margin-bottom: 18px; }
+  .price { font-size: clamp(2.4rem, 4.5vw, 3.2rem); line-height: 1; letter-spacing: -.04em; font-weight: 700; margin: 4px 0 4px; color: var(--text); }
+  .price.amber-text { color: var(--amber); }
+  .price span { font-size: 1rem; color: var(--muted); letter-spacing: 0; font-weight: 600; }
+  .price-card .list { margin-bottom: 24px; flex: 1; }
+  .price-card .btn { align-self: flex-start; }
 
-    /* ── PRICE INTELLIGENCE ── */
-    .price-intel {
-      background: linear-gradient(135deg, #1B2A4A 0%, #1A3050 100%);
-      border: 1px solid rgba(245,166,35,0.15);
-      border-radius: 20px;
-      padding: 56px 48px;
-      margin: 0 24px 80px;
-      max-width: 852px;
-      margin-left: auto; margin-right: auto;
-      position: relative;
-      overflow: hidden;
-    }
+  /* ── FAQ ── */
+  .faq { display: grid; gap: 11px; }
+  details { border: 1px solid var(--line); border-radius: 16px; padding: 17px 19px; background: rgba(255,255,255,.03); }
+  summary { cursor: pointer; font-weight: 700; font-family: var(--font-head); color: var(--text); list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: .98rem; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--amber); font-size: 1.3rem; font-weight: 400; }
+  details[open] summary::after { content: "–"; }
+  details p { color: var(--muted); margin: 11px 0 0; font-size: .92rem; line-height: 1.65; }
 
-    .price-intel::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 200px; height: 200px;
-      background: radial-gradient(circle, rgba(245,166,35,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
+  /* ── FINAL CTA ── */
+  .final-cta {
+    text-align: center; padding: 64px 24px; border-radius: var(--radius-xl);
+    background: radial-gradient(circle at top, rgba(245,166,35,.20), transparent 35%), linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    border: 1px solid var(--line); box-shadow: var(--shadow);
+  }
+  .final-cta h2 { margin-left: auto; margin-right: auto; max-width: 680px; }
+  .final-cta p { margin-left: auto; margin-right: auto; max-width: 560px; color: var(--muted); }
 
-    .price-intel-badge {
-      display: inline-block;
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--amber);
-      border: 1px solid rgba(245,166,35,0.3);
-      border-radius: 100px; padding: 4px 14px;
-      margin-bottom: 20px;
-    }
+  footer { padding: 30px 0 48px; color: var(--muted-2); border-top: 1px solid var(--line); font-size: .9rem; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+  .footer-links a:hover { color: var(--text); }
 
-    .price-intel h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(22px, 4vw, 32px);
-      font-weight: 700;
-      color: var(--cream);
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-
-    .price-intel h2 em {
-      font-style: normal;
-      color: var(--amber);
-    }
-
-    .price-intel p {
-      font-size: 16px;
-      color: #9AAABB;
-      max-width: 580px;
-      line-height: 1.75;
-      margin-bottom: 16px;
-    }
-
-    .price-intel p strong { color: var(--cream); font-weight: 500; }
-
-    .price-intel-examples {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 28px;
-    }
-
-    .price-example {
-      background: rgba(245,166,35,0.08);
-      border: 1px solid rgba(245,166,35,0.15);
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 13px;
-      color: #C8A060;
-      line-height: 1.4;
-    }
-
-    .price-example strong { color: var(--amber); font-weight: 600; display: block; margin-bottom: 2px; }
-
-    /* ── DIFFERENTIATOR STRIP ── */
-    .differentiator {
-      text-align: center;
-      padding: 60px 24px;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .differentiator p {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(18px, 3vw, 24px);
-      font-weight: 600;
-      color: var(--cream);
-      letter-spacing: -0.01em;
-      line-height: 1.5;
-    }
-
-    .differentiator p em {
-      font-style: normal;
-      color: var(--amber);
-    }
-
-    /* ── FINAL CTA ── */
-    .final-cta {
-      text-align: center;
-      padding: 80px 24px 100px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .final-cta p {
-      font-size: 17px;
-      color: var(--slate);
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
-
-    .final-cta p strong { color: var(--cream); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 32px 24px;
-      text-align: center;
-    }
-
-    footer p { font-size: 13px; color: var(--slate); margin-bottom: 6px; }
-    footer a { color: var(--teal); text-decoration: none; font-size: 13px; }
-    footer a:hover { text-decoration: underline; }
-
-    @media (max-width: 600px) {
-      .price-intel { padding: 36px 24px; }
-      .pillars { grid-template-columns: 1fr; }
-    }
-  </style>
+  @media (max-width: 980px) {
+    .hero-grid, .split, .pricing { grid-template-columns: 1fr; }
+    .phone-wrap { order: -1; }
+    .phone { width: min(310px, 100%); }
+    /* .screen now sizes via aspect-ratio, no fixed height needed */
+    .card-grid, .card-grid.two, .card-grid.four, .card-grid.six { grid-template-columns: repeat(2,1fr); }
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+  @media (max-width: 640px) {
+    .container { width: min(100% - 28px, var(--container)); }
+    .nav-inner { min-height: 64px; }
+    .section { padding: 60px 0; }
+    .hero { padding: 40px 0 48px; }
+    h1 { font-size: clamp(2.6rem, 13vw, 3.6rem); }
+    .card-grid, .card-grid.two, .card-grid.four, .card-grid.six { grid-template-columns: 1fr; }
+    .quote { text-align: left; }
+    .intro-copy { text-align: left; }
+    .hero-actions .btn { width: 100%; }
+    .final-cta { padding: 42px 18px; }
+  }
+</style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="index.html" class="nav-logo">
-    <div class="nav-icon"><img src="icon.png" alt="Nocito icon"></div>
-    <div class="nav-name">No<span>c</span>ito<sup>™</sup></div>
-  </a>
-  <a href="https://play.google.com/store/apps/details?id=com.nocito.app" class="nav-cta">Get the app</a>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-badge">Available on Google Play</div>
-  <h1>Snap it.<br><span>Done.</span></h1>
-  <p class="hero-sub">The expense tracker that reads every line on your receipt — and keeps it all on your phone.</p>
-  <p class="hero-trust">
-    <span>No bank sync</span>
-    <span>No cloud required</span>
-    <span>No big AI watching your spending</span>
-  </p>
-  <div class="store-buttons">
-    <a href="https://play.google.com/store/apps/details?id=com.nocito.app" class="btn-store btn-android">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path d="M3.18 23.76a2 2 0 0 0 2.89-.52l9.4-9.4-2.9-2.9-9.39 12.82zM20.91 10.27 17.5 8.36l-3.2 3.2 3.2 3.2 3.43-1.93a1.54 1.54 0 0 0 0-2.56zM3 .5A1.5 1.5 0 0 0 2 2v20a1.5 1.5 0 0 0 1 1.41l.18.09 11.2-11.2v-.26L3.18.41 3 .5zM6.07.26l11.43 6.41-3.21 3.21L6.07.26z" fill="#1B2A4A"/>
-      </svg>
-      <div class="btn-label">
-        <span class="sub-text">Available on</span>
-        <span class="main-text">Google Play</span>
-      </div>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#top" aria-label="Nocito home">
+      <span class="brand-icon"><img src="icon.png" alt="Nocito icon"></span>
+      <span class="brand-name">No<span>c</span>ito<sup>™</sup></span>
     </a>
-    <div class="btn-store btn-ios">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="#556677"/>
-      </svg>
-      <div class="btn-label">
-        <span class="sub-text">Coming to</span>
-        <span class="main-text">App Store <span class="soon-badge">soon</span></span>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#capture">Capture</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#insights">Insights</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary nav-cta" href="https://play.google.com/store/apps/details?id=com.nocito.app">Get the app</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"><span class="play-dot"></span> Available on Google Play</div>
+        <h1><span>Snap it.</span><span class="accent">Done.</span></h1>
+        <p class="hero-copy">The expense tracker that reads every line on your receipt — and keeps it all on your phone.</p>
+        <p class="hero-copy"><strong>No bank sync. No cloud account required. No big AI watching your spending.</strong></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.nocito.app"><span class="play-dot"></span> Available on Google Play</a>
+          <a class="btn btn-secondary" href="#privacy">See privacy options</a>
+        </div>
+        <div class="chips" aria-label="Nocito highlights">
+          <span class="chip">No bank sync</span>
+          <span class="chip">Works offline</span>
+          <span class="chip">Local AI option</span>
+          <span class="chip">No ads</span>
+        </div>
+        <p class="coming-ios">Coming to App Store soon</p>
+      </div>
+
+      <div class="phone-wrap" aria-label="Nocito app preview">
+        <div class="phone-glow"></div>
+        <div class="phone">
+          <div class="screen">
+            <img src="screenshot-home.png" alt="Nocito home screen — monthly overview and capture options">
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<div class="divider"></div>
+  <!-- QUOTE — PROBLEM -->
+  <section class="quote-band section-tight">
+    <div class="container">
+      <div class="quote">"Bank sync tells you spent <strong>€200 at Lidl.</strong><br>Not that you're buying too much chocolate."</div>
+      <p class="intro-copy">Banks and AI companies only see your totals — and that's actually good news. The bad news is that's exactly where your real spending habits hide, and why you spend more than you should. Nocito solves both of those problems and gives you all the information you need, completely private.</p>
+    </div>
+  </section>
 
-<!-- PROBLEM -->
-<div class="problem-section">
-  <h2>"Bank sync tells you spent <em>€200 at Lidl.</em><br>Not that you're buying too much chocolate."</h2>
-  <p>Banks and AI companies only see your totals — and that's actually good news. The bad news is that's <strong>exactly where your real spending habits hide</strong>, and why you spend more than you should. Nocito solves both of those problems and gives you all the information you need, <strong>completely private</strong>.</p>
-</div>
+  <!-- 3 PILLARS -->
+  <section class="section">
+    <div class="container card-grid">
+      <article class="card">
+        <span class="tag">Privacy first</span>
+        <h3>Fully private</h3>
+        <p>Your receipts never leave your phone if you don't want them to. No big AI companies, no cloud servers, no bank logins. Just you and your data.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Speed</span>
+        <h3>One tap capture</h3>
+        <p>Snap a receipt, import a PDF, or just talk. Nocito extracts the amount, merchant, date and category in seconds.</p>
+      </article>
+      <article class="card featured">
+        <span class="tag amber">Coming soon</span>
+        <h3>Price Intelligence</h3>
+        <p>See what you actually spend on — not just where. Products, quantities and prices across every shop you visit.</p>
+      </article>
+    </div>
+  </section>
 
-<div class="divider"></div>
-
-<!-- THREE PILLARS -->
-<div class="pillars">
-
-  <div class="pillar">
-    <span class="pillar-icon">🔒</span>
-    <div class="pillar-tag">Privacy first</div>
-    <h3>Fully private</h3>
-    <p>Your receipts never leave your phone if you don't want them to. No big AI companies, no cloud servers, no bank logins. Just you and your data.</p>
-  </div>
-
-  <div class="pillar">
-    <span class="pillar-icon">⚡</span>
-    <div class="pillar-tag">Speed</div>
-    <h3>One tap capture</h3>
-    <p>Snap a receipt, import a PDF, or just talk. Nocito extracts the amount, merchant, date, and soon every line item — in seconds.</p>
-  </div>
-
-  <div class="pillar">
-    <span class="pillar-icon">🔍</span>
-    <div class="pillar-tag amber">Coming soon</div>
-    <h3>Price Intelligence</h3>
-    <p>Finally see what you actually spend on — not just where. Which products, which quantities, which prices. Across every shop you visit.</p>
-  </div>
-
-</div>
-
-<div class="divider"></div>
-
-<!-- PRICE INTELLIGENCE TEASER -->
-<div class="price-intel">
-  <div class="price-intel-badge">Coming next</div>
-  <h2>"Most expense apps see your totals.<br><em>Nocito shows you your groceries."</em></h2>
-  <p>We're building something most apps can't — because they only connect to your bank. Nocito reads your actual receipts, line by line.</p>
-  <p>That means <strong>Nocito will soon be able to tell you:</strong></p>
-  <div class="price-intel-examples">
-    <div class="price-example"><strong>€340/month</strong> spent on meat</div>
-    <div class="price-example"><strong>€89/month</strong> your coffee habit costs</div>
-    <div class="price-example"><strong>€120/year</strong> you could save by switching one product at one store</div>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- DIFFERENTIATOR STRIP -->
-<div class="differentiator">
-  <p>The only AI expense tracker that's <em>fully local, fully private</em> — and gives you smart insights into your real spending habits.</p>
-</div>
-
-<div class="divider"></div>
-
-<!-- FINAL CTA -->
-<div class="final-cta">
-  <p><strong>Stop sharing your financial life with companies that profit from it.</strong></p>
-  <div class="store-buttons">
-    <a href="https://play.google.com/store/apps/details?id=com.nocito.app" class="btn-store btn-android">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path d="M3.18 23.76a2 2 0 0 0 2.89-.52l9.4-9.4-2.9-2.9-9.39 12.82zM20.91 10.27 17.5 8.36l-3.2 3.2 3.2 3.2 3.43-1.93a1.54 1.54 0 0 0 0-2.56zM3 .5A1.5 1.5 0 0 0 2 2v20a1.5 1.5 0 0 0 1 1.41l.18.09 11.2-11.2v-.26L3.18.41 3 .5zM6.07.26l11.43 6.41-3.21 3.21L6.07.26z" fill="#1B2A4A"/>
-      </svg>
-      <div class="btn-label">
-        <span class="sub-text">Available on</span>
-        <span class="main-text">Google Play</span>
+  <!-- CAPTURE METHODS -->
+  <section id="capture" class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Capture</div>
+        <h2>Any expense. Any format. One place.</h2>
+        <p>Nocito is built for the messy real world: paper receipts, screenshots, PDF invoices, cash payments, work costs, travel receipts and quick voice notes.</p>
       </div>
-    </a>
-    <div class="btn-store btn-ios">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" fill="#556677"/>
-      </svg>
-      <div class="btn-label">
-        <span class="sub-text">Coming to</span>
-        <span class="main-text">App Store <span class="soon-badge">soon</span></span>
+      <div class="card-grid three">
+        <article class="card"><div class="icon">📸</div><h3>Single snap</h3><p>Tap the shutter button and capture a receipt immediately.</p></article>
+        <article class="card"><div class="icon teal">🧾</div><h3>Multi-snap</h3><p>Long press to capture many receipts in one quick flow.</p></article>
+        <article class="card"><div class="icon">🖼️</div><h3>Single import</h3><p>Pick one image or PDF document from your gallery or files.</p></article>
+        <article class="card"><div class="icon teal">🗂️</div><h3>Multi-import</h3><p>Select several images or PDF documents at once and review them in one flow.</p></article>
+        <article class="card"><div class="icon">🎙️</div><h3>Voice dictate</h3><p>Speak one expense or several in a row — Nocito splits them into separate entries automatically.</p></article>
+        <article class="card"><div class="icon teal">⌨️</div><h3>Manual entry</h3><p>Type expenses yourself whenever you want — always free, no AI used.</p></article>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- FOOTER -->
+  <!-- PRIVACY LEVELS -->
+  <section id="privacy" class="section">
+    <div class="container split">
+      <div class="section-head">
+        <div class="kicker">Privacy level — your choice</div>
+        <h2>Use AI without giving up control.</h2>
+        <p>Nocito is privacy-first by design. Use local processing when privacy matters most, or cloud AI when you want maximum speed and accuracy.</p>
+        <ul class="list">
+          <li>No account required</li>
+          <li>No bank sync needed</li>
+          <li>Works offline</li>
+          <li>No ads, no tracking, no data selling</li>
+          <li>App lock with biometrics, PIN or pattern</li>
+        </ul>
+      </div>
+      <div class="card-grid" style="grid-template-columns:1fr;">
+        <article class="card featured teal-tint"><span class="pill teal">Full local</span><h3>100% private expense tracking</h3><p>Enable local AI, local PDF extraction and local voice transcription (one-time model download) so nothing needs to be sent externally.</p></article>
+        <article class="card"><span class="pill">Default — hybrid</span><h3>Local capture, cloud parsing</h3><p>Receipts and PDFs are read locally. Only sanitised text is sent to the cloud for fast, accurate categorisation.</p></article>
+        <article class="card"><span class="pill">Opt-in</span><h3>Cloud PDF &amp; cloud transcription</h3><p>Send full PDFs or audio to the cloud for maximum accuracy on a tricky document. Always your choice, always disclosed.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIGHTS -->
+  <section id="insights" class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Overview and insights</div>
+        <h2>Not just saved receipts. Actual spending clarity.</h2>
+        <p>Track monthly spending, filter expenses, search merchants, mark items as paid or unpaid, and unlock deeper analytics with Nocito Pro.</p>
+      </div>
+      <div class="card-grid two">
+        <article class="card chart-card">
+          <div>
+            <span class="pill amber">Monthly overview</span>
+            <h3 style="margin-top:16px;">See the month at a glance</h3>
+            <p>Date-grouped expenses, monthly totals, group filters and quick search help you understand where money went.</p>
+          </div>
+          <div class="bars" aria-hidden="true"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        </article>
+        <article class="card chart-card">
+          <div>
+            <span class="pill teal">Pro analytics</span>
+            <h3 style="margin-top:16px;">Trends, categories and merchants</h3>
+            <p>Category breakdowns, top merchants and a monthly trend line chart make your spending patterns easier to spot.</p>
+          </div>
+          <div class="donut" aria-hidden="true"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUDGETS & BACKUP -->
+  <section class="section">
+    <div class="container card-grid two">
+      <article class="card">
+        <div class="icon">🔔</div>
+        <h3>Budgets and reminders</h3>
+        <p>Stay ahead of spending instead of only reviewing it later.</p>
+        <ul class="list">
+          <li>Monthly budgets per category</li>
+          <li>Monthly budget per group</li>
+          <li>Budget exceeded alerts</li>
+          <li>Due dates with colour indicators</li>
+          <li>Push notifications for due expenses</li>
+          <li>Unpaid list sorted by urgency</li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="icon teal">📦</div>
+        <h3>Backup and restore</h3>
+        <p>Your backup stays under your control. No forced account, no forced cloud sync.</p>
+        <ul class="list">
+          <li>Full ZIP export with attachments</li>
+          <li>Images, audio and PDFs included</li>
+          <li>Restore on any Android device</li>
+          <li>Duplicate-safe import</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ORGANIZATION -->
+  <section class="section">
+    <div class="container split">
+      <div class="mini-ui">
+        <div class="mini-row"><strong>Private</strong><span class="pill amber">Personal</span></div>
+        <div class="mini-row"><strong>Business</strong><span class="pill teal">Work</span></div>
+        <div class="mini-row"><strong>Group</strong><span class="pill">Shared</span></div>
+        <div class="mini-row"><strong>+ Custom group</strong><span class="pill">Your name</span></div>
+        <div class="mini-row"><strong>Attachments</strong><span>Up to 10 per expense</span></div>
+        <div class="mini-row"><strong>Categories</strong><span>18 + unlimited custom</span></div>
+      </div>
+      <div class="section-head">
+        <div class="kicker">Organization</div>
+        <h2>Built for real-life expense chaos.</h2>
+        <p>Keep private spending, business costs, group expenses and everything else separated. Add notes, custom categories, paid/unpaid status and attachments per expense.</p>
+        <p>Planning a trip to Barcelona? Create a custom group called "Barcelona spring 2026" and keep every trip expense in one place, separate from your everyday spending.</p>
+        <ul class="list">
+          <li>4 default groups + unlimited custom groups</li>
+          <li>18 default categories + unlimited custom categories with emoji</li>
+          <li>Up to 10 attachments per expense — images, PDFs, audio</li>
+          <li>Paid / unpaid status with due dates</li>
+          <li>Search by merchant, filter by group or category</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker amber">Pricing</div>
+        <h2>Free is genuinely usable. Pro is for everyday trackers.</h2>
+        <p>No ads, ever. No data sold, ever. Cancel anytime via Google Play.</p>
+      </div>
+      <div class="pricing">
+        <div class="price-card">
+          <h3>Free</h3>
+          <p class="price-sub-label">Forever free</p>
+          <div class="price">€0</div>
+          <ul class="list">
+            <li>Unlimited manual entry</li>
+            <li><strong style="color:var(--text);">Unlimited local AI extractions</strong> (one-time model download)</li>
+            <li>10 cloud AI captures / month</li>
+            <li>3 cloud dictate sessions / month</li>
+            <li>1 group, 18 preset categories and unlimited custom categories</li>
+            <li>Bill due dates and reminders</li>
+            <li>Local-first privacy controls</li>
+          </ul>
+          <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.nocito.app">Get started free</a>
+        </div>
+        <div class="price-card featured">
+          <h3>Pro</h3>
+          <p class="price-sub-label">or €3.99 / month</p>
+          <div class="price amber-text">€24.99 <span>/ year</span></div>
+          <ul class="list">
+            <li>500 Cloud AI extractions / month</li>
+            <li>50 Super Dictate sessions / month</li>
+            <li>Full Stats and analytics</li>
+            <li>Monthly &amp; category budgets with alerts</li>
+            <li>View original receipt images, PDFs &amp; audio</li>
+            <li>PDF import</li>
+            <li>All expense groups</li>
+            <li>CSV export from expense list</li>
+            <li>Up to 10 attachments per expense</li>
+            <li>Price Intelligence (coming soon)</li>
+          </ul>
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.nocito.app"><span class="play-dot"></span> Get Nocito Pro</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE — PRICE INTELLIGENCE -->
+  <section class="quote-band section-tight">
+    <div class="container">
+      <div class="quote">"Most expense apps see your totals.<br><strong>Nocito shows you your groceries."</strong></div>
+      <p class="intro-copy">We're building something most apps can't — because they only connect to your bank. Nocito reads your actual receipts, line by line. That means Nocito will soon be able to tell you: €340/month spent on meat, €89/month for coffee, and where you could save €120/year by switching one product at one store.</p>
+    </div>
+  </section>
+
+  <!-- COMING NEXT -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker amber">Coming next</div>
+        <h2>From expense tracking to real spending intelligence.</h2>
+        <p>These features are planned next, while Nocito already handles receipt capture, organization, privacy controls, budgets, backup and Pro analytics today.</p>
+      </div>
+      <div class="card-grid six">
+        <article class="card"><div class="icon">📋</div><h3>Line items</h3><p>Track individual products across receipts once line item extraction is released.</p></article>
+        <article class="card"><div class="icon teal">🛒</div><h3>Price Intelligence</h3><p>Find where your regular purchases are cheapest across stores.</p></article>
+        <article class="card"><div class="icon">⚡</div><h3>Super Snap</h3><p>One AI call reads printed and handwritten content together.</p></article>
+        <article class="card"><div class="icon teal">💎</div><h3>Lite tier</h3><p>A mid-tier plan for everyday use, between Free and Pro.</p></article>
+        <article class="card"><div class="icon">🔁</div><h3>Recurring detection</h3><p>Spot subscriptions and repeating expenses automatically.</p></article>
+        <article class="card"><div class="icon teal">🌍</div><h3>Multi-currency</h3><p>Automatic conversion for travel and international spending.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container split">
+      <div class="section-head">
+        <div class="kicker">FAQ</div>
+        <h2>Simple answers before you install.</h2>
+        <p>Nocito is Android-first, privacy-first and designed to work without forcing you into bank sync or a cloud account.</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>Can I use Nocito offline?</summary>
+          <p>Yes. You can capture expenses offline and they'll process automatically once you're back online — or enable local AI for 100% private, fully on-device tracking.</p>
+        </details>
+        <details>
+          <summary>Do I need an account?</summary>
+          <p>No. Nocito works without creating an account, on any tier.</p>
+        </details>
+        <details>
+          <summary>Do I need to connect my bank?</summary>
+          <p>No. Nocito does not use bank sync. It works from receipts, PDFs, voice notes and manual entries.</p>
+        </details>
+        <details>
+          <summary>Where are my receipts stored?</summary>
+          <p>Original images, PDFs and audio files are stored privately on your phone — not on any server.</p>
+        </details>
+        <details>
+          <summary>What languages and formats are supported?</summary>
+          <p>Nocito supports 12 languages, all world currencies, and both EU and US date and number formats.</p>
+        </details>
+        <details>
+          <summary>Is Nocito available on iPhone?</summary>
+          <p>Not yet. Nocito is available on Android now, with iOS planned for later.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="final-cta">
+        <div class="kicker amber">Nocito™</div>
+        <h2>The only AI expense tracker that's local, private and built around real receipts.</h2>
+        <p>Stop sharing your financial life with companies that profit from it. Snap it. Done.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.nocito.app"><span class="play-dot"></span> Available on Google Play</a>
+        </div>
+        <p class="coming-ios">Coming to App Store soon</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
 <footer>
-  <p>© 2026 Nocito™ &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
-  <p style="margin-top:8px; font-size:12px; color:#3A5070;">nocito.app</p>
+  <div class="container footer-inner">
+    <div>© 2026 Nocito™ · nocito.app</div>
+    <div class="footer-links">
+      <a href="https://nocito.app/privacy.html">Privacy Policy</a>
+      <a href="https://nocito.app/terms.html">Terms of Service</a>
+      <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>
+    </div>
+  </div>
 </footer>
 
 </body>
