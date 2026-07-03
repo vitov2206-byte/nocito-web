@@ -10,6 +10,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nocito.app/" />
 <meta name="theme-color" content="#1B2A4A" />
+<link rel="canonical" href="https://nocito.app/" />
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" href="favicon-192.png">
@@ -125,6 +126,21 @@
   .chip { padding: 8px 13px; border-radius: 999px; color: var(--text); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09); font-weight: 600; font-size: .85rem; }
 
   .coming-ios { color: var(--muted-2); font-size: .9rem; margin-top: 16px; }
+
+  /* phone hint */
+  .phone-hint {
+    position: absolute;
+    bottom: -28px; left: 50%; transform: translateX(-50%);
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 11px; font-weight: 500; color: var(--muted-2);
+    white-space: nowrap;
+    animation: hint-pulse 2.5s ease-in-out 1.5s 3;
+  }
+  .phone-hint svg { opacity: .6; }
+  @keyframes hint-pulse {
+    0%, 100% { opacity: .5; }
+    50% { opacity: 1; color: var(--teal); }
+  }
 
   /* ── PHONE PLACEHOLDER ── */
   .phone-wrap { display: flex; justify-content: center; position: relative; }
@@ -352,9 +368,77 @@
         <div class="phone-glow"></div>
         <div class="phone">
           <div class="screen">
-            <img src="screenshot-home.png" alt="Nocito home screen — monthly overview and capture options">
-          </div>
+
+            <!-- Slide 1: Home (pravi screenshot) -->
+            <div class="app-slide active" data-tab="home">
+              <img src="screenshot-home.png" alt="Nocito home screen">
+            </div>
+
+            <!-- Slide 2: List placeholder -->
+            <div class="app-slide" data-tab="list">
+              <div class="app-ph">
+                <div class="app-ph-status"><span>20:06</span><span>● 86%</span></div>
+                <div class="app-ph-body">
+                  <div class="app-ph-icon">📋</div>
+                  <div class="app-ph-title">Expense List</div>
+                  <div class="app-ph-sub">Screenshot coming soon</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Stats placeholder -->
+            <div class="app-slide" data-tab="stats">
+              <div class="app-ph">
+                <div class="app-ph-status"><span>20:06</span><span>● 86%</span></div>
+                <div class="app-ph-body">
+                  <div class="app-ph-icon">📊</div>
+                  <div class="app-ph-title">Stats</div>
+                  <div class="app-ph-sub">Screenshot coming soon</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: Config placeholder -->
+            <div class="app-slide" data-tab="config">
+              <div class="app-ph">
+                <div class="app-ph-status"><span>20:06</span><span>● 86%</span></div>
+                <div class="app-ph-body">
+                  <div class="app-ph-icon">⚙️</div>
+                  <div class="app-ph-title">Settings</div>
+                  <div class="app-ph-sub">Screenshot coming soon</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive tab bar -->
+            <div class="app-tab-bar">
+              <button class="app-tab active" data-target="home" aria-label="Home">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Home</span>
+              </button>
+              <button class="app-tab" data-target="list" aria-label="List">
+                <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                <span>List</span>
+              </button>
+              <button class="app-tab" data-target="stats" aria-label="Stats">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <span>Stats</span>
+              </button>
+              <button class="app-tab" data-target="config" aria-label="Config">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>Config</span>
+              </button>
+            </div>
+
+          </div><!-- /.screen -->
+        </div><!-- /.phone -->
+
+        <!-- Tooltip hint -->
+        <div class="phone-hint">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Tap tabs to explore
         </div>
+
       </div>
     </div>
   </section>
@@ -654,5 +738,16 @@
   </div>
 </footer>
 
+<script>
+  document.querySelectorAll('.app-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.target;
+      document.querySelectorAll('.app-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.app-slide').forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector(`.app-slide[data-tab="${target}"]`).classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>
