@@ -385,12 +385,10 @@
   .lang-switcher { position: relative; list-style: none; }
   .lang-switcher summary {
     cursor: pointer; list-style: none; display: flex; align-items: center; gap: 5px;
-    padding: 7px 12px; border-radius: 999px;
-    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-    color: var(--text); font-size: .85rem; font-weight: 700; font-family: var(--font-body);
-    white-space: nowrap; transition: background .18s ease;
+    color: var(--muted); font-size: .92rem; font-weight: 500; font-family: var(--font-body);
+    white-space: nowrap; transition: color .18s ease;
   }
-  .lang-switcher summary:hover { background: rgba(255,255,255,.1); }
+  .lang-switcher summary:hover { color: var(--text); }
   .lang-switcher summary::-webkit-details-marker { display: none; }
   .lang-switcher summary::after { content: "▾"; font-size: .65em; opacity: .7; margin-left: 1px; }
   .lang-switcher[open] summary::after { content: "▴"; }
