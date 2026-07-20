@@ -350,12 +350,12 @@
 
   /* ── FAQ ── */
   .faq { display: grid; gap: 11px; }
-  details { border: 1px solid var(--line); border-radius: 16px; padding: 17px 19px; background: rgba(255,255,255,.03); }
-  summary { cursor: pointer; font-weight: 700; font-family: var(--font-head); color: var(--text); list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: .98rem; }
-  summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; color: var(--amber); font-size: 1.3rem; font-weight: 400; }
-  details[open] summary::after { content: "–"; }
-  details p { color: var(--muted); margin: 11px 0 0; font-size: .92rem; line-height: 1.65; }
+  .faq-item { border: 1px solid var(--line); border-radius: 16px; padding: 17px 19px; background: rgba(255,255,255,.03); }
+  .faq-item summary { cursor: pointer; font-weight: 700; font-family: var(--font-head); color: var(--text); list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: .98rem; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; color: var(--amber); font-size: 1.3rem; font-weight: 400; }
+  .faq-item[open] summary::after { content: "–"; }
+  .faq-item p { color: var(--muted); margin: 11px 0 0; font-size: .92rem; line-height: 1.65; }
 
   /* ── FINAL CTA ── */
   .final-cta {
@@ -385,12 +385,14 @@
   .lang-switcher { position: relative; list-style: none; }
   .lang-switcher summary {
     cursor: pointer; list-style: none; display: flex; align-items: center; gap: 5px;
-    color: var(--muted); font-size: .92rem; font-weight: 500; font-family: var(--font-body);
-    white-space: nowrap; transition: color .18s ease;
+    padding: 7px 12px; border-radius: 999px;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+    color: var(--text); font-size: .85rem; font-weight: 700; font-family: var(--font-body);
+    white-space: nowrap; transition: background .18s ease;
   }
-  .lang-switcher summary:hover { color: var(--text); }
+  .lang-switcher summary:hover { background: rgba(255,255,255,.1); }
   .lang-switcher summary::-webkit-details-marker { display: none; }
-  .lang-switcher summary::after { content: "▾"; font-size: .65em; opacity: .7; margin-left: 1px; }
+  .lang-switcher summary::after { content: "▾"; color: var(--muted); font-size: .65em; font-weight: 400; opacity: .7; margin-left: 1px; }
   .lang-switcher[open] summary::after { content: "▴"; }
   .lang-menu {
     position: absolute; top: calc(100% + 10px); right: 0; z-index: 30;
@@ -821,27 +823,27 @@
         <p>Nocito je prvenstveno za Android, prvenstveno privatan i osmišljen da radi bez prisiljavanja na bankovnu sinkronizaciju ili račun u oblaku.</p>
       </div>
       <div class="faq">
-        <details open>
+        <details class="faq-item" open>
           <summary>Mogu li koristiti Nocito offline?</summary>
           <p>Da. Možeš bilježiti troškove offline i oni će se automatski obraditi čim se vratiš online — ili omogući lokalni AI za 100% privatno praćenje, u potpunosti na uređaju.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Da li mi treba nalog?</summary>
           <p>Ne. Nocito radi bez otvaranja naloga, na bilo kom nivou.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Da li treba da povežem svoju banku?</summary>
           <p>Ne. Nocito ne koristi bankovnu sinhronizaciju. Radi na osnovu računa, PDF-ova, glasovnih beleški i ručnog unosa.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Gdje se čuvaju moji računi?</summary>
           <p>Originalne slike, PDF-ovi i audio datoteke pohranjuju se privatno na tvom telefonu — ne na nikakvom serveru.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Koji su jezici i formati podržani?</summary>
           <p>Nocito podržava 12 jezika, sve svetske valute te EU i US format datuma i brojeva.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Je li Nocito dostupan na iPhoneu?</summary>
           <p>Još ne. Nocito je trenutno dostupan na Androidu, a iOS je planiran kasnije.</p>
         </details>

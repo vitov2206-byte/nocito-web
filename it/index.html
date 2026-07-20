@@ -350,12 +350,12 @@
 
   /* ── FAQ ── */
   .faq { display: grid; gap: 11px; }
-  details { border: 1px solid var(--line); border-radius: 16px; padding: 17px 19px; background: rgba(255,255,255,.03); }
-  summary { cursor: pointer; font-weight: 700; font-family: var(--font-head); color: var(--text); list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: .98rem; }
-  summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; color: var(--amber); font-size: 1.3rem; font-weight: 400; }
-  details[open] summary::after { content: "–"; }
-  details p { color: var(--muted); margin: 11px 0 0; font-size: .92rem; line-height: 1.65; }
+  .faq-item { border: 1px solid var(--line); border-radius: 16px; padding: 17px 19px; background: rgba(255,255,255,.03); }
+  .faq-item summary { cursor: pointer; font-weight: 700; font-family: var(--font-head); color: var(--text); list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: .98rem; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; color: var(--amber); font-size: 1.3rem; font-weight: 400; }
+  .faq-item[open] summary::after { content: "–"; }
+  .faq-item p { color: var(--muted); margin: 11px 0 0; font-size: .92rem; line-height: 1.65; }
 
   /* ── FINAL CTA ── */
   .final-cta {
@@ -385,12 +385,14 @@
   .lang-switcher { position: relative; list-style: none; }
   .lang-switcher summary {
     cursor: pointer; list-style: none; display: flex; align-items: center; gap: 5px;
-    color: var(--muted); font-size: .92rem; font-weight: 500; font-family: var(--font-body);
-    white-space: nowrap; transition: color .18s ease;
+    padding: 7px 12px; border-radius: 999px;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+    color: var(--text); font-size: .85rem; font-weight: 700; font-family: var(--font-body);
+    white-space: nowrap; transition: background .18s ease;
   }
-  .lang-switcher summary:hover { color: var(--text); }
+  .lang-switcher summary:hover { background: rgba(255,255,255,.1); }
   .lang-switcher summary::-webkit-details-marker { display: none; }
-  .lang-switcher summary::after { content: "▾"; font-size: .65em; opacity: .7; margin-left: 1px; }
+  .lang-switcher summary::after { content: "▾"; color: var(--muted); font-size: .65em; font-weight: 400; opacity: .7; margin-left: 1px; }
   .lang-switcher[open] summary::after { content: "▴"; }
   .lang-menu {
     position: absolute; top: calc(100% + 10px); right: 0; z-index: 30;
@@ -821,27 +823,27 @@
         <p>Nocito è pensato prima di tutto per Android, orientato alla privacy e progettato per funzionare senza costringerti alla sincronizzazione bancaria o a un account cloud.</p>
       </div>
       <div class="faq">
-        <details open>
+        <details class="faq-item" open>
           <summary>Posso usare Nocito offline?</summary>
           <p>Sì. Puoi registrare le spese offline e verranno elaborate automaticamente non appena torni online — oppure attiva l'IA locale per un tracciamento 100% privato, interamente sul dispositivo.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Mi serve un account?</summary>
           <p>No. Nocito funziona senza creare un account, a qualsiasi livello.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Devo collegare la mia banca?</summary>
           <p>No. Nocito non usa la sincronizzazione bancaria. Funziona con scontrini, PDF, note vocali e inserimenti manuali.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Dove vengono salvati i miei scontrini?</summary>
           <p>Le immagini originali, i PDF e i file audio sono salvati privatamente sul tuo telefono — su nessun server.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Quali lingue e formati sono supportati?</summary>
           <p>Nocito supporta 12 lingue, tutte le valute mondiali e i formati di data e numero sia UE che USA.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Nocito è disponibile su iPhone?</summary>
           <p>Non ancora. Nocito è disponibile ora su Android, con iOS previsto più avanti.</p>
         </details>

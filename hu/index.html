@@ -350,12 +350,12 @@
 
   /* ── FAQ ── */
   .faq { display: grid; gap: 11px; }
-  details { border: 1px solid var(--line); border-radius: 16px; padding: 17px 19px; background: rgba(255,255,255,.03); }
-  summary { cursor: pointer; font-weight: 700; font-family: var(--font-head); color: var(--text); list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: .98rem; }
-  summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; color: var(--amber); font-size: 1.3rem; font-weight: 400; }
-  details[open] summary::after { content: "–"; }
-  details p { color: var(--muted); margin: 11px 0 0; font-size: .92rem; line-height: 1.65; }
+  .faq-item { border: 1px solid var(--line); border-radius: 16px; padding: 17px 19px; background: rgba(255,255,255,.03); }
+  .faq-item summary { cursor: pointer; font-weight: 700; font-family: var(--font-head); color: var(--text); list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: .98rem; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; color: var(--amber); font-size: 1.3rem; font-weight: 400; }
+  .faq-item[open] summary::after { content: "–"; }
+  .faq-item p { color: var(--muted); margin: 11px 0 0; font-size: .92rem; line-height: 1.65; }
 
   /* ── FINAL CTA ── */
   .final-cta {
@@ -385,12 +385,14 @@
   .lang-switcher { position: relative; list-style: none; }
   .lang-switcher summary {
     cursor: pointer; list-style: none; display: flex; align-items: center; gap: 5px;
-    color: var(--muted); font-size: .92rem; font-weight: 500; font-family: var(--font-body);
-    white-space: nowrap; transition: color .18s ease;
+    padding: 7px 12px; border-radius: 999px;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+    color: var(--text); font-size: .85rem; font-weight: 700; font-family: var(--font-body);
+    white-space: nowrap; transition: background .18s ease;
   }
-  .lang-switcher summary:hover { color: var(--text); }
+  .lang-switcher summary:hover { background: rgba(255,255,255,.1); }
   .lang-switcher summary::-webkit-details-marker { display: none; }
-  .lang-switcher summary::after { content: "▾"; font-size: .65em; opacity: .7; margin-left: 1px; }
+  .lang-switcher summary::after { content: "▾"; color: var(--muted); font-size: .65em; font-weight: 400; opacity: .7; margin-left: 1px; }
   .lang-switcher[open] summary::after { content: "▴"; }
   .lang-menu {
     position: absolute; top: calc(100% + 10px); right: 0; z-index: 30;
@@ -821,27 +823,27 @@
         <p>A Nocito elsősorban Android-ra készült, adatvédelem-központú, és úgy lett megtervezve, hogy ne kényszerítsen banki szinkronizálásra vagy felhőfiókra.</p>
       </div>
       <div class="faq">
-        <details open>
+        <details class="faq-item" open>
           <summary>Használhatom a Nocitót offline?</summary>
           <p>Igen. Offline is rögzíthetsz kiadásokat, amelyek automatikusan feldolgozásra kerülnek, amint újra online vagy — vagy engedélyezd a helyi AI-t 100%-ban privát, teljesen eszközön futó követéshez.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Szükségem van fiókra?</summary>
           <p>Nem. A Nocito fiók létrehozása nélkül működik, bármelyik szinten.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Össze kell kötnöm a bankomat?</summary>
           <p>Nem. A Nocito nem használ banki szinkronizálást. Nyugták, PDF-ek, hangjegyzetek és kézi bevitel alapján működik.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Hol tárolódnak a nyugtáim?</summary>
           <p>Az eredeti képek, PDF-ek és hangfájlok privát módon, a telefonodon tárolódnak — semmilyen szerveren nem.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Milyen nyelvek és formátumok támogatottak?</summary>
           <p>A Nocito 12 nyelvet, minden világ pénznemet, valamint EU és US dátum- és számformátumot is támogat.</p>
         </details>
-        <details>
+        <details class="faq-item">
           <summary>Elérhető a Nocito iPhone-on?</summary>
           <p>Még nem. A Nocito jelenleg Androidra érhető el, iOS-re később tervezzük.</p>
         </details>
