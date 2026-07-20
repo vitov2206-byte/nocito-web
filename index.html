@@ -4,16 +4,29 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nocito™ — Snap it. Done.</title>
-<meta name="description" content="Nocito is a privacy-first expense tracker for Android. Snap receipts, import PDFs, dictate expenses, use local AI, and keep your spending data on your phone." />
+<meta name="description" content="Nocito is a privacy-first expense tracker for Android. Snap receipts, compare prices across stores with Price Intelligence, and keep your data on your phone." />
 <meta property="og:title" content="Nocito™ — Snap it. Done." />
 <meta property="og:description" content="The privacy-first expense tracker that captures receipts, PDFs and voice notes — without bank sync, accounts or tracking." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nocito.app/" />
 <meta name="theme-color" content="#1B2A4A" />
 <link rel="canonical" href="https://nocito.app/" />
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<link rel="apple-touch-icon" href="favicon-192.png">
+<link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
+<link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
+<link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
+<link rel="alternate" hreflang="en" href="https://nocito.app/" />
+<link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
+<link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
+<link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
+<link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
+<link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
+<link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
+<link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
+<link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
+<link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -228,6 +241,22 @@
   .quote strong { color: var(--amber); font-weight: 700; }
   .intro-copy { max-width: 760px; margin: 24px auto 0; color: var(--muted); text-align: center; font-size: 1.05rem; line-height: 1.7; }
 
+  /* ── PRICE INTELLIGENCE BAND (killer feature) ── */
+  .pi-band {
+    padding: 76px 0;
+    background:
+      radial-gradient(circle at 12% 10%, rgba(245,166,35,.10), transparent 40%),
+      radial-gradient(circle at 90% 30%, rgba(42,157,143,.12), transparent 45%),
+      linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0) 60%);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .market-badge {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 18px;
+    padding: 8px 16px; border-radius: 999px;
+    background: rgba(42,157,143,.12); border: 1px solid rgba(42,157,143,.3);
+    color: var(--teal); font-weight: 700; font-size: .82rem;
+  }
+
   /* ── SECTION HEAD ── */
   .section-head { max-width: 720px; margin-bottom: 36px; }
   .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
@@ -349,6 +378,55 @@
     /* .screen now sizes via aspect-ratio, no fixed height needed */
     .card-grid, .card-grid.two, .card-grid.four, .card-grid.six { grid-template-columns: repeat(2,1fr); }
     .nav-links a:not(.nav-cta) { display: none; }
+    .lang-menu { right: -10px; max-width: calc(100vw - 32px); }
+  }
+
+  /* ── LANGUAGE SWITCHER ── */
+  .lang-switcher { position: relative; list-style: none; }
+  .lang-switcher summary {
+    cursor: pointer; list-style: none; display: flex; align-items: center; gap: 5px;
+    padding: 7px 12px; border-radius: 999px;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+    color: var(--text); font-size: .85rem; font-weight: 700; font-family: var(--font-body);
+    white-space: nowrap; transition: background .18s ease;
+  }
+  .lang-switcher summary:hover { background: rgba(255,255,255,.1); }
+  .lang-switcher summary::-webkit-details-marker { display: none; }
+  .lang-switcher summary::after { content: "▾"; font-size: .65em; opacity: .7; margin-left: 1px; }
+  .lang-switcher[open] summary::after { content: "▴"; }
+  .lang-menu {
+    position: absolute; top: calc(100% + 10px); right: 0; z-index: 30;
+    background: var(--panel); border: 1px solid rgba(255,255,255,.12); border-radius: 14px;
+    padding: 8px; min-width: 190px; max-height: 340px; overflow-y: auto;
+    box-shadow: var(--shadow);
+    display: grid; gap: 2px;
+  }
+  .lang-menu a {
+    display: flex; align-items: center; gap: 9px;
+    padding: 9px 11px; border-radius: 9px;
+    color: var(--muted); font-size: .88rem; font-weight: 500;
+    transition: background .15s ease, color .15s ease;
+  }
+  .lang-menu a:hover { background: rgba(255,255,255,.07); color: var(--text); }
+  .lang-menu a.active { color: var(--amber); font-weight: 700; background: rgba(245,166,35,.08); }
+
+  /* ── LANGUAGE SUGGESTION BANNER ── */
+  .lang-banner {
+    background: linear-gradient(90deg, var(--teal), var(--teal-2));
+    color: #fff; padding: 12px 20px;
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    font-size: .9rem; font-weight: 600; flex-wrap: wrap; text-align: center;
+  }
+  .lang-banner button {
+    border: none; border-radius: 999px; padding: 7px 15px;
+    font-weight: 700; cursor: pointer; font-family: var(--font-body); font-size: .84rem;
+    transition: transform .15s ease;
+  }
+  .lang-banner button:hover { transform: translateY(-1px); }
+  .lang-banner-accept { background: var(--amber); color: var(--navy); }
+  .lang-banner-dismiss { background: rgba(255,255,255,.22); color: #fff; }
+  @media (max-width: 640px) {
+    .lang-banner { padding: 10px 14px; font-size: .84rem; }
   }
   @media (max-width: 640px) {
     .container { width: min(100% - 28px, var(--container)); }
@@ -369,15 +447,33 @@
 <header class="nav">
   <div class="container nav-inner">
     <a class="brand" href="#top" aria-label="Nocito home">
-      <span class="brand-icon"><img src="icon.png" alt="Nocito icon"></span>
+      <span class="brand-icon"><img src="/icon.png" alt="Nocito icon"></span>
       <span class="brand-name">No<span>c</span>ito<sup>™</sup></span>
     </a>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#capture">Capture</a>
       <a href="#privacy">Privacy</a>
+      <a href="#price-intelligence">Savings</a>
       <a href="#insights">Insights</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
+      <details class="lang-switcher">
+        <summary>🇬🇧 EN</summary>
+        <div class="lang-menu">
+          <a href="https://nocito.app/bs/" hreflang="bs">🇧🇦 Bosanski</a>
+          <a href="https://nocito.app/cs/" hreflang="cs">🇨🇿 Čeština</a>
+          <a href="https://nocito.app/de/" hreflang="de">🇩🇪 Deutsch</a>
+          <a href="https://nocito.app/" hreflang="en" class="active">🇬🇧 English</a>
+          <a href="https://nocito.app/es/" hreflang="es">🇪🇸 Español</a>
+          <a href="https://nocito.app/fr/" hreflang="fr">🇫🇷 Français</a>
+          <a href="https://nocito.app/hr/" hreflang="hr">🇭🇷 Hrvatski</a>
+          <a href="https://nocito.app/hu/" hreflang="hu">🇭🇺 Magyar</a>
+          <a href="https://nocito.app/it/" hreflang="it">🇮🇹 Italiano</a>
+          <a href="https://nocito.app/pl/" hreflang="pl">🇵🇱 Polski</a>
+          <a href="https://nocito.app/pt/" hreflang="pt">🇵🇹 Português</a>
+          <a href="https://nocito.app/sr/" hreflang="sr">🇷🇸 Srpski</a>
+        </div>
+      </details>
       <a class="btn btn-primary nav-cta" href="https://play.google.com/store/apps/details?id=com.nocito.app">Get the app</a>
     </nav>
   </div>
@@ -413,22 +509,22 @@
 
             <!-- Slide 1: Home (pravi screenshot) -->
             <div class="app-slide active" data-tab="home">
-              <img src="screenshot-home.png" alt="Nocito home screen">
+              <img src="/screenshot-home.png" alt="Nocito home screen">
             </div>
 
             <!-- Slide 2: List placeholder -->
             <div class="app-slide" data-tab="list">
-              <img src="screenshot-list.jpg" alt="Nocito expense list screen">
+              <img src="/screenshot-list.jpg" alt="Nocito expense list screen">
             </div>
 
             <!-- Slide 3: Stats placeholder -->
             <div class="app-slide" data-tab="stats">
-              <img src="screenshot-stats.jpg" alt="Nocito stats screen">
+              <img src="/screenshot-stats.jpg" alt="Nocito stats screen">
             </div>
 
             <!-- Slide 4: Config placeholder -->
             <div class="app-slide" data-tab="config">
-              <img src="screenshot-config.jpg" alt="Nocito config screen">
+              <img src="/screenshot-config.jpg" alt="Nocito config screen">
             </div>
 
             <!-- Interactive tab bar -->
@@ -486,9 +582,9 @@
         <p>Snap a receipt, import a PDF, or just talk. Nocito extracts the amount, merchant, date and category in seconds.</p>
       </article>
       <article class="card featured">
-        <span class="tag amber">Coming soon</span>
+        <span class="tag amber">New</span>
         <h3>Price Intelligence</h3>
-        <p>See what you actually spend on — not just where. Products, quantities and prices across every shop you visit.</p>
+        <p>See what you actually spend on — and where it's cheaper. Live now for Croatian shoppers, more markets coming.</p>
       </article>
     </div>
   </section>
@@ -531,6 +627,40 @@
         <article class="card featured teal-tint"><span class="pill teal">Full local</span><h3>100% private expense tracking</h3><p>Enable local AI, local PDF extraction and local voice transcription (one-time model download) so nothing needs to be sent externally.</p></article>
         <article class="card"><span class="pill">Default — hybrid</span><h3>Local capture, cloud parsing</h3><p>Receipts and PDFs are read locally. Only sanitised text is sent to the cloud for fast, accurate categorisation.</p></article>
         <article class="card"><span class="pill">Opt-in</span><h3>Cloud PDF &amp; cloud transcription</h3><p>Send full PDFs or audio to the cloud for maximum accuracy on a tricky document. Always your choice, always disclosed.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE — PRICE INTELLIGENCE -->
+  <section class="quote-band section-tight">
+    <div class="container">
+      <div class="quote">"Most expense apps see your totals.<br><strong>Nocito shows you your groceries."</strong></div>
+      <p class="intro-copy">We're building something most apps can't — because they only connect to your bank. Nocito reads your actual receipts, line by line. That means Nocito will soon be able to tell you: €340/month spent on meat, €89/month for coffee, and where you could save €120/year by switching one product at one store.</p>
+    </div>
+  </section>
+
+  <!-- PRICE INTELLIGENCE — killer feature -->
+  <section id="price-intelligence" class="pi-band">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker amber">Price Intelligence</div>
+        <h2>Not just where you spend. Where it's cheaper.</h2>
+        <p>Nocito reads every line on your receipt and compares it against publicly available store price lists — entirely on your phone. Your basket never leaves the device.</p>
+        <div class="market-badge">🇭🇷 Available for Croatia · more markets planned</div>
+      </div>
+      <div class="card-grid three">
+        <article class="card featured">
+          <div class="icon">🏷️</div>
+          <h3>See instantly if it's cheaper</h3><p>Every scanned receipt automatically shows whether an item is on sale, cheaper elsewhere, or already at the best price you've found — no extra steps.</p>
+        </article>
+        <article class="card featured teal-tint">
+          <div class="icon teal">🛒</div>
+          <h3>Find your best shopping trip</h3><p>Add items to a list and compare your total basket price across every store you track in one tap — ranked, with the savings shown.</p>
+        </article>
+        <article class="card featured">
+          <div class="icon slate">📍</div>
+          <h3>Route to the best store</h3><p>Tap the winning option in the ranked list to open Google Maps with directions there.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -642,6 +772,7 @@
             <li>1 group, 18 preset categories and unlimited custom categories</li>
             <li>Bill due dates and reminders</li>
             <li>Local-first privacy controls</li>
+            <li><strong style="color:var(--text);">Price Intelligence</strong> — Croatia, free for everyone</li>
           </ul>
           <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.nocito.app">Get started free</a>
         </div>
@@ -659,19 +790,10 @@
             <li>All expense groups</li>
             <li>CSV export from expense list</li>
             <li>Up to 10 attachments per expense</li>
-            <li>Price Intelligence (coming soon)</li>
           </ul>
           <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.nocito.app"><span class="play-dot"></span> Get Nocito Pro</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- QUOTE — PRICE INTELLIGENCE -->
-  <section class="quote-band section-tight">
-    <div class="container">
-      <div class="quote">"Most expense apps see your totals.<br><strong>Nocito shows you your groceries."</strong></div>
-      <p class="intro-copy">We're building something most apps can't — because they only connect to your bank. Nocito reads your actual receipts, line by line. That means Nocito will soon be able to tell you: €340/month spent on meat, €89/month for coffee, and where you could save €120/year by switching one product at one store.</p>
     </div>
   </section>
 
@@ -680,12 +802,10 @@
     <div class="container">
       <div class="section-head center">
         <div class="kicker amber">Coming next</div>
-        <h2>From expense tracking to real spending intelligence.</h2>
-        <p>These features are planned next, while Nocito already handles receipt capture, organization, privacy controls, budgets, backup and Pro analytics today.</p>
+        <h2>Even more spending intelligence on the way.</h2>
+        <p>These features are planned next, while Nocito already handles receipt capture, line-item detail, Price Intelligence, organization, privacy controls, budgets, backup and Pro analytics today.</p>
       </div>
-      <div class="card-grid six">
-        <article class="card"><div class="icon">📋</div><h3>Line items</h3><p>Track individual products across receipts once line item extraction is released.</p></article>
-        <article class="card"><div class="icon teal">🛒</div><h3>Price Intelligence</h3><p>Find where your regular purchases are cheapest across stores.</p></article>
+      <div class="card-grid four">
         <article class="card"><div class="icon">⚡</div><h3>Super Snap</h3><p>One AI call reads printed and handwritten content together.</p></article>
         <article class="card"><div class="icon teal">💎</div><h3>Lite tier</h3><p>A mid-tier plan for everyday use, between Free and Pro.</p></article>
         <article class="card"><div class="icon">🔁</div><h3>Recurring detection</h3><p>Spot subscriptions and repeating expenses automatically.</p></article>
@@ -760,6 +880,39 @@
 </footer>
 
 <script>
+  // ── Language data (generated per page by build.py) ──
+  var NOCITO_CURRENT_LANG = "en";
+  var NOCITO_LANGS = {"bs": {"url": "https://nocito.app/bs/", "native": "Bosanski", "banner": "Čini se da ti je preglednik postavljen na hrvatski. Prebaci na hrvatsku verziju?", "accept": "Da, prebaci", "dismiss": "Ne, hvala"}, "cs": {"url": "https://nocito.app/cs/", "native": "Čeština", "banner": "Zdá se, že váš prohlížeč je nastaven na češtinu. Přepnout na českou verzi?", "accept": "Ano, přepnout", "dismiss": "Ne, díky"}, "de": {"url": "https://nocito.app/de/", "native": "Deutsch", "banner": "Dein Browser scheint auf Deutsch eingestellt zu sein. Zur deutschen Version wechseln?", "accept": "Ja, wechseln", "dismiss": "Nein danke"}, "en": {"url": "https://nocito.app/", "native": "English", "banner": "Looks like your browser is set to English. Switch to the English version?", "accept": "Yes, switch", "dismiss": "No thanks"}, "es": {"url": "https://nocito.app/es/", "native": "Español", "banner": "Parece que tu navegador está en español. ¿Cambiar a la versión en español?", "accept": "Sí, cambiar", "dismiss": "No, gracias"}, "fr": {"url": "https://nocito.app/fr/", "native": "Français", "banner": "Il semble que votre navigateur soit configuré en français. Passer à la version française ?", "accept": "Oui, changer", "dismiss": "Non merci"}, "hr": {"url": "https://nocito.app/hr/", "native": "Hrvatski", "banner": "Čini se da ti je preglednik postavljen na hrvatski. Prebaci na hrvatsku verziju?", "accept": "Da, prebaci", "dismiss": "Ne, hvala"}, "hu": {"url": "https://nocito.app/hu/", "native": "Magyar", "banner": "Úgy tűnik, a böngésződ magyar nyelvre van állítva. Váltasz a magyar verzióra?", "accept": "Igen, váltás", "dismiss": "Nem, köszönöm"}, "it": {"url": "https://nocito.app/it/", "native": "Italiano", "banner": "Sembra che il tuo browser sia impostato in italiano. Passare alla versione italiana?", "accept": "Sì, cambia", "dismiss": "No grazie"}, "pl": {"url": "https://nocito.app/pl/", "native": "Polski", "banner": "Wygląda na to, że Twoja przeglądarka jest ustawiona na polski. Przełączyć na polską wersję?", "accept": "Tak, przełącz", "dismiss": "Nie, dziękuję"}, "pt": {"url": "https://nocito.app/pt/", "native": "Português", "banner": "Parece que o seu navegador está definido para português. Mudar para a versão em português?", "accept": "Sim, mudar", "dismiss": "Não, obrigado"}, "sr": {"url": "https://nocito.app/sr/", "native": "Srpski", "banner": "Čini se da ti je preglednik postavljen na hrvatski. Prebaci na hrvatsku verziju?", "accept": "Da, prebaci", "dismiss": "Ne, hvala"}};
+
+  // ── Suggest switching language based on browser setting ──
+  (function () {
+    var STORAGE_KEY = 'nocito_lang_choice';
+    try {
+      if (localStorage.getItem(STORAGE_KEY)) return; // person already chose once
+      var browserLang = ((navigator.language || 'en').split('-')[0] || 'en').toLowerCase();
+      if (browserLang === NOCITO_CURRENT_LANG) return; // already on the right page
+      var target = NOCITO_LANGS[browserLang];
+      if (!target) return; // that language isn't available yet
+
+      var banner = document.createElement('div');
+      banner.className = 'lang-banner';
+      banner.innerHTML =
+        '<span>' + target.banner + '</span>' +
+        '<button type="button" class="lang-banner-accept">' + target.accept + '</button>' +
+        '<button type="button" class="lang-banner-dismiss">' + target.dismiss + '</button>';
+      document.body.insertBefore(banner, document.body.firstChild);
+
+      banner.querySelector('.lang-banner-accept').addEventListener('click', function () {
+        try { localStorage.setItem(STORAGE_KEY, browserLang); } catch (e) {}
+        window.location.href = target.url;
+      });
+      banner.querySelector('.lang-banner-dismiss').addEventListener('click', function () {
+        try { localStorage.setItem(STORAGE_KEY, NOCITO_CURRENT_LANG); } catch (e) {}
+        banner.remove();
+      });
+    } catch (e) { /* localStorage unavailable — fail silently, no banner */ }
+  })();
+
   document.querySelectorAll('.app-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       const target = tab.dataset.target;
