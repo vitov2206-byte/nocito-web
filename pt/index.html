@@ -378,37 +378,35 @@
     /* .screen now sizes via aspect-ratio, no fixed height needed */
     .card-grid, .card-grid.two, .card-grid.four, .card-grid.six { grid-template-columns: repeat(2,1fr); }
     .nav-links a:not(.nav-cta) { display: none; }
-    .lang-menu { right: -10px; max-width: calc(100vw - 32px); }
   }
 
-  /* ── LANGUAGE SWITCHER ── */
-  .lang-switcher { position: relative; list-style: none; }
-  .lang-switcher summary {
-    cursor: pointer; list-style: none; display: flex; align-items: center; gap: 5px;
-    padding: 7px 12px; border-radius: 999px;
+  /* ── LANGUAGE SWITCHER (native <select>, reliable on every browser/device) ── */
+  .lang-switcher {
+    position: relative; display: inline-flex; align-items: center;
+    padding: 7px 30px 7px 12px; border-radius: 999px;
     background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+    transition: background .18s ease;
+  }
+  .lang-switcher:hover { background: rgba(255,255,255,.1); }
+  .lang-switcher-icon { font-size: .9rem; margin-right: 6px; pointer-events: none; }
+  .lang-switcher::after {
+    content: "▾"; position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+    font-size: .65em; color: var(--muted); pointer-events: none;
+  }
+  .lang-switcher select {
+    -webkit-appearance: none; -moz-appearance: none; appearance: none;
+    background: transparent; border: none; outline: none;
     color: var(--text); font-size: .85rem; font-weight: 700; font-family: var(--font-body);
-    white-space: nowrap; transition: background .18s ease;
+    cursor: pointer; white-space: nowrap;
+    /* govori pregledniku/OS-u da nativni padajući izbornik crta u tamnoj shemi */
+    color-scheme: dark;
   }
-  .lang-switcher summary:hover { background: rgba(255,255,255,.1); }
-  .lang-switcher summary::-webkit-details-marker { display: none; }
-  .lang-switcher summary::after { content: "▾"; color: var(--muted); font-size: .65em; font-weight: 400; opacity: .7; margin-left: 1px; }
-  .lang-switcher[open] summary::after { content: "▴"; }
-  .lang-menu {
-    position: absolute; top: calc(100% + 10px); right: 0; z-index: 30;
-    background: var(--panel); border: 1px solid rgba(255,255,255,.12); border-radius: 14px;
-    padding: 8px; min-width: 190px; max-height: 340px; overflow-y: auto;
-    box-shadow: var(--shadow);
-    display: grid; gap: 2px;
+  /* Nativni dropdown na Androidu/iOS-u crta OS, izvan CSS konteksta stranice —
+     CSS varijable se tamo ne primjenjuju, pa boje moraju biti eksplicitni hex. */
+  .lang-switcher select option {
+    background-color: #1E3158;
+    color: #F5EDD6;
   }
-  .lang-menu a {
-    display: flex; align-items: center; gap: 9px;
-    padding: 9px 11px; border-radius: 9px;
-    color: var(--muted); font-size: .88rem; font-weight: 500;
-    transition: background .15s ease, color .15s ease;
-  }
-  .lang-menu a:hover { background: rgba(255,255,255,.07); color: var(--text); }
-  .lang-menu a.active { color: var(--amber); font-weight: 700; background: rgba(245,166,35,.08); }
 
   /* ── LANGUAGE SUGGESTION BANNER ── */
   .lang-banner {
@@ -457,23 +455,23 @@
       <a href="#insights">Análises</a>
       <a href="#pricing">Preços</a>
       <a href="#faq">Perguntas</a>
-      <details class="lang-switcher">
-        <summary>🌐 PT</summary>
-        <div class="lang-menu">
-          <a href="https://nocito.app/bs/" hreflang="bs">Bosanski</a>
-          <a href="https://nocito.app/cs/" hreflang="cs">Čeština</a>
-          <a href="https://nocito.app/de/" hreflang="de">Deutsch</a>
-          <a href="https://nocito.app/" hreflang="en">English</a>
-          <a href="https://nocito.app/es/" hreflang="es">Español</a>
-          <a href="https://nocito.app/fr/" hreflang="fr">Français</a>
-          <a href="https://nocito.app/hr/" hreflang="hr">Hrvatski</a>
-          <a href="https://nocito.app/hu/" hreflang="hu">Magyar</a>
-          <a href="https://nocito.app/it/" hreflang="it">Italiano</a>
-          <a href="https://nocito.app/pl/" hreflang="pl">Polski</a>
-          <a href="https://nocito.app/pt/" hreflang="pt" class="active">Português</a>
-          <a href="https://nocito.app/sr/" hreflang="sr">Srpski</a>
-        </div>
-      </details>
+      <div class="lang-switcher">
+        <span class="lang-switcher-icon" aria-hidden="true">🌐</span>
+        <select onchange="if(this.value) window.location.href=this.value;" aria-label="Language / Jezik">
+          <option value="https://nocito.app/bs/">Bosanski</option>
+          <option value="https://nocito.app/cs/">Čeština</option>
+          <option value="https://nocito.app/de/">Deutsch</option>
+          <option value="https://nocito.app/">English</option>
+          <option value="https://nocito.app/es/">Español</option>
+          <option value="https://nocito.app/fr/">Français</option>
+          <option value="https://nocito.app/hr/">Hrvatski</option>
+          <option value="https://nocito.app/hu/">Magyar</option>
+          <option value="https://nocito.app/it/">Italiano</option>
+          <option value="https://nocito.app/pl/">Polski</option>
+          <option value="https://nocito.app/pt/" selected>Português</option>
+          <option value="https://nocito.app/sr/">Srpski</option>
+        </select>
+      </div>
       <a class="btn btn-primary nav-cta" href="https://play.google.com/store/apps/details?id=com.nocito.app">Obter a app</a>
     </nav>
   </div>
@@ -823,27 +821,27 @@
         <p>A Nocito é feita primeiro para Android, focada na privacidade e concebida para funcionar sem obrigar a sincronização bancária ou conta na nuvem.</p>
       </div>
       <div class="faq">
-        <details class="faq-item" open>
+        <details open>
           <summary>Posso usar a Nocito offline?</summary>
           <p>Sim. Pode registar despesas offline e serão processadas automaticamente assim que voltar a estar online — ou ative a IA local para um acompanhamento 100% privado, totalmente no dispositivo.</p>
         </details>
-        <details class="faq-item">
+        <details>
           <summary>Preciso de uma conta?</summary>
           <p>Não. A Nocito funciona sem criar conta, em qualquer nível.</p>
         </details>
-        <details class="faq-item">
+        <details>
           <summary>Preciso de ligar o meu banco?</summary>
           <p>Não. A Nocito não usa sincronização bancária. Funciona com recibos, PDFs, notas de voz e entradas manuais.</p>
         </details>
-        <details class="faq-item">
+        <details>
           <summary>Onde são guardados os meus recibos?</summary>
           <p>As imagens originais, PDFs e ficheiros de áudio são guardados de forma privada no seu telemóvel — em nenhum servidor.</p>
         </details>
-        <details class="faq-item">
+        <details>
           <summary>Que idiomas e formatos são suportados?</summary>
           <p>A Nocito suporta 12 idiomas, todas as moedas mundiais, e formatos de data e número europeus e norte-americanos.</p>
         </details>
-        <details class="faq-item">
+        <details>
           <summary>A Nocito está disponível no iPhone?</summary>
           <p>Ainda não. A Nocito está disponível agora para Android, com iOS planeado para mais tarde.</p>
         </details>
