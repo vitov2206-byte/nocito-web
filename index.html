@@ -380,33 +380,35 @@
     .nav-links a:not(.nav-cta) { display: none; }
   }
 
-  /* ── LANGUAGE SWITCHER (native <select>, reliable on every browser/device) ── */
-  .lang-switcher {
-    position: relative; display: inline-flex; align-items: center;
-    padding: 7px 30px 7px 12px; border-radius: 999px;
+  /* ── LANGUAGE SWITCHER (vlastiti dropdown — identično ponašanje na svim uređajima) ── */
+  .lang-switcher { position: relative; display: inline-block; }
+  .lang-trigger {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 12px; border-radius: 999px;
     background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-    transition: background .18s ease;
+    color: #F5EDD6; font-size: .85rem; font-weight: 700; font-family: var(--font-body);
+    cursor: pointer; white-space: nowrap; transition: background .18s ease;
   }
-  .lang-switcher:hover { background: rgba(255,255,255,.1); }
-  .lang-switcher-icon { font-size: .9rem; margin-right: 6px; pointer-events: none; }
-  .lang-switcher::after {
-    content: "▾"; position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
-    font-size: .65em; color: var(--muted); pointer-events: none;
+  .lang-trigger:hover { background: rgba(255,255,255,.1); }
+  .lang-switcher-icon { font-size: .9rem; }
+  .lang-caret { font-size: .65em; color: #8899AA; transition: transform .18s ease; }
+  .lang-switcher.open .lang-caret { transform: rotate(180deg); }
+
+  .lang-menu {
+    display: none;
+    position: absolute; top: calc(100% + 8px); right: 0; z-index: 200;
+    background: #1E3158; border: 1px solid rgba(255,255,255,.14); border-radius: 14px;
+    padding: 6px; min-width: 180px; max-height: 320px; overflow-y: auto;
+    box-shadow: 0 18px 40px rgba(0,0,0,.45);
   }
-  .lang-switcher select {
-    -webkit-appearance: none; -moz-appearance: none; appearance: none;
-    background: transparent; border: none; outline: none;
-    color: var(--text); font-size: .85rem; font-weight: 700; font-family: var(--font-body);
-    cursor: pointer; white-space: nowrap;
-    /* govori pregledniku/OS-u da nativni padajući izbornik crta u tamnoj shemi */
-    color-scheme: dark;
+  .lang-switcher.open .lang-menu { display: block; }
+  .lang-menu a {
+    display: block; padding: 10px 13px; border-radius: 9px;
+    color: #C4D0DE; font-size: .88rem; font-weight: 500; text-decoration: none;
+    white-space: nowrap; transition: background .15s ease, color .15s ease;
   }
-  /* Nativni dropdown na Androidu/iOS-u crta OS, izvan CSS konteksta stranice —
-     CSS varijable se tamo ne primjenjuju, pa boje moraju biti eksplicitni hex. */
-  .lang-switcher select option {
-    background-color: #1E3158;
-    color: #F5EDD6;
-  }
+  .lang-menu a:hover { background: rgba(255,255,255,.08); color: #F5EDD6; }
+  .lang-menu a.active { color: #F5A623; font-weight: 700; background: rgba(245,166,35,.1); }
 
   /* ── LANGUAGE SUGGESTION BANNER ── */
   .lang-banner {
@@ -455,22 +457,26 @@
       <a href="#insights">Insights</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-      <div class="lang-switcher">
-        <span class="lang-switcher-icon" aria-hidden="true">🌐</span>
-        <select onchange="if(this.value) window.location.href=this.value;" aria-label="Language / Jezik">
-          <option value="https://nocito.app/bs/">Bosanski</option>
-          <option value="https://nocito.app/cs/">Čeština</option>
-          <option value="https://nocito.app/de/">Deutsch</option>
-          <option value="https://nocito.app/" selected>English</option>
-          <option value="https://nocito.app/es/">Español</option>
-          <option value="https://nocito.app/fr/">Français</option>
-          <option value="https://nocito.app/hr/">Hrvatski</option>
-          <option value="https://nocito.app/hu/">Magyar</option>
-          <option value="https://nocito.app/it/">Italiano</option>
-          <option value="https://nocito.app/pl/">Polski</option>
-          <option value="https://nocito.app/pt/">Português</option>
-          <option value="https://nocito.app/sr/">Srpski</option>
-        </select>
+      <div class="lang-switcher" id="langSwitcher">
+        <button type="button" class="lang-trigger" id="langTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Language / Jezik">
+          <span class="lang-switcher-icon" aria-hidden="true">🌐</span>
+          <span class="lang-current">EN</span>
+          <span class="lang-caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang-menu" id="langMenu" role="menu">
+          <a href="https://nocito.app/bs/" hreflang="bs" role="menuitem">Bosanski</a>
+          <a href="https://nocito.app/cs/" hreflang="cs" role="menuitem">Čeština</a>
+          <a href="https://nocito.app/de/" hreflang="de" role="menuitem">Deutsch</a>
+          <a href="https://nocito.app/" hreflang="en" role="menuitem" class="active">English</a>
+          <a href="https://nocito.app/es/" hreflang="es" role="menuitem">Español</a>
+          <a href="https://nocito.app/fr/" hreflang="fr" role="menuitem">Français</a>
+          <a href="https://nocito.app/hr/" hreflang="hr" role="menuitem">Hrvatski</a>
+          <a href="https://nocito.app/hu/" hreflang="hu" role="menuitem">Magyar</a>
+          <a href="https://nocito.app/it/" hreflang="it" role="menuitem">Italiano</a>
+          <a href="https://nocito.app/pl/" hreflang="pl" role="menuitem">Polski</a>
+          <a href="https://nocito.app/pt/" hreflang="pt" role="menuitem">Português</a>
+          <a href="https://nocito.app/sr/" hreflang="sr" role="menuitem">Srpski</a>
+        </div>
       </div>
       <a class="btn btn-primary nav-cta" href="https://play.google.com/store/apps/details?id=com.nocito.app">Get the app</a>
     </nav>
@@ -878,6 +884,36 @@
 </footer>
 
 <script>
+  // ── Language switcher: otvaranje/zatvaranje ──
+  (function () {
+    var wrap = document.getElementById('langSwitcher');
+    var trigger = document.getElementById('langTrigger');
+    if (!wrap || !trigger) return;
+
+    function close() {
+      wrap.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = wrap.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // klik bilo gdje izvan izbornika ga zatvara
+    document.addEventListener('click', function (e) {
+      if (!wrap.contains(e.target)) close();
+    });
+
+    // Escape tipka zatvara izbornik
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+
+    // scroll zatvara izbornik (izbjegava da "visi" odvojen od gumba)
+    window.addEventListener('scroll', close, { passive: true });
+  })();
   // ── Language data (generated per page by build.py) ──
   var NOCITO_CURRENT_LANG = "en";
   var NOCITO_LANGS = {"bs": {"url": "https://nocito.app/bs/", "native": "Bosanski", "banner": "Čini se da ti je preglednik postavljen na hrvatski. Prebaci na hrvatsku verziju?", "accept": "Da, prebaci", "dismiss": "Ne, hvala"}, "cs": {"url": "https://nocito.app/cs/", "native": "Čeština", "banner": "Zdá se, že váš prohlížeč je nastaven na češtinu. Přepnout na českou verzi?", "accept": "Ano, přepnout", "dismiss": "Ne, díky"}, "de": {"url": "https://nocito.app/de/", "native": "Deutsch", "banner": "Dein Browser scheint auf Deutsch eingestellt zu sein. Zur deutschen Version wechseln?", "accept": "Ja, wechseln", "dismiss": "Nein danke"}, "en": {"url": "https://nocito.app/", "native": "English", "banner": "Looks like your browser is set to English. Switch to the English version?", "accept": "Yes, switch", "dismiss": "No thanks"}, "es": {"url": "https://nocito.app/es/", "native": "Español", "banner": "Parece que tu navegador está en español. ¿Cambiar a la versión en español?", "accept": "Sí, cambiar", "dismiss": "No, gracias"}, "fr": {"url": "https://nocito.app/fr/", "native": "Français", "banner": "Il semble que votre navigateur soit configuré en français. Passer à la version française ?", "accept": "Oui, changer", "dismiss": "Non merci"}, "hr": {"url": "https://nocito.app/hr/", "native": "Hrvatski", "banner": "Čini se da ti je preglednik postavljen na hrvatski. Prebaci na hrvatsku verziju?", "accept": "Da, prebaci", "dismiss": "Ne, hvala"}, "hu": {"url": "https://nocito.app/hu/", "native": "Magyar", "banner": "Úgy tűnik, a böngésződ magyar nyelvre van állítva. Váltasz a magyar verzióra?", "accept": "Igen, váltás", "dismiss": "Nem, köszönöm"}, "it": {"url": "https://nocito.app/it/", "native": "Italiano", "banner": "Sembra che il tuo browser sia impostato in italiano. Passare alla versione italiana?", "accept": "Sì, cambia", "dismiss": "No grazie"}, "pl": {"url": "https://nocito.app/pl/", "native": "Polski", "banner": "Wygląda na to, że Twoja przeglądarka jest ustawiona na polski. Przełączyć na polską wersję?", "accept": "Tak, przełącz", "dismiss": "Nie, dziękuję"}, "pt": {"url": "https://nocito.app/pt/", "native": "Português", "banner": "Parece que o seu navegador está definido para português. Mudar para a versão em português?", "accept": "Sim, mudar", "dismiss": "Não, obrigado"}, "sr": {"url": "https://nocito.app/sr/", "native": "Srpski", "banner": "Čini se da ti je preglednik postavljen na hrvatski. Prebaci na hrvatsku verziju?", "accept": "Da, prebaci", "dismiss": "Ne, hvala"}};
