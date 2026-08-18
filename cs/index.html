@@ -55,7 +55,8 @@
   }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body { overflow-x: hidden; }
   body {
     margin: 0;
     font-family: var(--font-body);
@@ -430,7 +431,9 @@
   }
   @media (max-width: 640px) {
     .container { width: min(100% - 28px, var(--container)); }
-    .nav-inner { min-height: 64px; }
+    .nav-inner { min-height: 64px; gap: 10px; }
+    .nav-cta { padding: 0 14px; min-height: 40px; font-size: .8rem; }
+    .brand-name { font-size: 1rem; }
     .section { padding: 60px 0; }
     .hero { padding: 40px 0 48px; }
     h1 { font-size: clamp(2.6rem, 13vw, 3.6rem); }
