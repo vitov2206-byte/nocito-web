@@ -221,12 +221,434 @@
   <url>
     <loc>https://nocito.app/privacy.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/privacy.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/hr/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/privacy.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/de/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/privacy.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/bs/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/privacy.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/sr/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/privacy.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/cs/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/privacy.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/hu/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/privacy.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/pl/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/privacy.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/es/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/privacy.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/fr/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/privacy.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/it/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/privacy.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/pt/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/privacy.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/privacy.html" />
   </url>
   <url>
     <loc>https://nocito.app/terms.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/terms.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/terms.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/terms.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/hr/terms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/terms.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/terms.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/terms.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/de/terms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/terms.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/terms.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/terms.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/bs/terms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/terms.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/terms.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/terms.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/sr/terms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/terms.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/terms.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/terms.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/cs/terms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/terms.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/terms.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/terms.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/hu/terms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/terms.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/terms.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/terms.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/pl/terms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/terms.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/terms.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/terms.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/es/terms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/terms.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/terms.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/terms.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/fr/terms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/terms.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/terms.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/terms.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/it/terms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/terms.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/terms.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/terms.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
+  </url>
+  <url>
+    <loc>https://nocito.app/pt/terms.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/terms.html" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/terms.html" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/terms.html" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/terms.html" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/terms.html" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/terms.html" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
   </url>
 
 </urlset>

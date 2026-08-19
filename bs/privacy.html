@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politika privatnosti — Nocito™</title>
+  <meta name="description" content="Politika privatnosti aplikacije Nocito. Tvoji podaci o troškovima ostaju na tvom telefonu.">
+  <link rel="canonical" href="https://nocito.app/bs/privacy.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#1B2A4A; --amber:#F5A623; --teal:#2A9D8F; --cream:#F5EDD6; --card:#243550; --slate:#8899AA; --dark:#0F1B2D; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.75;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(15,27,45,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-icon{width:32px;height:32px;border-radius:8px;overflow:hidden;flex-shrink:0;}
+    .nav-icon img{width:100%;height:100%;object-fit:cover;display:block;}
+    .nav-name{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--cream);letter-spacing:-0.02em;}
+    .nav-name span{color:var(--amber);}
+    .nav-name sup{font-size:10px;color:var(--slate);font-weight:400;vertical-align:super;}
+    nav a.back{font-size:13px;color:var(--slate);text-decoration:none;transition:color 0.2s;}
+    nav a.back:hover{color:var(--cream);}
+    .hero{background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.06);padding:64px 24px 48px;text-align:center;}
+    .hero-badge{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(42,157,143,0.3);border-radius:100px;padding:4px 14px;margin-bottom:20px;}
+    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:var(--cream);letter-spacing:-0.02em;margin-bottom:12px;}
+    .hero p{font-size:16px;color:var(--slate);max-width:500px;margin:0 auto 24px;}
+    .hero-meta{font-size:13px;color:#4A6080;}
+    .privacy-highlight{max-width:760px;margin:40px auto;padding:0 24px;}
+    .highlight-box{background:rgba(42,157,143,0.08);border:1px solid rgba(42,157,143,0.25);border-radius:12px;padding:24px 28px;display:flex;gap:16px;align-items:flex-start;}
+    .highlight-icon{font-size:24px;flex-shrink:0;margin-top:2px;}
+    .highlight-box h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--teal);margin-bottom:6px;}
+    .highlight-box p{font-size:14px;color:var(--slate);line-height:1.65;}
+    .content{max-width:760px;margin:0 auto;padding:0 24px 80px;}
+    .section{margin-bottom:48px;}
+    .section h2{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:var(--cream);letter-spacing:-0.01em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .section h3{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--amber);margin:24px 0 8px;}
+    .section p{font-size:15px;color:#B8C8D8;margin-bottom:14px;line-height:1.75;}
+    .section ul{list-style:none;margin-bottom:14px;}
+    .section ul li{font-size:15px;color:#B8C8D8;padding:4px 0 4px 20px;position:relative;line-height:1.65;}
+    .section ul li::before{content:'';position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--teal);opacity:0.7;}
+    .data-table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:14px;}
+    .data-table th{background:var(--navy);color:var(--cream);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;text-align:left;border:1px solid rgba(255,255,255,0.08);}
+    .data-table td{padding:10px 14px;color:#B8C8D8;border:1px solid rgba(255,255,255,0.06);vertical-align:top;line-height:1.5;}
+    .data-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
+    .tag{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:4px;letter-spacing:0.06em;}
+    .tag-local{background:rgba(42,157,143,0.15);color:var(--teal);}
+    .tag-cloud{background:rgba(245,166,35,0.15);color:var(--amber);}
+    .warning-box{background:rgba(245,166,35,0.07);border:1px solid rgba(245,166,35,0.2);border-radius:10px;padding:16px 20px;margin:16px 0;}
+    .warning-box p{font-size:14px;color:#C8A060;margin:0;}
+    .warning-box strong{color:var(--amber);}
+    a{color:var(--teal);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    strong{color:var(--cream);font-weight:500;}
+    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:32px 24px;text-align:center;}
+    footer p{font-size:13px;color:var(--slate);margin-bottom:6px;}
+    footer a{color:var(--teal);font-size:13px;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://nocito.app/bs/" class="nav-logo">
+    <div class="nav-icon"><img src="/icon.png" alt="Nocito icon"></div>
+    <div class="nav-name">No<span>c</span>ito<sup>™</sup></div>
+  </a>
+  <a href="https://nocito.app/bs/" class="back">← Natrag na početnu</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">Pravno</div>
+  <h1>Politika privatnosti</h1>
+  <p>Kako Nocito™ postupa s tvojim podacima — i zašto većina njih nikad ne napušta tvoj telefon.</p>
+  <div class="hero-meta">Datum stupanja na snagu: 1. juna 2025. &nbsp;·&nbsp; Zadnje ažurirano: maj 2026. (izdanje v1.0)</div>
+</div>
+
+<div class="privacy-highlight">
+  <div class="highlight-box">
+    <div class="highlight-icon">🔒</div>
+    <div>
+      <h3>Kratka verzija</h3>
+      <p>Nocito™ pohranjuje sve tvoje troškove, račune, slike i audio zapise <strong>lokalno na tvom uređaju</strong>. Nemamo server s tvojim podacima. Prema zadanim postavkama, pročišćeni OCR tekst se šalje cloud AI servisu radi obrade troška, a glasovno diktiranje koristi cloud transkripciju. Možeš prijeći na potpunu obradu na uređaju i transkripciju uključivanjem lokalnih modela u Postavkama — to zahtijeva jednokratno preuzimanje unutar aplikacije. Uvoz PDF-a prema zadanim postavkama izvlači tekst lokalno; slanje cijelog PDF-a u cloud je opcionalna postavka koju sam uključuješ. Aplikacija koristi Sentry za anonimno prijavljivanje padova. Sve je otkriveno u ovim pravilima.</p>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<div class="section">
+    <h2>1. Tko smo mi</h2>
+    <p>Nocito™ je mobilna aplikacija za osobno praćenje troškova koju razvija i objavljuje <strong>Nocito™</strong> ("mi", "nas", "naš"). Aplikacija je dostupna na Androidu putem Google Playa.</p>
+    <p>Možeš nas kontaktirati na: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  </div>
+<div class="section">
+    <h2>2. Koje podatke prikupljamo i kako</h2>
+    <p>Nocito™ je osmišljen na temeljima arhitekture koja privatnost stavlja na prvo mjesto. Velika većina podataka nikad ne napušta tvoj uređaj.</p>
+
+    <h3>Podaci koji se pohranjuju isključivo lokalno na tvom uređaju</h3>
+    <table class="data-table">
+      <tr><th>Vrsta podatka</th><th>Gdje se pohranjuje</th><th>Svrha</th></tr>
+      <tr><td>Zapisi o troškovima (iznos, trgovina, datum, kategorija, bilješka)</td><td><span class="tag tag-local">Lokalni SQLite</span></td><td>Osnovna funkcionalnost aplikacije</td></tr>
+      <tr><td>Slike računa (fotografije, screenshotovi)</td><td><span class="tag tag-local">Lokalna pohrana</span></td><td>Referenca i pregled</td></tr>
+      <tr><td>Audio zapisi (glasovno diktiranje)</td><td><span class="tag tag-local">Lokalna pohrana</span></td><td>Referenca i reprodukcija</td></tr>
+      <tr><td>Postavke i preferencije aplikacije</td><td><span class="tag tag-local">Lokalna pohrana</span></td><td>Konfiguracija aplikacije</td></tr>
+      <tr><td>Vremenska oznaka pristanka pri uvodnom postavljanju</td><td><span class="tag tag-local">Lokalna pohrana</span></td><td>Zapis o pristanku</td></tr>
+    </table>
+
+    <h3>Podaci koji se šalju vanjskim servisima</h3>
+    <table class="data-table">
+      <tr><th>Vrsta podatka</th><th>Servis</th><th>Svrha</th><th>Kada</th></tr>
+      <tr>
+        <td>Pročišćeni OCR tekst (tekst računa bez osobnih podataka)</td>
+        <td><span class="tag tag-cloud">Cloud AI servis</span></td>
+        <td>AI kategorizacija troška</td>
+        <td>Svako snimanje i uvoz fotografije kad je Cloud AI obrada uključena (zadano: UKLJUČENO)</td>
+      </tr>
+      <tr>
+        <td>Lokalno izvučen OCR tekst iz PDF-a</td>
+        <td><span class="tag tag-cloud">Cloud AI servis</span></td>
+        <td>AI obrada PDF računa</td>
+        <td>Uvoz PDF-a kad je Cloud PDF ekstrakcija isključena (zadano: ISKLJUČENO — samo lokalno)</td>
+      </tr>
+      <tr>
+        <td>Cijeli PDF dokument</td>
+        <td><span class="tag tag-cloud">Cloud AI servis</span></td>
+        <td>Točnija PDF obrada</td>
+        <td>Samo kad je uključena postavka Cloud PDF ekstrakcije u Postavkama (opcionalno)</td>
+      </tr>
+      <tr>
+        <td>Audio zapis</td>
+        <td><span class="tag tag-cloud">Cloud AI servis</span></td>
+        <td>Transkripcija govora u tekst</td>
+        <td>Zadano za glasovno diktiranje. Može se zamijeniti lokalnom transkripcijom na uređaju uključivanjem postavke Lokalna transkripcija i preuzimanjem lokalnog modela.</td>
+      </tr>
+      <tr>
+        <td>Lokalno transkribiran tekst</td>
+        <td><span class="tag tag-cloud">Cloud AI servis</span></td>
+        <td>Obrada troška iz glasovnog unosa</td>
+        <td>Kad je Lokalna transkripcija aktivna i Cloud AI obrada uključena. Isključi Cloud AI obradu da sve ostane potpuno na uređaju.</td>
+      </tr>
+      <tr>
+        <td>Anonimni podaci o padu aplikacije (stack traces, podaci o uređaju, verzija aplikacije)</td>
+        <td><span class="tag tag-cloud">Sentry</span></td>
+        <td>Prijava padova i praćenje stabilnosti</td>
+        <td>Automatski kod pada aplikacije — bez osobnih podataka</td>
+      </tr>
+    </table>
+
+    <div class="warning-box">
+      <p><strong>Napomena o filteru privatnosti:</strong> Prije nego se ikakav OCR tekst pošalje cloud AI servisu, tvoj telefon automatski uklanja osobne podatke — imena, adrese, OIB i slične identifikacijske brojeve, telefonske brojeve i email adrese. Šalju se samo iznosi, datumi, nazivi trgovina i naziva proizvoda. Napomena: <strong>Cloud PDF ekstrakcija</strong> (opcionalno) šalje cijeli PDF bez prethodnog filtriranja, a <strong>Cloud transkripcija</strong> (zadano) šalje sirov audio zapis bez prethodnog filtriranja — filter se primjenjuje samo na transkribirani tekst prije nego stigne do AI obrade. Jedina 100% zajamčeno privatna opcija je uključivanje Lokalne AI obrade, Lokalne transkripcije i isključivanje Cloud PDF ekstrakcije — u toj konfiguraciji nijedan podatak ne odlazi vanjskim servisima.</p>
+    </div>
+
+    <h3>Podatke koje nikad ne prikupljamo</h3>
+    <ul>
+      <li>Ne prikupljamo tvoje ime, email adresu niti bilo kakve podatke o računu (računa ni nema)</li>
+      <li>Ne prikupljamo analitiku ni statistiku korištenja</li>
+      <li>Ne koristimo oglašivačke SDK-ove ni piksele za praćenje</li>
+      <li>Ne sinkroniziramo tvoje podatke o troškovima ni na jedan server</li>
+      <li>Ne prodajemo tvoje podatke nikome</li>
+    </ul>
+  </div>
+<div class="section">
+    <h2>3. Filter privatnosti — lokalno pročišćavanje podataka</h2>
+    <p>Za snimke i uvoze fotografija, Nocito™ pokreće lokalni proces pročišćavanja na tvom uređaju prije slanja bilo kakvog teksta AI-ju. Taj proces uklanja:</p>
+    <ul>
+      <li>Osobna imena (obrasce imena i prezimena)</li>
+      <li>Fizičke adrese (ulica, kućni broj, poštanski broj, grad)</li>
+      <li>Nacionalne identifikacijske brojeve (npr. OIB, osobne identifikacijske brojeve)</li>
+      <li>Telefonske brojeve i email adrese</li>
+    </ul>
+    <p>Što zadržava: iznose, cijene, datume, vremena, nazive trgovina i kompaniji, nazive proizvoda, kategorije i OIB kompanije.</p>
+    <p>Ovaj proces se u potpunosti odvija na tvom uređaju prije nego se uspostavi bilo kakva mrežna veza. Napomena: filter se primjenjuje na OCR tekst iz snimki i uvoza fotografija. Ne primjenjuje se kad je uključena Cloud PDF ekstrakcija (cijeli PDF se šalje u cloud) niti na sirov audio tijekom Cloud transkripcije (audio se šalje u cloud prije bilo kakvog izvlačenja teksta).</p>
+  </div>
+<div class="section">
+    <h2>4. Glasovno diktiranje</h2>
+    <p>Nocito™ podržava dva načina glasovnog diktiranja. Cloud transkripcija je zadano aktivna nakon svježe instalacije. Lokalna transkripcija dostupna je kao opcija koja zahtijeva jednokratno preuzimanje modela.</p>
+
+    <h3>Cloud transkripcija (zadano)</h3>
+    <p>Nakon svježe instalacije, dodirom na gumb za diktiranje snima se audio i šalje cloud AI servisu na transkripciju. Transkribirani tekst se zatim obrađuje kroz filter privatnosti (poglavlje 3) i šalje cloud AI servisu na obradu troška.</p>
+
+    <h3>Lokalna transkripcija (opcionalno)</h3>
+    <p>Možeš prijeći na potpunu transkripciju na uređaju u Postavkama uključivanjem postavke <strong>Lokalna transkripcija</strong> i preuzimanjem jednog od dva dostupna lokalna Whisper modela. Gumb za preuzimanje dostupan je izravno na ekranu za diktiranje, kao i u Postavkama. Nakon postavljanja:</p>
+    <ul>
+      <li><strong>Dodir za snimanje</strong> — koristi lokalnu transkripciju na uređaju. Nijedan audio zapis ne napušta tvoj telefon.</li>
+      <li><strong>Pridrži 1 sekundu za snimanje</strong> — aktivira Super Dictate (cloud transkripciju) za veću tačnost kad je potrebna.</li>
+    </ul>
+    <p>Uz aktivnu lokalnu transkripciju, transkribirani tekst se i dalje zadano šalje cloud AI servisu na obradu troška — osim ako uključiš i <strong>Lokalnu AI obradu</strong> (vidi poglavlje 4c).</p>
+
+    <div class="warning-box">
+      <p><strong>100% privatno diktiranje:</strong> da osiguraš da nijedan glasovni ili tekstualni podatak ne napusti tvoj uređaj, uključi i Lokalnu transkripciju i Lokalnu AI obradu u Postavkama. Oboje zahtijeva jednokratno preuzimanje modela. Ovo se preporučuje korisnicima kojima je privatnost važnija od maksimalne tačnosti, a imaju dovoljno brz uređaj.</p>
+    </div>
+
+    <h3 id="pdf">4b. Uvoz PDF-a</h3>
+    <p>Nocito™ prema zadanim postavkama obrađuje PDF račune lokalno. Aplikacija koristi OCR na uređaju (ML Kit) za izvlačenje teksta iz PDF-a, primjenjuje filter privatnosti i šalje samo pročišćeni tekst cloud AI servisu na obradu troška.</p>
+    <p>U Postavkama je dostupna opcionalna postavka <strong>Cloud PDF ekstrakcija</strong>. Kad je uključena, cijeli PDF dokument se šalje izravno cloud AI servisu radi tačnije obrade. Ova postavka je opcionalna i zadano isključena.</p>
+    <p>Da PDF obrada ostane 100% na uređaju, drži Cloud PDF ekstrakciju isključenom i uključi Lokalnu AI obradu u Postavkama (zahtijeva preuzimanje modela).</p>
+    <div class="warning-box">
+      <p><strong>Kad je Cloud PDF ekstrakcija uključena:</strong> cijeli PDF dokument se šalje vanjskom servisu bez lokalnog filtriranja. Preporučujemo da ovo držiš isključenim osim ako trebaš veću tačnost kod složenih PDF-ova, i izbjegavaj koristiti je s PDF-ovima koji sadrže osjetljive osobne podatke.</p>
+    </div>
+  </div>
+<div class="section">
+    <h2>4c. Postavke razine privatnosti</h2>
+    <p>Nocito™ ti daje izravnu kontrolu nad time koja se obrada odvija lokalno, a koja koristi cloud servise. Ove postavke dostupne su na ekranu Postavki aplikacije:</p>
+    <table class="data-table">
+      <tr><th>Prekidač u aplikaciji</th><th>Zadano</th><th>Što kontrolira</th></tr>
+      <tr>
+        <td><strong>Cloud AI obrada</strong></td>
+        <td>UKLJUČENO</td>
+        <td>Kad je UKLJUČENO, pročišćeni OCR tekst se šalje cloud AI servisu radi kategorizacije troška (zadano). Isključi i preuzmi lokalni AI model za potpunu obradu troška na uređaju. Preuzimanje dostupno u Postavkama.</td>
+      </tr>
+      <tr>
+        <td><strong>Cloud transkripcija</strong></td>
+        <td>UKLJUČENO</td>
+        <td>Kad je UKLJUČENO, glasovno diktiranje šalje audio cloud AI servisu na transkripciju (zadano). Isključi i preuzmi lokalni Whisper model za transkripciju audia u potpunosti na uređaju. Preuzimanje dostupno na ekranu za diktiranje i u Postavkama. Nakon što je lokalni model preuzet i prekidač ISKLJUČEN: dodir = lokalna transkripcija, pridrži 1s = cloud (Super Dictate).</td>
+      </tr>
+      <tr>
+        <td><strong>Cloud PDF ekstrakcija</strong></td>
+        <td>ISKLJUČENO</td>
+        <td>Kad je ISKLJUČENO, tekst PDF-a se izvlači lokalno putem OCR-a i samo se pročišćeni rezultat šalje AI-ju (zadano). Uključi da pošalješ cijeli PDF dokument cloud servisu radi tačnije obrade.</td>
+      </tr>
+    </table>
+    <p>Promjena ovih postavki stupa na snagu odmah. Tvoji postojeći troškovi nisu pogođeni.</p>
+  </div>
+<div class="section">
+    <h2>5. Super Snap (budući) i Super Dictate (Pro)</h2>
+    <p>Buduće Pro verzije Nocito™-a uključivat će Super Snap — premium značajku koja šalje cijele slike računa izravno AI Vision servisu radi tačnije obrade, zaobilazeći standardni OCR i filter privatnosti.</p>
+    <p>Super Dictate, koji šalje audio OpenAI Whisper API-ju radi tačnije transkripcije, dostupan je u trenutnoj verziji kao opcija unutar Pro razine.</p>
+    <div class="warning-box">
+      <p><strong>Kad koristiš Super Snap ili Super Dictate:</strong> cijela tvoja slika ili audio zapis šalje se vanjskom AI servisu. Uvijek ćeš biti zamoljen za potvrdu prije bilo kakvog takvog slanja. Izbjegavaj koristiti ove značajke s dokumentima koji sadrže osjetljive osobne podatke.</p>
+    </div>
+  </div>
+<div class="section">
+    <h2>6. Usluge trećih strana</h2>
+    <table class="data-table">
+      <tr><th>Usluga</th><th>Pružatelj</th><th>Podaci koji se šalju</th></tr>
+      <tr>
+        <td>AI izvlačenje i kategorizacija troškova</td>
+        <td>Cloud AI servis</td>
+        <td>Samo pročišćeni OCR tekst (osobni podaci lokalno filtrirani)</td>
+      </tr>
+      <tr>
+        <td>Obrada PDF-a (kad je Cloud PDF ekstrakcija uključena)</td>
+        <td>Cloud AI servis</td>
+        <td>Cijeli PDF dokument (samo opcionalno)</td>
+      </tr>
+      <tr>
+        <td>Transkripcija govora (kad je Cloud transkripcija uključena)</td>
+        <td>Cloud AI servis</td>
+        <td>Audio zapis (samo opcionalno)</td>
+      </tr>
+      <tr>
+        <td>Prijava padova aplikacije</td>
+        <td>Sentry (sentry.io)</td>
+        <td>Anonimni podaci o padu: stack traces, model uređaja, verzija OS-a, verzija aplikacije. Bez osobnih podataka, bez podataka o troškovima.</td>
+      </tr>
+    </table>
+    <p>Specifični cloud AI servisi koji se koriste za izvlačenje troškova i transkripciju mogu se mijenjati kako postaju dostupne bolje ili privatnije opcije. Svaka značajnija promjena vrste podataka koji se šalju bit će odražena u ažuriranim Pravilima privatnosti.</p>
+    <p>Nocito™ ne integrira nikakve oglašivačke mreže, analitičke platforme ni SDK-ove društvenih mreža.</p>
+    <p>Politika privatnosti Sentryja: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+  </div>
+<div class="section">
+    <h2>7. Pohrana slika i audio zapisa</h2>
+    <p>Slike računa i audio zapisi pohranjuju se u <strong>privatnom direktoriju aplikacije</strong> na tvom uređaju — lokaciji kojoj druge aplikacije ne mogu pristupiti. Ne šalju se ni na jedan cloud servis.</p>
+    <p>Možeš kontrolirati ovo ponašanje:</p>
+    <ul>
+      <li><strong>Spremi originalne slike</strong> — zadano UKLJUČENO. Može se isključiti u Postavkama ili tijekom uvodnog postavljanja.</li>
+      <li><strong>Spremi originalni audio</strong> — zadano UKLJUČENO. Može se isključiti u Postavkama ili tijekom uvodnog postavljanja.</li>
+    </ul>
+    <p><strong>Lokalna sigurnosna kopija:</strong> Nocito™ nudi značajku lokalne ZIP sigurnosne kopije koja izvozi JSON datoteku sa svim tvojim zapisima o troškovima, zajedno s originalnim slikama, PDF-ovima i audio zapisima priloženim tim troškovima. Možeš vratiti podatke iz te sigurnosne kopije u bilo kojem trenutku. Ti si odgovoran/odgovorna za čuvanje vlastitih sigurnosnih kopija — Nocito™ ne održava nikakvu kopiju tvojih podataka na serveru. Ako deinstaliraš aplikaciju bez sigurnosne kopije, svi podaci se trajno brišu.</p>
+  </div>
+<div class="section">
+    <h2>8. Buduća cloud pohrana</h2>
+    <p>Nocito™ može u budućim verzijama uvesti opcionalne značajke cloud sinhronizacije. Svaka takva značajka pohranjivala bi tvoje podatke na vanjskim serverima i bila bi <strong>u potpunosti opcionalna</strong>. Besplatni i lokalni Pro korisnici ne bi bili pogođeni. Zaseban opis i traženje pristanka bili bi prikazani prije nego se bilo kakvi podaci prenesu na vanjske servere.</p>
+    <p>Cloud sinhronizacija nije dostupna u trenutnoj verziji.</p>
+  </div>
+<div class="section">
+    <h2>9. Pravna osnova obrade (GDPR)</h2>
+    <p>Za korisnike u Evropskoj uniji i Evropskom ekonomskom prostoru, podatke obrađujemo na sljedećim pravnim osnovama:</p>
+    <ul>
+      <li><strong>Izvršenje ugovora</strong> — obrada tvojih podataka o troškovima radi pružanja osnovne funkcionalnosti koju si zatražio/zatražila</li>
+      <li><strong>Legitimni interes</strong> — slanje pročišćenog OCR teksta cloud AI servisima radi točne kategorizacije troškova</li>
+      <li><strong>Legitimni interes</strong> — anonimna prijava padova putem Sentryja radi održavanja stabilnosti aplikacije</li>
+      <li><strong>Pristanak</strong> — slanje audia cloud servisu za transkripciju (samo kad je Cloud transkripcija uključena u Postavkama)</li>
+      <li><strong>Pristanak</strong> — slanje cijelih PDF dokumenata cloud AI servisu (samo kad je Cloud PDF ekstrakcija uključena u Postavkama)</li>
+    </ul>
+    <p>Budući da aplikacija radi prvenstveno na uređaju bez sustava računa, osobni podaci koje obrađujemo su minimalni. Glavni voditelj obrade tvojih osobnih podataka si ti sam/sama — oni žive na tvom uređaju.</p>
+  </div>
+<div class="section">
+    <h2>10. Tvoja prava</h2>
+    <p>Sukladno GDPR-u i drugim primjenjivim propisima, imaš pravo na:</p>
+    <ul>
+      <li><strong>Pristup</strong> — izvezi svoje troškove kao CSV unutar aplikacije (Pro značajka)</li>
+      <li><strong>Sigurnosnu kopiju i vraćanje</strong> — izvezi sve svoje podatke kao JSON sigurnosnu kopiju i vrati ih na bilo kojem uređaju (dostupno svim korisnicima)</li>
+      <li><strong>Brisanje</strong> — izbriši pojedinačne troškove ili sve podatke unutar aplikacije, ili deinstaliraj aplikaciju da izbrišeš sve</li>
+      <li><strong>Prenosivost</strong> — izvezi svoje podatke kao CSV ili JSON u bilo kojem trenutku</li>
+      <li><strong>Ispravak</strong> — uredi bilo koji trošak izravno u aplikaciji</li>
+    </ul>
+    <p>Budući da ne održavamo kopiju tvojih podataka na serveru, većinu prava možeš ostvariti izravno unutar aplikacije. Za bilo kakva pitanja: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  </div>
+<div class="section">
+    <h2>10b. Prijava padova aplikacije</h2>
+    <p>Nocito™ koristi <strong>Sentry</strong> (sentry.io) za prijavu padova aplikacije. Kad aplikacija padne ili naiđe na neočekivanu grešku, Sentry automatski šalje anonimni izvještaj koji sadrži:</p>
+    <ul>
+      <li>Stack trace (tehnički opis mjesta u kodu gdje se dogodila greška)</li>
+      <li>Model i proizvođača uređaja</li>
+      <li>Verziju Android OS-a</li>
+      <li>Verziju aplikacije</li>
+    </ul>
+    <p>Izvještaji o padovima <strong>ne</strong> sadrže tvoje podatke o troškovima, slike računa, audio zapise niti bilo kakve osobno prepoznatljive podatke. Koriste se isključivo za identificiranje i ispravljanje grešaka.</p>
+  </div>
+<div class="section">
+    <h2>11. Privatnost djece</h2>
+    <p>Nocito™ nije namijenjen djeci mlađoj od 13 godina (odnosno mlađoj od 16 godina u EU). Svjesno ne prikupljamo osobne podatke od djece. Ako smatraš da nam je dijete dostavilo osobne podatke, molimo kontaktiraj nas na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
+  </div>
+<div class="section">
+    <h2>12. Izmjene ove politike</h2>
+    <p>Možemo ažurirati ova Politika privatnosti kako se aplikacija razvija — posebice kad se uvedu nove značajke koje uključuju prijenos podataka (poput Super Snapa u budućoj verziji, ili promjena u načinu obrade PDF-a i Diktiranja). Kad napravimo značajnije promjene, obavještenjit ćemo te putem skočnog prozora "Novosti" unutar aplikacije i ažurirati gore navedeni datum stupanja na snagu.</p>
+    <p>Nastavak korištenja Nocito™-a nakon izmjena predstavlja prihvatanje ažurirane politike.</p>
+  </div>
+<div class="section">
+    <h2>13. Kontakt</h2>
+    <p>Za pitanja vezana uz privatnost, zahtjeve za podacima ili nedoumice:</p>
+    <ul>
+      <li>Email: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></li>
+      <li>Web stranica: <a href="https://nocito.app">nocito.app</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Nocito™ &nbsp;·&nbsp; <a href="https://nocito.app/bs/privacy.html">Politika privatnosti</a> &nbsp;·&nbsp; <a href="https://nocito.app/bs/terms.html">Uslovi korištenja</a> &nbsp;·&nbsp; <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  <p style="margin-top:8px;font-size:12px;color:#3A5070;">nocito.app</p>
+</footer>
+
+</body>
+</html>

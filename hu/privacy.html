@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adatvédelmi szabályzat — Nocito™</title>
+  <meta name="description" content="Nocito adatvédelmi szabályzat. A kiadási adataid a telefonodon maradnak.">
+  <link rel="canonical" href="https://nocito.app/hu/privacy.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#1B2A4A; --amber:#F5A623; --teal:#2A9D8F; --cream:#F5EDD6; --card:#243550; --slate:#8899AA; --dark:#0F1B2D; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.75;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(15,27,45,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-icon{width:32px;height:32px;border-radius:8px;overflow:hidden;flex-shrink:0;}
+    .nav-icon img{width:100%;height:100%;object-fit:cover;display:block;}
+    .nav-name{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--cream);letter-spacing:-0.02em;}
+    .nav-name span{color:var(--amber);}
+    .nav-name sup{font-size:10px;color:var(--slate);font-weight:400;vertical-align:super;}
+    nav a.back{font-size:13px;color:var(--slate);text-decoration:none;transition:color 0.2s;}
+    nav a.back:hover{color:var(--cream);}
+    .hero{background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.06);padding:64px 24px 48px;text-align:center;}
+    .hero-badge{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(42,157,143,0.3);border-radius:100px;padding:4px 14px;margin-bottom:20px;}
+    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:var(--cream);letter-spacing:-0.02em;margin-bottom:12px;}
+    .hero p{font-size:16px;color:var(--slate);max-width:500px;margin:0 auto 24px;}
+    .hero-meta{font-size:13px;color:#4A6080;}
+    .privacy-highlight{max-width:760px;margin:40px auto;padding:0 24px;}
+    .highlight-box{background:rgba(42,157,143,0.08);border:1px solid rgba(42,157,143,0.25);border-radius:12px;padding:24px 28px;display:flex;gap:16px;align-items:flex-start;}
+    .highlight-icon{font-size:24px;flex-shrink:0;margin-top:2px;}
+    .highlight-box h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--teal);margin-bottom:6px;}
+    .highlight-box p{font-size:14px;color:var(--slate);line-height:1.65;}
+    .content{max-width:760px;margin:0 auto;padding:0 24px 80px;}
+    .section{margin-bottom:48px;}
+    .section h2{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:var(--cream);letter-spacing:-0.01em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .section h3{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--amber);margin:24px 0 8px;}
+    .section p{font-size:15px;color:#B8C8D8;margin-bottom:14px;line-height:1.75;}
+    .section ul{list-style:none;margin-bottom:14px;}
+    .section ul li{font-size:15px;color:#B8C8D8;padding:4px 0 4px 20px;position:relative;line-height:1.65;}
+    .section ul li::before{content:'';position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--teal);opacity:0.7;}
+    .data-table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:14px;}
+    .data-table th{background:var(--navy);color:var(--cream);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;text-align:left;border:1px solid rgba(255,255,255,0.08);}
+    .data-table td{padding:10px 14px;color:#B8C8D8;border:1px solid rgba(255,255,255,0.06);vertical-align:top;line-height:1.5;}
+    .data-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
+    .tag{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:4px;letter-spacing:0.06em;}
+    .tag-local{background:rgba(42,157,143,0.15);color:var(--teal);}
+    .tag-cloud{background:rgba(245,166,35,0.15);color:var(--amber);}
+    .warning-box{background:rgba(245,166,35,0.07);border:1px solid rgba(245,166,35,0.2);border-radius:10px;padding:16px 20px;margin:16px 0;}
+    .warning-box p{font-size:14px;color:#C8A060;margin:0;}
+    .warning-box strong{color:var(--amber);}
+    a{color:var(--teal);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    strong{color:var(--cream);font-weight:500;}
+    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:32px 24px;text-align:center;}
+    footer p{font-size:13px;color:var(--slate);margin-bottom:6px;}
+    footer a{color:var(--teal);font-size:13px;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://nocito.app/hu/" class="nav-logo">
+    <div class="nav-icon"><img src="/icon.png" alt="Nocito icon"></div>
+    <div class="nav-name">No<span>c</span>ito<sup>™</sup></div>
+  </a>
+  <a href="https://nocito.app/hu/" class="back">← Vissza a kezdőlapra</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">Jogi</div>
+  <h1>Adatvédelmi szabályzat</h1>
+  <p>Hogyan kezeli a Nocito™ az adataidat — és miért nem hagyja el a legtöbb adat soha a telefonodat.</p>
+  <div class="hero-meta">Hatálybalépés dátuma: 2025. június 1. &nbsp;·&nbsp; Utolsó frissítés: 2026. május (v1.0 kiadás)</div>
+</div>
+
+<div class="privacy-highlight">
+  <div class="highlight-box">
+    <div class="highlight-icon">🔒</div>
+    <div>
+      <h3>A rövid verzió</h3>
+      <p>A Nocito™ minden kiadásodat, nyugtádat, képedet és hangfelvételedet <strong>helyben, az eszközödön</strong> tárolja. Nincs szerverünk az adataiddal. Alapértelmezés szerint a megtisztított OCR-szöveg egy felhő alapú AI szolgáltatáshoz kerül a kiadás feldolgozásához, a hangalapú diktálás pedig felhő alapú átiratot használ. A Beállításokban a helyi modellek engedélyezésével teljesen eszközön belüli AI-feldolgozásra és átiratra válthatsz — ehhez egyszeri letöltés szükséges az alkalmazáson belül. A PDF-importálás alapértelmezés szerint helyben nyeri ki a szöveget; a teljes PDF felhőbe küldése opcionális beállítás. Az alkalmazás a Sentryt használja névtelen hibajelentésre. Minden ebben a szabályzatban van feltüntetve.</p>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<div class="section">
+    <h2>1. Kik vagyunk</h2>
+    <p>A Nocito™ egy személyes kiadáskövető mobilalkalmazás, amelyet a <strong>Nocito™</strong> ("mi", "minket", "miénk") fejleszt és ad ki. Az alkalmazás Androidra érhető el a Google Play-en keresztül.</p>
+    <p>Kapcsolatba léphetsz velünk: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  </div>
+<div class="section">
+    <h2>2. Milyen adatokat gyűjtünk és hogyan</h2>
+    <p>A Nocito™ adatvédelem-központú architektúra köré épült. Az adatok túlnyomó része soha nem hagyja el az eszközödet.</p>
+
+    <h3>Adatok, amelyeket kizárólag helyben, az eszközödön tárolunk</h3>
+    <table class="data-table">
+      <tr><th>Adattípus</th><th>Hol tárolódik</th><th>Cél</th></tr>
+      <tr><td>Kiadási rekordok (összeg, kereskedő, dátum, kategória, jegyzet)</td><td><span class="tag tag-local">Helyi SQLite</span></td><td>Az alkalmazás alapvető működése</td></tr>
+      <tr><td>Nyugtaképek (fotók, képernyőképek)</td><td><span class="tag tag-local">Helyi tárolás</span></td><td>Referencia és áttekintés</td></tr>
+      <tr><td>Hangfelvételek (hangdiktálás)</td><td><span class="tag tag-local">Helyi tárolás</span></td><td>Referencia és lejátszás</td></tr>
+      <tr><td>Alkalmazásbeállítások és preferenciák</td><td><span class="tag tag-local">Helyi tárolás</span></td><td>Alkalmazáskonfiguráció</td></tr>
+      <tr><td>Bevezetés során adott hozzájárulás időbélyege</td><td><span class="tag tag-local">Helyi tárolás</span></td><td>Hozzájárulási feljegyzés</td></tr>
+    </table>
+
+    <h3>Külső szolgáltatásoknak küldött adatok</h3>
+    <table class="data-table">
+      <tr><th>Adattípus</th><th>Szolgáltatás</th><th>Cél</th><th>Mikor</th></tr>
+      <tr>
+        <td>Megtisztított OCR-szöveg (nyugtaszöveg személyes adatok nélkül)</td>
+        <td><span class="tag tag-cloud">Felhő alapú AI szolgáltatás</span></td>
+        <td>AI kiadáskategorizálás</td>
+        <td>Minden fotózás és fényképimportálás során, ha a Felhő alapú AI-feldolgozás engedélyezve van (alapértelmezett: BE)</td>
+      </tr>
+      <tr>
+        <td>Helyben kinyert OCR-szöveg PDF-ből</td>
+        <td><span class="tag tag-cloud">Felhő alapú AI szolgáltatás</span></td>
+        <td>PDF-nyugták AI-feldolgozása</td>
+        <td>PDF-importálás, ha a Felhő alapú PDF-kinyerés le van tiltva (alapértelmezett: KI — csak helyi)</td>
+      </tr>
+      <tr>
+        <td>Teljes PDF-dokumentum</td>
+        <td><span class="tag tag-cloud">Felhő alapú AI szolgáltatás</span></td>
+        <td>Nagyobb pontosságú PDF-feldolgozás</td>
+        <td>Csak ha a Felhő alapú PDF-kinyerés kapcsoló engedélyezve van a Beállításokban (opt-in)</td>
+      </tr>
+      <tr>
+        <td>Hangfelvétel</td>
+        <td><span class="tag tag-cloud">Felhő alapú AI szolgáltatás</span></td>
+        <td>Beszéd-szöveg átirat</td>
+        <td>Alapértelmezett a hangdiktáláshoz. Helyettesíthető helyi, eszközön belüli átirattal a Helyi átirat kapcsoló Beállításokban való engedélyezésével és egy helyi modell letöltésével.</td>
+      </tr>
+      <tr>
+        <td>Helyben átírt szöveg</td>
+        <td><span class="tag tag-cloud">Felhő alapú AI szolgáltatás</span></td>
+        <td>Kiadásfeldolgozás hangalapú bemenetből</td>
+        <td>Amikor a Helyi átirat aktív és a Felhő alapú AI-feldolgozás engedélyezve van. Tiltsd le a Felhő alapú AI-feldolgozást, hogy minden teljesen eszközön belül maradjon.</td>
+      </tr>
+      <tr>
+        <td>Névtelen összeomlási adatok (stack trace-ek, eszközinformációk, alkalmazásverzió)</td>
+        <td><span class="tag tag-cloud">Sentry</span></td>
+        <td>Összeomlási jelentés és stabilitásfigyelés</td>
+        <td>Automatikusan alkalmazásösszeomláskor — személyes adat nélkül</td>
+      </tr>
+    </table>
+
+    <div class="warning-box">
+      <p><strong>Megjegyzés az adatvédelmi előszűrőről:</strong> Mielőtt bármilyen OCR-szöveg elküldésre kerülne egy felhő alapú AI szolgáltatásnak, a telefonod automatikusan eltávolítja a személyes adatokat — neveket, címeket, nemzeti azonosító számokat, telefonszámokat és e-mail-címeket. Csak összegek, dátumok, kereskedőnevek és terméknevek kerülnek elküldésre. Ne feledd, hogy a <strong>Felhő alapú PDF-kinyerés</strong> (opt-in) a teljes PDF-et előszűrés nélkül küldi el, a <strong>Felhő alapú átirat</strong> (alapértelmezett) pedig nyers hangot küld előszűrés nélkül — az előszűrő csak az átírt szövegre vonatkozik, mielőtt az eljut az AI-feldolgozási lépéshez. Az egyetlen 100%-ban garantáltan privát opció a Helyi AI-feldolgozás, a Helyi átirat engedélyezése, valamint a Felhő alapú PDF-kinyerés kikapcsolva tartása — ebben a konfigurációban semmilyen adat nem kerül külső szolgáltatásokhoz.</p>
+    </div>
+
+    <h3>Adatok, amelyeket soha nem gyűjtünk</h3>
+    <ul>
+      <li>Nem gyűjtjük a nevedet, e-mail-címedet vagy bármilyen fiókinformációt (nincs fiók)</li>
+      <li>Nem gyűjtünk elemzési vagy használati statisztikákat</li>
+      <li>Nem használunk hirdetési SDK-kat vagy követőpixeleket</li>
+      <li>Nem szinkronizáljuk a kiadási adataidat semmilyen szerverre</li>
+      <li>Nem adjuk el az adataidat senkinek</li>
+    </ul>
+  </div>
+<div class="section">
+    <h2>3. Adatvédelmi előszűrő — helyi adattisztítás</h2>
+    <p>Fotózáshoz és fényképimportáláshoz a Nocito™ helyi tisztítási folyamatot futtat az eszközödön, mielőtt bármilyen szöveget elküldene az AI-nak. Ez a folyamat eltávolítja:</p>
+    <ul>
+      <li>Személyes neveket (kereszt- és vezetéknévmintákat)</li>
+      <li>Fizikai címeket (utca, házszám, irányítószám, város)</li>
+      <li>Nemzeti azonosító számokat (pl. adóazonosító számok, személyi azonosító számok)</li>
+      <li>Telefonszámokat és e-mail-címeket</li>
+    </ul>
+    <p>Amit megtart: összegeket, árakat, dátumokat, időpontokat, kereskedő- és cégneveket, terméknevet, kategóriákat és cégek adószámát.</p>
+    <p>Ez a folyamat teljes egészében az eszközödön zajlik, mielőtt bármilyen hálózati hívás megtörténne. Ne feledd, hogy az előszűrő a fotózásból és fényképimportálásból származó OCR-szövegre vonatkozik. Nem vonatkozik rá, ha a Felhő alapú PDF-kinyerés engedélyezve van (a teljes PDF a felhőbe kerül), sem a nyers hangra a Felhő alapú átirat során (a hang a felhőbe kerül bármilyen szövegkinyerés előtt).</p>
+  </div>
+<div class="section">
+    <h2>4. Hangdiktálás</h2>
+    <p>A Nocito™ kétféle hangdiktálási módot támogat. A Felhő alapú átirat friss telepítéskor alapértelmezetten aktív. A Helyi átirat opt-in módon érhető el, és egyszeri modell-letöltést igényel.</p>
+
+    <h3>Felhő alapú átirat (alapértelmezett)</h3>
+    <p>Friss telepítés esetén a Diktálás gombra koppintva rögzíti a hangot, és elküldi egy felhő alapú AI szolgáltatásnak átiratkészítésre. Az átírt szöveg ezután áthalad az adatvédelmi előszűrőn (3. rész), és elküldésre kerül egy felhő alapú AI szolgáltatásnak kiadásfeldolgozásra.</p>
+
+    <h3>Helyi átirat (opt-in)</h3>
+    <p>A Beállításokban válthatsz teljesen eszközön belüli átiratra a <strong>Helyi átirat</strong> kapcsoló engedélyezésével és a két elérhető helyi Whisper-modell egyikének letöltésével. A letöltés gomb közvetlenül a Diktálás képernyőn és a Beállításokban is elérhető. A beállítás után:</p>
+    <ul>
+      <li><strong>Koppintás a rögzítéshez</strong> — helyi, eszközön belüli átiratot használ. Egyetlen hang sem hagyja el a telefonodat.</li>
+      <li><strong>1 másodperces nyomva tartás a rögzítéshez</strong> — aktiválja a Super Dictate-et (felhő alapú átirat) a nagyobb pontosság érdekében, ha szükséges.</li>
+    </ul>
+    <p>A helyi átirat aktiválása esetén az átírt szöveg alapértelmezés szerint továbbra is egy felhő alapú AI szolgáltatáshoz kerül kiadásfeldolgozásra — kivéve, ha a <strong>Helyi AI-feldolgozást</strong> is engedélyezed (lásd 4c. rész).</p>
+
+    <div class="warning-box">
+      <p><strong>100%-ban privát diktálás:</strong> annak biztosításához, hogy semmilyen hang- vagy szövegadat ne hagyja el az eszközödet, engedélyezd a Beállításokban mind a Helyi átiratot, mind a Helyi AI-feldolgozást. Mindkettő egyszeri modell-letöltést igényel. Ez azoknak a felhasználóknak ajánlott, akik számára a magánélet fontosabb, mint a maximális pontosság, és elég gyors eszközzel rendelkeznek.</p>
+    </div>
+
+    <h3 id="pdf">4b. PDF-importálás</h3>
+    <p>A Nocito™ alapértelmezés szerint helyben dolgozza fel a PDF nyugtákat. Az alkalmazás eszközön belüli OCR-t (ML Kit) használ a szöveg kinyerésére a PDF-ből, alkalmazza az adatvédelmi előszűrőt, és csak a megtisztított szöveget küldi el egy felhő alapú AI szolgáltatásnak kiadásfeldolgozásra.</p>
+    <p>Egy opcionális <strong>Felhő alapú PDF-kinyerés</strong> kapcsoló érhető el a Beállításokban. Ha engedélyezve van, a teljes PDF-dokumentum közvetlenül egy felhő alapú AI szolgáltatáshoz kerül, nagyobb pontosságú feldolgozás céljából. Ez opt-in, és alapértelmezetten ki van kapcsolva.</p>
+    <p>Ahhoz, hogy a PDF-feldolgozás 100%-ban eszközön belül maradjon, tartsd kikapcsolva a Felhő alapú PDF-kinyerést, és engedélyezd a Helyi AI-feldolgozást a Beállításokban (modell-letöltést igényel).</p>
+    <div class="warning-box">
+      <p><strong>Amikor a Felhő alapú PDF-kinyerés engedélyezve van:</strong> a teljes PDF-dokumentum helyi előszűrés nélkül kerül elküldésre egy külső szolgáltatáshoz. Javasoljuk, hogy tartsd ezt letiltva, kivéve, ha nagyobb pontosságra van szükséged összetett PDF-ek esetén, és kerüld a használatát érzékeny személyes adatokat tartalmazó PDF-ekkel.</p>
+    </div>
+  </div>
+<div class="section">
+    <h2>4c. Adatvédelmi szint beállításai</h2>
+    <p>A Nocito™ közvetlen kontrollt ad neked afölött, hogy mely feldolgozás történik helyben és melyik használ felhőszolgáltatásokat. Ezek a beállítások az alkalmazás Beállítások képernyőjén érhetők el:</p>
+    <table class="data-table">
+      <tr><th>Kapcsoló az alkalmazásban</th><th>Alapértelmezett</th><th>Mit vezérel</th></tr>
+      <tr>
+        <td><strong>Felhő alapú AI-feldolgozás</strong></td>
+        <td>BE</td>
+        <td>Ha BE van kapcsolva, a megtisztított OCR-szöveg egy felhő alapú AI szolgáltatáshoz kerül kiadáskategorizáláshoz (alapértelmezett). Kapcsold ki, és tölts le egy helyi AI-modellt a teljes kiadáskinyerés teljesen eszközön belüli feldolgozásához. A letöltés a Beállításokban érhető el.</td>
+      </tr>
+      <tr>
+        <td><strong>Felhő alapú átirat</strong></td>
+        <td>BE</td>
+        <td>Ha BE van kapcsolva, a hangdiktálás hangot küld egy felhő alapú AI szolgáltatásnak átiratkészítésre (alapértelmezett). Kapcsold ki, és tölts le egy helyi Whisper-modellt a hang teljesen eszközön belüli átiratához. A letöltés a Diktálás képernyőn és a Beállításokban érhető el. Miután a helyi modell letöltve és a kapcsoló KI van kapcsolva: koppintás = helyi átirat, 1 mp nyomva tartás = felhő (Super Dictate).</td>
+      </tr>
+      <tr>
+        <td><strong>Felhő alapú PDF-kinyerés</strong></td>
+        <td>KI</td>
+        <td>Ha KI van kapcsolva, a PDF-szöveg helyben kerül kinyerésre OCR-en keresztül, és csak a megtisztított eredmény kerül elküldésre az AI-nak (alapértelmezett). Kapcsold BE, hogy a teljes PDF-dokumentumot egy felhőszolgáltatáshoz küldd nagyobb pontosságú feldolgozás céljából.</td>
+      </tr>
+    </table>
+    <p>Ezeknek a beállításoknak a módosítása azonnal életbe lép. A meglévő kiadásaidat nem érinti.</p>
+  </div>
+<div class="section">
+    <h2>5. Super Snap (jövőbeli) és Super Dictate (Pro)</h2>
+    <p>A Nocito™ jövőbeli Pro verziói tartalmazni fogják a Super Snapet — egy prémium funkciót, amely a teljes nyugtaképeket közvetlenül egy AI Vision szolgáltatáshoz küldi nagyobb pontosságú kinyerés céljából, megkerülve a standard OCR-t és az adatvédelmi előszűrési folyamatot.</p>
+    <p>A Super Dictate, amely hangot küld az OpenAI Whisper API-nak nagyobb pontosságú átirathoz, a jelenlegi verzióban a Pro szint egyik opciójaként érhető el.</p>
+    <div class="warning-box">
+      <p><strong>Super Snap vagy Super Dictate használatakor:</strong> a teljes képed vagy hangfelvételed egy külső AI szolgáltatáshoz kerül továbbításra. Mindig meg kell erősítened, mielőtt ilyen továbbítás megtörténne. Kerüld ezeknek a funkcióknak a használatát érzékeny személyes adatokat tartalmazó dokumentumokkal.</p>
+    </div>
+  </div>
+<div class="section">
+    <h2>6. Harmadik féltől származó szolgáltatások</h2>
+    <table class="data-table">
+      <tr><th>Szolgáltatás</th><th>Szolgáltató</th><th>Elküldött adatok</th></tr>
+      <tr>
+        <td>AI kiadáskinyerés és kategorizálás</td>
+        <td>Felhő alapú AI szolgáltatás</td>
+        <td>Csak megtisztított OCR-szöveg (személyes adatok helyben előszűrve)</td>
+      </tr>
+      <tr>
+        <td>PDF-feldolgozás (ha a Felhő alapú PDF-kinyerés engedélyezve van)</td>
+        <td>Felhő alapú AI szolgáltatás</td>
+        <td>Teljes PDF-dokumentum (csak opt-in)</td>
+      </tr>
+      <tr>
+        <td>Hangátirat (ha a Felhő alapú átirat engedélyezve van)</td>
+        <td>Felhő alapú AI szolgáltatás</td>
+        <td>Hangfelvétel (csak opt-in)</td>
+      </tr>
+      <tr>
+        <td>Összeomlási jelentés</td>
+        <td>Sentry (sentry.io)</td>
+        <td>Névtelen összeomlási adatok: stack trace-ek, eszközmodell, OS-verzió, alkalmazásverzió. Nincs személyes adat, nincs kiadási adat.</td>
+      </tr>
+    </table>
+    <p>A kiadáskinyeréshez és átirathoz használt konkrét felhő alapú AI szolgáltatások változhatnak, ahogy jobb vagy adatvédelem-barátibb lehetőségek válnak elérhetővé. Az elküldött adatok típusának bármilyen jelentős változása tükröződni fog egy frissített Adatvédelmi szabályzatban.</p>
+    <p>A Nocito™-ba nincsenek integrálva hirdetési hálózatok, elemzési platformok vagy közösségi média SDK-k.</p>
+    <p>A Sentry adatvédelmi szabályzata: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+  </div>
+<div class="section">
+    <h2>7. Kép- és hangtárolás</h2>
+    <p>A nyugtaképek és hangfelvételek az eszközöd <strong>alkalmazás-privát könyvtárában</strong> tárolódnak — egy olyan helyen, amelyhez más alkalmazások nem férhetnek hozzá. Nem kerülnek feltöltésre semmilyen felhőszolgáltatásba.</p>
+    <p>Ezt a viselkedést szabályozhatod:</p>
+    <ul>
+      <li><strong>Eredeti képek mentése</strong> — alapértelmezetten BE. Kikapcsolható a Beállításokban vagy a bevezetés során.</li>
+      <li><strong>Eredeti hang mentése</strong> — alapértelmezetten BE. Kikapcsolható a Beállításokban vagy a bevezetés során.</li>
+    </ul>
+    <p><strong>Helyi biztonsági mentés:</strong> a Nocito™ helyi ZIP biztonsági mentési funkciót kínál, amely egy JSON-fájlt exportál, amely tartalmazza az összes kiadási rekordodat, valamint az ezekhez a kiadásokhoz csatolt eredeti képeket, PDF-eket és hangfelvételeket. Ebből a biztonsági mentésből bármikor visszaállíthatsz. Te felelsz a saját biztonsági mentési másolataid megőrzéséért — a Nocito™ nem tart fenn szerveroldali másolatot az adataidról. Ha biztonsági mentés nélkül távolítod el az alkalmazást, minden adat véglegesen törlődik.</p>
+  </div>
+<div class="section">
+    <h2>8. Jövőbeli felhőtárolás</h2>
+    <p>A Nocito™ jövőbeli verziókban opcionális felhőszinkronizálási funkciókat vezethet be. Bármely ilyen funkció külső szervereken tárolná az adataidat, és <strong>teljesen opt-in</strong> lenne. Az ingyenes és helyi Pro felhasználókat nem érintené. Külön tájékoztatás és hozzájárulás jelenne meg, mielőtt bármilyen adat feltöltésre kerülne külső szerverekre.</p>
+    <p>A jelenlegi verzióban nem érhető el felhőszinkronizálás.</p>
+  </div>
+<div class="section">
+    <h2>9. A feldolgozás jogalapja (GDPR)</h2>
+    <p>Az Európai Unióban és az Európai Gazdasági Térségben élő felhasználók esetében a következő jogalapok szerint dolgozzuk fel az adatokat:</p>
+    <ul>
+      <li><strong>Szerződés teljesítése</strong> — a kiadási adataid feldolgozása az általad kért alapvető funkcionalitás biztosításához</li>
+      <li><strong>Jogos érdek</strong> — megtisztított OCR-szöveg küldése felhő alapú AI szolgáltatásoknak a pontos kiadáskategorizálás érdekében</li>
+      <li><strong>Jogos érdek</strong> — névtelen összeomlási jelentés a Sentryn keresztül az alkalmazás stabilitásának fenntartásához</li>
+      <li><strong>Hozzájárulás</strong> — hang küldése egy felhő alapú átiratszolgáltatásnak (csak ha a Felhő alapú átirat engedélyezve van a Beállításokban)</li>
+      <li><strong>Hozzájárulás</strong> — teljes PDF-dokumentumok küldése egy felhő alapú AI szolgáltatásnak (csak ha a Felhő alapú PDF-kinyerés engedélyezve van a Beállításokban)</li>
+    </ul>
+    <p>Mivel az alkalmazás elsősorban eszközön belül, fiókrendszer nélkül működik, az általunk feldolgozott személyes adatok minimálisak. A személyes adataid elsődleges adatkezelője te magad vagy — az eszközödön élnek.</p>
+  </div>
+<div class="section">
+    <h2>10. A te jogaid</h2>
+    <p>A GDPR és más alkalmazandó jogszabályok szerint jogod van:</p>
+    <ul>
+      <li><strong>Hozzáférés</strong> — exportáld a kiadásaidat CSV-ként az alkalmazáson belül (Pro funkció)</li>
+      <li><strong>Biztonsági mentés és visszaállítás</strong> — exportáld az összes adatodat JSON biztonsági mentésként, és állítsd vissza bármely eszközön (minden felhasználó számára elérhető)</li>
+      <li><strong>Törlés</strong> — töröld az egyes kiadásokat vagy az összes adatot az alkalmazáson belül, vagy távolítsd el az alkalmazást minden törléséhez</li>
+      <li><strong>Hordozhatóság</strong> — exportáld az adataidat CSV-ként vagy JSON-ként bármikor</li>
+      <li><strong>Helyesbítés</strong> — szerkessz bármely kiadást közvetlenül az alkalmazásban</li>
+    </ul>
+    <p>Mivel nem tartunk fenn szerveroldali másolatot az adataidról, a legtöbb jog közvetlenül az alkalmazáson belül gyakorolható. Kérdés esetén: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  </div>
+<div class="section">
+    <h2>10b. Összeomlási jelentés</h2>
+    <p>A Nocito™ a <strong>Sentryt</strong> (sentry.io) használja összeomlási jelentésekhez. Amikor az alkalmazás összeomlik vagy váratlan hibába ütközik, a Sentry automatikusan egy névtelen jelentést küld, amely a következőket tartalmazza:</p>
+    <ul>
+      <li>Stack trace (technikai leírás arról, hol történt a hiba a kódban)</li>
+      <li>Eszközmodell és gyártó</li>
+      <li>Android OS-verzió</li>
+      <li>Alkalmazásverzió</li>
+    </ul>
+    <p>Az összeomlási jelentések <strong>nem</strong> tartalmazzák a kiadási adataidat, nyugtaképeidet, hangfelvételeidet vagy bármilyen személyazonosításra alkalmas adatot. Kizárólag hibák azonosítására és javítására szolgálnak.</p>
+  </div>
+<div class="section">
+    <h2>11. Gyermekek adatvédelme</h2>
+    <p>A Nocito™ nem 13 év alatti gyermekeknek (vagy az EU-ban 16 év alattiaknak) szól. Tudatosan nem gyűjtünk személyes adatokat gyermekektől. Ha úgy gondolod, hogy egy gyermek személyes adatokat adott meg számunkra, kérjük, vedd fel velünk a kapcsolatot: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
+  </div>
+<div class="section">
+    <h2>12. A jelen szabályzat módosításai</h2>
+    <p>Frissíthetjük ezt az Adatvédelmi szabályzatot az alkalmazás fejlődésével — különösen, amikor új, adatátvitellel járó funkciókat vezetünk be (mint a Super Snap egy jövőbeli verzióban, vagy a PDF- és Diktáláskezelés változásai). Jelentősebb módosítások esetén az alkalmazás "Újdonságok" felugró ablakán keresztül értesítünk, és frissítjük a fenti hatálybalépési dátumot.</p>
+    <p>A Nocito™ folyamatos használata a módosítások után az frissített szabályzat elfogadását jelenti.</p>
+  </div>
+<div class="section">
+    <h2>13. Kapcsolat</h2>
+    <p>Adatvédelemmel kapcsolatos kérdések, adatkérések vagy aggályok esetén:</p>
+    <ul>
+      <li>E-mail: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></li>
+      <li>Weboldal: <a href="https://nocito.app">nocito.app</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Nocito™ &nbsp;·&nbsp; <a href="https://nocito.app/hu/privacy.html">Adatvédelmi szabályzat</a> &nbsp;·&nbsp; <a href="https://nocito.app/hu/terms.html">Felhasználási feltételek</a> &nbsp;·&nbsp; <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  <p style="margin-top:8px;font-size:12px;color:#3A5070;">nocito.app</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zásady ochrany osobních údajů — Nocito™</title>
+  <meta name="description" content="Zásady ochrany osobních údajů Nocito. Vaše údaje o výdajích zůstávají ve vašem telefonu.">
+  <link rel="canonical" href="https://nocito.app/cs/privacy.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#1B2A4A; --amber:#F5A623; --teal:#2A9D8F; --cream:#F5EDD6; --card:#243550; --slate:#8899AA; --dark:#0F1B2D; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.75;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(15,27,45,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-icon{width:32px;height:32px;border-radius:8px;overflow:hidden;flex-shrink:0;}
+    .nav-icon img{width:100%;height:100%;object-fit:cover;display:block;}
+    .nav-name{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--cream);letter-spacing:-0.02em;}
+    .nav-name span{color:var(--amber);}
+    .nav-name sup{font-size:10px;color:var(--slate);font-weight:400;vertical-align:super;}
+    nav a.back{font-size:13px;color:var(--slate);text-decoration:none;transition:color 0.2s;}
+    nav a.back:hover{color:var(--cream);}
+    .hero{background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.06);padding:64px 24px 48px;text-align:center;}
+    .hero-badge{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(42,157,143,0.3);border-radius:100px;padding:4px 14px;margin-bottom:20px;}
+    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:var(--cream);letter-spacing:-0.02em;margin-bottom:12px;}
+    .hero p{font-size:16px;color:var(--slate);max-width:500px;margin:0 auto 24px;}
+    .hero-meta{font-size:13px;color:#4A6080;}
+    .privacy-highlight{max-width:760px;margin:40px auto;padding:0 24px;}
+    .highlight-box{background:rgba(42,157,143,0.08);border:1px solid rgba(42,157,143,0.25);border-radius:12px;padding:24px 28px;display:flex;gap:16px;align-items:flex-start;}
+    .highlight-icon{font-size:24px;flex-shrink:0;margin-top:2px;}
+    .highlight-box h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--teal);margin-bottom:6px;}
+    .highlight-box p{font-size:14px;color:var(--slate);line-height:1.65;}
+    .content{max-width:760px;margin:0 auto;padding:0 24px 80px;}
+    .section{margin-bottom:48px;}
+    .section h2{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:var(--cream);letter-spacing:-0.01em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .section h3{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--amber);margin:24px 0 8px;}
+    .section p{font-size:15px;color:#B8C8D8;margin-bottom:14px;line-height:1.75;}
+    .section ul{list-style:none;margin-bottom:14px;}
+    .section ul li{font-size:15px;color:#B8C8D8;padding:4px 0 4px 20px;position:relative;line-height:1.65;}
+    .section ul li::before{content:'';position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--teal);opacity:0.7;}
+    .data-table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:14px;}
+    .data-table th{background:var(--navy);color:var(--cream);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;text-align:left;border:1px solid rgba(255,255,255,0.08);}
+    .data-table td{padding:10px 14px;color:#B8C8D8;border:1px solid rgba(255,255,255,0.06);vertical-align:top;line-height:1.5;}
+    .data-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
+    .tag{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:4px;letter-spacing:0.06em;}
+    .tag-local{background:rgba(42,157,143,0.15);color:var(--teal);}
+    .tag-cloud{background:rgba(245,166,35,0.15);color:var(--amber);}
+    .warning-box{background:rgba(245,166,35,0.07);border:1px solid rgba(245,166,35,0.2);border-radius:10px;padding:16px 20px;margin:16px 0;}
+    .warning-box p{font-size:14px;color:#C8A060;margin:0;}
+    .warning-box strong{color:var(--amber);}
+    a{color:var(--teal);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    strong{color:var(--cream);font-weight:500;}
+    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:32px 24px;text-align:center;}
+    footer p{font-size:13px;color:var(--slate);margin-bottom:6px;}
+    footer a{color:var(--teal);font-size:13px;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://nocito.app/cs/" class="nav-logo">
+    <div class="nav-icon"><img src="/icon.png" alt="Nocito icon"></div>
+    <div class="nav-name">No<span>c</span>ito<sup>™</sup></div>
+  </a>
+  <a href="https://nocito.app/cs/" class="back">← Zpět na hlavní stránku</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">Právní</div>
+  <h1>Zásady ochrany osobních údajů</h1>
+  <p>Jak Nocito™ zachází s vašimi údaji — a proč většina z nich nikdy neopustí váš telefon.</p>
+  <div class="hero-meta">Datum účinnosti: 1. června 2025 &nbsp;·&nbsp; Poslední aktualizace: květen 2026 (verze 1.0)</div>
+</div>
+
+<div class="privacy-highlight">
+  <div class="highlight-box">
+    <div class="highlight-icon">🔒</div>
+    <div>
+      <h3>Stručná verze</h3>
+      <p>Nocito™ ukládá všechny vaše výdaje, účtenky, obrázky a zvukové záznamy <strong>lokálně ve vašem zařízení</strong>. Nemáme server s vašimi daty. Ve výchozím nastavení se očištěný OCR text odesílá do cloudové AI služby ke zpracování výdajů a hlasové diktování využívá cloudový přepis. V nastavení můžete přepnout na plné zpracování AI a přepis přímo v zařízení aktivací lokálních modelů — to vyžaduje jednorázové stažení v rámci aplikace. Import PDF ve výchozím nastavení extrahuje text lokálně; odeslání celého PDF do cloudu je volitelné nastavení. Aplikace používá Sentry pro anonymní hlášení pádů. Vše je uvedeno v těchto zásadách.</p>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<div class="section">
+    <h2>1. Kdo jsme</h2>
+    <p>Nocito™ je mobilní aplikace pro osobní sledování výdajů, vyvíjená a vydávaná společností <strong>Nocito™</strong> ("my", "nás", "náš"). Aplikace je dostupná pro Android přes Google Play.</p>
+    <p>Můžete nás kontaktovat na: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  </div>
+<div class="section">
+    <h2>2. Jaká data shromažďujeme a jak</h2>
+    <p>Nocito™ je navrženo kolem architektury, která upřednostňuje soukromí. Naprostá většina dat nikdy neopustí vaše zařízení.</p>
+
+    <h3>Data uložená pouze lokálně ve vašem zařízení</h3>
+    <table class="data-table">
+      <tr><th>Typ dat</th><th>Kde je uloženo</th><th>Účel</th></tr>
+      <tr><td>Záznamy o výdajích (částka, obchodník, datum, kategorie, poznámka)</td><td><span class="tag tag-local">Lokální SQLite</span></td><td>Základní funkčnost aplikace</td></tr>
+      <tr><td>Obrázky účtenek (fotografie, screenshoty)</td><td><span class="tag tag-local">Lokální úložiště</span></td><td>Reference a kontrola</td></tr>
+      <tr><td>Zvukové záznamy (hlasové diktování)</td><td><span class="tag tag-local">Lokální úložiště</span></td><td>Reference a přehrávání</td></tr>
+      <tr><td>Nastavení a preference aplikace</td><td><span class="tag tag-local">Lokální úložiště</span></td><td>Konfigurace aplikace</td></tr>
+      <tr><td>Časové razítko souhlasu při onboardingu</td><td><span class="tag tag-local">Lokální úložiště</span></td><td>Záznam o souhlasu</td></tr>
+    </table>
+
+    <h3>Data odesílaná externím službám</h3>
+    <table class="data-table">
+      <tr><th>Typ dat</th><th>Služba</th><th>Účel</th><th>Kdy</th></tr>
+      <tr>
+        <td>Očištěný OCR text (text účtenky bez osobních údajů)</td>
+        <td><span class="tag tag-cloud">Cloudová AI služba</span></td>
+        <td>AI kategorizace výdajů</td>
+        <td>Při každém vyfocení a importu fotografie, pokud je zapnuto Cloudové AI zpracování (výchozí: ZAPNUTO)</td>
+      </tr>
+      <tr>
+        <td>Lokálně extrahovaný OCR text z PDF</td>
+        <td><span class="tag tag-cloud">Cloudová AI služba</span></td>
+        <td>AI zpracování PDF účtenek</td>
+        <td>Import PDF, pokud je Cloudová extrakce PDF vypnutá (výchozí: VYPNUTO — pouze lokálně)</td>
+      </tr>
+      <tr>
+        <td>Celý PDF dokument</td>
+        <td><span class="tag tag-cloud">Cloudová AI služba</span></td>
+        <td>Přesnější zpracování PDF</td>
+        <td>Pouze pokud je v Nastavení zapnutá Cloudová extrakce PDF (volitelné)</td>
+      </tr>
+      <tr>
+        <td>Zvukový záznam</td>
+        <td><span class="tag tag-cloud">Cloudová AI služba</span></td>
+        <td>Přepis řeči na text</td>
+        <td>Výchozí pro hlasové diktování. Lze nahradit lokálním přepisem v zařízení zapnutím Lokálního přepisu v Nastavení a stažením lokálního modelu.</td>
+      </tr>
+      <tr>
+        <td>Lokálně přepsaný text</td>
+        <td><span class="tag tag-cloud">Cloudová AI služba</span></td>
+        <td>Zpracování výdajů z hlasového vstupu</td>
+        <td>Když je aktivní Lokální přepis a zapnuté Cloudové AI zpracování. Vypněte Cloudové AI zpracování, aby vše zůstalo plně v zařízení.</td>
+      </tr>
+      <tr>
+        <td>Anonymní data o pádu (stack traces, informace o zařízení, verze aplikace)</td>
+        <td><span class="tag tag-cloud">Sentry</span></td>
+        <td>Hlášení pádů a sledování stability</td>
+        <td>Automaticky při pádu aplikace — bez osobních údajů</td>
+      </tr>
+    </table>
+
+    <div class="warning-box">
+      <p><strong>Poznámka k filtru soukromí:</strong> Než je jakýkoli OCR text odeslán do cloudové AI služby, váš telefon automaticky odstraní osobní údaje — jména, adresy, rodná čísla, telefonní čísla a e-mailové adresy. Odesílají se pouze částky, data, názvy obchodníků a produktů. Upozorňujeme, že <strong>Cloudová extrakce PDF</strong> (volitelná) odesílá celé PDF bez předfiltrování a <strong>Cloudový přepis</strong> (výchozí) odesílá surový zvuk bez předfiltrování — filtr se vztahuje pouze na přepsaný text před tím, než se dostane ke zpracování AI. Jedinou 100% zaručeně soukromou možností je zapnutí Lokálního AI zpracování, Lokálního přepisu a ponechání Cloudové extrakce PDF vypnuté — v této konfiguraci se žádná data neodesílají externím službám.</p>
+    </div>
+
+    <h3>Data, která nikdy neshromažďujeme</h3>
+    <ul>
+      <li>Neshromažďujeme vaše jméno, e-mailovou adresu ani jakékoli informace o účtu (žádný účet neexistuje)</li>
+      <li>Neshromažďujeme analytiku ani statistiky používání</li>
+      <li>Nepoužíváme reklamní SDK ani sledovací pixely</li>
+      <li>Nesynchronizujeme vaše výdajové údaje na žádný server</li>
+      <li>Neprodáváme vaše údaje nikomu</li>
+    </ul>
+  </div>
+<div class="section">
+    <h2>3. Filtr soukromí — lokální očištění dat</h2>
+    <p>Pro vyfocení a import fotografií spouští Nocito™ na vašem zařízení lokální proces očištění dat, než je jakýkoli text odeslán AI. Tento proces odstraňuje:</p>
+    <ul>
+      <li>Osobní jména (vzory jména a příjmení)</li>
+      <li>Fyzické adresy (ulice, číslo domu, PSČ, město)</li>
+      <li>Národní identifikační čísla (např. daňová identifikační čísla, rodná čísla)</li>
+      <li>Telefonní čísla a e-mailové adresy</li>
+    </ul>
+    <p>Co zůstává: částky, ceny, data, časy, názvy obchodníků a firem, názvy produktů, kategorie a DIČ firem.</p>
+    <p>Tento proces probíhá zcela na vašem zařízení, než dojde k jakémukoli síťovému volání. Upozorňujeme, že předfiltr se vztahuje na OCR text z vyfocení a importu fotografií. Neplatí, pokud je zapnutá Cloudová extrakce PDF (celé PDF se odešle do cloudu) ani pro surový zvuk během Cloudového přepisu (zvuk se odešle do cloudu před jakoukoli extrakcí textu).</p>
+  </div>
+<div class="section">
+    <h2>4. Hlasové diktování</h2>
+    <p>Nocito™ podporuje dva režimy hlasového diktování. Cloudový přepis je při čisté instalaci aktivní ve výchozím nastavení. Lokální přepis je dostupný jako volitelná možnost, která vyžaduje jednorázové stažení modelu.</p>
+
+    <h3>Cloudový přepis (výchozí)</h3>
+    <p>Při čisté instalaci se klepnutím na tlačítko Diktovat nahraje zvuk a odešle se do cloudové AI služby k přepisu. Přepsaný text je poté zpracován filtrem soukromí (oddíl 3) a odeslán cloudové AI službě ke zpracování výdaje.</p>
+
+    <h3>Lokální přepis (volitelné)</h3>
+    <p>V Nastavení můžete přepnout na plný přepis v zařízení zapnutím přepínače <strong>Lokální přepis</strong> a stažením jednoho ze dvou dostupných lokálních modelů Whisper. Tlačítko ke stažení je dostupné přímo na obrazovce Diktovat i v Nastavení. Po nastavení:</p>
+    <ul>
+      <li><strong>Klepnutím nahrávat</strong> — používá lokální přepis v zařízení. Žádný zvuk neopustí váš telefon.</li>
+      <li><strong>Podržením 1 sekundu nahrávat</strong> — aktivuje Super Dictate (cloudový přepis) pro vyšší přesnost, když je potřeba.</li>
+    </ul>
+    <p>Při aktivním lokálním přepisu je přepsaný text i nadále ve výchozím nastavení odesílán cloudové AI službě ke zpracování výdaje — pokud také nezapnete <strong>Lokální AI zpracování</strong> (viz oddíl 4c).</p>
+
+    <div class="warning-box">
+      <p><strong>100% soukromé diktování:</strong> aby žádná hlasová ani textová data neopustila vaše zařízení, zapněte v Nastavení jak Lokální přepis, tak Lokální AI zpracování. Obojí vyžaduje jednorázové stažení modelu. Doporučujeme pro uživatele, pro které je soukromí důležitější než maximální přesnost a kteří mají dostatečně rychlé zařízení.</p>
+    </div>
+
+    <h3 id="pdf">4b. Import PDF</h3>
+    <p>Nocito™ ve výchozím nastavení zpracovává PDF účtenky lokálně. Aplikace používá OCR v zařízení (ML Kit) k extrakci textu z PDF, aplikuje filtr soukromí a odesílá pouze očištěný text cloudové AI službě ke zpracování výdaje.</p>
+    <p>V Nastavení je dostupný volitelný přepínač <strong>Cloudová extrakce PDF</strong>. Když je zapnutý, celý PDF dokument se odesílá přímo cloudové AI službě pro přesnější zpracování. Toto je volitelné a ve výchozím nastavení vypnuté.</p>
+    <p>Aby zpracování PDF zůstalo 100% v zařízení, ponechte Cloudovou extrakci PDF vypnutou a zapněte Lokální AI zpracování v Nastavení (vyžaduje stažení modelu).</p>
+    <div class="warning-box">
+      <p><strong>Když je Cloudová extrakce PDF zapnutá:</strong> celý PDF dokument je odeslán externí službě bez lokálního předfiltrování. Doporučujeme ponechat toto vypnuté, pokud nepotřebujete vyšší přesnost u složitých PDF, a vyhnout se použití s PDF obsahujícími citlivé osobní údaje.</p>
+    </div>
+  </div>
+<div class="section">
+    <h2>4c. Nastavení úrovně soukromí</h2>
+    <p>Nocito™ vám dává přímou kontrolu nad tím, které zpracování probíhá lokálně a které využívá cloudové služby. Tato nastavení jsou dostupná na obrazovce Nastavení aplikace:</p>
+    <table class="data-table">
+      <tr><th>Přepínač v aplikaci</th><th>Výchozí</th><th>Co ovládá</th></tr>
+      <tr>
+        <td><strong>Cloudové AI zpracování</strong></td>
+        <td>ZAPNUTO</td>
+        <td>Když je ZAPNUTO, očištěný OCR text se odesílá cloudové AI službě ke kategorizaci výdajů (výchozí). Vypněte a stáhněte lokální AI model pro plné zpracování extrakce výdajů v zařízení. Stažení dostupné v Nastavení.</td>
+      </tr>
+      <tr>
+        <td><strong>Cloudový přepis</strong></td>
+        <td>ZAPNUTO</td>
+        <td>Když je ZAPNUTO, hlasové diktování odesílá zvuk k přepisu cloudové AI službě (výchozí). Vypněte a stáhněte lokální model Whisper pro přepis zvuku zcela v zařízení. Stažení dostupné na obrazovce Diktovat a v Nastavení. Jakmile je lokální model stažen a přepínač VYPNUT: klepnutí = lokální přepis, podržení 1 s = cloud (Super Dictate).</td>
+      </tr>
+      <tr>
+        <td><strong>Cloudová extrakce PDF</strong></td>
+        <td>VYPNUTO</td>
+        <td>Když je VYPNUTO, text PDF je extrahován lokálně přes OCR a AI se odesílá pouze očištěný výsledek (výchozí). Zapněte, chcete-li odeslat celý PDF dokument cloudové službě pro přesnější zpracování.</td>
+      </tr>
+    </table>
+    <p>Změna těchto nastavení se projeví okamžitě. Vaše stávající výdaje nejsou dotčeny.</p>
+  </div>
+<div class="section">
+    <h2>5. Super Snap (budoucí) a Super Dictate (Pro)</h2>
+    <p>Budoucí Pro verze Nocito™ budou zahrnovat Super Snap — prémiovou funkci, která odesílá celé obrázky účtenek přímo do služby AI Vision pro přesnější extrakci, čímž obchází standardní OCR a filtr soukromí.</p>
+    <p>Super Dictate, který odesílá zvuk do OpenAI Whisper API pro přesnější přepis, je v aktuální verzi dostupný jako možnost v rámci úrovně Pro.</p>
+    <div class="warning-box">
+      <p><strong>Při použití Super Snap nebo Super Dictate:</strong> je váš celý obrázek nebo zvukový záznam přenesen externí AI službě. Vždy budete požádáni o potvrzení před jakýmkoli takovým přenosem. Vyhněte se použití těchto funkcí s dokumenty obsahujícími citlivé osobní údaje.</p>
+    </div>
+  </div>
+<div class="section">
+    <h2>6. Služby třetích stran</h2>
+    <table class="data-table">
+      <tr><th>Služba</th><th>Poskytovatel</th><th>Odesílaná data</th></tr>
+      <tr>
+        <td>AI extrakce a kategorizace výdajů</td>
+        <td>Cloudová AI služba</td>
+        <td>Pouze očištěný OCR text (osobní údaje lokálně předfiltrovány)</td>
+      </tr>
+      <tr>
+        <td>Zpracování PDF (když je zapnutá Cloudová extrakce PDF)</td>
+        <td>Cloudová AI služba</td>
+        <td>Celý PDF dokument (pouze volitelné)</td>
+      </tr>
+      <tr>
+        <td>Přepis řeči (když je zapnutý Cloudový přepis)</td>
+        <td>Cloudová AI služba</td>
+        <td>Zvukový záznam (pouze volitelné)</td>
+      </tr>
+      <tr>
+        <td>Hlášení pádů</td>
+        <td>Sentry (sentry.io)</td>
+        <td>Anonymní data o pádu: stack traces, model zařízení, verze OS, verze aplikace. Bez osobních údajů, bez výdajových dat.</td>
+      </tr>
+    </table>
+    <p>Konkrétní cloudové AI služby používané pro extrakci výdajů a přepis se mohou měnit, jakmile budou dostupné lepší nebo více soukromí zachovávající možnosti. Jakákoli podstatná změna typů přenášených dat bude odražena v aktualizovaných Zásadách ochrany osobních údajů.</p>
+    <p>V Nocito™ nejsou integrovány žádné reklamní sítě, analytické platformy ani SDK sociálních médií.</p>
+    <p>Zásady ochrany osobních údajů společnosti Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+  </div>
+<div class="section">
+    <h2>7. Ukládání obrázků a zvuku</h2>
+    <p>Obrázky účtenek a zvukové záznamy jsou uloženy v <strong>soukromém adresáři aplikace</strong> vašeho zařízení — místě, ke kterému nemají přístup jiné aplikace. Nejsou nahrávány do žádné cloudové služby.</p>
+    <p>Toto chování můžete ovládat:</p>
+    <ul>
+      <li><strong>Ukládat původní obrázky</strong> — ve výchozím nastavení ZAPNUTO. Lze vypnout v Nastavení nebo při onboardingu.</li>
+      <li><strong>Ukládat původní zvuk</strong> — ve výchozím nastavení ZAPNUTO. Lze vypnout v Nastavení nebo při onboardingu.</li>
+    </ul>
+    <p><strong>Lokální záloha:</strong> Nocito™ nabízí funkci lokální ZIP zálohy, která exportuje soubor JSON obsahující všechny vaše záznamy o výdajích spolu s původními obrázky, PDF a zvukovými záznamy přiloženými k těmto výdajům. Z této zálohy můžete kdykoli obnovit data. Za uchování vlastních záložních kopií odpovídáte vy — Nocito™ neuchovává žádnou kopii vašich dat na serveru. Pokud odinstalujete aplikaci bez zálohy, všechna data budou trvale smazána.</p>
+  </div>
+<div class="section">
+    <h2>8. Budoucí cloudové úložiště</h2>
+    <p>Nocito™ může v budoucích verzích zavést volitelné funkce cloudové synchronizace. Jakákoli taková funkce by ukládala vaše data na externí servery a byla by <strong>zcela volitelná</strong>. Bezplatní a lokální Pro uživatelé by nebyli ovlivněni. Před nahráním jakýchkoli dat na externí servery by bylo prezentováno samostatné zveřejnění a žádost o souhlas.</p>
+    <p>V aktuální verzi není cloudová synchronizace dostupná.</p>
+  </div>
+<div class="section">
+    <h2>9. Právní základ zpracování (GDPR)</h2>
+    <p>Pro uživatele v Evropské unii a Evropském hospodářském prostoru zpracováváme data na základě následujících právních základů:</p>
+    <ul>
+      <li><strong>Plnění smlouvy</strong> — zpracování vašich výdajových údajů za účelem poskytnutí základní funkčnosti, o kterou jste požádali</li>
+      <li><strong>Oprávněné zájmy</strong> — odesílání očištěného OCR textu cloudovým AI službám za účelem přesné kategorizace výdajů</li>
+      <li><strong>Oprávněné zájmy</strong> — anonymní hlášení pádů přes Sentry za účelem udržení stability aplikace</li>
+      <li><strong>Souhlas</strong> — odesílání zvuku cloudové přepisové službě (pouze pokud je Cloudový přepis zapnutý v Nastavení)</li>
+      <li><strong>Souhlas</strong> — odesílání celých PDF dokumentů cloudové AI službě (pouze pokud je Cloudová extrakce PDF zapnutá v Nastavení)</li>
+    </ul>
+    <p>Vzhledem k tomu, že aplikace funguje primárně v zařízení bez systému účtů, jsou osobní údaje, které zpracováváme, minimální. Hlavním správcem vašich osobních údajů jste vy sami — žijí ve vašem zařízení.</p>
+  </div>
+<div class="section">
+    <h2>10. Vaše práva</h2>
+    <p>Podle GDPR a dalších platných zákonů máte právo na:</p>
+    <ul>
+      <li><strong>Přístup</strong> — exportujte své výdaje jako CSV přímo v aplikaci (funkce Pro)</li>
+      <li><strong>Zálohu a obnovení</strong> — exportujte všechna svá data jako zálohu JSON a obnovte je na jakémkoli zařízení (dostupné všem uživatelům)</li>
+      <li><strong>Vymazání</strong> — smažte jednotlivé výdaje nebo všechna data přímo v aplikaci, nebo odinstalujte aplikaci a smažte vše</li>
+      <li><strong>Přenositelnost</strong> — kdykoli exportujte svá data jako CSV nebo JSON</li>
+      <li><strong>Opravu</strong> — upravte jakýkoli výdaj přímo v aplikaci</li>
+    </ul>
+    <p>Protože neuchováváme kopii vašich dat na serveru, většinu práv lze uplatnit přímo v aplikaci. S jakýmikoli dotazy: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  </div>
+<div class="section">
+    <h2>10b. Hlášení pádů</h2>
+    <p>Nocito™ používá <strong>Sentry</strong> (sentry.io) pro hlášení pádů. Když aplikace spadne nebo narazí na neočekávanou chybu, Sentry automaticky odešle anonymní hlášení obsahující:</p>
+    <ul>
+      <li>Stack trace (technický popis místa v kódu, kde k chybě došlo)</li>
+      <li>Model a výrobce zařízení</li>
+      <li>Verzi Android OS</li>
+      <li>Verzi aplikace</li>
+    </ul>
+    <p>Hlášení o pádech <strong>neobsahují</strong> vaše výdajová data, obrázky účtenek, zvukové záznamy ani žádné osobně identifikovatelné údaje. Slouží výhradně k identifikaci a opravě chyb.</p>
+  </div>
+<div class="section">
+    <h2>11. Ochrana soukromí dětí</h2>
+    <p>Nocito™ není určeno dětem mladším 13 let (nebo mladším 16 let v EU). Vědomě neshromažďujeme osobní údaje od dětí. Pokud se domníváte, že nám dítě poskytlo osobní údaje, kontaktujte nás prosím na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
+  </div>
+<div class="section">
+    <h2>12. Změny těchto zásad</h2>
+    <p>Tyto Zásady ochrany osobních údajů můžeme aktualizovat, jak se aplikace vyvíjí — zejména při zavádění nových funkcí zahrnujících přenos dat (jako Super Snap v budoucí verzi nebo změny ve zpracování PDF a Diktování). Při zásadních změnách vás upozorníme prostřednictvím vyskakovacího okna "Co je nového" v aplikaci a aktualizujeme výše uvedené datum účinnosti.</p>
+    <p>Pokračující používání Nocito™ po změnách představuje přijetí aktualizovaných zásad.</p>
+  </div>
+<div class="section">
+    <h2>13. Kontakt</h2>
+    <p>Pro dotazy týkající se soukromí, žádosti o data nebo obavy:</p>
+    <ul>
+      <li>E-mail: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></li>
+      <li>Web: <a href="https://nocito.app">nocito.app</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Nocito™ &nbsp;·&nbsp; <a href="https://nocito.app/cs/privacy.html">Zásady ochrany osobních údajů</a> &nbsp;·&nbsp; <a href="https://nocito.app/cs/terms.html">Podmínky služby</a> &nbsp;·&nbsp; <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  <p style="margin-top:8px;font-size:12px;color:#3A5070;">nocito.app</p>
+</footer>
+
+</body>
+</html>

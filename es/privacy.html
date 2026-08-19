@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de privacidad — Nocito™</title>
+  <meta name="description" content="Política de privacidad de Nocito. Tus datos de gastos permanecen en tu teléfono.">
+  <link rel="canonical" href="https://nocito.app/es/privacy.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#1B2A4A; --amber:#F5A623; --teal:#2A9D8F; --cream:#F5EDD6; --card:#243550; --slate:#8899AA; --dark:#0F1B2D; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--dark);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.75;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(15,27,45,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-icon{width:32px;height:32px;border-radius:8px;overflow:hidden;flex-shrink:0;}
+    .nav-icon img{width:100%;height:100%;object-fit:cover;display:block;}
+    .nav-name{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--cream);letter-spacing:-0.02em;}
+    .nav-name span{color:var(--amber);}
+    .nav-name sup{font-size:10px;color:var(--slate);font-weight:400;vertical-align:super;}
+    nav a.back{font-size:13px;color:var(--slate);text-decoration:none;transition:color 0.2s;}
+    nav a.back:hover{color:var(--cream);}
+    .hero{background:var(--navy);border-bottom:1px solid rgba(255,255,255,0.06);padding:64px 24px 48px;text-align:center;}
+    .hero-badge{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(42,157,143,0.3);border-radius:100px;padding:4px 14px;margin-bottom:20px;}
+    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:700;color:var(--cream);letter-spacing:-0.02em;margin-bottom:12px;}
+    .hero p{font-size:16px;color:var(--slate);max-width:500px;margin:0 auto 24px;}
+    .hero-meta{font-size:13px;color:#4A6080;}
+    .privacy-highlight{max-width:760px;margin:40px auto;padding:0 24px;}
+    .highlight-box{background:rgba(42,157,143,0.08);border:1px solid rgba(42,157,143,0.25);border-radius:12px;padding:24px 28px;display:flex;gap:16px;align-items:flex-start;}
+    .highlight-icon{font-size:24px;flex-shrink:0;margin-top:2px;}
+    .highlight-box h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--teal);margin-bottom:6px;}
+    .highlight-box p{font-size:14px;color:var(--slate);line-height:1.65;}
+    .content{max-width:760px;margin:0 auto;padding:0 24px 80px;}
+    .section{margin-bottom:48px;}
+    .section h2{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:var(--cream);letter-spacing:-0.01em;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .section h3{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--amber);margin:24px 0 8px;}
+    .section p{font-size:15px;color:#B8C8D8;margin-bottom:14px;line-height:1.75;}
+    .section ul{list-style:none;margin-bottom:14px;}
+    .section ul li{font-size:15px;color:#B8C8D8;padding:4px 0 4px 20px;position:relative;line-height:1.65;}
+    .section ul li::before{content:'';position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--teal);opacity:0.7;}
+    .data-table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:14px;}
+    .data-table th{background:var(--navy);color:var(--cream);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 14px;text-align:left;border:1px solid rgba(255,255,255,0.08);}
+    .data-table td{padding:10px 14px;color:#B8C8D8;border:1px solid rgba(255,255,255,0.06);vertical-align:top;line-height:1.5;}
+    .data-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
+    .tag{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:4px;letter-spacing:0.06em;}
+    .tag-local{background:rgba(42,157,143,0.15);color:var(--teal);}
+    .tag-cloud{background:rgba(245,166,35,0.15);color:var(--amber);}
+    .warning-box{background:rgba(245,166,35,0.07);border:1px solid rgba(245,166,35,0.2);border-radius:10px;padding:16px 20px;margin:16px 0;}
+    .warning-box p{font-size:14px;color:#C8A060;margin:0;}
+    .warning-box strong{color:var(--amber);}
+    a{color:var(--teal);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    strong{color:var(--cream);font-weight:500;}
+    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:32px 24px;text-align:center;}
+    footer p{font-size:13px;color:var(--slate);margin-bottom:6px;}
+    footer a{color:var(--teal);font-size:13px;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://nocito.app/es/" class="nav-logo">
+    <div class="nav-icon"><img src="/icon.png" alt="Nocito icon"></div>
+    <div class="nav-name">No<span>c</span>ito<sup>™</sup></div>
+  </a>
+  <a href="https://nocito.app/es/" class="back">← Volver al inicio</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">Legal</div>
+  <h1>Política de privacidad</h1>
+  <p>Cómo gestiona Nocito™ tus datos — y por qué la mayoría nunca sale de tu teléfono.</p>
+  <div class="hero-meta">Fecha de entrada en vigor: 1 de junio de 2025 &nbsp;·&nbsp; Última actualización: mayo de 2026 (versión v1.0)</div>
+</div>
+
+<div class="privacy-highlight">
+  <div class="highlight-box">
+    <div class="highlight-icon">🔒</div>
+    <div>
+      <h3>La versión breve</h3>
+      <p>Nocito™ almacena todos tus gastos, recibos, imágenes y audios <strong>localmente en tu dispositivo</strong>. No tenemos un servidor con tus datos. Por defecto, el texto OCR depurado se envía a un servicio de IA en la nube para el análisis de gastos, y el dictado por voz utiliza transcripción en la nube. Puedes cambiar a un procesamiento de IA y transcripción totalmente en el dispositivo activando modelos locales en Ajustes — esto requiere una descarga única dentro de la app. La importación de PDF extrae texto localmente por defecto; enviar el PDF completo a la nube es una opción que debes activar tú mismo. La app usa Sentry para informes anónimos de fallos. Todo se detalla en esta política.</p>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<div class="section">
+    <h2>1. Quiénes somos</h2>
+    <p>Nocito™ es una aplicación móvil de seguimiento de gastos personales desarrollada y publicada por <strong>Nocito™</strong> ("nosotros", "nos", "nuestro"). La app está disponible para Android a través de Google Play.</p>
+    <p>Puedes contactarnos en: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  </div>
+<div class="section">
+    <h2>2. Qué datos recopilamos y cómo</h2>
+    <p>Nocito™ está diseñada en torno a una arquitectura que prioriza la privacidad. La gran mayoría de los datos nunca sale de tu dispositivo.</p>
+
+    <h3>Datos almacenados solo localmente en tu dispositivo</h3>
+    <table class="data-table">
+      <tr><th>Tipo de dato</th><th>Dónde se almacena</th><th>Propósito</th></tr>
+      <tr><td>Registros de gastos (importe, comercio, fecha, categoría, nota)</td><td><span class="tag tag-local">SQLite local</span></td><td>Funcionalidad principal de la app</td></tr>
+      <tr><td>Imágenes de recibos (fotos, capturas de pantalla)</td><td><span class="tag tag-local">Almacenamiento local</span></td><td>Referencia y revisión</td></tr>
+      <tr><td>Grabaciones de audio (dictado por voz)</td><td><span class="tag tag-local">Almacenamiento local</span></td><td>Referencia y reproducción</td></tr>
+      <tr><td>Ajustes y preferencias de la app</td><td><span class="tag tag-local">Almacenamiento local</span></td><td>Configuración de la app</td></tr>
+      <tr><td>Marca de tiempo del consentimiento inicial</td><td><span class="tag tag-local">Almacenamiento local</span></td><td>Registro de consentimiento</td></tr>
+    </table>
+
+    <h3>Datos enviados a servicios externos</h3>
+    <table class="data-table">
+      <tr><th>Tipo de dato</th><th>Servicio</th><th>Propósito</th><th>Cuándo</th></tr>
+      <tr>
+        <td>Texto OCR depurado (texto del recibo sin información personal)</td>
+        <td><span class="tag tag-cloud">Servicio de IA en la nube</span></td>
+        <td>Categorización de gastos con IA</td>
+        <td>En cada captura e importación de foto cuando el Procesamiento de IA en la nube está activado (por defecto: ACTIVADO)</td>
+      </tr>
+      <tr>
+        <td>Texto OCR extraído localmente de PDF</td>
+        <td><span class="tag tag-cloud">Servicio de IA en la nube</span></td>
+        <td>Análisis con IA de recibos PDF</td>
+        <td>Al importar PDF cuando la Extracción de PDF en la nube está desactivada (por defecto: DESACTIVADO — solo local)</td>
+      </tr>
+      <tr>
+        <td>Documento PDF completo</td>
+        <td><span class="tag tag-cloud">Servicio de IA en la nube</span></td>
+        <td>Análisis de PDF de mayor precisión</td>
+        <td>Solo cuando la opción Extracción de PDF en la nube está activada en Ajustes (opt-in)</td>
+      </tr>
+      <tr>
+        <td>Grabación de audio</td>
+        <td><span class="tag tag-cloud">Servicio de IA en la nube</span></td>
+        <td>Transcripción de voz a texto</td>
+        <td>Por defecto para el dictado por voz. Puede sustituirse por transcripción local en el dispositivo activando la Transcripción local en Ajustes y descargando un modelo local.</td>
+      </tr>
+      <tr>
+        <td>Texto transcrito localmente</td>
+        <td><span class="tag tag-cloud">Servicio de IA en la nube</span></td>
+        <td>Análisis de gastos a partir de entrada de voz</td>
+        <td>Cuando la Transcripción local está activa y el Procesamiento de IA en la nube está activado. Desactiva el Procesamiento de IA en la nube para que todo permanezca totalmente en el dispositivo.</td>
+      </tr>
+      <tr>
+        <td>Datos de fallos anónimos (trazas de pila, información del dispositivo, versión de la app)</td>
+        <td><span class="tag tag-cloud">Sentry</span></td>
+        <td>Informes de fallos y monitorización de estabilidad</td>
+        <td>Automáticamente al producirse un fallo en la app — sin datos personales</td>
+      </tr>
+    </table>
+
+    <div class="warning-box">
+      <p><strong>Nota sobre el prefiltro de privacidad:</strong> Antes de enviar cualquier texto OCR a un servicio de IA en la nube, tu teléfono elimina automáticamente la información personal — nombres, direcciones, números de identificación nacional, números de teléfono y direcciones de correo electrónico. Solo se envían importes, fechas, nombres de comercios y nombres de productos. Ten en cuenta que la <strong>Extracción de PDF en la nube</strong> (opcional) envía el PDF completo sin prefiltrado, y la <strong>Transcripción en la nube</strong> (predeterminada) envía audio sin procesar sin prefiltrado — el prefiltro solo se aplica al texto transcrito antes de que llegue al paso de procesamiento con IA. La única opción 100% garantizada como privada es activar el Procesamiento de IA local, la Transcripción local y mantener desactivada la Extracción de PDF en la nube — en esta configuración no se envía ningún dato a servicios externos.</p>
+    </div>
+
+    <h3>Datos que nunca recopilamos</h3>
+    <ul>
+      <li>No recopilamos tu nombre, dirección de correo electrónico ni ninguna información de cuenta (no existe cuenta)</li>
+      <li>No recopilamos analíticas ni estadísticas de uso</li>
+      <li>No usamos SDK publicitarios ni píxeles de seguimiento</li>
+      <li>No sincronizamos tus datos de gastos con ningún servidor</li>
+      <li>No vendemos tus datos a nadie</li>
+    </ul>
+  </div>
+<div class="section">
+    <h2>3. Prefiltro de privacidad — depuración local de datos</h2>
+    <p>Para capturas e importaciones de fotos, Nocito™ ejecuta un proceso de depuración local en tu dispositivo antes de enviar cualquier texto a la IA. Este proceso elimina:</p>
+    <ul>
+      <li>Nombres personales (patrones de nombre y apellido)</li>
+      <li>Direcciones físicas (calle, número, código postal, ciudad)</li>
+      <li>Números de identificación nacional (por ejemplo, números de identificación fiscal, números de identificación personal)</li>
+      <li>Números de teléfono y direcciones de correo electrónico</li>
+    </ul>
+    <p>Lo que conserva: importes, precios, fechas, horas, nombres de comercios y empresas, nombres de productos, categorías y números de IVA de empresas.</p>
+    <p>Este proceso se ejecuta enteramente en tu dispositivo antes de realizar cualquier llamada de red. Ten en cuenta que el prefiltro se aplica al texto OCR de capturas e importaciones de fotos. No se aplica cuando la Extracción de PDF en la nube está activada (el PDF completo se envía a la nube) ni al audio sin procesar durante la Transcripción en la nube (el audio se envía a la nube antes de cualquier extracción de texto).</p>
+  </div>
+<div class="section">
+    <h2>4. Dictado por voz</h2>
+    <p>Nocito™ admite dos modos de dictado por voz. La transcripción en la nube está activa por defecto en una instalación nueva. La transcripción local está disponible como opción que debes activar tú mismo y requiere una descarga de modelo única.</p>
+
+    <h3>Transcripción en la nube (predeterminada)</h3>
+    <p>En una instalación nueva, al tocar el botón Dictar se graba audio y se envía a un servicio de IA en la nube para su transcripción. El texto transcrito se procesa después mediante el prefiltro de privacidad (sección 3) y se envía a un servicio de IA en la nube para el análisis del gasto.</p>
+
+    <h3>Transcripción local (opcional)</h3>
+    <p>Puedes cambiar a la transcripción totalmente en el dispositivo en Ajustes activando la opción <strong>Transcripción local</strong> y descargando uno de los dos modelos locales Whisper disponibles. El botón de descarga está disponible directamente en la pantalla de Dictado, así como en Ajustes. Una vez configurado:</p>
+    <ul>
+      <li><strong>Tocar para grabar</strong> — usa la transcripción local en el dispositivo. Ningún audio sale de tu teléfono.</li>
+      <li><strong>Mantener pulsado 1 segundo para grabar</strong> — activa Super Dictate (transcripción en la nube) para mayor precisión cuando sea necesario.</li>
+    </ul>
+    <p>Con la transcripción local activa, el texto transcrito sigue enviándose por defecto a un servicio de IA en la nube para el análisis del gasto — a menos que también actives el <strong>Procesamiento de IA local</strong> (consulta la sección 4c).</p>
+
+    <div class="warning-box">
+      <p><strong>Dictado 100% privado:</strong> para asegurarte de que ningún dato de voz o texto salga de tu dispositivo, activa tanto la Transcripción local como el Procesamiento de IA local en Ajustes. Ambos requieren una descarga de modelo única. Se recomienda para usuarios para quienes la privacidad es más importante que la máxima precisión y que disponen de un dispositivo suficientemente rápido.</p>
+    </div>
+
+    <h3 id="pdf">4b. Importación de PDF</h3>
+    <p>Nocito™ procesa los recibos PDF de forma local por defecto. La app usa OCR en el dispositivo (ML Kit) para extraer texto del PDF, aplica el prefiltro de privacidad y solo envía el texto depurado a un servicio de IA en la nube para el análisis del gasto.</p>
+    <p>Hay disponible una opción opcional de <strong>Extracción de PDF en la nube</strong> en Ajustes. Cuando está activada, el documento PDF completo se envía directamente a un servicio de IA en la nube para un análisis de mayor precisión. Es opcional y está desactivada por defecto.</p>
+    <p>Para mantener el procesamiento de PDF 100% en el dispositivo, deja la Extracción de PDF en la nube desactivada y activa el Procesamiento de IA local en Ajustes (requiere descarga de modelo).</p>
+    <div class="warning-box">
+      <p><strong>Cuando la Extracción de PDF en la nube está activada:</strong> el documento PDF completo se envía a un servicio externo sin prefiltrado local. Recomendamos mantener esto desactivado a menos que necesites mayor precisión en PDF complejos, y evitar su uso con PDF que contengan información personal sensible.</p>
+    </div>
+  </div>
+<div class="section">
+    <h2>4c. Ajustes de nivel de privacidad</h2>
+    <p>Nocito™ te da control directo sobre qué procesamiento ocurre localmente y cuál usa servicios en la nube. Estos ajustes están disponibles en la pantalla de Ajustes de la app:</p>
+    <table class="data-table">
+      <tr><th>Interruptor en la app</th><th>Predeterminado</th><th>Qué controla</th></tr>
+      <tr>
+        <td><strong>Procesamiento de IA en la nube</strong></td>
+        <td>ACTIVADO</td>
+        <td>Cuando está ACTIVADO, el texto OCR depurado se envía a un servicio de IA en la nube para la categorización de gastos (predeterminado). Desactívalo y descarga un modelo de IA local para procesar toda la extracción de gastos totalmente en el dispositivo. Descarga disponible en Ajustes.</td>
+      </tr>
+      <tr>
+        <td><strong>Transcripción en la nube</strong></td>
+        <td>ACTIVADO</td>
+        <td>Cuando está ACTIVADO, el dictado por voz envía audio a un servicio de IA en la nube para su transcripción (predeterminado). Desactívalo y descarga un modelo local Whisper para transcribir el audio totalmente en el dispositivo. Descarga disponible en la pantalla de Dictado y en Ajustes. Una vez descargado el modelo local y con el interruptor DESACTIVADO: tocar = transcripción local, mantener 1s = nube (Super Dictate).</td>
+      </tr>
+      <tr>
+        <td><strong>Extracción de PDF en la nube</strong></td>
+        <td>DESACTIVADO</td>
+        <td>Cuando está DESACTIVADO, el texto del PDF se extrae localmente mediante OCR y solo se envía a la IA el resultado depurado (predeterminado). Actívalo para enviar el documento PDF completo a un servicio en la nube para un análisis de mayor precisión.</td>
+      </tr>
+    </table>
+    <p>Los cambios en estos ajustes surten efecto inmediatamente. Tus gastos existentes no se ven afectados.</p>
+  </div>
+<div class="section">
+    <h2>5. Super Snap (futuro) y Super Dictate (Pro)</h2>
+    <p>Las futuras versiones Pro de Nocito™ incluirán Super Snap — una función premium que envía imágenes completas de recibos directamente a un servicio de IA de visión para una extracción de mayor precisión, evitando el flujo estándar de OCR y prefiltro de privacidad.</p>
+    <p>Super Dictate, que envía audio a la API de OpenAI Whisper para una transcripción de mayor precisión, está disponible en la versión actual como opción dentro del nivel Pro.</p>
+    <div class="warning-box">
+      <p><strong>Al usar Super Snap o Super Dictate:</strong> tu imagen o grabación de audio completa se transmite a un servicio de IA externo. Siempre se te pedirá confirmación antes de que se produzca dicha transmisión. Evita usar estas funciones con documentos que contengan información personal sensible.</p>
+    </div>
+  </div>
+<div class="section">
+    <h2>6. Servicios de terceros</h2>
+    <table class="data-table">
+      <tr><th>Servicio</th><th>Proveedor</th><th>Datos enviados</th></tr>
+      <tr>
+        <td>Extracción y categorización de gastos con IA</td>
+        <td>Servicio de IA en la nube</td>
+        <td>Solo texto OCR depurado (información personal prefiltrada localmente)</td>
+      </tr>
+      <tr>
+        <td>Análisis de PDF (cuando la Extracción de PDF en la nube está activada)</td>
+        <td>Servicio de IA en la nube</td>
+        <td>Documento PDF completo (solo opcional)</td>
+      </tr>
+      <tr>
+        <td>Transcripción de voz (cuando la Transcripción en la nube está activada)</td>
+        <td>Servicio de IA en la nube</td>
+        <td>Grabación de audio (solo opcional)</td>
+      </tr>
+      <tr>
+        <td>Informes de fallos</td>
+        <td>Sentry (sentry.io)</td>
+        <td>Datos de fallos anónimos: trazas de pila, modelo de dispositivo, versión del sistema operativo, versión de la app. Sin datos personales, sin datos de gastos.</td>
+      </tr>
+    </table>
+    <p>Los servicios específicos de IA en la nube utilizados para la extracción de gastos y la transcripción pueden cambiar a medida que estén disponibles opciones mejores o más respetuosas con la privacidad. Cualquier cambio significativo en los tipos de datos transmitidos se reflejará en una Política de privacidad actualizada.</p>
+    <p>No hay redes publicitarias, plataformas de análisis ni SDK de redes sociales integrados en Nocito™.</p>
+    <p>Política de privacidad de Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+  </div>
+<div class="section">
+    <h2>7. Almacenamiento de imágenes y audio</h2>
+    <p>Las imágenes de recibos y las grabaciones de audio se almacenan en el <strong>directorio privado de la app</strong> de tu dispositivo — una ubicación a la que otras apps no pueden acceder. No se suben a ningún servicio en la nube.</p>
+    <p>Puedes controlar este comportamiento:</p>
+    <ul>
+      <li><strong>Guardar imágenes originales</strong> — ACTIVADO por defecto. Se puede desactivar en Ajustes o durante la incorporación.</li>
+      <li><strong>Guardar audio original</strong> — ACTIVADO por defecto. Se puede desactivar en Ajustes o durante la incorporación.</li>
+    </ul>
+    <p><strong>Copia de seguridad local:</strong> Nocito™ ofrece una función de copia de seguridad ZIP local que exporta un archivo JSON con todos tus registros de gastos junto con las imágenes originales, PDF y grabaciones de audio adjuntos a esos gastos. Puedes restaurar esta copia de seguridad en cualquier momento. Eres responsable de conservar tus propias copias de seguridad — Nocito™ no mantiene ninguna copia de tus datos en el servidor. Si desinstalas la app sin hacer una copia de seguridad, todos los datos se eliminan permanentemente.</p>
+  </div>
+<div class="section">
+    <h2>8. Almacenamiento en la nube futuro</h2>
+    <p>Nocito™ puede introducir funciones opcionales de sincronización en la nube en futuras versiones. Cualquier función de este tipo almacenaría tus datos en servidores externos y sería <strong>totalmente opcional</strong>. Los usuarios gratuitos y Pro locales no se verían afectados. Se presentaría una divulgación y solicitud de consentimiento independiente antes de subir cualquier dato a servidores externos.</p>
+    <p>La sincronización en la nube no está disponible en la versión actual.</p>
+  </div>
+<div class="section">
+    <h2>9. Base legal del tratamiento (RGPD)</h2>
+    <p>Para los usuarios de la Unión Europea y el Espacio Económico Europeo, tratamos los datos según las siguientes bases legales:</p>
+    <ul>
+      <li><strong>Ejecución del contrato</strong> — procesar tus datos de gastos para proporcionar la funcionalidad principal que solicitaste</li>
+      <li><strong>Intereses legítimos</strong> — enviar texto OCR depurado a servicios de IA en la nube para proporcionar una categorización de gastos precisa</li>
+      <li><strong>Intereses legítimos</strong> — informes de fallos anónimos a través de Sentry para mantener la estabilidad de la app</li>
+      <li><strong>Consentimiento</strong> — enviar audio a un servicio de transcripción en la nube (solo cuando la Transcripción en la nube está activada en Ajustes)</li>
+      <li><strong>Consentimiento</strong> — enviar documentos PDF completos a un servicio de IA en la nube (solo cuando la Extracción de PDF en la nube está activada en Ajustes)</li>
+    </ul>
+    <p>Dado que la app funciona principalmente en el dispositivo sin sistema de cuentas, los datos personales que procesamos son mínimos. El principal responsable de tus datos personales eres tú — viven en tu dispositivo.</p>
+  </div>
+<div class="section">
+    <h2>10. Tus derechos</h2>
+    <p>Según el RGPD y otras leyes aplicables, tienes derecho a:</p>
+    <ul>
+      <li><strong>Acceso</strong> — exporta tus gastos como CSV desde dentro de la app (función Pro)</li>
+      <li><strong>Copia de seguridad y restauración</strong> — exporta todos tus datos como copia de seguridad JSON y restáuralos en cualquier dispositivo (disponible para todos los usuarios)</li>
+      <li><strong>Eliminación</strong> — elimina gastos individuales o todos los datos desde dentro de la app, o desinstala la app para eliminarlo todo</li>
+      <li><strong>Portabilidad</strong> — exporta tus datos como CSV o JSON en cualquier momento</li>
+      <li><strong>Corrección</strong> — edita cualquier gasto directamente en la app</li>
+    </ul>
+    <p>Dado que no mantenemos una copia de tus datos en el servidor, la mayoría de los derechos se pueden ejercer directamente dentro de la app. Para cualquier consulta: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  </div>
+<div class="section">
+    <h2>10b. Informes de fallos</h2>
+    <p>Nocito™ usa <strong>Sentry</strong> (sentry.io) para informes de fallos. Cuando la app falla o encuentra un error inesperado, Sentry envía automáticamente un informe anónimo que contiene:</p>
+    <ul>
+      <li>Traza de pila (descripción técnica de dónde ocurrió el error en el código)</li>
+      <li>Modelo y fabricante del dispositivo</li>
+      <li>Versión del sistema operativo Android</li>
+      <li>Versión de la app</li>
+    </ul>
+    <p>Los informes de fallos <strong>no</strong> contienen tus datos de gastos, imágenes de recibos, grabaciones de audio ni ninguna información personal identificable. Se usan únicamente para identificar y corregir errores.</p>
+  </div>
+<div class="section">
+    <h2>11. Privacidad de los menores</h2>
+    <p>Nocito™ no está dirigida a menores de 13 años (o menores de 16 en la UE). No recopilamos conscientemente información personal de menores. Si crees que un menor nos ha proporcionado información personal, contáctanos en <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
+  </div>
+<div class="section">
+    <h2>12. Cambios en esta política</h2>
+    <p>Podemos actualizar esta Política de privacidad a medida que evoluciona la app — especialmente cuando se introduzcan nuevas funciones que impliquen transmisión de datos (como Super Snap en una futura versión, o cambios en la gestión de PDF y Dictado). Cuando hagamos cambios significativos, te notificaremos a través del aviso emergente "Novedades" de la app y actualizaremos la fecha de entrada en vigor indicada arriba.</p>
+    <p>El uso continuado de Nocito™ tras los cambios constituye la aceptación de la política actualizada.</p>
+  </div>
+<div class="section">
+    <h2>13. Contacto</h2>
+    <p>Para preguntas relacionadas con la privacidad, solicitudes de datos o inquietudes:</p>
+    <ul>
+      <li>Correo electrónico: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></li>
+      <li>Sitio web: <a href="https://nocito.app">nocito.app</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Nocito™ &nbsp;·&nbsp; <a href="https://nocito.app/es/privacy.html">Política de privacidad</a> &nbsp;·&nbsp; <a href="https://nocito.app/es/terms.html">Términos de servicio</a> &nbsp;·&nbsp; <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a></p>
+  <p style="margin-top:8px;font-size:12px;color:#3A5070;">nocito.app</p>
+</footer>
+
+</body>
+</html>
