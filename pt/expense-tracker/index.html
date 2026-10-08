@@ -443,17 +443,43 @@
     .hero-actions .btn { width: 100%; }
     .final-cta { padding: 42px 18px; }
   }
-  /* real-screens */
-  .pi-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin: 54px auto 0; max-width: 1040px; }
-  .pi-gallery figure { margin: 0; text-align: center; }
-  .pi-gallery .shot { border-radius: 30px; padding: 9px; background: #0B1422; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 24px 60px rgba(0,0,0,.4); }
-  .pi-gallery .shot img { width: 100%; height: auto; display: block; border-radius: 22px; }
-  .pi-gallery figcaption { color: var(--muted); font-size: .9rem; line-height: 1.45; margin-top: 16px; padding: 0 6px; }
-  .zoom-wide { margin: 0 0 30px; border-radius: 22px; overflow: hidden; border: 2px solid rgba(245,166,35,.55); box-shadow: 0 24px 60px rgba(0,0,0,.35), 0 0 0 7px rgba(245,166,35,.07); max-width: 760px; margin-left: auto; margin-right: auto; }
-  .zoom-wide img { width: 100%; height: auto; display: block; }
+    /* real-screens */
+  .section { padding: 54px 0; }
+  .section-tight { padding: 34px 0; }
+  .hero { padding: 52px 0 48px; }
+  .stage { display: grid; grid-template-columns: 1fr 1fr; border-radius: 30px; overflow: hidden; border: 1px solid rgba(255,255,255,.09);
+    background: radial-gradient(90% 80% at 88% 6%, rgba(42,157,143,.26), transparent 62%), radial-gradient(70% 70% at 2% 106%, rgba(245,166,35,.13), transparent 55%), linear-gradient(180deg, #19325a, #12233f);
+    box-shadow: 0 28px 64px rgba(0,0,0,.26); }
+  .stage-txt { padding: 44px 44px 40px; align-self: center; }
+  .stage-txt h2 { font-size: clamp(1.55rem, 2.5vw, 2.05rem); margin-bottom: 12px; }
+  .stage-txt p { color: var(--muted); font-size: 1rem; line-height: 1.7; margin: 0; }
+  .stage-vis { position: relative; min-height: 430px; overflow: hidden; }
+  .stage-vis::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 64px; background: linear-gradient(rgba(18,35,63,0), rgba(18,35,63,.96)); pointer-events: none; z-index: 5; }
+  .comp { position: absolute; left: 50%; top: 0; width: 520px; height: 430px; margin-left: -260px; transform-origin: top center; }
+  .cphone { position: absolute; width: 236px; border: 9px solid #08101d; border-bottom: 0; border-radius: 38px 38px 0 0; background: #08101d; box-shadow: 0 30px 60px rgba(0,0,0,.5); overflow: hidden; }
+  .cphone img { display: block; width: 100%; height: auto; }
+  .call { position: absolute; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.2); box-shadow: 0 26px 54px rgba(0,0,0,.55), 0 0 0 5px rgba(255,255,255,.04); background: #0b1422; z-index: 4; }
+  .call img { width: 100%; height: auto; display: block; }
+  .stage + .card-grid { margin-top: 18px; }
+  .pi-stage { max-width: 1040px; margin: 34px auto 0; padding: 30px 30px 0; border-radius: 30px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,.09);
+    background: radial-gradient(80% 90% at 50% 0%, rgba(42,157,143,.22), transparent 62%), radial-gradient(60% 70% at 100% 100%, rgba(245,166,35,.12), transparent 55%), linear-gradient(180deg, #19325a, #12233f); box-shadow: 0 28px 64px rgba(0,0,0,.26); }
+  .pi-stage::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: linear-gradient(rgba(18,35,63,0), rgba(18,35,63,.96)); pointer-events: none; }
+  .pi-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin: 0; }
+  .pi-gallery figure { margin: 0; display: flex; flex-direction: column-reverse; }
+  .pi-gallery figure:nth-child(even) { margin-top: 38px; }
+  .pi-gallery figcaption { text-align: center; color: var(--text); font-weight: 600; font-size: .9rem; line-height: 1.4; margin-bottom: 16px; min-height: 2.5em; }
+  .pi-gallery .shot { height: 330px; overflow: hidden; border: 8px solid #08101d; border-bottom: 0; border-radius: 30px 30px 0 0; background: #08101d; box-shadow: 0 24px 50px rgba(0,0,0,.5); }
+  .pi-gallery .shot img { width: 100%; height: auto; display: block; }
   .shot-crop { width: 100%; max-width: 330px; height: 250px; align-self: center; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 18px 44px rgba(0,0,0,.3); }
-  .shot-crop img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
-  @media (max-width: 980px) { .pi-gallery { grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 560px; } }
+  .shot-crop img { width: 112%; max-width: none; margin: -38px 0 0 -6%; height: auto; display: block; }
+  @media (max-width: 980px) { .stage { grid-template-columns: 1fr; } .stage-txt { padding: 34px 28px 18px; } .pi-gallery { grid-template-columns: repeat(2, 1fr); } .pi-gallery figure:nth-child(even) { margin-top: 0; } .pi-gallery .shot { height: 280px; } }
+  @media (max-width: 640px) { .section { padding: 40px 0; } .hero { padding: 40px 0 44px; } .stage-txt { padding: 28px 20px 12px; } .stage-vis { min-height: 296px; } .comp { transform: scale(.64); } .pi-stage { padding: 22px 16px 0; } .pi-gallery { gap: 14px; } .pi-gallery .shot { height: 240px; } }
+  /* lightbox */
+  [data-lg] { cursor: zoom-in; }
+  .lbx { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; padding: 22px; background: rgba(5,10,20,.9); backdrop-filter: blur(6px); }
+  .lbx.open { display: flex; }
+  .lbx img { max-width: 94vw; max-height: 92vh; width: auto; height: auto; border-radius: 20px; box-shadow: 0 30px 90px rgba(0,0,0,.6); }
+  .lbx button { position: absolute; top: 14px; right: 18px; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #F5EDD6; font-size: 26px; line-height: 1; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -610,12 +636,18 @@
   <!-- CAPTURE METHODS -->
   <section id="capture" class="section">
     <div class="container">
-      <div class="section-head">
-        <div class="kicker">Captura</div>
+      <div class="stage">
+        <div class="stage-txt">
+          <div class="kicker">Captura</div>
         <h2>Qualquer despesa. Qualquer formato. Um só lugar.</h2>
         <p>A Nocito foi feita para o mundo real e caótico: recibos em papel, capturas de ecrã, faturas PDF, pagamentos em dinheiro, despesas de trabalho, recibos de viagem e notas de voz rápidas.</p>
+        </div>
+        <div class="stage-vis"><div class="comp">
+          <div class="cphone" style="left:12px;top:46px;"><img src="/img/tr-en-home.jpg" data-lg="/img/lg-tr-en-home.jpg" width="600" height="1171" loading="lazy" alt="Home screen with the best basket card"></div>
+          <div class="call" style="left:214px;top:40px;width:296px;"><img src="/img/tr-en-zoom-basket.jpg" data-lg="/img/tr-en-zoom-basket.jpg" width="760" height="414" loading="lazy" alt="Close-up of the best basket card"></div>
+          <div class="call" style="left:176px;top:236px;width:334px;"><img src="/img/tr-en-zoom-add.jpg" data-lg="/img/tr-en-zoom-add.jpg" width="760" height="274" loading="lazy" alt="Add expense buttons: Snap, Dictate, Import, Manual"></div>
+        </div></div>
       </div>
-      <div class="zoom-wide"><img src="/img/tr-en-zoom-add.jpg" width="760" height="274" loading="lazy" alt="Add expense buttons: Snap, Dictate, Import, Manual"></div>
       <div class="card-grid three">
         <article class="card"><h3>Foto única</h3><p>Toque no botão e capture um recibo instantaneamente.</p></article>
         <article class="card"><h3>Várias fotos</h3><p>Mantenha premido para capturar vários recibos de uma só vez.</p></article>
@@ -679,12 +711,12 @@
         </article>
       </div>
     
-      <div class="pi-gallery">
-        <figure><div class="shot"><img src="/img/tr-en-stats.jpg" width="600" height="1171" loading="lazy" alt="Price Intelligence menu: my stores, my items, alerts, link to price lists"></div><figcaption>As suas lojas, artigos e alertas</figcaption></figure>
-        <figure><div class="shot"><img src="/img/tr-en-compare.jpg" width="600" height="1171" loading="lazy" alt="Best basket: stores ranked by price with item details"></div><figcaption>Melhor cabaz, ordenado por preço</figcaption></figure>
-        <figure><div class="shot"><img src="/img/tr-en-swipe.jpg" width="600" height="1171" loading="lazy" alt="Swipe card for linking a receipt item to a price-list product"></div><figcaption>Associe artigos do recibo com um deslize</figcaption></figure>
-        <figure><div class="shot"><img src="/img/tr-en-scanned.jpg" width="600" height="1171" loading="lazy" alt="Scanned barcodes with the cheapest chain for each"></div><figcaption>Códigos de barras lidos e a cadeia mais barata</figcaption></figure>
-      </div>
+      <div class="pi-stage"><div class="pi-gallery">
+        <figure><div class="shot"><img src="/img/tr-en-stats.jpg" data-lg="/img/lg-tr-en-stats.jpg" width="600" height="1171" loading="lazy" alt="Price Intelligence menu: my stores, my items, alerts, link to price lists"></div><figcaption>As suas lojas, artigos e alertas</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-en-compare.jpg" data-lg="/img/lg-tr-en-compare.jpg" width="600" height="1171" loading="lazy" alt="Best basket: stores ranked by price with item details"></div><figcaption>Melhor cabaz, ordenado por preço</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-en-swipe.jpg" data-lg="/img/lg-tr-en-swipe.jpg" width="600" height="1171" loading="lazy" alt="Swipe card for linking a receipt item to a price-list product"></div><figcaption>Associe artigos do recibo com um deslize</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-en-scanned.jpg" data-lg="/img/lg-tr-en-scanned.jpg" width="600" height="1171" loading="lazy" alt="Scanned barcodes with the cheapest chain for each"></div><figcaption>Códigos de barras lidos e a cadeia mais barata</figcaption></figure>
+      </div></div>
     </div>
   </section>
 
@@ -973,6 +1005,22 @@
       document.querySelector(`.app-slide[data-tab="${target}"]`).classList.add('active');
     });
   });
+</script>
+<script>
+(function () {
+  var ov = document.createElement('div');
+  ov.className = 'lbx';
+  ov.innerHTML = '<button type="button" aria-label="Close">×</button><img alt="">';
+  document.body.appendChild(ov);
+  var im = ov.querySelector('img');
+  function close() { ov.classList.remove('open'); im.removeAttribute('src'); }
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('[data-lg]') : null;
+    if (t) { im.src = t.getAttribute('data-lg'); im.alt = t.getAttribute('alt') || ''; ov.classList.add('open'); return; }
+    if (ov.classList.contains('open')) close();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+})();
 </script>
 </body>
 </html>
