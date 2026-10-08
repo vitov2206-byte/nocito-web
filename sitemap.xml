@@ -251,6 +251,11 @@
       <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/reminder/" />
   </url>
   <url>
+    <loc>https://nocito.app/reminder/privacy/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://nocito.app/privacy.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>

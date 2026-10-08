@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nocito Reminder™ — Say it. Forget it.</title>
-<meta name="description" content="Nocito Reminder is a 100% offline, private voice reminder app for Android. No account, no cloud, no subscription — pay once, use forever." />
-<meta property="og:title" content="Nocito Reminder™ — Say it. Forget it." />
-<meta property="og:description" content="The reminder app that listens, understands, and remembers — completely offline. No account, no subscription, ever." />
+<title>Nocito Private Reminder™ — Speak it. Nocito remembers.</title>
+<meta name="description" content="Speak a thought and Nocito Private Reminder turns it into a reminder, task or note with private AI on your Android phone. Manual entry is free; one purchase unlocks voice and AI. No subscription." />
+<meta property="og:title" content="Nocito Private Reminder™ — Speak it. Nocito remembers." />
+<meta property="og:description" content="Private AI on your Android phone turns what you say into reminders, tasks and notes. Start free, unlock voice once. No subscription." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nocito.app/reminder/" />
 <meta name="theme-color" content="#1B2A4A" />
@@ -185,6 +185,24 @@
     .quote { text-align: left; }
     .final-cta { padding: 42px 18px; }
   }
+
+  .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .step { position: relative; padding: 24px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); }
+  .step .num { width: 38px; height: 38px; border-radius: 999px; display: grid; place-items: center; background: rgba(245,166,35,.15); color: var(--amber); font-family: var(--font-head); font-weight: 700; margin-bottom: 14px; }
+  .step h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .step p { color: var(--muted); margin: 0; font-size: .94rem; }
+  .fine { color: var(--muted-2); font-size: .85rem; line-height: 1.6; margin: 18px 0 0; }
+  .notice { margin-top: 22px; padding: 16px 20px; border-radius: 16px; border: 1px solid rgba(245,166,35,.28); background: rgba(245,166,35,.07); color: var(--muted); font-size: .92rem; line-height: 1.6; }
+  .notice strong { color: var(--text); }
+  .examples { display: grid; gap: 12px; }
+  .example { display: flex; gap: 14px; align-items: baseline; padding: 14px 18px; border-radius: 14px; border: 1px solid var(--line); background: rgba(255,255,255,.03); }
+  .example .lab { flex: 0 0 104px; color: var(--teal); font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; }
+  .example q { color: var(--text); font-size: .98rem; quotes: "“" "”"; }
+  .price-card .badge-pill { align-self: flex-start; margin-bottom: 10px; }
+  @media (max-width: 980px) { .steps { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .example { flex-direction: column; gap: 4px; } .example .lab { flex-basis: auto; } }
+  .section-head p + p { margin-top: 12px; }
+  @media (max-width: 640px) { .nav-links { gap: 8px; } .nav-cta { min-height: 38px; padding: 0 12px; font-size: .78rem; } .lang-trigger { padding: 6px 9px; } }
 </style>
 </head>
 <body>
@@ -193,10 +211,11 @@
   <div class="container nav-inner">
     <a class="brand" href="https://nocito.app/" aria-label="Nocito">
       <span class="brand-icon"><i class="ti ti-bell"></i></span>
-      <span class="brand-name">Nocito <span class="brand-sub">Reminder</span></span>
+      <span class="brand-name">Nocito <span class="brand-sub">Private Reminder</span></span>
     </a>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#features">Features</a>
+      <a href="#how">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
       <div class="lang-switcher" id="langSwitcher">
@@ -220,19 +239,13 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="eyebrow">🔒 100% offline · fully private</div>
-        <h1><span>Say it.</span><span class="accent">Forget it.</span></h1>
-        <p class="hero-copy">The reminder app that listens, understands, and remembers — completely offline.</p>
-        <p class="hero-copy"><strong>No internet required. No account. No subscription — ever.</strong></p>
+        <div class="eyebrow">🔒 Private AI on your phone</div>
+        <h1><span>Speak it.</span><span class="accent">Nocito remembers.</span></h1>
+        <p class="hero-copy">Turn thoughts into reminders, tasks and notes with private AI on your Android phone. Capture by voice, check the details, and get back to your day.</p>
+        <p class="hero-copy"><strong>On-device AI · Offline after setup · No Nocito account · No subscription</strong></p>
         <div class="hero-actions">
           <span class="soon-badge"><i class="ti ti-clock" aria-hidden="true"></i> Coming soon to Google Play</span>
-          <a class="btn btn-secondary" href="#features">See how it works</a>
-        </div>
-        <div class="chips">
-          <span class="chip">100% offline</span>
-          <span class="chip">No subscription</span>
-          <span class="chip">Voice-first</span>
-          <span class="chip">No ads</span>
+          <a class="btn btn-secondary" href="#how">See how it works</a>
         </div>
       </div>
 
@@ -277,33 +290,57 @@
             </div>
           </div>
         </div>
-        <div class="phone-hint">Tap tabs to explore</div>
+        <div class="phone-hint">Tap tabs to explore (illustration)</div>
       </div>
     </div>
   </section>
 
-  <section class="quote-band section-tight">
+  <section class="section-tight quote-band" id="how">
     <div class="container">
-      <div class="quote">Think it. <span class="arrow">→</span> Say it. <span class="arrow">→</span> <span class="amber">Nocito remembers.</span></div>
+      <div class="section-head center">
+        <div class="kicker">How it works</div>
+        <h2>Three steps. Then back to your day.</h2>
+        
+      </div>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h3>Say what's on your mind.</h3><p>Tap the microphone or start from your Android widget.</p></div>
+        <div class="step"><div class="num">2</div><h3>Let Nocito organize it.</h3><p>Local AI extracts the details. Review and correct anything that needs attention.</p></div>
+        <div class="step"><div class="num">3</div><h3>Carry on with your day.</h3><p>Valid reminders can run before review, with Snooze and Done when they arrive.</p></div>
+      </div>
     </div>
   </section>
 
   <section class="section" id="features">
     <div class="container card-grid">
       <article class="card">
-        <span class="tag">Privacy first</span>
-        <h3>Completely private</h3>
-        <p>Nothing ever leaves your phone. No cloud, no account, no internet required — ever. Transcription and AI processing run entirely on-device.</p>
+        <span class="tag">Private AI</span>
+        <h3>Private AI, not a cloud assistant</h3>
+        <p>Your speech and AI organization are processed on your phone, not uploaded to a cloud AI service.</p>
       </article>
       <article class="card">
-        <span class="tag">Speed</span>
-        <h3>Say it, done</h3>
-        <p>Tap the mic and speak naturally. Nocito tells tasks, reminders, notes, and events apart from a single recording — no menus, no typing.</p>
+        <span class="tag">More than a reminder</span>
+        <h3>Tasks, notes, reminders and events</h3>
+        <p>Keep them together, organized into your own lists and priorities.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Routines</span>
+        <h3>Make repeat routines easier</h3>
+        <p>Set weekdays, selected days, custom intervals and advance alerts without rebuilding the same reminder each time.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Review</span>
+        <h3>Review when you're ready</h3>
+        <p>Check what Nocito understood, edit the details, and listen to the original recording when you need context.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Your data</span>
+        <h3>Your information stays yours</h3>
+        <p>Choose recording retention and make local backups or exports. Sharing is your choice.</p>
       </article>
       <article class="card featured">
-        <span class="tag amber">One-time price</span>
-        <h3>Pay once, own it</h3>
-        <p>€3.99 one-time. No subscription, no recurring fees, ever. Buy it once and it's yours for as long as you use it.</p>
+        <span class="tag amber">One price</span>
+        <h3>Start free. Unlock voice once.</h3>
+        <p>Manual entry stays free. Try voice and AI, then keep using them with a one-time purchase — no subscription.</p>
       </article>
     </div>
   </section>
@@ -311,14 +348,33 @@
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <div class="kicker">Voice input</div>
-        <h2>Speak naturally. Nocito organizes.</h2>
-        <p>Tap the microphone and talk the way you would to a person. Nocito figures out what kind of thing you meant, when it's due, and where it belongs — while you keep going with your day.</p>
+        <div class="kicker">Capture</div>
+        <h2>Capture the thought, not the paperwork</h2>
+        <p>Record in a tap, or type a quick note. You do not have to wait for one recording to finish processing before capturing the next thought.</p>
       </div>
-      <div class="card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-microphone"></i></div><h3>Tap and speak</h3><p>A live waveform and animated mic confirm you're being heard. Stop anytime, or let Nocito detect the end of speech automatically.</p></article>
-        <article class="card featured teal-tint"><div class="icon"><i class="ti ti-git-fork"></i></div><h3>One sentence, many items</h3><p>“Tomorrow at ten call the dentist, buy milk, and Friday send Ivan the quote” becomes three separate items — reviewed and confirmed individually.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-player-play"></i></div><h3>Keeps working in the background</h3><p>Lock your screen or switch apps while Nocito transcribes and organizes. Come back whenever — the result is waiting.</p></article>
+    </div>
+    <div class="container card-grid">
+        <article class="card"><div class="icon"><i class="ti ti-microphone"></i></div><h3>Tap and speak</h3><p>A visible recording indicator, timer and waveform show you are being heard. Stop with a tap, or let Nocito stop after silence.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-git-fork"></i></div><h3>Several things in one recording</h3><p>Nocito supports multiple items in one recording. Separate your requests clearly — First … Second … — and review the results.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-player-play"></i></div><h3>Start from your home screen</h3><p>Use the Quick Capture widget or the Android Quick Settings tile to jump straight into voice entry.</p></article>
+      </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <div class="section-head">
+        <div class="kicker">Try saying</div>
+        <h2>Plain requests work best</h2>
+        <p>Examples of what you can say (the app currently understands English). Always check important deadlines — speech recognition and AI can still misunderstand.</p>
+      </div>
+      </div>
+      <div class="examples">
+        <div class="example"><span class="lab">Reminder</span><q lang="en">Remind me in five minutes to check the oven.</q></div>
+        <div class="example"><span class="lab">Task</span><q lang="en">Add a task to send the proposal tomorrow, high priority, Work list.</q></div>
+        <div class="example"><span class="lab">Note</span><q lang="en">Write a note: the campaign should focus on privacy and simplicity.</q></div>
+        <div class="example"><span class="lab">Recurring</span><q lang="en">Remind me every weekday at 9 am to send the report, Work list.</q></div>
+        <div class="example"><span class="lab">Several items</span><q lang="en">First, add a task to buy milk. Second, remind me tomorrow at 10 am to call Sam.</q></div>
       </div>
     </div>
   </section>
@@ -330,12 +386,13 @@
         <div class="mini-row"><strong>Type</strong><span class="pill">Task / Reminder</span></div>
         <div class="mini-row"><strong>Due</strong><span class="pill amber">Tomorrow 10:00</span></div>
         <div class="mini-row"><strong>List</strong><span class="pill">Personal</span></div>
+        <div class="mini-row"><strong>Audio</strong><span class="pill">Original recording</span></div>
       </div>
       <div class="section-head">
-        <div class="kicker">Quick Review</div>
+        <div class="kicker">Review</div>
         <h2>You stay in control</h2>
-        <p>Before anything is saved, Quick Review lets you check the transcript, fix the title, and adjust the date, time, priority, or list — all without opening the keyboard unless you want to.</p>
-        <p>One important detail: an unconfirmed reminder still fires at the scheduled time. Confirmation is for polish, not permission.</p>
+        <p>Nocito saves the recording and its result on your phone. Review is where you check what it understood: edit the title, content, type, date and time, list, priority, repeat and advance alerts, and listen to the original recording.</p>
+        <p>A reminder with a valid date and time can still run before you accept it. If essential scheduling information is missing, Nocito flags it and does not schedule that incomplete reminder — open Review to complete it.</p>
       </div>
     </div>
   </section>
@@ -345,14 +402,14 @@
       <div class="section-head center">
         <div class="kicker">Organization</div>
         <h2>Built to hold everything, without the clutter</h2>
-        <p>Four default lists get you started — Inbox, Urgent, Personal, Work — and you can add as many custom ones as you like, each with its own color.</p>
-      </div>
-      <div class="card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-inbox"></i></div><h3>Smart default lists</h3><p>Urgent items can route themselves straight into the Urgent list, recognized from what you said.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-palette"></i></div><h3>Your own lists, your own colors</h3><p>Create, rename, recolor, or delete custom lists any time. Inbox stays as your permanent catch-all.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-search"></i></div><h3>Search by typing or by voice</h3><p>“Find my notes about the laptop” works just as well as typing it — and only ever returns your real, local items.</p></article>
+        <p>Inbox, Urgent, Personal and Work lists get you started. Add your own, rename and recolor them, archive them and bring them back.</p>
       </div>
     </div>
+    <div class="container card-grid">
+        <article class="card"><div class="icon"><i class="ti ti-inbox"></i></div><h3>Four kinds of items, one place</h3><p>Task, reminder, note and event, each with the right fields. A date on a task or note does not create an alarm you did not ask for.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-palette"></i></div><h3>Your lists and priorities</h3><p>Low, Normal, High and Urgent, with text labels as well as colors. Priority and list are separate choices.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-search"></i></div><h3>Find your own items</h3><p>Search titles and content by typing or by voice. It searches your real local items — it is not a chatbot or an internet search.</p></article>
+      </div>
   </section>
 
   <section class="section">
@@ -360,75 +417,106 @@
       <article class="card">
         <div class="icon amber"><i class="ti ti-repeat"></i></div>
         <h3>Recurring reminders</h3>
-        <p>From simple daily repeats to specific patterns like every other Tuesday.</p>
+        <p>From daily repeats to patterns like every other Tuesday.</p>
         <ul class="list">
-          <li>Daily, weekly, monthly, yearly</li>
-          <li>Weekdays only, weekends only, every X days</li>
-          <li>Completing one occurrence just moves it to the next — the series stays intact</li>
+          <li>Daily, weekly, monthly and yearly</li>
+          <li>Weekdays, weekends, selected days, every N days or weeks</li>
+          <li>Completing one occurrence plans the next one</li>
         </ul>
       </article>
       <article class="card">
         <div class="icon amber"><i class="ti ti-bell-ringing"></i></div>
         <h3>Multiple alerts per item</h3>
-        <p>Set as many warnings as you need for a single appointment.</p>
+        <p>Warn yourself before an appointment, not only at the moment it starts.</p>
         <ul class="list">
-          <li>A day before, an hour before, ten minutes before — all at once</li>
-          <li>Survives reboots, app updates, and time zone changes</li>
-          <li>Snooze for 10, 20, or 60 minutes right from the alarm screen</li>
+          <li>At the time, 10 minutes, an hour or a day before, plus custom minutes</li>
+          <li>Snooze for 10 minutes, 30 minutes or 1 hour from the alarm screen</li>
+          <li>Alarms are restored after a restart, app update or time change</li>
         </ul>
       </article>
     </div>
+    <div class="container"><p class="fine">Android battery settings, missing permissions or a force-stopped app can still block alarms. Nocito checks the permissions it needs and can send a test reminder from Settings.</p></div>
   </section>
 
   <section class="section">
     <div class="container">
       <div class="section-head center">
-        <div class="kicker">Local desktop bridge</div>
-        <h2>See your list on a bigger screen — still 100% local</h2>
-        <p>When your phone and computer share the same Wi-Fi, you can open a private web view on your desktop — no cloud sync, no account, nothing leaves your network.</p>
-      </div>
-      <div class="card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-qrcode"></i></div><h3>Connect with a code</h3><p>A six-digit code or QR code pairs your computer to your phone in seconds.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-wifi"></i></div><h3>Local network only</h3><p>Your phone stays the sole owner of the data. The web view only works while both devices are on the same network.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-archive"></i></div><h3>Full backup and export</h3><p>Export everything to JSON or CSV, or make a complete local backup whenever you like.</p></article>
+        <div class="kicker">Your data</div>
+        <h2>Recordings, backups and exports are yours to manage</h2>
+        <p>There is no Nocito account and no developer-hosted copy of your reminders. You decide what to keep and where to save it.</p>
       </div>
     </div>
+    <div class="container card-grid">
+        <article class="card"><div class="icon"><i class="ti ti-microphone"></i></div><h3>Original recordings</h3><p>Keep them forever, 30 days, 7 days or until processing succeeds. Deleting a recording does not delete the reminder text.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-archive"></i></div><h3>Local backup and export</h3><p>A .nocito backup can include available recordings; AI models are not included. JSON is a structured export and CSV is a table of your items.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-world"></i></div><h3>Sharing is your choice</h3><p>If you save an export to a cloud drive, that is your choice — Nocito does not sync to a cloud. Keep an outside backup for protection against losing the phone.</p></article>
+      </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Optional local desktop</div>
+        <h2>A bigger screen. Still your phone's data.</h2>
+        <p>Enable the optional local desktop connection to work in a paired browser on your trusted home or work network. No separate desktop app and no Nocito cloud account.</p>
+      </div>
+    </div>
+    <div class="container card-grid">
+        <article class="card"><div class="icon"><i class="ti ti-qrcode"></i></div><h3>Pair with a code</h3><p>Use a six-digit code or a QR link to pair a computer browser with your phone.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-wifi"></i></div><h3>Same local network</h3><p>View, edit and add items and lists, search, and listen to available recordings. Changes apply to the data on your phone.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-settings"></i></div><h3>You turn it on, you turn it off</h3><p>It is off until you enable it. You can disconnect the computer and stop the local server whenever you like.</p></article>
+      </div>
+    <div class="container"><div class="notice" id="desktop-note">Local desktop currently uses unencrypted local HTTP. Pairing limits access but does not encrypt network traffic, so use trusted networks and turn it off when you are finished. See the FAQ.</div></div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Before you install</div>
+        <h2>What to expect</h2>
+        <p>Private AI runs on your phone, so it needs room and a capable device. We would rather tell you now than after you install.</p>
+      </div>
+    </div>
+    <div class="container card-grid">
+        <article class="card"><div class="icon"><i class="ti ti-archive"></i></div><h3>Setup download</h3><p>The recommended setup downloads about 4.75 GB of AI models on a fresh install, plus free space for setup and your data. You can postpone it and use manual entry.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-settings"></i></div><h3>Compatible phones</h3><p>Android 8 or later on a 64-bit ARM phone. Larger models need more free memory; not every phone suits every model. No iOS version.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-world"></i></div><h3>English only</h3><p>The first release supports English only.</p></article>
+      </div>
   </section>
 
   <section id="pricing" class="section">
     <div class="container">
       <div class="section-head center">
         <div class="kicker amber">Pricing</div>
-        <h2>One price. Own it forever.</h2>
-        <p>No tiers, no subscription, no Pro version to unlock later. Every feature, one payment.</p>
+        <h2>Start free. Pay once for voice and AI.</h2>
+        <p>Manual reminders, tasks and notes stay free. Try voice and AI first, then decide.</p>
       </div>
       <div class="pricing">
-        <div class="price-card featured" data-badge="Launch price">
-          <h3>Limited-time launch offer</h3>
-          <p class="price-sub-label">For early adopters at launch</p>
-          <div class="price amber-text"><span class="price-strike">3,99 €</span>1,99 €</div>
+        <div class="price-card">
+          <h3>Free</h3>
+          <p class="price-sub-label">No account needed</p>
+          <div class="price">€0</div>
           <ul class="list">
-            <li>Unlimited voice reminders, forever</li>
-            <li>All list, search, and recurring features</li>
-            <li>Local desktop web view</li>
-            <li>Full backup, export, and restore</li>
-            <li>All future updates included</li>
+            <li>Manual reminders, tasks and notes</li>
+          <li>Your existing items and reminders stay available</li>
+          <li>Try voice and AI for up to 30 recordings or 30 days from first use, whichever comes first</li>
+          <li>A recording can produce several items. AI text organization and adding to a recording are part of voice and AI access, so they are not free after the trial</li>
+          </ul>
+        </div>
+        <div class="price-card featured" data-badge="No subscription">
+          <h3>Voice and AI unlock</h3>
+          <p class="price-sub-label">One-time in-app purchase</p>
+          <div class="price amber-text">€3.99</div>
+          <ul class="list">
+            <li>Keep using voice and AI after the trial</li>
+          <li>No subscription. No automatic charge after the trial</li>
+          <li>Restore purchase with the same Google Play account</li>
+          <li>Your existing items and reminders remain available if you choose not to buy</li>
           </ul>
           <span class="soon-badge" style="align-self:flex-start"><i class="ti ti-clock" aria-hidden="true"></i> Coming soon to Google Play</span>
         </div>
-        <div class="price-card">
-          <h3>Regular price</h3>
-          <p class="price-sub-label">After the launch period</p>
-          <div class="price">3,99 €</div>
-          <ul class="list">
-            <li>Unlimited voice reminders, forever</li>
-            <li>All list, search, and recurring features</li>
-            <li>Local desktop web view</li>
-            <li>Full backup, export, and restore</li>
-            <li>All future updates included</li>
-          </ul>
-        </div>
       </div>
+      <p class="fine" style="text-align:center">Regular price €3.99 — local pricing is shown by Google Play. A Google Play account is needed for the purchase; no Nocito account is.</p>
     </div>
   </section>
 
@@ -437,14 +525,21 @@
       <div class="section-head">
         <div class="kicker">FAQ</div>
         <h2>Simple answers before you buy</h2>
-        <p>Nocito Reminder is Android-first, privacy-first, and designed to work with zero internet connection required.</p>
+        <p>Private Reminder is Android-only, English-only at launch, and built to do its AI work on your phone.</p>
       </div>
       <div class="faq">
-        <details class="faq-item" open><summary>Does it need an internet connection?</summary><p>No. Transcription and AI processing run entirely on your device. It works the same on a plane as it does at home.</p></details>
-        <details class="faq-item"><summary>Do I need an account?</summary><p>No. There's no sign-up, no login, and no account of any kind.</p></details>
-        <details class="faq-item"><summary>Is this a subscription?</summary><p>No. It's a single one-time purchase. No recurring charges, no Pro tier to upsell you into later.</p></details>
-        <details class="faq-item"><summary>What languages are supported?</summary><p>Croatian and English at launch, with more major languages planned before the public release.</p></details>
-        <details class="faq-item"><summary>When is it launching?</summary><p>Nocito Reminder is in final development. It will be available on Google Play soon — check back or follow the Nocito Private Apps page for updates.</p></details>
+        <details class="faq-item" open><summary>Does it need the internet?</summary><p>You need an internet connection to download the AI models and for Google Play purchases or purchase restoration. Once setup is complete, core voice processing and reminders work offline. Optional local desktop access needs your local network.</p></details>
+        <details class="faq-item"><summary>Are my recordings sent to cloud AI?</summary><p>No. Speech recognition and AI organization run on your phone. You can separately choose to export files or enable access from a paired browser on your local network.</p></details>
+        <details class="faq-item"><summary>Do I need an account?</summary><p>No Nocito account is required. Google Play handles an optional purchase using your Play account.</p></details>
+        <details class="faq-item"><summary>What is free?</summary><p>Manual reminders, tasks and notes, plus access to your existing data and existing reminders. Voice and AI have a trial, followed by an optional one-time unlock.</p></details>
+        <details class="faq-item"><summary>Is there a subscription or an automatic charge?</summary><p>No. The trial does not automatically charge you. You choose whether to make the one-time voice and AI purchase.</p></details>
+        <details class="faq-item"><summary>How much storage does private AI need?</summary><p>The recommended setup downloads approximately 4.75 GB on a fresh installation. Additional free space is required for setup and your data. Nocito checks storage and missing files; you can postpone setup and use manual entry.</p></details>
+        <details class="faq-item"><summary>How fast is processing?</summary><p>It depends on your phone, the selected model and available resources. Processing can wait when the device is busy or hot. Balanced supports background processing; the largest-model Best accuracy mode currently needs the app in the foreground.</p></details>
+        <details class="faq-item"><summary>What if I don't review a reminder?</summary><p>A reminder with a valid date and time can still run. Review lets you check what Nocito understood. If essential scheduling information is missing, open Review to complete it; Nocito does not schedule that incomplete reminder.</p></details>
+        <details class="faq-item"><summary>Can it understand several things in one recording?</summary><p>Yes, it supports multiple items. Separate the requests clearly, for example First ... Second ..., and review the results. AI can still misunderstand speech or ambiguous instructions.</p></details>
+        <details class="faq-item"><summary>Can I use my computer?</summary><p>Yes, through an optional paired browser on the same local network. The phone stores the data. Current local desktop transport is HTTP, not encrypted HTTPS, so only enable it on networks and computers you trust.</p></details>
+        <details class="faq-item"><summary>What languages and devices are supported?</summary><p>The initial release supports English on compatible 64-bit ARM Android phones running Android 8 or later. Storage, memory and processing performance matter; larger AI models are not suitable for every phone. No iOS version is available.</p></details>
+        <details class="faq-item"><summary>Will a backup protect me if I lose my phone?</summary><p>Save a portable backup outside the phone if you want protection against device loss. Internal safety snapshots remain on the device. You can optionally include available recordings; downloaded AI models are not included.</p></details>
       </div>
     </div>
   </section>
@@ -452,12 +547,13 @@
   <section class="section">
     <div class="container">
       <div class="final-cta">
-        <div class="kicker amber">Nocito Reminder</div>
-        <h2>The only reminder app that's 100% offline — and entirely yours.</h2>
-        <p>One purchase. No account. No subscription. Just your thoughts, remembered.</p>
+        <div class="kicker amber">Nocito Private Reminder</div>
+        <h2>Speak it. Nocito remembers.</h2>
+        <p>Private AI on your phone. Start free, unlock voice once.</p>
         <div class="hero-actions" style="justify-content:center;">
           <span class="soon-badge"><i class="ti ti-clock" aria-hidden="true"></i> Coming soon to Google Play</span>
           <a class="btn btn-secondary" href="https://nocito.app/">Explore Nocito Private Apps</a>
+          <a class="btn btn-secondary" href="https://nocito.app/reminder/privacy/">Read the Privacy Policy</a>
         </div>
       </div>
     </div>
@@ -469,6 +565,7 @@
   <div class="container footer-inner">
     <div>© 2026 Nocito™ · nocito.app/reminder</div>
     <div class="footer-links">
+      <a href="https://nocito.app/reminder/privacy/">Privacy Policy</a>
       <a href="https://nocito.app/">Nocito Private Apps</a>
       <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>
     </div>
