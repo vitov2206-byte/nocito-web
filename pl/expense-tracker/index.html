@@ -443,6 +443,17 @@
     .hero-actions .btn { width: 100%; }
     .final-cta { padding: 42px 18px; }
   }
+  /* real-screens */
+  .pi-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin: 54px auto 0; max-width: 1040px; }
+  .pi-gallery figure { margin: 0; text-align: center; }
+  .pi-gallery .shot { border-radius: 30px; padding: 9px; background: #0B1422; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+  .pi-gallery .shot img { width: 100%; height: auto; display: block; border-radius: 22px; }
+  .pi-gallery figcaption { color: var(--muted); font-size: .9rem; line-height: 1.45; margin-top: 16px; padding: 0 6px; }
+  .zoom-wide { margin: 0 0 30px; border-radius: 22px; overflow: hidden; border: 2px solid rgba(245,166,35,.55); box-shadow: 0 24px 60px rgba(0,0,0,.35), 0 0 0 7px rgba(245,166,35,.07); max-width: 760px; margin-left: auto; margin-right: auto; }
+  .zoom-wide img { width: 100%; height: auto; display: block; }
+  .shot-crop { width: 100%; max-width: 330px; height: 250px; align-self: center; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 18px 44px rgba(0,0,0,.3); }
+  .shot-crop img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  @media (max-width: 980px) { .pi-gallery { grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 560px; } }
 </style>
 </head>
 <body>
@@ -604,13 +615,14 @@
         <h2>Każdy wydatek. Każdy format. Jedno miejsce.</h2>
         <p>Nocito zostało stworzone dla chaotycznego, realnego świata: papierowych paragonów, zrzutów ekranu, faktur PDF, płatności gotówkowych, kosztów służbowych, paragonów podróżnych i szybkich notatek głosowych.</p>
       </div>
+      <div class="zoom-wide"><img src="/img/tr-en-zoom-add.jpg" width="760" height="274" loading="lazy" alt="Add expense buttons: Snap, Dictate, Import, Manual"></div>
       <div class="card-grid three">
-        <article class="card"><div class="icon">📸</div><h3>Pojedyncze zdjęcie</h3><p>Stuknij spust migawki i natychmiast zarejestruj paragon.</p></article>
-        <article class="card"><div class="icon teal">🧾</div><h3>Wiele zdjęć naraz</h3><p>Długie przytrzymanie pozwala zarejestrować wiele paragonów w jednym szybkim przebiegu.</p></article>
-        <article class="card"><div class="icon">🖼️</div><h3>Pojedynczy import</h3><p>Wybierz jedno zdjęcie lub dokument PDF z galerii lub plików.</p></article>
-        <article class="card"><div class="icon teal">🗂️</div><h3>Wiele plików naraz</h3><p>Wybierz kilka zdjęć lub dokumentów PDF jednocześnie i przejrzyj je w jednym kroku.</p></article>
-        <article class="card"><div class="icon">🎙️</div><h3>Dyktowanie głosowe</h3><p>Wypowiedz jeden wydatek lub kilka pod rząd — Nocito automatycznie rozdzieli je na osobne pozycje.</p></article>
-        <article class="card"><div class="icon teal">⌨️</div><h3>Wpis ręczny</h3><p>Wpisuj wydatki samodzielnie, kiedy tylko chcesz — zawsze za darmo, bez użycia AI.</p></article>
+        <article class="card"><h3>Pojedyncze zdjęcie</h3><p>Stuknij spust migawki i natychmiast zarejestruj paragon.</p></article>
+        <article class="card"><h3>Wiele zdjęć naraz</h3><p>Długie przytrzymanie pozwala zarejestrować wiele paragonów w jednym szybkim przebiegu.</p></article>
+        <article class="card"><h3>Pojedynczy import</h3><p>Wybierz jedno zdjęcie lub dokument PDF z galerii lub plików.</p></article>
+        <article class="card"><h3>Wiele plików naraz</h3><p>Wybierz kilka zdjęć lub dokumentów PDF jednocześnie i przejrzyj je w jednym kroku.</p></article>
+        <article class="card"><h3>Dyktowanie głosowe</h3><p>Wypowiedz jeden wydatek lub kilka pod rząd — Nocito automatycznie rozdzieli je na osobne pozycje.</p></article>
+        <article class="card"><h3>Wpis ręczny</h3><p>Wpisuj wydatki samodzielnie, kiedy tylko chcesz — zawsze za darmo, bez użycia AI.</p></article>
       </div>
     </div>
   </section>
@@ -657,17 +669,21 @@
       </div>
       <div class="card-grid three">
         <article class="card featured">
-          <div class="icon">🏷️</div>
           <h3>Zobacz od razu, czy jest taniej</h3><p>Każdy zeskanowany paragon automatycznie pokazuje, czy produkt jest w promocji, tańszy gdzie indziej, czy już w najlepszej znalezionej cenie — bez dodatkowych kroków.</p>
         </article>
         <article class="card featured teal-tint">
-          <div class="icon teal">🛒</div>
           <h3>Znajdź najlepsze zakupy</h3><p>Dodaj produkty do listy i jednym stuknięciem porównaj łączną cenę koszyka we wszystkich śledzonych sklepach — w rankingu, z pokazanymi oszczędnościami.</p>
         </article>
         <article class="card featured">
-          <div class="icon slate">📍</div>
           <h3>Trasa do najlepszego sklepu</h3><p>Stuknij zwycięską opcję na liście rankingowej, aby otworzyć Mapy Google z trasą dojazdu.</p>
         </article>
+      </div>
+    
+      <div class="pi-gallery">
+        <figure><div class="shot"><img src="/img/tr-en-stats.jpg" width="600" height="1171" loading="lazy" alt="Price Intelligence menu: my stores, my items, alerts, link to price lists"></div><figcaption>Twoje sklepy, produkty i alerty</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-en-compare.jpg" width="600" height="1171" loading="lazy" alt="Best basket: stores ranked by price with item details"></div><figcaption>Najlepszy koszyk, uszeregowany wg ceny</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-en-swipe.jpg" width="600" height="1171" loading="lazy" alt="Swipe card for linking a receipt item to a price-list product"></div><figcaption>Powiąż pozycje z paragonu przesunięciem</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-en-scanned.jpg" width="600" height="1171" loading="lazy" alt="Scanned barcodes with the cheapest chain for each"></div><figcaption>Zeskanowane kody kreskowe i najtańsza sieć</figcaption></figure>
       </div>
     </div>
   </section>
@@ -687,7 +703,7 @@
             <h3 style="margin-top:16px;">Zobacz miesiąc na pierwszy rzut oka</h3>
             <p>Wydatki pogrupowane według daty, miesięczne sumy, filtry grup i szybkie wyszukiwanie pomogą Ci zrozumieć, na co poszły pieniądze.</p>
           </div>
-          <div class="bars" aria-hidden="true"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+          <div class="shot-crop"><img src="/screenshot-list.jpg" width="1080" height="2340" loading="lazy" alt=""></div>
         </article>
         <article class="card chart-card">
           <div>
@@ -695,7 +711,7 @@
             <h3 style="margin-top:16px;">Trendy, kategorie i sprzedawcy</h3>
             <p>Podział na kategorie, najczęstsi sprzedawcy i wykres miesięcznego trendu ułatwiają dostrzeżenie wzorców wydatków.</p>
           </div>
-          <div class="donut" aria-hidden="true"></div>
+          <div class="shot-crop"><img src="/screenshot-stats.jpg" width="1080" height="2340" loading="lazy" alt=""></div>
         </article>
       </div>
     </div>
@@ -705,7 +721,6 @@
   <section class="section">
     <div class="container card-grid two">
       <article class="card">
-        <div class="icon">🔔</div>
         <h3>Budżety i przypomnienia</h3>
         <p>Wyprzedzaj swoje wydatki, zamiast tylko je później przeglądać.</p>
         <ul class="list">
@@ -718,7 +733,6 @@
         </ul>
       </article>
       <article class="card">
-        <div class="icon teal">📦</div>
         <h3>Kopia zapasowa i przywracanie</h3>
         <p>Twoja kopia zapasowa pozostaje pod Twoją kontrolą. Bez wymuszonego konta, bez wymuszonej synchronizacji w chmurze.</p>
         <ul class="list">
@@ -813,10 +827,10 @@
         <p>Te funkcje są planowane jako kolejne, podczas gdy Nocito już dziś obsługuje rejestrowanie paragonów, szczegóły pozycji, Price Intelligence, organizację, kontrolę prywatności, budżety, kopie zapasowe i analitykę Pro.</p>
       </div>
       <div class="card-grid four">
-        <article class="card"><div class="icon">⚡</div><h3>Super Snap</h3><p>Jedno wywołanie AI odczytuje drukowaną i odręczną treść razem.</p></article>
-        <article class="card"><div class="icon teal">💎</div><h3>Poziom Lite</h3><p>Plan pośredni do codziennego użytku, między Darmowym a Pro.</p></article>
-        <article class="card"><div class="icon">🔁</div><h3>Wykrywanie powtarzających się płatności</h3><p>Automatycznie wykrywa subskrypcje i powtarzające się wydatki.</p></article>
-        <article class="card"><div class="icon teal">🌍</div><h3>Wiele walut</h3><p>Automatyczna konwersja na podróże i wydatki międzynarodowe.</p></article>
+        <article class="card"><h3>Super Snap</h3><p>Jedno wywołanie AI odczytuje drukowaną i odręczną treść razem.</p></article>
+        <article class="card"><h3>Poziom Lite</h3><p>Plan pośredni do codziennego użytku, między Darmowym a Pro.</p></article>
+        <article class="card"><h3>Wykrywanie powtarzających się płatności</h3><p>Automatycznie wykrywa subskrypcje i powtarzające się wydatki.</p></article>
+        <article class="card"><h3>Wiele walut</h3><p>Automatyczna konwersja na podróże i wydatki międzynarodowe.</p></article>
       </div>
     </div>
   </section>

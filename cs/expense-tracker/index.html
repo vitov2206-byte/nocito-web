@@ -443,6 +443,17 @@
     .hero-actions .btn { width: 100%; }
     .final-cta { padding: 42px 18px; }
   }
+  /* real-screens */
+  .pi-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin: 54px auto 0; max-width: 1040px; }
+  .pi-gallery figure { margin: 0; text-align: center; }
+  .pi-gallery .shot { border-radius: 30px; padding: 9px; background: #0B1422; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+  .pi-gallery .shot img { width: 100%; height: auto; display: block; border-radius: 22px; }
+  .pi-gallery figcaption { color: var(--muted); font-size: .9rem; line-height: 1.45; margin-top: 16px; padding: 0 6px; }
+  .zoom-wide { margin: 0 0 30px; border-radius: 22px; overflow: hidden; border: 2px solid rgba(245,166,35,.55); box-shadow: 0 24px 60px rgba(0,0,0,.35), 0 0 0 7px rgba(245,166,35,.07); max-width: 760px; margin-left: auto; margin-right: auto; }
+  .zoom-wide img { width: 100%; height: auto; display: block; }
+  .shot-crop { width: 100%; max-width: 330px; height: 250px; align-self: center; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 18px 44px rgba(0,0,0,.3); }
+  .shot-crop img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  @media (max-width: 980px) { .pi-gallery { grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 560px; } }
 </style>
 </head>
 <body>
@@ -604,13 +615,14 @@
         <h2>Každý výdaj. Jakýkoli formát. Jedno místo.</h2>
         <p>Nocito je vytvořeno pro chaotický reálný svět: papírové účtenky, screenshoty, PDF faktury, hotovostní platby, pracovní náklady, cestovní účtenky a rychlé hlasové poznámky.</p>
       </div>
+      <div class="zoom-wide"><img src="/img/tr-en-zoom-add.jpg" width="760" height="274" loading="lazy" alt="Add expense buttons: Snap, Dictate, Import, Manual"></div>
       <div class="card-grid three">
-        <article class="card"><div class="icon">📸</div><h3>Jedno vyfocení</h3><p>Klepněte na spoušť a okamžitě zachyťte účtenku.</p></article>
-        <article class="card"><div class="icon teal">🧾</div><h3>Vícenásobné foto</h3><p>Dlouhým podržením zachytíte více účtenek v jednom rychlém postupu.</p></article>
-        <article class="card"><div class="icon">🖼️</div><h3>Jednotlivý import</h3><p>Vyberte jeden obrázek nebo PDF dokument z galerie nebo souborů.</p></article>
-        <article class="card"><div class="icon teal">🗂️</div><h3>Vícenásobný import</h3><p>Vyberte více obrázků nebo PDF dokumentů najednou a zkontrolujte je v jednom kroku.</p></article>
-        <article class="card"><div class="icon">🎙️</div><h3>Hlasový záznam</h3><p>Vyslovte jeden výdaj nebo několik za sebou — Nocito je automaticky rozdělí na samostatné položky.</p></article>
-        <article class="card"><div class="icon teal">⌨️</div><h3>Ruční zadání</h3><p>Zadávejte výdaje sami, kdykoli chcete — vždy zdarma, bez použití AI.</p></article>
+        <article class="card"><h3>Jedno vyfocení</h3><p>Klepněte na spoušť a okamžitě zachyťte účtenku.</p></article>
+        <article class="card"><h3>Vícenásobné foto</h3><p>Dlouhým podržením zachytíte více účtenek v jednom rychlém postupu.</p></article>
+        <article class="card"><h3>Jednotlivý import</h3><p>Vyberte jeden obrázek nebo PDF dokument z galerie nebo souborů.</p></article>
+        <article class="card"><h3>Vícenásobný import</h3><p>Vyberte více obrázků nebo PDF dokumentů najednou a zkontrolujte je v jednom kroku.</p></article>
+        <article class="card"><h3>Hlasový záznam</h3><p>Vyslovte jeden výdaj nebo několik za sebou — Nocito je automaticky rozdělí na samostatné položky.</p></article>
+        <article class="card"><h3>Ruční zadání</h3><p>Zadávejte výdaje sami, kdykoli chcete — vždy zdarma, bez použití AI.</p></article>
       </div>
     </div>
   </section>
@@ -657,17 +669,21 @@
       </div>
       <div class="card-grid three">
         <article class="card featured">
-          <div class="icon">🏷️</div>
           <h3>Okamžitě vidíte, jestli je to levnější</h3><p>Každá naskenovaná účtenka automaticky ukáže, zda je položka ve slevě, levnější jinde, nebo už je za nejlepší nalezenou cenu — bez dalších kroků.</p>
         </article>
         <article class="card featured teal-tint">
-          <div class="icon teal">🛒</div>
           <h3>Najděte svůj nejvýhodnější nákup</h3><p>Přidejte položky na seznam a jedním klepnutím porovnejte celkovou cenu košíku napříč všemi vašimi obchody — seřazeno, s uvedenou úsporou.</p>
         </article>
         <article class="card featured">
-          <div class="icon slate">📍</div>
           <h3>Trasa do nejvýhodnějšího obchodu</h3><p>Klepnutím na nejlepší možnost v žebříčku otevřete Google Mapy s trasou do daného obchodu.</p>
         </article>
+      </div>
+    
+      <div class="pi-gallery">
+        <figure><div class="shot"><img src="/img/tr-en-stats.jpg" width="600" height="1171" loading="lazy" alt="Price Intelligence menu: my stores, my items, alerts, link to price lists"></div><figcaption>Vaše obchody, položky a upozornění</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-en-compare.jpg" width="600" height="1171" loading="lazy" alt="Best basket: stores ranked by price with item details"></div><figcaption>Nejlepší nákup seřazený podle ceny</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-en-swipe.jpg" width="600" height="1171" loading="lazy" alt="Swipe card for linking a receipt item to a price-list product"></div><figcaption>Propojte položky z účtenky přejetím</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-en-scanned.jpg" width="600" height="1171" loading="lazy" alt="Scanned barcodes with the cheapest chain for each"></div><figcaption>Naskenované čárové kódy a nejlevnější řetězec</figcaption></figure>
       </div>
     </div>
   </section>
@@ -687,7 +703,7 @@
             <h3 style="margin-top:16px;">Podívejte se na měsíc na první pohled</h3>
             <p>Výdaje seskupené podle data, měsíční součty, filtry podle skupin a rychlé vyhledávání vám pomohou pochopit, kam peníze šly.</p>
           </div>
-          <div class="bars" aria-hidden="true"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+          <div class="shot-crop"><img src="/screenshot-list.jpg" width="1080" height="2340" loading="lazy" alt=""></div>
         </article>
         <article class="card chart-card">
           <div>
@@ -695,7 +711,7 @@
             <h3 style="margin-top:16px;">Trendy, kategorie a obchodníci</h3>
             <p>Rozdělení podle kategorií, nejčastější obchodníci a graf měsíčního trendu usnadňují rozpoznat vzorce vašich výdajů.</p>
           </div>
-          <div class="donut" aria-hidden="true"></div>
+          <div class="shot-crop"><img src="/screenshot-stats.jpg" width="1080" height="2340" loading="lazy" alt=""></div>
         </article>
       </div>
     </div>
@@ -705,7 +721,6 @@
   <section class="section">
     <div class="container card-grid two">
       <article class="card">
-        <div class="icon">🔔</div>
         <h3>Rozpočty a připomenutí</h3>
         <p>Buďte svým výdajům o krok napřed, místo abyste je jen zpětně kontrolovali.</p>
         <ul class="list">
@@ -718,7 +733,6 @@
         </ul>
       </article>
       <article class="card">
-        <div class="icon teal">📦</div>
         <h3>Záloha a obnovení</h3>
         <p>Vaše záloha zůstává pod vaší kontrolou. Žádný povinný účet, žádná povinná synchronizace s cloudem.</p>
         <ul class="list">
@@ -813,10 +827,10 @@
         <p>Tyto funkce jsou plánovány jako další, zatímco Nocito už dnes zvládá zachycení účtenek, detaily položek, Price Intelligence, organizaci, ochranu soukromí, rozpočty, zálohování a Pro analýzy.</p>
       </div>
       <div class="card-grid four">
-        <article class="card"><div class="icon">⚡</div><h3>Super Snap</h3><p>Jedno volání AI přečte tištěný i ručně psaný obsah dohromady.</p></article>
-        <article class="card"><div class="icon teal">💎</div><h3>Úroveň Lite</h3><p>Střední úroveň pro každodenní použití, mezi Zdarma a Pro.</p></article>
-        <article class="card"><div class="icon">🔁</div><h3>Detekce opakujících se plateb</h3><p>Automaticky odhalí předplatná a opakující se výdaje.</p></article>
-        <article class="card"><div class="icon teal">🌍</div><h3>Více měn</h3><p>Automatický převod pro cestování a mezinárodní výdaje.</p></article>
+        <article class="card"><h3>Super Snap</h3><p>Jedno volání AI přečte tištěný i ručně psaný obsah dohromady.</p></article>
+        <article class="card"><h3>Úroveň Lite</h3><p>Střední úroveň pro každodenní použití, mezi Zdarma a Pro.</p></article>
+        <article class="card"><h3>Detekce opakujících se plateb</h3><p>Automaticky odhalí předplatná a opakující se výdaje.</p></article>
+        <article class="card"><h3>Více měn</h3><p>Automatický převod pro cestování a mezinárodní výdaje.</p></article>
       </div>
     </div>
   </section>

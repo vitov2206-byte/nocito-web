@@ -9,6 +9,7 @@
 <meta property="og:description" content="Privatni AI na tvom Android telefonu pretvara izgovoreno u podsjetnike, zadatke i bilješke. Počni besplatno, glas otključaj jednom. Bez pretplate." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nocito.app/reminder/hr/" />
+<meta property="og:image" content="https://nocito.app/img/rem-home.jpg" />
 <meta name="theme-color" content="#1B2A4A" />
 <link rel="canonical" href="https://nocito.app/reminder/hr/" />
 <link rel="alternate" hreflang="en" href="https://nocito.app/reminder/" />
@@ -203,6 +204,31 @@
   @media (max-width: 640px) { .example { flex-direction: column; gap: 4px; } .example .lab { flex-basis: auto; } }
   .section-head p + p { margin-top: 12px; }
   @media (max-width: 640px) { .nav-links { gap: 8px; } .nav-cta { min-height: 38px; padding: 0 12px; font-size: .78rem; } .lang-trigger { padding: 6px 9px; } }
+  /* real-screens */
+  .screen { aspect-ratio: 600 / 1171; background: var(--navy); }
+  .app-slide img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .app-tab-bar { bottom: 0; height: 8%; background: transparent; border-top: 0; }
+  .app-tab i, .app-tab span { opacity: 0; }
+  .app-tab { cursor: pointer; }
+  .phone { width: min(310px, 100%); }
+  .shot { border-radius: 32px; padding: 11px; background: var(--bg-2); border: 1px solid rgba(255,255,255,.12); box-shadow: var(--shadow); width: min(290px, 100%); }
+  .shot img { border-radius: 23px; width: 100%; height: auto; display: block; }
+  .show { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+  .show.rev { grid-template-columns: .95fr 1.05fr; }
+  .show.rev .media { order: -1; }
+  .media { display: flex; justify-content: center; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .zoom { border-radius: 22px; overflow: hidden; border: 2px solid rgba(245,166,35,.6); box-shadow: var(--shadow), 0 0 0 7px rgba(245,166,35,.08); width: min(470px, 100%); }
+  .zoom img { width: 100%; height: auto; display: block; }
+  .points { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 14px; }
+  .points li { padding-left: 20px; position: relative; color: var(--muted); font-size: .97rem; line-height: 1.6; }
+  .points li::before { content: ""; position: absolute; left: 0; top: .6em; width: 8px; height: 8px; border-radius: 99px; background: var(--amber); }
+  .points li strong { color: var(--text); font-weight: 600; margin-right: 6px; }
+  .show h2 { margin-bottom: 14px; }
+  .show .lead { color: var(--muted); font-size: 1.04rem; line-height: 1.7; margin: 0; }
+  .show .lead + .lead { margin-top: 12px; }
+  .subhead { font-family: var(--font-head); font-size: 1.08rem; margin: 22px 0 0; color: var(--text); }
+  @media (max-width: 980px) { .show, .show.rev { grid-template-columns: 1fr; gap: 36px; } .show.rev .media { order: 0; } }
+  @media (max-width: 640px) { .shot { width: min(260px, 100%); } }
 </style>
 </head>
 <body>
@@ -253,40 +279,13 @@
         <div class="phone-glow"></div>
         <div class="phone">
           <div class="screen">
-            <div class="app-slide active" data-tab="home">
-              <div class="app-ph">
-                <div class="app-ph-status"><span>9:41</span><span>●●●</span></div>
-                <div class="app-ph-body">
-                  <div class="app-ph-icon"><i class="ti ti-microphone"></i></div>
-                  <div class="app-ph-title">Tap and speak</div>
-                  <div class="app-ph-sub">Your day, quietly organized.</div>
-                </div>
-              </div>
-            </div>
-            <div class="app-slide" data-tab="lists">
-              <div class="app-ph">
-                <div class="app-ph-status"><span>9:41</span><span>●●●</span></div>
-                <div class="app-ph-body">
-                  <div class="app-ph-icon"><i class="ti ti-list-details"></i></div>
-                  <div class="app-ph-title">Lists</div>
-                  <div class="app-ph-sub">Inbox, Urgent, Personal, Work — or make your own.</div>
-                </div>
-              </div>
-            </div>
-            <div class="app-slide" data-tab="settings">
-              <div class="app-ph">
-                <div class="app-ph-status"><span>9:41</span><span>●●●</span></div>
-                <div class="app-ph-body">
-                  <div class="app-ph-icon"><i class="ti ti-settings"></i></div>
-                  <div class="app-ph-title">Settings</div>
-                  <div class="app-ph-sub">Manage local AI models and permissions.</div>
-                </div>
-              </div>
-            </div>
+            <div class="app-slide active" data-tab="home"><img src="/img/rem-home.jpg" width="600" height="1171" alt="Početni ekran aplikacije Nocito Private Reminder s gumbom mikrofona"></div>
+            <div class="app-slide" data-tab="lists"><img src="/img/rem-lists.jpg" width="600" height="1171" alt="Ekran Lists s pretragom i vlastitim popisima" loading="lazy"></div>
+            <div class="app-slide" data-tab="settings"><img src="/img/rem-settings.jpg" width="600" height="1171" alt="Ekran Settings s lokalnom vezom s računalom" loading="lazy"></div>
             <div class="app-tab-bar">
-              <button class="app-tab active" data-target="home"><i class="ti ti-home"></i><span>Home</span></button>
-              <button class="app-tab" data-target="lists"><i class="ti ti-list-details"></i><span>Lists</span></button>
-              <button class="app-tab" data-target="settings"><i class="ti ti-settings"></i><span>Settings</span></button>
+              <button class="app-tab active" data-target="home" aria-label="Home"><i class="ti ti-home"></i><span>Home</span></button>
+              <button class="app-tab" data-target="lists" aria-label="Lists"><i class="ti ti-list-details"></i><span>Lists</span></button>
+              <button class="app-tab" data-target="settings" aria-label="Settings"><i class="ti ti-settings"></i><span>Settings</span></button>
             </div>
           </div>
         </div>
@@ -346,127 +345,113 @@
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="section-head">
+    <div class="container show">
+      <div>
         <div class="kicker">Unos</div>
         <h2>Zabilježi misao, a ne papirologiju</h2>
-        <p>Snimi jednim dodirom ili upiši kratku bilješku. Ne moraš čekati da se jedna snimka obradi prije nego zabilježiš sljedeću misao.</p>
+        <p class="lead">Snimi jednim dodirom ili upiši kratku bilješku. Ne moraš čekati da se jedna snimka obradi prije nego zabilježiš sljedeću misao.</p>
+        <ul class="points">
+          <li><strong>Dodirni i govori</strong>Vidljiv pokazatelj snimanja, trajanje i valni oblik pokazuju da te čuje. Zaustavi dodirom ili pusti da Nocito stane nakon tišine.</li>
+          <li><strong>Više stvari u jednoj snimci</strong>Nocito podržava više stavki u jednoj snimci. Jasno odvoji zahtjeve — First … Second … — i pregledaj rezultate.</li>
+          <li><strong>Kreni s početnog ekrana</strong>Koristi Quick Capture widget ili pločicu u Android Quick Settings za izravan ulazak u glasovni unos.</li>
+        </ul>
+        <h3 class="subhead">Probaj reći: Jednostavni zahtjevi rade najbolje</h3>
+        <p class="lead" style="font-size:.92rem">Primjeri što možeš reći. Aplikacija trenutačno razumije samo engleski, zato su primjeri na engleskom. Važne rokove uvijek provjeri — prepoznavanje govora i AI i dalje mogu pogriješiti.</p>
+        <div class="examples" style="margin-top:14px">
+          <div class="example"><span class="lab">Podsjetnik</span><q lang="en">Remind me in five minutes to check the oven.</q></div>
+          <div class="example"><span class="lab">Zadatak</span><q lang="en">Add a task to send the proposal tomorrow, high priority, Work list.</q></div>
+          <div class="example"><span class="lab">Bilješka</span><q lang="en">Write a note: the campaign should focus on privacy and simplicity.</q></div>
+          <div class="example"><span class="lab">Ponavljanje</span><q lang="en">Remind me every weekday at 9 am to send the report, Work list.</q></div>
+          <div class="example"><span class="lab">Više stavki</span><q lang="en">First, add a task to buy milk. Second, remind me tomorrow at 10 am to call Sam.</q></div>
+        </div>
       </div>
+      <div class="media"><div class="shot"><img src="/img/rem-home.jpg" width="600" height="1171" loading="lazy" alt="Početni ekran aplikacije Nocito Private Reminder s gumbom mikrofona"></div></div>
     </div>
-    <div class="container card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-microphone"></i></div><h3>Dodirni i govori</h3><p>Vidljiv pokazatelj snimanja, trajanje i valni oblik pokazuju da te čuje. Zaustavi dodirom ili pusti da Nocito stane nakon tišine.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-git-fork"></i></div><h3>Više stvari u jednoj snimci</h3><p>Nocito podržava više stavki u jednoj snimci. Jasno odvoji zahtjeve — First … Second … — i pregledaj rezultate.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-player-play"></i></div><h3>Kreni s početnog ekrana</h3><p>Koristi Quick Capture widget ili pločicu u Android Quick Settings za izravan ulazak u glasovni unos.</p></article>
-      </div>
   </section>
 
   <section class="section">
-    <div class="container split">
+    <div class="container show rev">
       <div>
-        <div class="section-head">
-        <div class="kicker">Probaj reći</div>
-        <h2>Jednostavni zahtjevi rade najbolje</h2>
-        <p>Primjeri što možeš reći. Aplikacija trenutačno razumije samo engleski, zato su primjeri na engleskom. Važne rokove uvijek provjeri — prepoznavanje govora i AI i dalje mogu pogriješiti.</p>
-      </div>
-      </div>
-      <div class="examples">
-        <div class="example"><span class="lab">Podsjetnik</span><q lang="en">Remind me in five minutes to check the oven.</q></div>
-        <div class="example"><span class="lab">Zadatak</span><q lang="en">Add a task to send the proposal tomorrow, high priority, Work list.</q></div>
-        <div class="example"><span class="lab">Bilješka</span><q lang="en">Write a note: the campaign should focus on privacy and simplicity.</q></div>
-        <div class="example"><span class="lab">Ponavljanje</span><q lang="en">Remind me every weekday at 9 am to send the report, Work list.</q></div>
-        <div class="example"><span class="lab">Više stavki</span><q lang="en">First, add a task to buy milk. Second, remind me tomorrow at 10 am to call Sam.</q></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container split">
-      <div class="mini-ui">
-        <div class="mini-row"><strong>Transkript</strong><span class="pill teal">Uređivo</span></div>
-        <div class="mini-row"><strong>Vrsta</strong><span class="pill">Zadatak / Podsjetnik</span></div>
-        <div class="mini-row"><strong>Rok</strong><span class="pill amber">Sutra 10:00</span></div>
-        <div class="mini-row"><strong>Popis</strong><span class="pill">Personal</span></div>
-        <div class="mini-row"><strong>Audio</strong><span class="pill">Originalna snimka</span></div>
-      </div>
-      <div class="section-head">
         <div class="kicker">Pregled</div>
         <h2>Ti imaš kontrolu</h2>
-        <p>Nocito sprema snimku i njezin rezultat na tvom telefonu. U pregledu provjeravaš što je razumio: uređuješ naslov, sadržaj, vrstu, datum i vrijeme, popis, prioritet, ponavljanje i upozorenja unaprijed, te preslušavaš originalnu snimku.</p>
-        <p>Podsjetnik s valjanim datumom i vremenom može zvoniti i prije nego ga prihvatiš. Ako nedostaje bitan podatak o rasporedu, Nocito to označi i ne zakazuje taj nepotpuni podsjetnik — otvori pregled i dopuni ga.</p>
+        <p class="lead">Nocito sprema snimku i njezin rezultat na tvom telefonu. U pregledu provjeravaš što je razumio: uređuješ naslov, sadržaj, vrstu, datum i vrijeme, popis, prioritet, ponavljanje i upozorenja unaprijed, te preslušavaš originalnu snimku.</p>
+        <p class="lead">Podsjetnik s valjanim datumom i vremenom može zvoniti i prije nego ga prihvatiš. Ako nedostaje bitan podatak o rasporedu, Nocito to označi i ne zakazuje taj nepotpuni podsjetnik — otvori pregled i dopuni ga.</p>
       </div>
+      <div class="media"><div class="shot"><img src="/img/rem-editor.jpg" width="600" height="1171" loading="lazy" alt="Uređivač podsjetnika s naslovom, detaljima, vrstom i rokom"></div><div class="zoom"><img src="/img/rem-zoom-review.jpg" width="760" height="631" loading="lazy" alt="Uvećani prikaz uređivača: naslov, detalji i vrsta"></div></div>
     </div>
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="section-head center">
+    <div class="container show">
+      <div>
         <div class="kicker">Organizacija</div>
         <h2>Drži sve, bez nereda</h2>
-        <p>Popisi Inbox, Urgent, Personal i Work daju ti početak. Dodaj vlastite, preimenuj ih, oboji, arhiviraj i vrati.</p>
+        <p class="lead">Popisi Inbox, Urgent, Personal i Work daju ti početak. Dodaj vlastite, preimenuj ih, oboji, arhiviraj i vrati.</p>
+        <ul class="points">
+          <li><strong>Četiri vrste stavki na jednom mjestu</strong>Zadatak, podsjetnik, bilješka i događaj, svaki s pravim poljima. Datum na zadatku ili bilješci ne stvara alarm koji nisi tražio.</li>
+          <li><strong>Tvoji popisi i prioriteti</strong>Low, Normal, High i Urgent, s tekstualnim oznakama uz boje. Prioritet i popis su zasebni izbori.</li>
+          <li><strong>Pronađi vlastite stavke</strong>Pretraži naslove i sadržaj tipkanjem ili glasom. Pretražuje tvoje stvarne lokalne stavke — nije chatbot ni pretraga interneta.</li>
+        </ul>
       </div>
+      <div class="media"><div class="shot"><img src="/img/rem-lists.jpg" width="600" height="1171" loading="lazy" alt="Ekran Lists s pretragom i vlastitim popisima"></div></div>
     </div>
-    <div class="container card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-inbox"></i></div><h3>Četiri vrste stavki na jednom mjestu</h3><p>Zadatak, podsjetnik, bilješka i događaj, svaki s pravim poljima. Datum na zadatku ili bilješci ne stvara alarm koji nisi tražio.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-palette"></i></div><h3>Tvoji popisi i prioriteti</h3><p>Low, Normal, High i Urgent, s tekstualnim oznakama uz boje. Prioritet i popis su zasebni izbori.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-search"></i></div><h3>Pronađi vlastite stavke</h3><p>Pretraži naslove i sadržaj tipkanjem ili glasom. Pretražuje tvoje stvarne lokalne stavke — nije chatbot ni pretraga interneta.</p></article>
-      </div>
   </section>
 
   <section class="section">
-    <div class="container card-grid two">
-      <article class="card">
-        <div class="icon amber"><i class="ti ti-repeat"></i></div>
-        <h3>Ponavljajući podsjetnici</h3>
-        <p>Od dnevnih ponavljanja do obrazaca poput svakog drugog utorka.</p>
-        <ul class="list">
+    <div class="container show rev">
+      <div>
+        <div class="kicker amber">Ponavljajući podsjetnici</div>
+        <h2>Više upozorenja po stavci</h2>
+        <p class="lead">Od dnevnih ponavljanja do obrazaca poput svakog drugog utorka. Upozori sebe prije termina, a ne samo u trenutku kad počinje.</p>
+        <h3 class="subhead">Ponavljajući podsjetnici</h3>
+        <ul class="points">
           <li>Dnevno, tjedno, mjesečno i godišnje</li>
           <li>Radni dani, vikendi, odabrani dani, svakih N dana ili tjedana</li>
           <li>Završetkom jedne pojave planira se sljedeća</li>
         </ul>
-      </article>
-      <article class="card">
-        <div class="icon amber"><i class="ti ti-bell-ringing"></i></div>
-        <h3>Više upozorenja po stavci</h3>
-        <p>Upozori sebe prije termina, a ne samo u trenutku kad počinje.</p>
-        <ul class="list">
+        <h3 class="subhead">Više upozorenja po stavci</h3>
+        <ul class="points">
           <li>U sam termin, 10 minuta, sat ili dan ranije, plus vlastite minute</li>
           <li>Snooze 10 minuta, 30 minuta ili 1 sat s ekrana alarma</li>
           <li>Alarmi se obnavljaju nakon restarta, ažuriranja aplikacije ili promjene vremena</li>
         </ul>
-      </article>
+        <p class="fine">Android postavke baterije, nedostajuća dopuštenja ili zaustavljena (force-stop) aplikacija i dalje mogu blokirati alarme. Nocito provjerava dopuštenja koja su mu potrebna i u Postavkama može poslati probni podsjetnik.</p>
+      </div>
+      <div class="media"><div class="zoom"><img src="/img/rem-zoom-alerts.jpg" width="760" height="585" loading="lazy" alt="Uvećani prikaz upozorenja unaprijed i ponavljanja"></div></div>
     </div>
-    <div class="container"><p class="fine">Android postavke baterije, nedostajuća dopuštenja ili zaustavljena (force-stop) aplikacija i dalje mogu blokirati alarme. Nocito provjerava dopuštenja koja su mu potrebna i u Postavkama može poslati probni podsjetnik.</p></div>
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="section-head center">
+    <div class="container show">
+      <div>
         <div class="kicker">Tvoji podaci</div>
         <h2>Snimkama, sigurnosnim kopijama i izvozima upravljaš ti</h2>
-        <p>Nema Nocito računa ni kopije tvojih podsjetnika kod razvojnog tima. Ti odlučuješ što čuvaš i gdje to spremaš.</p>
+        <p class="lead">Nema Nocito računa ni kopije tvojih podsjetnika kod razvojnog tima. Ti odlučuješ što čuvaš i gdje to spremaš.</p>
+        <ul class="points">
+          <li><strong>Originalne snimke</strong>Čuvaj ih zauvijek, 30 dana, 7 dana ili dok obrada ne uspije. Brisanje snimke ne briše tekst podsjetnika.</li>
+          <li><strong>Lokalna kopija i izvoz</strong>.nocito sigurnosna kopija može uključiti dostupne snimke; AI modeli nisu uključeni. JSON je strukturirani izvoz, a CSV tablica tvojih stavki.</li>
+          <li><strong>Dijeljenje je tvoj izbor</strong>Ako izvoz spremiš na cloud disk, to je tvoj izbor — Nocito se ne sinkronizira s cloudom. Čuvaj kopiju izvan telefona za slučaj gubitka uređaja.</li>
+        </ul>
       </div>
+      <div class="media"><div class="shot"><img src="/img/rem-retention.jpg" width="600" height="1171" loading="lazy" alt="Postavke čuvanja glasovnih snimki"></div><div class="shot"><img src="/img/rem-backup.jpg" width="600" height="1171" loading="lazy" alt="Postavke lokalne sigurnosne kopije i izvoza"></div></div>
     </div>
-    <div class="container card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-microphone"></i></div><h3>Originalne snimke</h3><p>Čuvaj ih zauvijek, 30 dana, 7 dana ili dok obrada ne uspije. Brisanje snimke ne briše tekst podsjetnika.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-archive"></i></div><h3>Lokalna kopija i izvoz</h3><p>.nocito sigurnosna kopija može uključiti dostupne snimke; AI modeli nisu uključeni. JSON je strukturirani izvoz, a CSV tablica tvojih stavki.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-world"></i></div><h3>Dijeljenje je tvoj izbor</h3><p>Ako izvoz spremiš na cloud disk, to je tvoj izbor — Nocito se ne sinkronizira s cloudom. Čuvaj kopiju izvan telefona za slučaj gubitka uređaja.</p></article>
-      </div>
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="section-head center">
+    <div class="container show rev">
+      <div>
         <div class="kicker">Opcionalno lokalno računalo</div>
         <h2>Veći ekran. I dalje podaci tvog telefona.</h2>
-        <p>Uključi opcionalnu lokalnu vezu s računalom i radi u uparenom pregledniku na svojoj pouzdanoj kućnoj ili poslovnoj mreži. Bez zasebne desktop aplikacije i bez Nocito cloud računa.</p>
+        <p class="lead">Uključi opcionalnu lokalnu vezu s računalom i radi u uparenom pregledniku na svojoj pouzdanoj kućnoj ili poslovnoj mreži. Bez zasebne desktop aplikacije i bez Nocito cloud računa.</p>
+        <ul class="points">
+          <li><strong>Upari kodom</strong>Šesteroznamenkasti kod ili QR poveznica upare preglednik na računalu s tvojim telefonom.</li>
+          <li><strong>Ista lokalna mreža</strong>Pregledavaj, uređuj i dodaj stavke i popise, pretraži i preslušaj dostupne snimke. Promjene se odnose na podatke na telefonu.</li>
+          <li><strong>Ti uključiš, ti isključiš</strong>Isključeno je dok ga ne uključiš. Računalo možeš odspojiti i lokalni poslužitelj ugasiti kad god želiš.</li>
+        </ul>
+        <div class="notice" id="desktop-note">Lokalno računalo trenutačno koristi nešifrirani lokalni HTTP. Uparivanje ograničava pristup, ali ne šifrira mrežni promet, zato koristi pouzdane mreže i isključi ga kad završiš. Vidi česta pitanja.</div>
       </div>
+      <div class="media"><div class="zoom"><img src="/img/rem-zoom-desktop.jpg" width="760" height="825" loading="lazy" alt="Uvećani prikaz kartice Local desktop s povezanim računalom"></div></div>
     </div>
-    <div class="container card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-qrcode"></i></div><h3>Upari kodom</h3><p>Šesteroznamenkasti kod ili QR poveznica upare preglednik na računalu s tvojim telefonom.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-wifi"></i></div><h3>Ista lokalna mreža</h3><p>Pregledavaj, uređuj i dodaj stavke i popise, pretraži i preslušaj dostupne snimke. Promjene se odnose na podatke na telefonu.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-settings"></i></div><h3>Ti uključiš, ti isključiš</h3><p>Isključeno je dok ga ne uključiš. Računalo možeš odspojiti i lokalni poslužitelj ugasiti kad god želiš.</p></article>
-      </div>
-    <div class="container"><div class="notice" id="desktop-note">Lokalno računalo trenutačno koristi nešifrirani lokalni HTTP. Uparivanje ograničava pristup, ali ne šifrira mrežni promet, zato koristi pouzdane mreže i isključi ga kad završiš. Vidi česta pitanja.</div></div>
   </section>
 
   <section class="section">
@@ -476,12 +461,12 @@
         <h2>Što očekivati</h2>
         <p>Privatni AI radi na tvom telefonu, zato traži prostor i sposoban uređaj. Radije ti to kažemo sad nego nakon instalacije.</p>
       </div>
-    </div>
-    <div class="container card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-archive"></i></div><h3>Preuzimanje pri postavljanju</h3><p>Preporučeno postavljanje preuzima oko 4,75 GB AI modela na svježoj instalaciji, uz slobodan prostor za postavljanje i tvoje podatke. Možeš ga odgoditi i koristiti ručni unos.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-settings"></i></div><h3>Kompatibilni telefoni</h3><p>Android 8 ili noviji na 64-bitnom ARM telefonu. Veći modeli traže više slobodne memorije; svaki model ne odgovara svakom telefonu. Nema iOS verzije.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-world"></i></div><h3>Samo engleski</h3><p>Prvo izdanje aplikacije podržava samo engleski. Ova hrvatska stranica je prijevod stranice, ne aplikacije.</p></article>
+      <div class="card-grid" style="margin-top:8px">
+        <article class="card"><h3>Preuzimanje pri postavljanju</h3><p>Preporučeno postavljanje preuzima oko 4,75 GB AI modela na svježoj instalaciji, uz slobodan prostor za postavljanje i tvoje podatke. Možeš ga odgoditi i koristiti ručni unos.</p></article>
+        <article class="card"><h3>Kompatibilni telefoni</h3><p>Android 8 ili noviji na 64-bitnom ARM telefonu. Veći modeli traže više slobodne memorije; svaki model ne odgovara svakom telefonu. Nema iOS verzije.</p></article>
+        <article class="card"><h3>Samo engleski</h3><p>Prvo izdanje aplikacije podržava samo engleski. Ova hrvatska stranica je prijevod stranice, ne aplikacije.</p></article>
       </div>
+    </div>
   </section>
 
   <section id="pricing" class="section">

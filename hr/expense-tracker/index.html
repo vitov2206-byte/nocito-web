@@ -443,6 +443,17 @@
     .hero-actions .btn { width: 100%; }
     .final-cta { padding: 42px 18px; }
   }
+  /* real-screens */
+  .pi-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin: 54px auto 0; max-width: 1040px; }
+  .pi-gallery figure { margin: 0; text-align: center; }
+  .pi-gallery .shot { border-radius: 30px; padding: 9px; background: #0B1422; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+  .pi-gallery .shot img { width: 100%; height: auto; display: block; border-radius: 22px; }
+  .pi-gallery figcaption { color: var(--muted); font-size: .9rem; line-height: 1.45; margin-top: 16px; padding: 0 6px; }
+  .zoom-wide { margin: 0 0 30px; border-radius: 22px; overflow: hidden; border: 2px solid rgba(245,166,35,.55); box-shadow: 0 24px 60px rgba(0,0,0,.35), 0 0 0 7px rgba(245,166,35,.07); max-width: 760px; margin-left: auto; margin-right: auto; }
+  .zoom-wide img { width: 100%; height: auto; display: block; }
+  .shot-crop { width: 100%; max-width: 330px; height: 250px; align-self: center; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 18px 44px rgba(0,0,0,.3); }
+  .shot-crop img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  @media (max-width: 980px) { .pi-gallery { grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 560px; } }
 </style>
 </head>
 <body>
@@ -604,13 +615,14 @@
         <h2>Bilo koji trošak. Bilo koji format. Jedno mjesto.</h2>
         <p>Nocito je napravljen za kaotičnu stvarnost: papirnate račune, screenshotove, PDF fakture, gotovinska plaćanja, poslovne troškove, putne račune i brze glasovne bilješke.</p>
       </div>
+      <div class="zoom-wide"><img src="/img/tr-hr-zoom-add.jpg" width="760" height="274" loading="lazy" alt="Gumbi za unos troška: Slikaj, Diktiraj, Uvezi, Ručno"></div>
       <div class="card-grid three">
-        <article class="card"><div class="icon">📸</div><h3>Jedna slika</h3><p>Dodirni gumb i odmah zabilježi račun.</p></article>
-        <article class="card"><div class="icon teal">🧾</div><h3>Više slika odjednom</h3><p>Dugim pritiskom snimi više računa u jednom brzom nizu.</p></article>
-        <article class="card"><div class="icon">🖼️</div><h3>Jedan uvoz</h3><p>Odaberi jednu sliku ili PDF dokument iz galerije ili datoteka.</p></article>
-        <article class="card"><div class="icon teal">🗂️</div><h3>Više uvoza odjednom</h3><p>Odaberi više slika ili PDF dokumenata odjednom i pregledaj ih u jednom koraku.</p></article>
-        <article class="card"><div class="icon">🎙️</div><h3>Glasovni unos</h3><p>Izgovori jedan trošak ili više njih zaredom — Nocito ih automatski razdvaja u zasebne stavke.</p></article>
-        <article class="card"><div class="icon teal">⌨️</div><h3>Ručni unos</h3><p>Upiši troškove sam kad god želiš — uvijek besplatno, bez korištenja AI-ja.</p></article>
+        <article class="card"><h3>Jedna slika</h3><p>Dodirni gumb i odmah zabilježi račun.</p></article>
+        <article class="card"><h3>Više slika odjednom</h3><p>Dugim pritiskom snimi više računa u jednom brzom nizu.</p></article>
+        <article class="card"><h3>Jedan uvoz</h3><p>Odaberi jednu sliku ili PDF dokument iz galerije ili datoteka.</p></article>
+        <article class="card"><h3>Više uvoza odjednom</h3><p>Odaberi više slika ili PDF dokumenata odjednom i pregledaj ih u jednom koraku.</p></article>
+        <article class="card"><h3>Glasovni unos</h3><p>Izgovori jedan trošak ili više njih zaredom — Nocito ih automatski razdvaja u zasebne stavke.</p></article>
+        <article class="card"><h3>Ručni unos</h3><p>Upiši troškove sam kad god želiš — uvijek besplatno, bez korištenja AI-ja.</p></article>
       </div>
     </div>
   </section>
@@ -657,17 +669,21 @@
       </div>
       <div class="card-grid three">
         <article class="card featured">
-          <div class="icon">🏷️</div>
           <h3>Vidi odmah je li jeftinije</h3><p>Svaki skenirani račun automatski pokazuje je li artikl na akciji, je li jeftiniji drugdje ili već kupuješ po najboljoj cijeni — bez ijednog dodatnog koraka.</p>
         </article>
         <article class="card featured teal-tint">
-          <div class="icon teal">🛒</div>
           <h3>Pronađi najbolju kupovinu</h3><p>Dodaj artikle na listu i jednim dodirom usporedi ukupnu cijenu košarice u svim tvojim trgovinama — rangirano, s prikazom uštede.</p>
         </article>
         <article class="card featured">
-          <div class="icon slate">📍</div>
           <h3>Ruta do najbolje trgovine</h3><p>Tap na najbolju opciju u rang-listi odmah otvara Google Maps s rutom do te trgovine.</p>
         </article>
+      </div>
+    
+      <div class="pi-gallery">
+        <figure><div class="shot"><img src="/img/tr-hr-stats.jpg" width="600" height="1171" loading="lazy" alt="Izbornik Price Intelligence: moje trgovine, moji artikli, upozorenja, povezivanje s cjenicima"></div><figcaption>Tvoje trgovine, artikli i upozorenja</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-hr-compare.jpg" width="600" height="1171" loading="lazy" alt="Najbolja kupovina: trgovine poredane po cijeni s detaljima artikala"></div><figcaption>Najbolja kupovina, poredana po cijeni</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-hr-swipe.jpg" width="600" height="1171" loading="lazy" alt="Swipe kartica za povezivanje artikla s računa s proizvodom iz cjenika"></div><figcaption>Poveži artikle s računa swipeom</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-hr-scanned.jpg" width="600" height="1171" loading="lazy" alt="Skenirani barkodovi s najjeftinijim lancem za svaki"></div><figcaption>Skenirani barkodovi i najjeftiniji lanac</figcaption></figure>
       </div>
     </div>
   </section>
@@ -687,7 +703,7 @@
             <h3 style="margin-top:16px;">Pregledaj mjesec na prvi pogled</h3>
             <p>Troškovi grupirani po datumu, mjesečni zbrojevi, filtri po grupama i brza pretraga pomažu ti razumjeti gdje je novac otišao.</p>
           </div>
-          <div class="bars" aria-hidden="true"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+          <div class="shot-crop"><img src="/screenshot-list.jpg" width="1080" height="2340" loading="lazy" alt=""></div>
         </article>
         <article class="card chart-card">
           <div>
@@ -695,7 +711,7 @@
             <h3 style="margin-top:16px;">Trendovi, kategorije i trgovine</h3>
             <p>Raščlambe po kategorijama, najčešće trgovine i grafikon mjesečnog trenda olakšavaju uočavanje tvojih obrazaca potrošnje.</p>
           </div>
-          <div class="donut" aria-hidden="true"></div>
+          <div class="shot-crop"><img src="/screenshot-stats.jpg" width="1080" height="2340" loading="lazy" alt=""></div>
         </article>
       </div>
     </div>
@@ -705,7 +721,6 @@
   <section class="section">
     <div class="container card-grid two">
       <article class="card">
-        <div class="icon">🔔</div>
         <h3>Proračuni i podsjetnici</h3>
         <p>Ostani ispred svoje potrošnje umjesto da je samo naknadno pregledavaš.</p>
         <ul class="list">
@@ -718,7 +733,6 @@
         </ul>
       </article>
       <article class="card">
-        <div class="icon teal">📦</div>
         <h3>Sigurnosna kopija i vraćanje</h3>
         <p>Tvoja sigurnosna kopija ostaje pod tvojom kontrolom. Bez prisilnog računa, bez prisilne sinkronizacije u oblaku.</p>
         <ul class="list">
@@ -813,10 +827,10 @@
         <p>Ove funkcije su planirane sljedeće, dok Nocito već danas rukuje snimanjem računa, detaljima po artiklu, inteligencijom cijena, organizacijom, kontrolama privatnosti, proračunima, sigurnosnim kopijama i Pro analitikom.</p>
       </div>
       <div class="card-grid four">
-        <article class="card"><div class="icon">⚡</div><h3>Super Snap</h3><p>Jedan AI poziv čita tiskani i rukom pisani sadržaj zajedno.</p></article>
-        <article class="card"><div class="icon teal">💎</div><h3>Lite razina</h3><p>Srednja razina pretplate za svakodnevnu upotrebu, između Besplatne i Pro.</p></article>
-        <article class="card"><div class="icon">🔁</div><h3>Prepoznavanje ponavljajućih troškova</h3><p>Automatski uočava pretplate i ponavljajuće troškove.</p></article>
-        <article class="card"><div class="icon teal">🌍</div><h3>Više valuta</h3><p>Automatska konverzija za putovanja i međunarodnu potrošnju.</p></article>
+        <article class="card"><h3>Super Snap</h3><p>Jedan AI poziv čita tiskani i rukom pisani sadržaj zajedno.</p></article>
+        <article class="card"><h3>Lite razina</h3><p>Srednja razina pretplate za svakodnevnu upotrebu, između Besplatne i Pro.</p></article>
+        <article class="card"><h3>Prepoznavanje ponavljajućih troškova</h3><p>Automatski uočava pretplate i ponavljajuće troškove.</p></article>
+        <article class="card"><h3>Više valuta</h3><p>Automatska konverzija za putovanja i međunarodnu potrošnju.</p></article>
       </div>
     </div>
   </section>

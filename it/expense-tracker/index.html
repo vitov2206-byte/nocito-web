@@ -443,6 +443,17 @@
     .hero-actions .btn { width: 100%; }
     .final-cta { padding: 42px 18px; }
   }
+  /* real-screens */
+  .pi-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin: 54px auto 0; max-width: 1040px; }
+  .pi-gallery figure { margin: 0; text-align: center; }
+  .pi-gallery .shot { border-radius: 30px; padding: 9px; background: #0B1422; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 24px 60px rgba(0,0,0,.4); }
+  .pi-gallery .shot img { width: 100%; height: auto; display: block; border-radius: 22px; }
+  .pi-gallery figcaption { color: var(--muted); font-size: .9rem; line-height: 1.45; margin-top: 16px; padding: 0 6px; }
+  .zoom-wide { margin: 0 0 30px; border-radius: 22px; overflow: hidden; border: 2px solid rgba(245,166,35,.55); box-shadow: 0 24px 60px rgba(0,0,0,.35), 0 0 0 7px rgba(245,166,35,.07); max-width: 760px; margin-left: auto; margin-right: auto; }
+  .zoom-wide img { width: 100%; height: auto; display: block; }
+  .shot-crop { width: 100%; max-width: 330px; height: 250px; align-self: center; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 18px 44px rgba(0,0,0,.3); }
+  .shot-crop img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  @media (max-width: 980px) { .pi-gallery { grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 560px; } }
 </style>
 </head>
 <body>
@@ -604,13 +615,14 @@
         <h2>Ogni spesa. Ogni formato. Un solo posto.</h2>
         <p>Nocito è pensato per il mondo reale e caotico: scontrini di carta, screenshot, fatture PDF, pagamenti in contanti, spese di lavoro, ricevute di viaggio e note vocali veloci.</p>
       </div>
+      <div class="zoom-wide"><img src="/img/tr-en-zoom-add.jpg" width="760" height="274" loading="lazy" alt="Add expense buttons: Snap, Dictate, Import, Manual"></div>
       <div class="card-grid three">
-        <article class="card"><div class="icon">📸</div><h3>Scatto singolo</h3><p>Tocca il pulsante di scatto e acquisisci subito uno scontrino.</p></article>
-        <article class="card"><div class="icon teal">🧾</div><h3>Scatti multipli</h3><p>Tieni premuto per acquisire più scontrini in un unico flusso rapido.</p></article>
-        <article class="card"><div class="icon">🖼️</div><h3>Importazione singola</h3><p>Scegli un'immagine o un documento PDF dalla galleria o dai file.</p></article>
-        <article class="card"><div class="icon teal">🗂️</div><h3>Importazione multipla</h3><p>Seleziona più immagini o documenti PDF insieme e rivedili in un solo passaggio.</p></article>
-        <article class="card"><div class="icon">🎙️</div><h3>Dettatura vocale</h3><p>Pronuncia una spesa o più di seguito — Nocito le separa automaticamente in voci distinte.</p></article>
-        <article class="card"><div class="icon teal">⌨️</div><h3>Inserimento manuale</h3><p>Inserisci le spese da solo quando vuoi — sempre gratis, senza IA.</p></article>
+        <article class="card"><h3>Scatto singolo</h3><p>Tocca il pulsante di scatto e acquisisci subito uno scontrino.</p></article>
+        <article class="card"><h3>Scatti multipli</h3><p>Tieni premuto per acquisire più scontrini in un unico flusso rapido.</p></article>
+        <article class="card"><h3>Importazione singola</h3><p>Scegli un'immagine o un documento PDF dalla galleria o dai file.</p></article>
+        <article class="card"><h3>Importazione multipla</h3><p>Seleziona più immagini o documenti PDF insieme e rivedili in un solo passaggio.</p></article>
+        <article class="card"><h3>Dettatura vocale</h3><p>Pronuncia una spesa o più di seguito — Nocito le separa automaticamente in voci distinte.</p></article>
+        <article class="card"><h3>Inserimento manuale</h3><p>Inserisci le spese da solo quando vuoi — sempre gratis, senza IA.</p></article>
       </div>
     </div>
   </section>
@@ -657,17 +669,21 @@
       </div>
       <div class="card-grid three">
         <article class="card featured">
-          <div class="icon">🏷️</div>
           <h3>Vedi subito se costa meno</h3><p>Ogni scontrino scansionato mostra automaticamente se un articolo è in offerta, costa meno altrove, o è già al miglior prezzo trovato — senza passaggi extra.</p>
         </article>
         <article class="card featured teal-tint">
-          <div class="icon teal">🛒</div>
           <h3>Trova la tua spesa migliore</h3><p>Aggiungi articoli a una lista e confronta il prezzo totale del carrello in tutti i tuoi negozi con un tocco — classificato, con il risparmio mostrato.</p>
         </article>
         <article class="card featured">
-          <div class="icon slate">📍</div>
           <h3>Percorso verso il negozio migliore</h3><p>Tocca l'opzione vincente nella classifica per aprire Google Maps con il percorso fino a lì.</p>
         </article>
+      </div>
+    
+      <div class="pi-gallery">
+        <figure><div class="shot"><img src="/img/tr-en-stats.jpg" width="600" height="1171" loading="lazy" alt="Price Intelligence menu: my stores, my items, alerts, link to price lists"></div><figcaption>I tuoi negozi, articoli e avvisi</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-en-compare.jpg" width="600" height="1171" loading="lazy" alt="Best basket: stores ranked by price with item details"></div><figcaption>Miglior carrello, ordinato per prezzo</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-en-swipe.jpg" width="600" height="1171" loading="lazy" alt="Swipe card for linking a receipt item to a price-list product"></div><figcaption>Collega gli articoli dello scontrino con uno swipe</figcaption></figure>
+        <figure><div class="shot"><img src="/img/tr-en-scanned.jpg" width="600" height="1171" loading="lazy" alt="Scanned barcodes with the cheapest chain for each"></div><figcaption>Codici a barre scansionati e catena più economica</figcaption></figure>
       </div>
     </div>
   </section>
@@ -687,7 +703,7 @@
             <h3 style="margin-top:16px;">Vedi il mese in un colpo d'occhio</h3>
             <p>Spese raggruppate per data, totali mensili, filtri per gruppo e ricerca rapida ti aiutano a capire dove è finito il tuo denaro.</p>
           </div>
-          <div class="bars" aria-hidden="true"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+          <div class="shot-crop"><img src="/screenshot-list.jpg" width="1080" height="2340" loading="lazy" alt=""></div>
         </article>
         <article class="card chart-card">
           <div>
@@ -695,7 +711,7 @@
             <h3 style="margin-top:16px;">Tendenze, categorie e negozi</h3>
             <p>Suddivisioni per categoria, i negozi principali e un grafico di tendenza mensile rendono più facile individuare i tuoi modelli di spesa.</p>
           </div>
-          <div class="donut" aria-hidden="true"></div>
+          <div class="shot-crop"><img src="/screenshot-stats.jpg" width="1080" height="2340" loading="lazy" alt=""></div>
         </article>
       </div>
     </div>
@@ -705,7 +721,6 @@
   <section class="section">
     <div class="container card-grid two">
       <article class="card">
-        <div class="icon">🔔</div>
         <h3>Budget e promemoria</h3>
         <p>Anticipa le tue spese invece di limitarti a rivederle in seguito.</p>
         <ul class="list">
@@ -718,7 +733,6 @@
         </ul>
       </article>
       <article class="card">
-        <div class="icon teal">📦</div>
         <h3>Backup e ripristino</h3>
         <p>Il tuo backup resta sotto il tuo controllo. Nessun account obbligatorio, nessuna sincronizzazione cloud forzata.</p>
         <ul class="list">
@@ -813,10 +827,10 @@
         <p>Queste funzionalità sono pianificate come prossime, mentre Nocito già oggi gestisce l'acquisizione degli scontrini, il dettaglio per articolo, Price Intelligence, l'organizzazione, i controlli sulla privacy, i budget, il backup e le analisi Pro.</p>
       </div>
       <div class="card-grid four">
-        <article class="card"><div class="icon">⚡</div><h3>Super Snap</h3><p>Una singola chiamata IA legge insieme contenuti stampati e scritti a mano.</p></article>
-        <article class="card"><div class="icon teal">💎</div><h3>Livello Lite</h3><p>Un piano intermedio per l'uso quotidiano, tra Gratis e Pro.</p></article>
-        <article class="card"><div class="icon">🔁</div><h3>Rilevamento spese ricorrenti</h3><p>Individua automaticamente abbonamenti e spese ripetute.</p></article>
-        <article class="card"><div class="icon teal">🌍</div><h3>Multi-valuta</h3><p>Conversione automatica per viaggi e spese internazionali.</p></article>
+        <article class="card"><h3>Super Snap</h3><p>Una singola chiamata IA legge insieme contenuti stampati e scritti a mano.</p></article>
+        <article class="card"><h3>Livello Lite</h3><p>Un piano intermedio per l'uso quotidiano, tra Gratis e Pro.</p></article>
+        <article class="card"><h3>Rilevamento spese ricorrenti</h3><p>Individua automaticamente abbonamenti e spese ripetute.</p></article>
+        <article class="card"><h3>Multi-valuta</h3><p>Conversione automatica per viaggi e spese internazionali.</p></article>
       </div>
     </div>
   </section>

@@ -9,6 +9,7 @@
 <meta property="og:description" content="Private AI on your Android phone turns what you say into reminders, tasks and notes. Start free, unlock voice once. No subscription." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nocito.app/reminder/" />
+<meta property="og:image" content="https://nocito.app/img/rem-home.jpg" />
 <meta name="theme-color" content="#1B2A4A" />
 <link rel="canonical" href="https://nocito.app/reminder/" />
 <link rel="alternate" hreflang="en" href="https://nocito.app/reminder/" />
@@ -203,6 +204,31 @@
   @media (max-width: 640px) { .example { flex-direction: column; gap: 4px; } .example .lab { flex-basis: auto; } }
   .section-head p + p { margin-top: 12px; }
   @media (max-width: 640px) { .nav-links { gap: 8px; } .nav-cta { min-height: 38px; padding: 0 12px; font-size: .78rem; } .lang-trigger { padding: 6px 9px; } }
+  /* real-screens */
+  .screen { aspect-ratio: 600 / 1171; background: var(--navy); }
+  .app-slide img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .app-tab-bar { bottom: 0; height: 8%; background: transparent; border-top: 0; }
+  .app-tab i, .app-tab span { opacity: 0; }
+  .app-tab { cursor: pointer; }
+  .phone { width: min(310px, 100%); }
+  .shot { border-radius: 32px; padding: 11px; background: var(--bg-2); border: 1px solid rgba(255,255,255,.12); box-shadow: var(--shadow); width: min(290px, 100%); }
+  .shot img { border-radius: 23px; width: 100%; height: auto; display: block; }
+  .show { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+  .show.rev { grid-template-columns: .95fr 1.05fr; }
+  .show.rev .media { order: -1; }
+  .media { display: flex; justify-content: center; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .zoom { border-radius: 22px; overflow: hidden; border: 2px solid rgba(245,166,35,.6); box-shadow: var(--shadow), 0 0 0 7px rgba(245,166,35,.08); width: min(470px, 100%); }
+  .zoom img { width: 100%; height: auto; display: block; }
+  .points { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 14px; }
+  .points li { padding-left: 20px; position: relative; color: var(--muted); font-size: .97rem; line-height: 1.6; }
+  .points li::before { content: ""; position: absolute; left: 0; top: .6em; width: 8px; height: 8px; border-radius: 99px; background: var(--amber); }
+  .points li strong { color: var(--text); font-weight: 600; margin-right: 6px; }
+  .show h2 { margin-bottom: 14px; }
+  .show .lead { color: var(--muted); font-size: 1.04rem; line-height: 1.7; margin: 0; }
+  .show .lead + .lead { margin-top: 12px; }
+  .subhead { font-family: var(--font-head); font-size: 1.08rem; margin: 22px 0 0; color: var(--text); }
+  @media (max-width: 980px) { .show, .show.rev { grid-template-columns: 1fr; gap: 36px; } .show.rev .media { order: 0; } }
+  @media (max-width: 640px) { .shot { width: min(260px, 100%); } }
 </style>
 </head>
 <body>
@@ -253,40 +279,13 @@
         <div class="phone-glow"></div>
         <div class="phone">
           <div class="screen">
-            <div class="app-slide active" data-tab="home">
-              <div class="app-ph">
-                <div class="app-ph-status"><span>9:41</span><span>●●●</span></div>
-                <div class="app-ph-body">
-                  <div class="app-ph-icon"><i class="ti ti-microphone"></i></div>
-                  <div class="app-ph-title">Tap and speak</div>
-                  <div class="app-ph-sub">Your day, quietly organized.</div>
-                </div>
-              </div>
-            </div>
-            <div class="app-slide" data-tab="lists">
-              <div class="app-ph">
-                <div class="app-ph-status"><span>9:41</span><span>●●●</span></div>
-                <div class="app-ph-body">
-                  <div class="app-ph-icon"><i class="ti ti-list-details"></i></div>
-                  <div class="app-ph-title">Lists</div>
-                  <div class="app-ph-sub">Inbox, Urgent, Personal, Work — or make your own.</div>
-                </div>
-              </div>
-            </div>
-            <div class="app-slide" data-tab="settings">
-              <div class="app-ph">
-                <div class="app-ph-status"><span>9:41</span><span>●●●</span></div>
-                <div class="app-ph-body">
-                  <div class="app-ph-icon"><i class="ti ti-settings"></i></div>
-                  <div class="app-ph-title">Settings</div>
-                  <div class="app-ph-sub">Manage local AI models and permissions.</div>
-                </div>
-              </div>
-            </div>
+            <div class="app-slide active" data-tab="home"><img src="/img/rem-home.jpg" width="600" height="1171" alt="Nocito Private Reminder home screen with the microphone button"></div>
+            <div class="app-slide" data-tab="lists"><img src="/img/rem-lists.jpg" width="600" height="1171" alt="Lists screen with search and your own lists" loading="lazy"></div>
+            <div class="app-slide" data-tab="settings"><img src="/img/rem-settings.jpg" width="600" height="1171" alt="Settings screen with Local desktop connection" loading="lazy"></div>
             <div class="app-tab-bar">
-              <button class="app-tab active" data-target="home"><i class="ti ti-home"></i><span>Home</span></button>
-              <button class="app-tab" data-target="lists"><i class="ti ti-list-details"></i><span>Lists</span></button>
-              <button class="app-tab" data-target="settings"><i class="ti ti-settings"></i><span>Settings</span></button>
+              <button class="app-tab active" data-target="home" aria-label="Home"><i class="ti ti-home"></i><span>Home</span></button>
+              <button class="app-tab" data-target="lists" aria-label="Lists"><i class="ti ti-list-details"></i><span>Lists</span></button>
+              <button class="app-tab" data-target="settings" aria-label="Settings"><i class="ti ti-settings"></i><span>Settings</span></button>
             </div>
           </div>
         </div>
@@ -346,127 +345,113 @@
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="section-head">
+    <div class="container show">
+      <div>
         <div class="kicker">Capture</div>
         <h2>Capture the thought, not the paperwork</h2>
-        <p>Record in a tap, or type a quick note. You do not have to wait for one recording to finish processing before capturing the next thought.</p>
+        <p class="lead">Record in a tap, or type a quick note. You do not have to wait for one recording to finish processing before capturing the next thought.</p>
+        <ul class="points">
+          <li><strong>Tap and speak</strong>A visible recording indicator, timer and waveform show you are being heard. Stop with a tap, or let Nocito stop after silence.</li>
+          <li><strong>Several things in one recording</strong>Nocito supports multiple items in one recording. Separate your requests clearly — First … Second … — and review the results.</li>
+          <li><strong>Start from your home screen</strong>Use the Quick Capture widget or the Android Quick Settings tile to jump straight into voice entry.</li>
+        </ul>
+        <h3 class="subhead">Try saying: Plain requests work best</h3>
+        <p class="lead" style="font-size:.92rem">Examples of what you can say (the app currently understands English). Always check important deadlines — speech recognition and AI can still misunderstand.</p>
+        <div class="examples" style="margin-top:14px">
+          <div class="example"><span class="lab">Reminder</span><q lang="en">Remind me in five minutes to check the oven.</q></div>
+          <div class="example"><span class="lab">Task</span><q lang="en">Add a task to send the proposal tomorrow, high priority, Work list.</q></div>
+          <div class="example"><span class="lab">Note</span><q lang="en">Write a note: the campaign should focus on privacy and simplicity.</q></div>
+          <div class="example"><span class="lab">Recurring</span><q lang="en">Remind me every weekday at 9 am to send the report, Work list.</q></div>
+          <div class="example"><span class="lab">Several items</span><q lang="en">First, add a task to buy milk. Second, remind me tomorrow at 10 am to call Sam.</q></div>
+        </div>
       </div>
+      <div class="media"><div class="shot"><img src="/img/rem-home.jpg" width="600" height="1171" loading="lazy" alt="Nocito Private Reminder home screen with the microphone button"></div></div>
     </div>
-    <div class="container card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-microphone"></i></div><h3>Tap and speak</h3><p>A visible recording indicator, timer and waveform show you are being heard. Stop with a tap, or let Nocito stop after silence.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-git-fork"></i></div><h3>Several things in one recording</h3><p>Nocito supports multiple items in one recording. Separate your requests clearly — First … Second … — and review the results.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-player-play"></i></div><h3>Start from your home screen</h3><p>Use the Quick Capture widget or the Android Quick Settings tile to jump straight into voice entry.</p></article>
-      </div>
   </section>
 
   <section class="section">
-    <div class="container split">
+    <div class="container show rev">
       <div>
-        <div class="section-head">
-        <div class="kicker">Try saying</div>
-        <h2>Plain requests work best</h2>
-        <p>Examples of what you can say (the app currently understands English). Always check important deadlines — speech recognition and AI can still misunderstand.</p>
-      </div>
-      </div>
-      <div class="examples">
-        <div class="example"><span class="lab">Reminder</span><q lang="en">Remind me in five minutes to check the oven.</q></div>
-        <div class="example"><span class="lab">Task</span><q lang="en">Add a task to send the proposal tomorrow, high priority, Work list.</q></div>
-        <div class="example"><span class="lab">Note</span><q lang="en">Write a note: the campaign should focus on privacy and simplicity.</q></div>
-        <div class="example"><span class="lab">Recurring</span><q lang="en">Remind me every weekday at 9 am to send the report, Work list.</q></div>
-        <div class="example"><span class="lab">Several items</span><q lang="en">First, add a task to buy milk. Second, remind me tomorrow at 10 am to call Sam.</q></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container split">
-      <div class="mini-ui">
-        <div class="mini-row"><strong>Transcript</strong><span class="pill teal">Editable</span></div>
-        <div class="mini-row"><strong>Type</strong><span class="pill">Task / Reminder</span></div>
-        <div class="mini-row"><strong>Due</strong><span class="pill amber">Tomorrow 10:00</span></div>
-        <div class="mini-row"><strong>List</strong><span class="pill">Personal</span></div>
-        <div class="mini-row"><strong>Audio</strong><span class="pill">Original recording</span></div>
-      </div>
-      <div class="section-head">
         <div class="kicker">Review</div>
         <h2>You stay in control</h2>
-        <p>Nocito saves the recording and its result on your phone. Review is where you check what it understood: edit the title, content, type, date and time, list, priority, repeat and advance alerts, and listen to the original recording.</p>
-        <p>A reminder with a valid date and time can still run before you accept it. If essential scheduling information is missing, Nocito flags it and does not schedule that incomplete reminder — open Review to complete it.</p>
+        <p class="lead">Nocito saves the recording and its result on your phone. Review is where you check what it understood: edit the title, content, type, date and time, list, priority, repeat and advance alerts, and listen to the original recording.</p>
+        <p class="lead">A reminder with a valid date and time can still run before you accept it. If essential scheduling information is missing, Nocito flags it and does not schedule that incomplete reminder — open Review to complete it.</p>
       </div>
+      <div class="media"><div class="shot"><img src="/img/rem-editor.jpg" width="600" height="1171" loading="lazy" alt="Reminder editor with title, details, type and due date"></div><div class="zoom"><img src="/img/rem-zoom-review.jpg" width="760" height="631" loading="lazy" alt="Close-up of the reminder editor: title, details and type"></div></div>
     </div>
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="section-head center">
+    <div class="container show">
+      <div>
         <div class="kicker">Organization</div>
         <h2>Built to hold everything, without the clutter</h2>
-        <p>Inbox, Urgent, Personal and Work lists get you started. Add your own, rename and recolor them, archive them and bring them back.</p>
+        <p class="lead">Inbox, Urgent, Personal and Work lists get you started. Add your own, rename and recolor them, archive them and bring them back.</p>
+        <ul class="points">
+          <li><strong>Four kinds of items, one place</strong>Task, reminder, note and event, each with the right fields. A date on a task or note does not create an alarm you did not ask for.</li>
+          <li><strong>Your lists and priorities</strong>Low, Normal, High and Urgent, with text labels as well as colors. Priority and list are separate choices.</li>
+          <li><strong>Find your own items</strong>Search titles and content by typing or by voice. It searches your real local items — it is not a chatbot or an internet search.</li>
+        </ul>
       </div>
+      <div class="media"><div class="shot"><img src="/img/rem-lists.jpg" width="600" height="1171" loading="lazy" alt="Lists screen with search and your own lists"></div></div>
     </div>
-    <div class="container card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-inbox"></i></div><h3>Four kinds of items, one place</h3><p>Task, reminder, note and event, each with the right fields. A date on a task or note does not create an alarm you did not ask for.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-palette"></i></div><h3>Your lists and priorities</h3><p>Low, Normal, High and Urgent, with text labels as well as colors. Priority and list are separate choices.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-search"></i></div><h3>Find your own items</h3><p>Search titles and content by typing or by voice. It searches your real local items — it is not a chatbot or an internet search.</p></article>
-      </div>
   </section>
 
   <section class="section">
-    <div class="container card-grid two">
-      <article class="card">
-        <div class="icon amber"><i class="ti ti-repeat"></i></div>
-        <h3>Recurring reminders</h3>
-        <p>From daily repeats to patterns like every other Tuesday.</p>
-        <ul class="list">
+    <div class="container show rev">
+      <div>
+        <div class="kicker amber">Recurring reminders</div>
+        <h2>Multiple alerts per item</h2>
+        <p class="lead">From daily repeats to patterns like every other Tuesday. Warn yourself before an appointment, not only at the moment it starts.</p>
+        <h3 class="subhead">Recurring reminders</h3>
+        <ul class="points">
           <li>Daily, weekly, monthly and yearly</li>
           <li>Weekdays, weekends, selected days, every N days or weeks</li>
           <li>Completing one occurrence plans the next one</li>
         </ul>
-      </article>
-      <article class="card">
-        <div class="icon amber"><i class="ti ti-bell-ringing"></i></div>
-        <h3>Multiple alerts per item</h3>
-        <p>Warn yourself before an appointment, not only at the moment it starts.</p>
-        <ul class="list">
+        <h3 class="subhead">Multiple alerts per item</h3>
+        <ul class="points">
           <li>At the time, 10 minutes, an hour or a day before, plus custom minutes</li>
           <li>Snooze for 10 minutes, 30 minutes or 1 hour from the alarm screen</li>
           <li>Alarms are restored after a restart, app update or time change</li>
         </ul>
-      </article>
+        <p class="fine">Android battery settings, missing permissions or a force-stopped app can still block alarms. Nocito checks the permissions it needs and can send a test reminder from Settings.</p>
+      </div>
+      <div class="media"><div class="zoom"><img src="/img/rem-zoom-alerts.jpg" width="760" height="585" loading="lazy" alt="Close-up of advance alerts and repeat options"></div></div>
     </div>
-    <div class="container"><p class="fine">Android battery settings, missing permissions or a force-stopped app can still block alarms. Nocito checks the permissions it needs and can send a test reminder from Settings.</p></div>
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="section-head center">
+    <div class="container show">
+      <div>
         <div class="kicker">Your data</div>
         <h2>Recordings, backups and exports are yours to manage</h2>
-        <p>There is no Nocito account and no developer-hosted copy of your reminders. You decide what to keep and where to save it.</p>
+        <p class="lead">There is no Nocito account and no developer-hosted copy of your reminders. You decide what to keep and where to save it.</p>
+        <ul class="points">
+          <li><strong>Original recordings</strong>Keep them forever, 30 days, 7 days or until processing succeeds. Deleting a recording does not delete the reminder text.</li>
+          <li><strong>Local backup and export</strong>A .nocito backup can include available recordings; AI models are not included. JSON is a structured export and CSV is a table of your items.</li>
+          <li><strong>Sharing is your choice</strong>If you save an export to a cloud drive, that is your choice — Nocito does not sync to a cloud. Keep an outside backup for protection against losing the phone.</li>
+        </ul>
       </div>
+      <div class="media"><div class="shot"><img src="/img/rem-retention.jpg" width="600" height="1171" loading="lazy" alt="Voice recording retention settings"></div><div class="shot"><img src="/img/rem-backup.jpg" width="600" height="1171" loading="lazy" alt="Local backup and export settings"></div></div>
     </div>
-    <div class="container card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-microphone"></i></div><h3>Original recordings</h3><p>Keep them forever, 30 days, 7 days or until processing succeeds. Deleting a recording does not delete the reminder text.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-archive"></i></div><h3>Local backup and export</h3><p>A .nocito backup can include available recordings; AI models are not included. JSON is a structured export and CSV is a table of your items.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-world"></i></div><h3>Sharing is your choice</h3><p>If you save an export to a cloud drive, that is your choice — Nocito does not sync to a cloud. Keep an outside backup for protection against losing the phone.</p></article>
-      </div>
   </section>
 
   <section class="section">
-    <div class="container">
-      <div class="section-head center">
+    <div class="container show rev">
+      <div>
         <div class="kicker">Optional local desktop</div>
         <h2>A bigger screen. Still your phone's data.</h2>
-        <p>Enable the optional local desktop connection to work in a paired browser on your trusted home or work network. No separate desktop app and no Nocito cloud account.</p>
+        <p class="lead">Enable the optional local desktop connection to work in a paired browser on your trusted home or work network. No separate desktop app and no Nocito cloud account.</p>
+        <ul class="points">
+          <li><strong>Pair with a code</strong>Use a six-digit code or a QR link to pair a computer browser with your phone.</li>
+          <li><strong>Same local network</strong>View, edit and add items and lists, search, and listen to available recordings. Changes apply to the data on your phone.</li>
+          <li><strong>You turn it on, you turn it off</strong>It is off until you enable it. You can disconnect the computer and stop the local server whenever you like.</li>
+        </ul>
+        <div class="notice" id="desktop-note">Local desktop currently uses unencrypted local HTTP. Pairing limits access but does not encrypt network traffic, so use trusted networks and turn it off when you are finished. See the FAQ.</div>
       </div>
+      <div class="media"><div class="zoom"><img src="/img/rem-zoom-desktop.jpg" width="760" height="825" loading="lazy" alt="Close-up of the Local desktop card with a connected computer"></div></div>
     </div>
-    <div class="container card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-qrcode"></i></div><h3>Pair with a code</h3><p>Use a six-digit code or a QR link to pair a computer browser with your phone.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-wifi"></i></div><h3>Same local network</h3><p>View, edit and add items and lists, search, and listen to available recordings. Changes apply to the data on your phone.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-settings"></i></div><h3>You turn it on, you turn it off</h3><p>It is off until you enable it. You can disconnect the computer and stop the local server whenever you like.</p></article>
-      </div>
-    <div class="container"><div class="notice" id="desktop-note">Local desktop currently uses unencrypted local HTTP. Pairing limits access but does not encrypt network traffic, so use trusted networks and turn it off when you are finished. See the FAQ.</div></div>
   </section>
 
   <section class="section">
@@ -476,12 +461,12 @@
         <h2>What to expect</h2>
         <p>Private AI runs on your phone, so it needs room and a capable device. We would rather tell you now than after you install.</p>
       </div>
-    </div>
-    <div class="container card-grid">
-        <article class="card"><div class="icon"><i class="ti ti-archive"></i></div><h3>Setup download</h3><p>The recommended setup downloads about 4.75 GB of AI models on a fresh install, plus free space for setup and your data. You can postpone it and use manual entry.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-settings"></i></div><h3>Compatible phones</h3><p>Android 8 or later on a 64-bit ARM phone. Larger models need more free memory; not every phone suits every model. No iOS version.</p></article>
-        <article class="card"><div class="icon"><i class="ti ti-world"></i></div><h3>English only</h3><p>The first release supports English only.</p></article>
+      <div class="card-grid" style="margin-top:8px">
+        <article class="card"><h3>Setup download</h3><p>The recommended setup downloads about 4.75 GB of AI models on a fresh install, plus free space for setup and your data. You can postpone it and use manual entry.</p></article>
+        <article class="card"><h3>Compatible phones</h3><p>Android 8 or later on a 64-bit ARM phone. Larger models need more free memory; not every phone suits every model. No iOS version.</p></article>
+        <article class="card"><h3>English only</h3><p>The first release supports English only.</p></article>
       </div>
+    </div>
   </section>
 
   <section id="pricing" class="section">
