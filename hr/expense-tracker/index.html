@@ -480,6 +480,19 @@
   .lbx.open { display: flex; }
   .lbx img { max-width: 94vw; max-height: 92vh; width: auto; height: auto; border-radius: 20px; box-shadow: 0 30px 90px rgba(0,0,0,.6); }
   .lbx button { position: absolute; top: 14px; right: 18px; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #F5EDD6; font-size: 26px; line-height: 1; cursor: pointer; }
+  /* stage-v3 */
+  .stage.rev { background: radial-gradient(90% 80% at 12% 6%, rgba(42,157,143,.26), transparent 62%), radial-gradient(70% 70% at 98% 106%, rgba(245,166,35,.13), transparent 55%), linear-gradient(180deg, #19325a, #12233f); }
+  .stage.rev .stage-vis { order: -1; }
+  .stage-txt p + p { margin-top: 10px; }
+  .stage-txt ul.list { margin-top: 16px; }
+  .points { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 12px; }
+  .points li { padding-left: 18px; position: relative; color: var(--muted); font-size: .95rem; line-height: 1.6; }
+  .points li::before { content: ""; position: absolute; left: 0; top: .62em; width: 7px; height: 7px; border-radius: 99px; background: var(--amber); }
+  .points li strong { color: var(--text); font-weight: 600; margin-right: 6px; }
+  .screen { aspect-ratio: 600 / 1171; background: var(--navy); }
+  .app-tab-bar { bottom: 0; height: 8%; background: transparent; border-top: 0; }
+  .app-tab svg, .app-tab span { opacity: 0; }
+  @media (max-width: 980px) { .stage.rev .stage-vis { order: 0; } }
 </style>
 </head>
 <body>
@@ -553,22 +566,22 @@
 
             <!-- Slide 1: Home (pravi screenshot) -->
             <div class="app-slide active" data-tab="home">
-              <img src="/screenshot-home.png" alt="Nocito početni zaslon">
+              <img src="/img/tr-hr-home.jpg" data-lg="/img/lg-tr-hr-home.jpg" width="600" height="1171" alt="Nocito početni zaslon">
             </div>
 
             <!-- Slide 2: List placeholder -->
             <div class="app-slide" data-tab="list">
-              <img src="/screenshot-list.jpg" alt="Nocito zaslon popisa troškova">
+              <img src="/img/old-list.jpg" data-lg="/img/lg-old-list.jpg" width="600" height="1171" alt="Nocito zaslon popisa troškova">
             </div>
 
             <!-- Slide 3: Stats placeholder -->
             <div class="app-slide" data-tab="stats">
-              <img src="/screenshot-stats.jpg" alt="Nocito zaslon statistike">
+              <img src="/img/tr-hr-stats.jpg" data-lg="/img/lg-tr-hr-stats.jpg" width="600" height="1171" alt="Nocito zaslon statistike">
             </div>
 
             <!-- Slide 4: Config placeholder -->
             <div class="app-slide" data-tab="config">
-              <img src="/screenshot-config.jpg" alt="Nocito zaslon postavki">
+              <img src="/img/old-config.jpg" data-lg="/img/lg-old-config.jpg" width="600" height="1171" alt="Nocito zaslon postavki">
             </div>
 
             <!-- Interactive tab bar -->
@@ -723,31 +736,24 @@
   <!-- INSIGHTS -->
   <section id="insights" class="section">
     <div class="container">
-      <div class="section-head center">
-        <div class="kicker">Pregled i uvidi</div>
+      <div class="stage">
+        <div class="stage-txt">
+          <div class="kicker">Pregled i uvidi</div>
         <h2>Ne samo spremljeni računi. Stvarna jasnoća potrošnje.</h2>
         <p>Prati mjesečnu potrošnju, filtriraj troškove, pretraži trgovine, označi stavke kao plaćene ili neplaćene i otključaj dublju analitiku s Nocito Prom.</p>
-      </div>
-      <div class="card-grid two">
-        <article class="card chart-card">
-          <div>
-            <span class="pill amber">Mjesečni pregled</span>
-            <h3 style="margin-top:16px;">Pregledaj mjesec na prvi pogled</h3>
-            <p>Troškovi grupirani po datumu, mjesečni zbrojevi, filtri po grupama i brza pretraga pomažu ti razumjeti gdje je novac otišao.</p>
-          </div>
-          <div class="shot-crop"><img src="/screenshot-list.jpg" width="1080" height="2340" loading="lazy" alt=""></div>
-        </article>
-        <article class="card chart-card">
-          <div>
-            <span class="pill teal">Pro analitika</span>
-            <h3 style="margin-top:16px;">Trendovi, kategorije i trgovine</h3>
-            <p>Raščlambe po kategorijama, najčešće trgovine i grafikon mjesečnog trenda olakšavaju uočavanje tvojih obrazaca potrošnje.</p>
-          </div>
-          <div class="shot-crop"><img src="/screenshot-stats.jpg" width="1080" height="2340" loading="lazy" alt=""></div>
-        </article>
+          <ul class="points">
+            <li><strong>Pregledaj mjesec na prvi pogled</strong>Troškovi grupirani po datumu, mjesečni zbrojevi, filtri po grupama i brza pretraga pomažu ti razumjeti gdje je novac otišao.</li>
+            <li><strong>Trendovi, kategorije i trgovine</strong>Raščlambe po kategorijama, najčešće trgovine i grafikon mjesečnog trenda olakšavaju uočavanje tvojih obrazaca potrošnje.</li>
+          </ul>
+        </div>
+        <div class="stage-vis"><div class="comp">
+          <div class="cphone" style="left:26px;top:70px;transform:rotate(-4deg);transform-origin:bottom center;"><img src="/img/old-list.jpg" data-lg="/img/lg-old-list.jpg" width="600" height="1171" loading="lazy" alt="Popis troškova po datumu s filtrima i pretragom"></div>
+          <div class="cphone" style="left:254px;top:40px;transform:rotate(3deg);transform-origin:bottom center;z-index:2;"><img src="/img/old-stats.jpg" data-lg="/img/lg-old-stats.jpg" width="600" height="1171" loading="lazy" alt="Analiza potrošnje po kategorijama"></div>
+        </div></div>
       </div>
     </div>
   </section>
+
 
   <!-- BUDGETS & BACKUP -->
   <section class="section">
@@ -779,17 +785,10 @@
 
   <!-- ORGANIZATION -->
   <section class="section">
-    <div class="container split">
-      <div class="mini-ui">
-        <div class="mini-row"><strong>Privatno</strong><span class="pill amber">Osobno</span></div>
-        <div class="mini-row"><strong>Posao</strong><span class="pill teal">Poslovno</span></div>
-        <div class="mini-row"><strong>Grupa</strong><span class="pill">Dijeljeno</span></div>
-        <div class="mini-row"><strong>+ Vlastita grupa</strong><span class="pill">Tvoj naziv</span></div>
-        <div class="mini-row"><strong>Privici</strong><span>Do 10 po trošku</span></div>
-        <div class="mini-row"><strong>Kategorije</strong><span>18 + neograničeno vlastitih</span></div>
-      </div>
-      <div class="section-head">
-        <div class="kicker">Organizacija</div>
+    <div class="container">
+      <div class="stage rev">
+        <div class="stage-txt">
+          <div class="kicker">Organizacija</div>
         <h2>Napravljen za stvarni kaos svakodnevnih troškova.</h2>
         <p>Odvoji privatnu potrošnju, poslovne troškove, grupne troškove i sve ostalo. Dodaj bilješke, vlastite kategorije, status plaćeno/neplaćeno i privitke po trošku.</p>
         <p>Planiraš put u Barcelonu? Kreiraj vlastitu grupu "Barcelona proljeće 2026" i drži sve troškove puta na jednom mjestu, odvojeno od svakodnevne potrošnje.</p>
@@ -800,6 +799,11 @@
           <li>Status plaćeno / neplaćeno s rokovima dospijeća</li>
           <li>Pretraga po trgovini, filtriranje po grupi ili kategoriji</li>
         </ul>
+        </div>
+        <div class="stage-vis"><div class="comp">
+          <div class="cphone" style="left:22px;top:46px;"><img src="/img/old-config.jpg" data-lg="/img/lg-old-config.jpg" width="600" height="1171" loading="lazy" alt="Postavke: grupe, kategorije i proračuni"></div>
+          <div class="call" style="left:236px;top:180px;width:272px;"><img src="/img/old-zoom-config.jpg" data-lg="/img/old-zoom-config.jpg" width="760" height="464" loading="lazy" alt="Uvećano: upravljanje grupama, kategorijama i mjesečnim proračunima"></div>
+        </div></div>
       </div>
     </div>
   </section>

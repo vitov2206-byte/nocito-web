@@ -480,6 +480,19 @@
   .lbx.open { display: flex; }
   .lbx img { max-width: 94vw; max-height: 92vh; width: auto; height: auto; border-radius: 20px; box-shadow: 0 30px 90px rgba(0,0,0,.6); }
   .lbx button { position: absolute; top: 14px; right: 18px; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #F5EDD6; font-size: 26px; line-height: 1; cursor: pointer; }
+  /* stage-v3 */
+  .stage.rev { background: radial-gradient(90% 80% at 12% 6%, rgba(42,157,143,.26), transparent 62%), radial-gradient(70% 70% at 98% 106%, rgba(245,166,35,.13), transparent 55%), linear-gradient(180deg, #19325a, #12233f); }
+  .stage.rev .stage-vis { order: -1; }
+  .stage-txt p + p { margin-top: 10px; }
+  .stage-txt ul.list { margin-top: 16px; }
+  .points { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 12px; }
+  .points li { padding-left: 18px; position: relative; color: var(--muted); font-size: .95rem; line-height: 1.6; }
+  .points li::before { content: ""; position: absolute; left: 0; top: .62em; width: 7px; height: 7px; border-radius: 99px; background: var(--amber); }
+  .points li strong { color: var(--text); font-weight: 600; margin-right: 6px; }
+  .screen { aspect-ratio: 600 / 1171; background: var(--navy); }
+  .app-tab-bar { bottom: 0; height: 8%; background: transparent; border-top: 0; }
+  .app-tab svg, .app-tab span { opacity: 0; }
+  @media (max-width: 980px) { .stage.rev .stage-vis { order: 0; } }
 </style>
 </head>
 <body>
@@ -553,22 +566,22 @@
 
             <!-- Slide 1: Home (pravi screenshot) -->
             <div class="app-slide active" data-tab="home">
-              <img src="/screenshot-home.png" alt="Pantalla de inicio de Nocito">
+              <img src="/img/tr-en-home.jpg" data-lg="/img/lg-tr-en-home.jpg" width="600" height="1171" alt="Pantalla de inicio de Nocito">
             </div>
 
             <!-- Slide 2: List placeholder -->
             <div class="app-slide" data-tab="list">
-              <img src="/screenshot-list.jpg" alt="Pantalla de lista de gastos de Nocito">
+              <img src="/img/old-list.jpg" data-lg="/img/lg-old-list.jpg" width="600" height="1171" alt="Pantalla de lista de gastos de Nocito">
             </div>
 
             <!-- Slide 3: Stats placeholder -->
             <div class="app-slide" data-tab="stats">
-              <img src="/screenshot-stats.jpg" alt="Pantalla de estadísticas de Nocito">
+              <img src="/img/tr-en-stats.jpg" data-lg="/img/lg-tr-en-stats.jpg" width="600" height="1171" alt="Pantalla de estadísticas de Nocito">
             </div>
 
             <!-- Slide 4: Config placeholder -->
             <div class="app-slide" data-tab="config">
-              <img src="/screenshot-config.jpg" alt="Pantalla de ajustes de Nocito">
+              <img src="/img/old-config.jpg" data-lg="/img/lg-old-config.jpg" width="600" height="1171" alt="Pantalla de ajustes de Nocito">
             </div>
 
             <!-- Interactive tab bar -->
@@ -723,31 +736,24 @@
   <!-- INSIGHTS -->
   <section id="insights" class="section">
     <div class="container">
-      <div class="section-head center">
-        <div class="kicker">Resumen y estadísticas</div>
+      <div class="stage">
+        <div class="stage-txt">
+          <div class="kicker">Resumen y estadísticas</div>
         <h2>No solo recibos guardados. Claridad real sobre tus gastos.</h2>
         <p>Sigue tus gastos mensuales, filtra entradas, busca comercios, marca elementos como pagados o pendientes, y desbloquea análisis más profundos con Nocito Pro.</p>
-      </div>
-      <div class="card-grid two">
-        <article class="card chart-card">
-          <div>
-            <span class="pill amber">Resumen mensual</span>
-            <h3 style="margin-top:16px;">Ve el mes de un vistazo</h3>
-            <p>Gastos agrupados por fecha, totales mensuales, filtros por grupo y búsqueda rápida te ayudan a entender adónde fue tu dinero.</p>
-          </div>
-          <div class="shot-crop"><img src="/screenshot-list.jpg" width="1080" height="2340" loading="lazy" alt=""></div>
-        </article>
-        <article class="card chart-card">
-          <div>
-            <span class="pill teal">Análisis Pro</span>
-            <h3 style="margin-top:16px;">Tendencias, categorías y comercios</h3>
-            <p>Desgloses por categoría, comercios principales y un gráfico de tendencia mensual facilitan detectar tus patrones de gasto.</p>
-          </div>
-          <div class="shot-crop"><img src="/screenshot-stats.jpg" width="1080" height="2340" loading="lazy" alt=""></div>
-        </article>
+          <ul class="points">
+            <li><strong>Ve el mes de un vistazo</strong>Gastos agrupados por fecha, totales mensuales, filtros por grupo y búsqueda rápida te ayudan a entender adónde fue tu dinero.</li>
+            <li><strong>Tendencias, categorías y comercios</strong>Desgloses por categoría, comercios principales y un gráfico de tendencia mensual facilitan detectar tus patrones de gasto.</li>
+          </ul>
+        </div>
+        <div class="stage-vis"><div class="comp">
+          <div class="cphone" style="left:26px;top:70px;transform:rotate(-4deg);transform-origin:bottom center;"><img src="/img/old-list.jpg" data-lg="/img/lg-old-list.jpg" width="600" height="1171" loading="lazy" alt="Expense list grouped by date with filters and search"></div>
+          <div class="cphone" style="left:254px;top:40px;transform:rotate(3deg);transform-origin:bottom center;z-index:2;"><img src="/img/old-stats.jpg" data-lg="/img/lg-old-stats.jpg" width="600" height="1171" loading="lazy" alt="Spending analysis by category"></div>
+        </div></div>
       </div>
     </div>
   </section>
+
 
   <!-- BUDGETS & BACKUP -->
   <section class="section">
@@ -779,17 +785,10 @@
 
   <!-- ORGANIZATION -->
   <section class="section">
-    <div class="container split">
-      <div class="mini-ui">
-        <div class="mini-row"><strong>Privado</strong><span class="pill amber">Personal</span></div>
-        <div class="mini-row"><strong>Empresa</strong><span class="pill teal">Trabajo</span></div>
-        <div class="mini-row"><strong>Grupo</strong><span class="pill">Compartido</span></div>
-        <div class="mini-row"><strong>+ Grupo propio</strong><span class="pill">Tu nombre</span></div>
-        <div class="mini-row"><strong>Adjuntos</strong><span>Hasta 10 por gasto</span></div>
-        <div class="mini-row"><strong>Categorías</strong><span>18 + propias ilimitadas</span></div>
-      </div>
-      <div class="section-head">
-        <div class="kicker">Organización</div>
+    <div class="container">
+      <div class="stage rev">
+        <div class="stage-txt">
+          <div class="kicker">Organización</div>
         <h2>Diseñado para el caos real de los gastos.</h2>
         <p>Separa los gastos privados, los costos de empresa, los gastos grupales y todo lo demás. Añade notas, categorías propias, estado pagado/pendiente y adjuntos por gasto.</p>
         <p>¿Planeas un viaje a Barcelona? Crea un grupo propio llamado "Barcelona primavera 2026" y mantén todos los gastos del viaje en un solo lugar, separados de tus gastos diarios.</p>
@@ -800,6 +799,11 @@
           <li>Estado pagado / pendiente con fechas de vencimiento</li>
           <li>Búsqueda por comercio, filtro por grupo o categoría</li>
         </ul>
+        </div>
+        <div class="stage-vis"><div class="comp">
+          <div class="cphone" style="left:22px;top:46px;"><img src="/img/old-config.jpg" data-lg="/img/lg-old-config.jpg" width="600" height="1171" loading="lazy" alt="Settings: groups, categories and budgets"></div>
+          <div class="call" style="left:236px;top:180px;width:272px;"><img src="/img/old-zoom-config.jpg" data-lg="/img/old-zoom-config.jpg" width="760" height="464" loading="lazy" alt="Close-up: manage groups, categories and monthly budgets"></div>
+        </div></div>
       </div>
     </div>
   </section>
