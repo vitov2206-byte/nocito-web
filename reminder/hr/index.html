@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nocito Reminder™ — Izgovori. Zaboravi.</title>
+<meta name="description" content="Nocito Reminder je 100% offline, privatna aplikacija za glasovne podsjetnike za Android. Bez računa, bez clouda, bez pretplate — plati jednom, koristi zauvijek." />
+<meta property="og:title" content="Nocito Reminder™ — Izgovori. Zaboravi." />
+<meta property="og:description" content="Podsjetnik koji sluša, razumije i pamti — u potpunosti offline. Bez računa, bez pretplate, ikad." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://nocito.app/reminder/hr/" />
+<meta name="theme-color" content="#1B2A4A" />
+<link rel="canonical" href="https://nocito.app/reminder/hr/" />
+<link rel="alternate" hreflang="en" href="https://nocito.app/reminder/" />
+<link rel="alternate" hreflang="hr" href="https://nocito.app/reminder/hr/" />
+<link rel="alternate" hreflang="x-default" href="https://nocito.app/reminder/" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0F1B2D; --bg-2: #0B1422; --navy: #1B2A4A; --panel: #1E3158; --panel-2: #243a66;
+    --text: #F5EDD6; --muted: #9AAABB; --muted-2: #6B7A90; --line: rgba(255,255,255,.10);
+    --amber: #F5A623; --amber-2: #D88A12; --teal: #2A9D8F; --teal-2: #1D6B61;
+    --shadow: 0 24px 70px rgba(0,0,0,.35);
+    --radius-xl: 30px; --radius-lg: 22px;
+    --container: 1120px;
+    --font-head: 'Space Grotesk', sans-serif; --font-body: 'DM Sans', sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body {
+    margin: 0; font-family: var(--font-body); color: var(--text); overflow-x: hidden;
+    background:
+      radial-gradient(circle at 18% 0%, rgba(245,166,35,.10), transparent 26%),
+      radial-gradient(circle at 88% 20%, rgba(42,157,143,.14), transparent 28%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 52%, #070D18 100%);
+    line-height: 1.6; min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { width: min(var(--container), calc(100% - 40px)); margin: 0 auto; }
+
+  .nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(15,27,45,.78); border-bottom: 1px solid rgba(255,255,255,.08); }
+  .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; white-space: nowrap; }
+  .brand-icon { width: 36px; height: 36px; border-radius: 10px; overflow: hidden; flex-shrink: 0; background: var(--teal); display:flex; align-items:center; justify-content:center; }
+  .brand-icon i { color: var(--bg); font-size: 18px; }
+  .brand-name { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; color: var(--text); white-space: nowrap; }
+  .brand-sub { color: var(--muted); font-weight: 500; font-size: .85rem; }
+  .nav-links { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: .9rem; }
+  .nav-links a:hover { color: var(--text); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 0 20px; border-radius: 999px; font-weight: 700; font-family: var(--font-body); border: 1px solid transparent; transition: transform .18s ease; white-space: nowrap; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-secondary { color: var(--text); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+
+  .section { padding: 84px 0; }
+  .section-tight { padding: 52px 0; }
+
+  .hero { padding: 64px 0; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(320px,.8fr); gap: 52px; align-items: center; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; background: rgba(42,157,143,.12); border: 1px solid rgba(42,157,143,.3); color: var(--teal); font-weight: 700; font-size: .85rem; margin-bottom: 22px; }
+  h1, h2, h3, p { margin-top: 0; font-family: var(--font-body); }
+  h1, h2, h3 { font-family: var(--font-head); }
+  h1 { font-weight: 700; font-size: clamp(3rem, 7.5vw, 5.6rem); line-height: .98; letter-spacing: -.035em; margin-bottom: 22px; max-width: 640px; }
+  h1 span { display: block; }
+  h1 .accent { color: var(--amber); }
+  .hero-copy { color: var(--muted); font-size: clamp(1.05rem, 1.8vw, 1.25rem); max-width: 620px; margin-bottom: 14px; }
+  .hero-copy strong { color: var(--text); font-weight: 600; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items:center; gap: 14px; margin: 26px 0 18px; }
+  .soon-badge { display: inline-flex; align-items:center; gap:8px; padding: 11px 20px; border-radius: 999px; background: rgba(245,166,35,.13); border: 1px solid rgba(245,166,35,.3); color: var(--amber); font-weight: 700; font-size: .95rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .chip { padding: 8px 13px; border-radius: 999px; color: var(--text); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09); font-weight: 600; font-size: .85rem; }
+
+  .phone-wrap { display: flex; justify-content: center; position: relative; }
+  .phone-glow { position: absolute; width: 360px; height: 360px; border-radius: 999px; background: radial-gradient(circle, rgba(42,157,143,.20), transparent 68%); filter: blur(8px); top: 30px; z-index: 0; }
+  .phone { position: relative; z-index: 1; width: min(300px, 100%); border-radius: 32px; padding: 14px; background: var(--bg-2); border: 1px solid rgba(255,255,255,.12); box-shadow: var(--shadow); }
+  .screen { border-radius: 24px; overflow: hidden; background: var(--navy); border: 1px solid rgba(255,255,255,.07); aspect-ratio: 1080 / 2340; position: relative; }
+  .app-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .3s ease; pointer-events: none; }
+  .app-slide.active { opacity: 1; pointer-events: auto; }
+  .app-ph { width: 100%; height: 100%; background: var(--navy); display: flex; flex-direction: column; }
+  .app-ph-status { display: flex; justify-content: space-between; padding: 6% 5% 3%; font-size: 9px; color: rgba(255,255,255,.35); flex-shrink: 0; }
+  .app-ph-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 0 10% 12%; text-align: center; }
+  .app-ph-icon { font-size: 34px; color: var(--amber); opacity: .8; }
+  .app-ph-title { font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--text); }
+  .app-ph-sub { font-size: 10.5px; color: var(--muted-2); line-height: 1.5; }
+  .app-tab-bar { position: absolute; bottom: 5.5%; left: 0; right: 0; height: 8%; background: #1B2A4A; border-top: 1px solid rgba(255,255,255,.06); display: flex; align-items: stretch; z-index: 10; }
+  .app-tab { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; background: none; border: none; cursor: pointer; color: rgba(255,255,255,.3); font-size: 7px; font-family: var(--font-body); font-weight: 600; transition: color .2s; padding: 0; }
+  .app-tab.active { color: var(--amber); }
+  .app-tab i { font-size: 14px; }
+  .phone-hint { position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 500; color: var(--muted-2); white-space: nowrap; }
+
+  .quote-band { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: linear-gradient(90deg, rgba(42,157,143,.07), rgba(255,255,255,.02), rgba(245,166,35,.06)); }
+  .quote { max-width: 920px; margin: 0 auto; text-align: center; font-family: var(--font-head); font-weight: 700; font-size: clamp(1.5rem, 3.6vw, 2.6rem); line-height: 1.18; letter-spacing: -.03em; }
+  .quote .amber { color: var(--amber); }
+  .quote .arrow { color: var(--muted-2); font-weight: 400; }
+
+  .section-head { max-width: 720px; margin-bottom: 36px; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .kicker { color: var(--teal); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; margin-bottom: 12px; }
+  .kicker.amber { color: var(--amber); }
+  h2 { font-weight: 700; font-size: clamp(1.7rem, 3.6vw, 2.7rem); line-height: 1.12; letter-spacing: -.025em; margin-bottom: 16px; }
+  .section-head p { color: var(--muted); font-size: 1.02rem; margin: 0; line-height: 1.7; }
+
+  .card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .card-grid.two { grid-template-columns: repeat(2,1fr); }
+  .card { background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; min-height: 100%; box-shadow: 0 18px 44px rgba(0,0,0,.16); }
+  .card.featured { background: linear-gradient(180deg, rgba(245,166,35,.13), rgba(255,255,255,.025)); border-color: rgba(245,166,35,.28); }
+  .card.featured.teal-tint { background: linear-gradient(180deg, rgba(42,157,143,.13), rgba(255,255,255,.025)); border-color: rgba(42,157,143,.28); }
+  .icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 16px; background: rgba(42,157,143,.13); color: var(--teal); font-size: 1.3rem; }
+  .icon.amber { background: rgba(245,166,35,.13); color: var(--amber); }
+  .card h3 { font-size: 1.18rem; line-height: 1.18; margin-bottom: 9px; letter-spacing: -.015em; }
+  .card p, .card li { color: var(--muted); font-size: .92rem; }
+  .card p { margin-bottom: 0; line-height: 1.6; }
+  .tag { display: inline-flex; align-items: center; margin-bottom: 12px; color: var(--teal); font-weight: 700; font-size: .74rem; text-transform: uppercase; letter-spacing: .08em; }
+  .tag.amber { color: var(--amber); }
+  .list { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; }
+  .list li { position: relative; padding-left: 22px; font-size: .92rem; }
+  .list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; border-radius: 99px; background: var(--teal); box-shadow: 0 0 0 4px rgba(42,157,143,.12); }
+
+  .split { display: grid; grid-template-columns: .95fr 1.05fr; gap: 34px; align-items: center; }
+  .mini-ui { background: linear-gradient(180deg, var(--panel-2), var(--panel)); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow); }
+  .mini-row { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.08); color: var(--muted); font-size: .92rem; }
+  .mini-row:last-child { border-bottom: 0; }
+  .mini-row strong { color: var(--text); font-weight: 600; }
+  .pill { display: inline-flex; align-items: center; justify-content: center; padding: 6px 11px; border-radius: 999px; background: rgba(255,255,255,.07); color: var(--muted); font-size: .78rem; font-weight: 700; }
+  .pill.amber { background: rgba(245,166,35,.16); color: var(--amber); }
+  .pill.teal { background: rgba(42,157,143,.15); color: var(--teal); }
+
+  .pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+  .price-card { border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 32px; background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015)); box-shadow: 0 18px 44px rgba(0,0,0,.16); display: flex; flex-direction: column; }
+  .price-card.featured { background: radial-gradient(circle at top right, rgba(245,166,35,.18), transparent 36%), linear-gradient(180deg, rgba(245,166,35,.10), rgba(255,255,255,.025)); border-color: rgba(245,166,35,.28); box-shadow: var(--shadow); position: relative; }
+  .price-card.featured::before { content: attr(data-badge); position: absolute; top: -12px; left: 28px; background: var(--amber); color: var(--navy); font-size: .68rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; }
+  .price-card h3 { font-size: 1.3rem; margin-bottom: 4px; }
+  .price-card .price-sub-label { color: var(--muted); font-size: .85rem; margin-bottom: 18px; }
+  .price { font-size: clamp(2.4rem, 4.5vw, 3.2rem); line-height: 1; letter-spacing: -.04em; font-weight: 700; margin: 4px 0 4px; color: var(--text); }
+  .price.amber-text { color: var(--amber); }
+  .price span { font-size: 1rem; color: var(--muted); letter-spacing: 0; font-weight: 600; }
+  .price-strike { color: var(--muted-2); text-decoration: line-through; font-size: 1.1rem; margin-right: 8px; }
+  .price-card .list { margin-bottom: 24px; flex: 1; }
+
+  .faq { display: grid; gap: 11px; }
+  .faq-item { border: 1px solid var(--line); border-radius: 16px; padding: 17px 19px; background: rgba(255,255,255,.03); }
+  .faq-item summary { cursor: pointer; font-weight: 700; font-family: var(--font-head); color: var(--text); list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: .98rem; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; color: var(--amber); font-size: 1.3rem; font-weight: 400; }
+  .faq-item[open] summary::after { content: "–"; }
+  .faq-item p { color: var(--muted); margin: 11px 0 0; font-size: .92rem; line-height: 1.65; }
+
+  .final-cta { text-align: center; padding: 64px 24px; border-radius: var(--radius-xl); background: radial-gradient(circle at top, rgba(245,166,35,.20), transparent 35%), linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .final-cta h2 { margin-left: auto; margin-right: auto; max-width: 680px; }
+  .final-cta p { margin-left: auto; margin-right: auto; max-width: 560px; color: var(--muted); }
+
+  footer { padding: 30px 0 48px; color: var(--muted-2); border-top: 1px solid var(--line); font-size: .9rem; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+  .footer-links a:hover { color: var(--text); }
+
+  .lang-switcher { position: relative; display: inline-block; }
+  .lang-trigger { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); color: #F5EDD6; font-size: .85rem; font-weight: 700; font-family: var(--font-body); cursor: pointer; white-space: nowrap; }
+  .lang-menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; z-index: 200; background: #1E3158; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; padding: 6px; min-width: 140px; box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+  .lang-switcher.open .lang-menu { display: block; }
+  .lang-menu a { display: block; padding: 10px 13px; border-radius: 9px; color: #C4D0DE; font-size: .88rem; font-weight: 500; text-decoration: none; }
+  .lang-menu a:hover { background: rgba(255,255,255,.08); color: #F5EDD6; }
+  .lang-menu a.active { color: #F5A623; font-weight: 700; background: rgba(245,166,35,.1); }
+
+  @media (max-width: 980px) {
+    .hero-grid, .split, .pricing { grid-template-columns: 1fr; }
+    .phone-wrap { order: -1; }
+    .card-grid, .card-grid.two { grid-template-columns: repeat(2,1fr); }
+    .nav-links > a:not(.nav-cta) { display: none; }
+  }
+  @media (max-width: 640px) {
+    .container { width: min(100% - 28px, var(--container)); }
+    .nav-inner { min-height: 64px; gap: 10px; }
+    .brand-sub { display: none; }
+    .section { padding: 60px 0; }
+    .hero { padding: 40px 0 48px; }
+    h1 { font-size: clamp(2.6rem, 13vw, 3.6rem); }
+    .card-grid, .card-grid.two { grid-template-columns: 1fr; }
+    .quote { text-align: left; }
+    .final-cta { padding: 42px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="https://nocito.app/hr/" aria-label="Nocito">
+      <span class="brand-icon"><i class="ti ti-bell"></i></span>
+      <span class="brand-name">Nocito <span class="brand-sub">Reminder</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#features">Značajke</a>
+      <a href="#pricing">Cijena</a>
+      <a href="#faq">Pitanja</a>
+      <div class="lang-switcher" id="langSwitcher">
+        <button type="button" class="lang-trigger" id="langTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Language / Jezik">
+          <i class="ti ti-world" aria-hidden="true" style="font-size:14px"></i>
+          <span>HR</span>
+          <span style="font-size:.65em;color:#8899AA">▾</span>
+        </button>
+        <div class="lang-menu" id="langMenu" role="menu">
+          <a href="https://nocito.app/reminder/" hreflang="en" role="menuitem">English</a>
+          <a href="https://nocito.app/reminder/hr/" hreflang="hr" role="menuitem" class="active">Hrvatski</a>
+        </div>
+      </div>
+      <a class="btn btn-secondary nav-cta" href="https://nocito.app/hr/">Nocito Private Apps</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">🔒 100% offline · potpuno privatno</div>
+        <h1><span>Izgovori.</span><span class="accent">Zaboravi.</span></h1>
+        <p class="hero-copy">Podsjetnik koji sluša, razumije i pamti — u potpunosti offline.</p>
+        <p class="hero-copy"><strong>Nije potreban internet. Nema računa. Nema pretplate — nikad.</strong></p>
+        <div class="hero-actions">
+          <span class="soon-badge"><i class="ti ti-clock" aria-hidden="true"></i> Uskoro na Google Playu</span>
+          <a class="btn btn-secondary" href="#features">Pogledaj kako radi</a>
+        </div>
+        <div class="chips">
+          <span class="chip">100% offline</span>
+          <span class="chip">Bez pretplate</span>
+          <span class="chip">Glasom prvo</span>
+          <span class="chip">Bez oglasa</span>
+        </div>
+      </div>
+
+      <div class="phone-wrap">
+        <div class="phone-glow"></div>
+        <div class="phone">
+          <div class="screen">
+            <div class="app-slide active" data-tab="home">
+              <div class="app-ph">
+                <div class="app-ph-status"><span>9:41</span><span>●●●</span></div>
+                <div class="app-ph-body">
+                  <div class="app-ph-icon"><i class="ti ti-microphone"></i></div>
+                  <div class="app-ph-title">Dodirni i govori</div>
+                  <div class="app-ph-sub">Tvoj dan, mirno organiziran.</div>
+                </div>
+              </div>
+            </div>
+            <div class="app-slide" data-tab="lists">
+              <div class="app-ph">
+                <div class="app-ph-status"><span>9:41</span><span>●●●</span></div>
+                <div class="app-ph-body">
+                  <div class="app-ph-icon"><i class="ti ti-list-details"></i></div>
+                  <div class="app-ph-title">Popisi</div>
+                  <div class="app-ph-sub">Inbox, Hitno, Osobno, Posao — ili napravi svoj.</div>
+                </div>
+              </div>
+            </div>
+            <div class="app-slide" data-tab="settings">
+              <div class="app-ph">
+                <div class="app-ph-status"><span>9:41</span><span>●●●</span></div>
+                <div class="app-ph-body">
+                  <div class="app-ph-icon"><i class="ti ti-settings"></i></div>
+                  <div class="app-ph-title">Postavke</div>
+                  <div class="app-ph-sub">Upravljaj lokalnim AI modelima i dopuštenjima.</div>
+                </div>
+              </div>
+            </div>
+            <div class="app-tab-bar">
+              <button class="app-tab active" data-target="home"><i class="ti ti-home"></i><span>Početna</span></button>
+              <button class="app-tab" data-target="lists"><i class="ti ti-list-details"></i><span>Popisi</span></button>
+              <button class="app-tab" data-target="settings"><i class="ti ti-settings"></i><span>Postavke</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="phone-hint">Dodirni kartice za istraživanje</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-band section-tight">
+    <div class="container">
+      <div class="quote">Pomisli. <span class="arrow">→</span> Izgovori. <span class="arrow">→</span> <span class="amber">Nocito pamti.</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container card-grid">
+      <article class="card">
+        <span class="tag">Privatnost na prvom mjestu</span>
+        <h3>Potpuno privatno</h3>
+        <p>Ništa nikad ne napušta tvoj telefon. Bez clouda, bez računa, bez potrebe za internetom — ikad. Transkripcija i AI obrada odvijaju se u potpunosti na uređaju.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Brzina</span>
+        <h3>Izgovori, gotovo</h3>
+        <p>Dodirni mikrofon i govori prirodno. Nocito iz jedne snimke razlikuje zadatke, podsjetnike, bilješke i događaje — bez izbornika, bez tipkanja.</p>
+      </article>
+      <article class="card featured">
+        <span class="tag amber">Jednokratna cijena</span>
+        <h3>Plati jednom, tvoje je</h3>
+        <p>3,99 € jednokratno. Bez pretplate, bez ponavljajućih naplata, ikad. Kupiš jednom i tvoje je dokle god ga koristiš.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Glasovni unos</div>
+        <h2>Govori prirodno. Nocito organizira.</h2>
+        <p>Dodirni mikrofon i govori kao da razgovaraš s osobom. Nocito prepoznaje o čemu se radi, kad dospijeva i gdje pripada — dok ti nastavljaš sa svojim danom.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card"><div class="icon"><i class="ti ti-microphone"></i></div><h3>Dodirni i govori</h3><p>Waveform uživo i animirani mikrofon potvrđuju da te aplikacija čuje. Zaustavi kad hoćeš, ili pusti da Nocito sam prepozna kraj govora.</p></article>
+        <article class="card featured teal-tint"><div class="icon"><i class="ti ti-git-fork"></i></div><h3>Jedna rečenica, više stavki</h3><p>“Sutra u deset nazovi zubara, kupi mlijeko i u petak pošalji Ivanu ponudu” postaje tri zasebne stavke — svaka se pregledava i potvrđuje posebno.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-player-play"></i></div><h3>Nastavlja raditi u pozadini</h3><p>Ugasi ekran ili prijeđi u drugu aplikaciju dok Nocito transkribira i organizira. Vrati se kad god želiš — rezultat te čeka.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="mini-ui">
+        <div class="mini-row"><strong>Transkript</strong><span class="pill teal">Uredivo</span></div>
+        <div class="mini-row"><strong>Tip</strong><span class="pill">Zadatak / Podsjetnik</span></div>
+        <div class="mini-row"><strong>Dospijeva</strong><span class="pill amber">Sutra 10:00</span></div>
+        <div class="mini-row"><strong>Popis</strong><span class="pill">Osobno</span></div>
+      </div>
+      <div class="section-head">
+        <div class="kicker">Quick Review</div>
+        <h2>Ti ostaješ u kontroli</h2>
+        <p>Prije nego se bilo što spremi, Quick Review ti omogućuje provjeru transkripta, ispravak naslova te promjenu datuma, vremena, prioriteta ili popisa — sve bez otvaranja tipkovnice, osim ako to sam ne poželiš.</p>
+        <p>Jedan bitan detalj: nepotvrđeni podsjetnik se ipak izvršava u zakazano vrijeme. Potvrda je za doradu, ne uvjet za rad.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Organizacija</div>
+        <h2>Napravljeno da drži sve, bez nereda</h2>
+        <p>Četiri zadana popisa za početak — Inbox, Hitno, Osobno, Posao — a možeš dodati koliko god vlastitih popisa želiš, svaki sa svojom bojom.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card"><div class="icon"><i class="ti ti-inbox"></i></div><h3>Pametni zadani popisi</h3><p>Hitne stavke mogu se same usmjeriti u popis Hitno, prepoznato iz onoga što si izgovorio/izgovorila.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-palette"></i></div><h3>Tvoji popisi, tvoje boje</h3><p>Kreiraj, preimenuj, promijeni boju ili izbriši prilagođene popise kad god želiš. Inbox ostaje tvoj trajni sabirni popis.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-search"></i></div><h3>Pretraga tipkanjem ili glasom</h3><p>“Nađi ono što sam zapisao o laptopu” radi jednako dobro kao i tipkanje — i uvijek vraća samo tvoje stvarne, lokalne stavke.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card-grid two">
+      <article class="card">
+        <div class="icon amber"><i class="ti ti-repeat"></i></div>
+        <h3>Ponavljajući podsjetnici</h3>
+        <p>Od jednostavnog dnevnog ponavljanja do specifičnih obrazaca poput svakog drugog utorka.</p>
+        <ul class="list">
+          <li>Svaki dan, tjedan, mjesec, godinu</li>
+          <li>Samo radnim danima, samo vikendom, svakih X dana</li>
+          <li>Dovršavanje jednog pojavljivanja samo ga pomiče na sljedeće — niz ostaje netaknut</li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="icon amber"><i class="ti ti-bell-ringing"></i></div>
+        <h3>Više upozorenja po stavci</h3>
+        <p>Postavi koliko god upozorenja trebaš za jedan termin.</p>
+        <ul class="list">
+          <li>Dan prije, sat prije, deset minuta prije — sve odjednom</li>
+          <li>Preživljava restart, ažuriranja aplikacije i promjenu vremenske zone</li>
+          <li>Odgodi 10, 20 ili 60 minuta izravno s alarmnog ekrana</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Lokalni desktop most</div>
+        <h2>Vidi svoj popis na većem ekranu — i dalje 100% lokalno</h2>
+        <p>Kad su tvoj telefon i računalo na istoj Wi-Fi mreži, možeš otvoriti privatni web prikaz na računalu — bez cloud sinkronizacije, bez računa, ništa ne napušta tvoju mrežu.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card"><div class="icon"><i class="ti ti-qrcode"></i></div><h3>Poveži se kodom</h3><p>Šesteroznamenkasti kod ili QR kod povezuje računalo s telefonom za par sekundi.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-wifi"></i></div><h3>Samo lokalna mreža</h3><p>Tvoj telefon ostaje jedini vlasnik podataka. Web prikaz radi samo dok su oba uređaja na istoj mreži.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-archive"></i></div><h3>Puna sigurnosna kopija i izvoz</h3><p>Izvezi sve u JSON ili CSV, ili napravi kompletnu lokalnu sigurnosnu kopiju kad god želiš.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker amber">Cijena</div>
+        <h2>Jedna cijena. Tvoje zauvijek.</h2>
+        <p>Bez razina, bez pretplate, bez Pro verzije koju otključavaš kasnije. Sve značajke, jedna uplata.</p>
+      </div>
+      <div class="pricing">
+        <div class="price-card featured" data-badge="Lansirna cijena">
+          <h3>Ograničena lansirna ponuda</h3>
+          <p class="price-sub-label">Za prve korisnike pri lansiranju</p>
+          <div class="price amber-text"><span class="price-strike">3,99 €</span>1,99 €</div>
+          <ul class="list">
+            <li>Neograničeni glasovni podsjetnici, zauvijek</li>
+            <li>Sve značajke popisa, pretrage i ponavljanja</li>
+            <li>Lokalni desktop web prikaz</li>
+            <li>Puna sigurnosna kopija, izvoz i vraćanje</li>
+            <li>Sva buduća ažuriranja uključena</li>
+          </ul>
+          <span class="soon-badge" style="align-self:flex-start"><i class="ti ti-clock" aria-hidden="true"></i> Uskoro na Google Playu</span>
+        </div>
+        <div class="price-card">
+          <h3>Redovna cijena</h3>
+          <p class="price-sub-label">Nakon lansirnog razdoblja</p>
+          <div class="price">3,99 €</div>
+          <ul class="list">
+            <li>Neograničeni glasovni podsjetnici, zauvijek</li>
+            <li>Sve značajke popisa, pretrage i ponavljanja</li>
+            <li>Lokalni desktop web prikaz</li>
+            <li>Puna sigurnosna kopija, izvoz i vraćanje</li>
+            <li>Sva buduća ažuriranja uključena</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container split">
+      <div class="section-head">
+        <div class="kicker">Pitanja</div>
+        <h2>Jednostavni odgovori prije kupnje</h2>
+        <p>Nocito Reminder je prvenstveno za Android, prvenstveno privatan i osmišljen da radi bez ikakve internetske veze.</p>
+      </div>
+      <div class="faq">
+        <details class="faq-item" open><summary>Treba li internetsku vezu?</summary><p>Ne. Transkripcija i AI obrada odvijaju se u potpunosti na tvom uređaju. Radi jednako u avionu kao i kod kuće.</p></details>
+        <details class="faq-item"><summary>Trebam li račun?</summary><p>Ne. Nema registracije, nema prijave, nema računa nikakve vrste.</p></details>
+        <details class="faq-item"><summary>Je li ovo pretplata?</summary><p>Ne. To je jedna jednokratna kupnja. Bez ponavljajućih naplata, bez Pro razine koju bi ti kasnije nudili.</p></details>
+        <details class="faq-item"><summary>Koji su jezici podržani?</summary><p>Hrvatski i engleski pri lansiranju, uz planove za dodatne veće svjetske jezike prije javnog izdanja.</p></details>
+        <details class="faq-item"><summary>Kad izlazi?</summary><p>Nocito Reminder je u završnoj fazi razvoja. Uskoro će biti dostupan na Google Playu — vrati se ili prati stranicu Nocito Private Apps za novosti.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="final-cta">
+        <div class="kicker amber">Nocito Reminder</div>
+        <h2>Jedini podsjetnik koji je 100% offline — i u potpunosti tvoj.</h2>
+        <p>Jedna kupnja. Bez računa. Bez pretplate. Samo tvoje misli, zapamćene.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <span class="soon-badge"><i class="ti ti-clock" aria-hidden="true"></i> Uskoro na Google Playu</span>
+          <a class="btn btn-secondary" href="https://nocito.app/hr/">Istraži Nocito Private Apps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 Nocito™ · nocito.app/reminder</div>
+    <div class="footer-links">
+      <a href="https://nocito.app/hr/">Nocito Private Apps</a>
+      <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css">
+<script>
+  (function () {
+    var wrap = document.getElementById('langSwitcher');
+    var trigger = document.getElementById('langTrigger');
+    if (!wrap || !trigger) return;
+    function close() { wrap.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); }
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = wrap.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    window.addEventListener('scroll', close, { passive: true });
+  })();
+  document.querySelectorAll('.app-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var target = tab.dataset.target;
+      document.querySelectorAll('.app-tab').forEach(function (t) { t.classList.remove('active'); });
+      document.querySelectorAll('.app-slide').forEach(function (s) { s.classList.remove('active'); });
+      tab.classList.add('active');
+      document.querySelector('.app-slide[data-tab="' + target + '"]').classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

@@ -8,16 +8,6 @@
     <priority>1.0</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/" />
       <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
-      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
-      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
-      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
-      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
-      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
-      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
-      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
-      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
-      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
-      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
       <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
   </url>
   <url>
@@ -26,197 +16,239 @@
     <priority>0.9</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/" />
       <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
-      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
-      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
-      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
-      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
-      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
-      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
-      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
-      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
-      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
-      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
       <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
   </url>
   <url>
-    <loc>https://nocito.app/de/</loc>
+    <loc>https://nocito.app/expense-tracker/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/" />
-      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
-      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
-      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
-      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
-      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
-      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
-      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
-      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
-      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
-      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
-      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
-      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
   </url>
   <url>
-    <loc>https://nocito.app/bs/</loc>
+    <loc>https://nocito.app/hr/expense-tracker/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/" />
-      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
-      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
-      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
-      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
-      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
-      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
-      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
-      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
-      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
-      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
-      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
-      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
+    <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
   </url>
   <url>
-    <loc>https://nocito.app/sr/</loc>
+    <loc>https://nocito.app/de/expense-tracker/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/" />
-      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
-      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
-      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
-      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
-      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
-      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
-      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
-      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
-      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
-      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
-      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
-      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
+    <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
   </url>
   <url>
-    <loc>https://nocito.app/cs/</loc>
+    <loc>https://nocito.app/bs/expense-tracker/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/" />
-      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
-      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
-      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
-      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
-      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
-      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
-      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
-      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
-      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
-      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
-      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
-      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
+    <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
   </url>
   <url>
-    <loc>https://nocito.app/hu/</loc>
+    <loc>https://nocito.app/sr/expense-tracker/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/" />
-      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
-      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
-      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
-      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
-      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
-      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
-      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
-      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
-      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
-      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
-      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
-      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
+    <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
   </url>
   <url>
-    <loc>https://nocito.app/pl/</loc>
+    <loc>https://nocito.app/cs/expense-tracker/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/" />
-      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
-      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
-      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
-      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
-      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
-      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
-      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
-      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
-      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
-      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
-      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
-      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
+    <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
   </url>
   <url>
-    <loc>https://nocito.app/es/</loc>
+    <loc>https://nocito.app/hu/expense-tracker/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/" />
-      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
-      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
-      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
-      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
-      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
-      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
-      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
-      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
-      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
-      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
-      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
-      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
+    <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
   </url>
   <url>
-    <loc>https://nocito.app/fr/</loc>
+    <loc>https://nocito.app/pl/expense-tracker/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/" />
-      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
-      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
-      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
-      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
-      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
-      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
-      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
-      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
-      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
-      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
-      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
-      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
+    <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
   </url>
   <url>
-    <loc>https://nocito.app/it/</loc>
+    <loc>https://nocito.app/es/expense-tracker/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/" />
-      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
-      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
-      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
-      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
-      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
-      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
-      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
-      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
-      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
-      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
-      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
-      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
+    <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
   </url>
   <url>
-    <loc>https://nocito.app/pt/</loc>
+    <loc>https://nocito.app/fr/expense-tracker/</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/" />
-      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/" />
-      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/" />
-      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/" />
-      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/" />
-      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/" />
-      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/" />
-      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/" />
-      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/" />
-      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/" />
-      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/" />
-      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/" />
-      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/" />
+    <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
+  </url>
+  <url>
+    <loc>https://nocito.app/it/expense-tracker/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
+  </url>
+  <url>
+    <loc>https://nocito.app/pt/expense-tracker/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://nocito.app/de/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="bs" href="https://nocito.app/bs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="sr" href="https://nocito.app/sr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="cs" href="https://nocito.app/cs/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="hu" href="https://nocito.app/hu/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pl" href="https://nocito.app/pl/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://nocito.app/es/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://nocito.app/fr/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
+  </url>
+  <url>
+    <loc>https://nocito.app/reminder/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/reminder/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/reminder/hr/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/reminder/" />
+  </url>
+  <url>
+    <loc>https://nocito.app/reminder/hr/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/reminder/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/reminder/hr/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/reminder/" />
   </url>
   <url>
     <loc>https://nocito.app/privacy.html</loc>
@@ -650,5 +682,4 @@
       <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
       <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
   </url>
-
 </urlset>

@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nocito Reminder™ — Say it. Forget it.</title>
+<meta name="description" content="Nocito Reminder is a 100% offline, private voice reminder app for Android. No account, no cloud, no subscription — pay once, use forever." />
+<meta property="og:title" content="Nocito Reminder™ — Say it. Forget it." />
+<meta property="og:description" content="The reminder app that listens, understands, and remembers — completely offline. No account, no subscription, ever." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://nocito.app/reminder/" />
+<meta name="theme-color" content="#1B2A4A" />
+<link rel="canonical" href="https://nocito.app/reminder/" />
+<link rel="alternate" hreflang="en" href="https://nocito.app/reminder/" />
+<link rel="alternate" hreflang="hr" href="https://nocito.app/reminder/hr/" />
+<link rel="alternate" hreflang="x-default" href="https://nocito.app/reminder/" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0F1B2D; --bg-2: #0B1422; --navy: #1B2A4A; --panel: #1E3158; --panel-2: #243a66;
+    --text: #F5EDD6; --muted: #9AAABB; --muted-2: #6B7A90; --line: rgba(255,255,255,.10);
+    --amber: #F5A623; --amber-2: #D88A12; --teal: #2A9D8F; --teal-2: #1D6B61;
+    --shadow: 0 24px 70px rgba(0,0,0,.35);
+    --radius-xl: 30px; --radius-lg: 22px;
+    --container: 1120px;
+    --font-head: 'Space Grotesk', sans-serif; --font-body: 'DM Sans', sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body {
+    margin: 0; font-family: var(--font-body); color: var(--text); overflow-x: hidden;
+    background:
+      radial-gradient(circle at 18% 0%, rgba(245,166,35,.10), transparent 26%),
+      radial-gradient(circle at 88% 20%, rgba(42,157,143,.14), transparent 28%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 52%, #070D18 100%);
+    line-height: 1.6; min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { width: min(var(--container), calc(100% - 40px)); margin: 0 auto; }
+
+  .nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(15,27,45,.78); border-bottom: 1px solid rgba(255,255,255,.08); }
+  .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; white-space: nowrap; }
+  .brand-icon { width: 36px; height: 36px; border-radius: 10px; overflow: hidden; flex-shrink: 0; background: var(--teal); display:flex; align-items:center; justify-content:center; }
+  .brand-icon i { color: var(--bg); font-size: 18px; }
+  .brand-name { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; color: var(--text); white-space: nowrap; }
+  .brand-sub { color: var(--muted); font-weight: 500; font-size: .85rem; }
+  .nav-links { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: .9rem; }
+  .nav-links a:hover { color: var(--text); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 0 20px; border-radius: 999px; font-weight: 700; font-family: var(--font-body); border: 1px solid transparent; transition: transform .18s ease; white-space: nowrap; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-secondary { color: var(--text); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+
+  .section { padding: 84px 0; }
+  .section-tight { padding: 52px 0; }
+
+  .hero { padding: 64px 0; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(320px,.8fr); gap: 52px; align-items: center; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; background: rgba(42,157,143,.12); border: 1px solid rgba(42,157,143,.3); color: var(--teal); font-weight: 700; font-size: .85rem; margin-bottom: 22px; }
+  h1, h2, h3, p { margin-top: 0; font-family: var(--font-body); }
+  h1, h2, h3 { font-family: var(--font-head); }
+  h1 { font-weight: 700; font-size: clamp(3rem, 7.5vw, 5.6rem); line-height: .98; letter-spacing: -.035em; margin-bottom: 22px; max-width: 640px; }
+  h1 span { display: block; }
+  h1 .accent { color: var(--amber); }
+  .hero-copy { color: var(--muted); font-size: clamp(1.05rem, 1.8vw, 1.25rem); max-width: 620px; margin-bottom: 14px; }
+  .hero-copy strong { color: var(--text); font-weight: 600; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items:center; gap: 14px; margin: 26px 0 18px; }
+  .soon-badge { display: inline-flex; align-items:center; gap:8px; padding: 11px 20px; border-radius: 999px; background: rgba(245,166,35,.13); border: 1px solid rgba(245,166,35,.3); color: var(--amber); font-weight: 700; font-size: .95rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .chip { padding: 8px 13px; border-radius: 999px; color: var(--text); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09); font-weight: 600; font-size: .85rem; }
+
+  .phone-wrap { display: flex; justify-content: center; position: relative; }
+  .phone-glow { position: absolute; width: 360px; height: 360px; border-radius: 999px; background: radial-gradient(circle, rgba(42,157,143,.20), transparent 68%); filter: blur(8px); top: 30px; z-index: 0; }
+  .phone { position: relative; z-index: 1; width: min(300px, 100%); border-radius: 32px; padding: 14px; background: var(--bg-2); border: 1px solid rgba(255,255,255,.12); box-shadow: var(--shadow); }
+  .screen { border-radius: 24px; overflow: hidden; background: var(--navy); border: 1px solid rgba(255,255,255,.07); aspect-ratio: 1080 / 2340; position: relative; }
+  .app-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .3s ease; pointer-events: none; }
+  .app-slide.active { opacity: 1; pointer-events: auto; }
+  .app-ph { width: 100%; height: 100%; background: var(--navy); display: flex; flex-direction: column; }
+  .app-ph-status { display: flex; justify-content: space-between; padding: 6% 5% 3%; font-size: 9px; color: rgba(255,255,255,.35); flex-shrink: 0; }
+  .app-ph-body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 0 10% 12%; text-align: center; }
+  .app-ph-icon { font-size: 34px; color: var(--amber); opacity: .8; }
+  .app-ph-title { font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--text); }
+  .app-ph-sub { font-size: 10.5px; color: var(--muted-2); line-height: 1.5; }
+  .app-tab-bar { position: absolute; bottom: 5.5%; left: 0; right: 0; height: 8%; background: #1B2A4A; border-top: 1px solid rgba(255,255,255,.06); display: flex; align-items: stretch; z-index: 10; }
+  .app-tab { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; background: none; border: none; cursor: pointer; color: rgba(255,255,255,.3); font-size: 7px; font-family: var(--font-body); font-weight: 600; transition: color .2s; padding: 0; }
+  .app-tab.active { color: var(--amber); }
+  .app-tab i { font-size: 14px; }
+  .phone-hint { position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 500; color: var(--muted-2); white-space: nowrap; }
+
+  .quote-band { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: linear-gradient(90deg, rgba(42,157,143,.07), rgba(255,255,255,.02), rgba(245,166,35,.06)); }
+  .quote { max-width: 920px; margin: 0 auto; text-align: center; font-family: var(--font-head); font-weight: 700; font-size: clamp(1.5rem, 3.6vw, 2.6rem); line-height: 1.18; letter-spacing: -.03em; }
+  .quote .amber { color: var(--amber); }
+  .quote .arrow { color: var(--muted-2); font-weight: 400; }
+
+  .section-head { max-width: 720px; margin-bottom: 36px; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .kicker { color: var(--teal); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; margin-bottom: 12px; }
+  .kicker.amber { color: var(--amber); }
+  h2 { font-weight: 700; font-size: clamp(1.7rem, 3.6vw, 2.7rem); line-height: 1.12; letter-spacing: -.025em; margin-bottom: 16px; }
+  .section-head p { color: var(--muted); font-size: 1.02rem; margin: 0; line-height: 1.7; }
+
+  .card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .card-grid.two { grid-template-columns: repeat(2,1fr); }
+  .card { background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; min-height: 100%; box-shadow: 0 18px 44px rgba(0,0,0,.16); }
+  .card.featured { background: linear-gradient(180deg, rgba(245,166,35,.13), rgba(255,255,255,.025)); border-color: rgba(245,166,35,.28); }
+  .card.featured.teal-tint { background: linear-gradient(180deg, rgba(42,157,143,.13), rgba(255,255,255,.025)); border-color: rgba(42,157,143,.28); }
+  .icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 16px; background: rgba(42,157,143,.13); color: var(--teal); font-size: 1.3rem; }
+  .icon.amber { background: rgba(245,166,35,.13); color: var(--amber); }
+  .card h3 { font-size: 1.18rem; line-height: 1.18; margin-bottom: 9px; letter-spacing: -.015em; }
+  .card p, .card li { color: var(--muted); font-size: .92rem; }
+  .card p { margin-bottom: 0; line-height: 1.6; }
+  .tag { display: inline-flex; align-items: center; margin-bottom: 12px; color: var(--teal); font-weight: 700; font-size: .74rem; text-transform: uppercase; letter-spacing: .08em; }
+  .tag.amber { color: var(--amber); }
+  .list { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 9px; }
+  .list li { position: relative; padding-left: 22px; font-size: .92rem; }
+  .list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 7px; height: 7px; border-radius: 99px; background: var(--teal); box-shadow: 0 0 0 4px rgba(42,157,143,.12); }
+
+  .split { display: grid; grid-template-columns: .95fr 1.05fr; gap: 34px; align-items: center; }
+  .mini-ui { background: linear-gradient(180deg, var(--panel-2), var(--panel)); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow); }
+  .mini-row { display: flex; align-items: center; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.08); color: var(--muted); font-size: .92rem; }
+  .mini-row:last-child { border-bottom: 0; }
+  .mini-row strong { color: var(--text); font-weight: 600; }
+  .pill { display: inline-flex; align-items: center; justify-content: center; padding: 6px 11px; border-radius: 999px; background: rgba(255,255,255,.07); color: var(--muted); font-size: .78rem; font-weight: 700; }
+  .pill.amber { background: rgba(245,166,35,.16); color: var(--amber); }
+  .pill.teal { background: rgba(42,157,143,.15); color: var(--teal); }
+
+  .pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+  .price-card { border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 32px; background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015)); box-shadow: 0 18px 44px rgba(0,0,0,.16); display: flex; flex-direction: column; }
+  .price-card.featured { background: radial-gradient(circle at top right, rgba(245,166,35,.18), transparent 36%), linear-gradient(180deg, rgba(245,166,35,.10), rgba(255,255,255,.025)); border-color: rgba(245,166,35,.28); box-shadow: var(--shadow); position: relative; }
+  .price-card.featured::before { content: attr(data-badge); position: absolute; top: -12px; left: 28px; background: var(--amber); color: var(--navy); font-size: .68rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; }
+  .price-card h3 { font-size: 1.3rem; margin-bottom: 4px; }
+  .price-card .price-sub-label { color: var(--muted); font-size: .85rem; margin-bottom: 18px; }
+  .price { font-size: clamp(2.4rem, 4.5vw, 3.2rem); line-height: 1; letter-spacing: -.04em; font-weight: 700; margin: 4px 0 4px; color: var(--text); }
+  .price.amber-text { color: var(--amber); }
+  .price span { font-size: 1rem; color: var(--muted); letter-spacing: 0; font-weight: 600; }
+  .price-strike { color: var(--muted-2); text-decoration: line-through; font-size: 1.1rem; margin-right: 8px; }
+  .price-card .list { margin-bottom: 24px; flex: 1; }
+
+  .faq { display: grid; gap: 11px; }
+  .faq-item { border: 1px solid var(--line); border-radius: 16px; padding: 17px 19px; background: rgba(255,255,255,.03); }
+  .faq-item summary { cursor: pointer; font-weight: 700; font-family: var(--font-head); color: var(--text); list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 14px; font-size: .98rem; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; color: var(--amber); font-size: 1.3rem; font-weight: 400; }
+  .faq-item[open] summary::after { content: "–"; }
+  .faq-item p { color: var(--muted); margin: 11px 0 0; font-size: .92rem; line-height: 1.65; }
+
+  .final-cta { text-align: center; padding: 64px 24px; border-radius: var(--radius-xl); background: radial-gradient(circle at top, rgba(245,166,35,.20), transparent 35%), linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .final-cta h2 { margin-left: auto; margin-right: auto; max-width: 680px; }
+  .final-cta p { margin-left: auto; margin-right: auto; max-width: 560px; color: var(--muted); }
+
+  footer { padding: 30px 0 48px; color: var(--muted-2); border-top: 1px solid var(--line); font-size: .9rem; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+  .footer-links a:hover { color: var(--text); }
+
+  .lang-switcher { position: relative; display: inline-block; }
+  .lang-trigger { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); color: #F5EDD6; font-size: .85rem; font-weight: 700; font-family: var(--font-body); cursor: pointer; white-space: nowrap; }
+  .lang-menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; z-index: 200; background: #1E3158; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; padding: 6px; min-width: 140px; box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+  .lang-switcher.open .lang-menu { display: block; }
+  .lang-menu a { display: block; padding: 10px 13px; border-radius: 9px; color: #C4D0DE; font-size: .88rem; font-weight: 500; text-decoration: none; }
+  .lang-menu a:hover { background: rgba(255,255,255,.08); color: #F5EDD6; }
+  .lang-menu a.active { color: #F5A623; font-weight: 700; background: rgba(245,166,35,.1); }
+
+  @media (max-width: 980px) {
+    .hero-grid, .split, .pricing { grid-template-columns: 1fr; }
+    .phone-wrap { order: -1; }
+    .card-grid, .card-grid.two { grid-template-columns: repeat(2,1fr); }
+    .nav-links > a:not(.nav-cta) { display: none; }
+  }
+  @media (max-width: 640px) {
+    .container { width: min(100% - 28px, var(--container)); }
+    .nav-inner { min-height: 64px; gap: 10px; }
+    .brand-sub { display: none; }
+    .section { padding: 60px 0; }
+    .hero { padding: 40px 0 48px; }
+    h1 { font-size: clamp(2.6rem, 13vw, 3.6rem); }
+    .card-grid, .card-grid.two { grid-template-columns: 1fr; }
+    .quote { text-align: left; }
+    .final-cta { padding: 42px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="https://nocito.app/" aria-label="Nocito">
+      <span class="brand-icon"><i class="ti ti-bell"></i></span>
+      <span class="brand-name">Nocito <span class="brand-sub">Reminder</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <div class="lang-switcher" id="langSwitcher">
+        <button type="button" class="lang-trigger" id="langTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Language / Jezik">
+          <i class="ti ti-world" aria-hidden="true" style="font-size:14px"></i>
+          <span>EN</span>
+          <span style="font-size:.65em;color:#8899AA">▾</span>
+        </button>
+        <div class="lang-menu" id="langMenu" role="menu">
+          <a href="https://nocito.app/reminder/" hreflang="en" role="menuitem" class="active">English</a>
+          <a href="https://nocito.app/reminder/hr/" hreflang="hr" role="menuitem">Hrvatski</a>
+        </div>
+      </div>
+      <a class="btn btn-secondary nav-cta" href="https://nocito.app/">Nocito Private Apps</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">🔒 100% offline · fully private</div>
+        <h1><span>Say it.</span><span class="accent">Forget it.</span></h1>
+        <p class="hero-copy">The reminder app that listens, understands, and remembers — completely offline.</p>
+        <p class="hero-copy"><strong>No internet required. No account. No subscription — ever.</strong></p>
+        <div class="hero-actions">
+          <span class="soon-badge"><i class="ti ti-clock" aria-hidden="true"></i> Coming soon to Google Play</span>
+          <a class="btn btn-secondary" href="#features">See how it works</a>
+        </div>
+        <div class="chips">
+          <span class="chip">100% offline</span>
+          <span class="chip">No subscription</span>
+          <span class="chip">Voice-first</span>
+          <span class="chip">No ads</span>
+        </div>
+      </div>
+
+      <div class="phone-wrap">
+        <div class="phone-glow"></div>
+        <div class="phone">
+          <div class="screen">
+            <div class="app-slide active" data-tab="home">
+              <div class="app-ph">
+                <div class="app-ph-status"><span>9:41</span><span>●●●</span></div>
+                <div class="app-ph-body">
+                  <div class="app-ph-icon"><i class="ti ti-microphone"></i></div>
+                  <div class="app-ph-title">Tap and speak</div>
+                  <div class="app-ph-sub">Your day, quietly organized.</div>
+                </div>
+              </div>
+            </div>
+            <div class="app-slide" data-tab="lists">
+              <div class="app-ph">
+                <div class="app-ph-status"><span>9:41</span><span>●●●</span></div>
+                <div class="app-ph-body">
+                  <div class="app-ph-icon"><i class="ti ti-list-details"></i></div>
+                  <div class="app-ph-title">Lists</div>
+                  <div class="app-ph-sub">Inbox, Urgent, Personal, Work — or make your own.</div>
+                </div>
+              </div>
+            </div>
+            <div class="app-slide" data-tab="settings">
+              <div class="app-ph">
+                <div class="app-ph-status"><span>9:41</span><span>●●●</span></div>
+                <div class="app-ph-body">
+                  <div class="app-ph-icon"><i class="ti ti-settings"></i></div>
+                  <div class="app-ph-title">Settings</div>
+                  <div class="app-ph-sub">Manage local AI models and permissions.</div>
+                </div>
+              </div>
+            </div>
+            <div class="app-tab-bar">
+              <button class="app-tab active" data-target="home"><i class="ti ti-home"></i><span>Home</span></button>
+              <button class="app-tab" data-target="lists"><i class="ti ti-list-details"></i><span>Lists</span></button>
+              <button class="app-tab" data-target="settings"><i class="ti ti-settings"></i><span>Settings</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="phone-hint">Tap tabs to explore</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-band section-tight">
+    <div class="container">
+      <div class="quote">Think it. <span class="arrow">→</span> Say it. <span class="arrow">→</span> <span class="amber">Nocito remembers.</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="container card-grid">
+      <article class="card">
+        <span class="tag">Privacy first</span>
+        <h3>Completely private</h3>
+        <p>Nothing ever leaves your phone. No cloud, no account, no internet required — ever. Transcription and AI processing run entirely on-device.</p>
+      </article>
+      <article class="card">
+        <span class="tag">Speed</span>
+        <h3>Say it, done</h3>
+        <p>Tap the mic and speak naturally. Nocito tells tasks, reminders, notes, and events apart from a single recording — no menus, no typing.</p>
+      </article>
+      <article class="card featured">
+        <span class="tag amber">One-time price</span>
+        <h3>Pay once, own it</h3>
+        <p>€3.99 one-time. No subscription, no recurring fees, ever. Buy it once and it's yours for as long as you use it.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Voice input</div>
+        <h2>Speak naturally. Nocito organizes.</h2>
+        <p>Tap the microphone and talk the way you would to a person. Nocito figures out what kind of thing you meant, when it's due, and where it belongs — while you keep going with your day.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card"><div class="icon"><i class="ti ti-microphone"></i></div><h3>Tap and speak</h3><p>A live waveform and animated mic confirm you're being heard. Stop anytime, or let Nocito detect the end of speech automatically.</p></article>
+        <article class="card featured teal-tint"><div class="icon"><i class="ti ti-git-fork"></i></div><h3>One sentence, many items</h3><p>“Tomorrow at ten call the dentist, buy milk, and Friday send Ivan the quote” becomes three separate items — reviewed and confirmed individually.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-player-play"></i></div><h3>Keeps working in the background</h3><p>Lock your screen or switch apps while Nocito transcribes and organizes. Come back whenever — the result is waiting.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="mini-ui">
+        <div class="mini-row"><strong>Transcript</strong><span class="pill teal">Editable</span></div>
+        <div class="mini-row"><strong>Type</strong><span class="pill">Task / Reminder</span></div>
+        <div class="mini-row"><strong>Due</strong><span class="pill amber">Tomorrow 10:00</span></div>
+        <div class="mini-row"><strong>List</strong><span class="pill">Personal</span></div>
+      </div>
+      <div class="section-head">
+        <div class="kicker">Quick Review</div>
+        <h2>You stay in control</h2>
+        <p>Before anything is saved, Quick Review lets you check the transcript, fix the title, and adjust the date, time, priority, or list — all without opening the keyboard unless you want to.</p>
+        <p>One important detail: an unconfirmed reminder still fires at the scheduled time. Confirmation is for polish, not permission.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Organization</div>
+        <h2>Built to hold everything, without the clutter</h2>
+        <p>Four default lists get you started — Inbox, Urgent, Personal, Work — and you can add as many custom ones as you like, each with its own color.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card"><div class="icon"><i class="ti ti-inbox"></i></div><h3>Smart default lists</h3><p>Urgent items can route themselves straight into the Urgent list, recognized from what you said.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-palette"></i></div><h3>Your own lists, your own colors</h3><p>Create, rename, recolor, or delete custom lists any time. Inbox stays as your permanent catch-all.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-search"></i></div><h3>Search by typing or by voice</h3><p>“Find my notes about the laptop” works just as well as typing it — and only ever returns your real, local items.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container card-grid two">
+      <article class="card">
+        <div class="icon amber"><i class="ti ti-repeat"></i></div>
+        <h3>Recurring reminders</h3>
+        <p>From simple daily repeats to specific patterns like every other Tuesday.</p>
+        <ul class="list">
+          <li>Daily, weekly, monthly, yearly</li>
+          <li>Weekdays only, weekends only, every X days</li>
+          <li>Completing one occurrence just moves it to the next — the series stays intact</li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="icon amber"><i class="ti ti-bell-ringing"></i></div>
+        <h3>Multiple alerts per item</h3>
+        <p>Set as many warnings as you need for a single appointment.</p>
+        <ul class="list">
+          <li>A day before, an hour before, ten minutes before — all at once</li>
+          <li>Survives reboots, app updates, and time zone changes</li>
+          <li>Snooze for 10, 20, or 60 minutes right from the alarm screen</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Local desktop bridge</div>
+        <h2>See your list on a bigger screen — still 100% local</h2>
+        <p>When your phone and computer share the same Wi-Fi, you can open a private web view on your desktop — no cloud sync, no account, nothing leaves your network.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card"><div class="icon"><i class="ti ti-qrcode"></i></div><h3>Connect with a code</h3><p>A six-digit code or QR code pairs your computer to your phone in seconds.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-wifi"></i></div><h3>Local network only</h3><p>Your phone stays the sole owner of the data. The web view only works while both devices are on the same network.</p></article>
+        <article class="card"><div class="icon"><i class="ti ti-archive"></i></div><h3>Full backup and export</h3><p>Export everything to JSON or CSV, or make a complete local backup whenever you like.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker amber">Pricing</div>
+        <h2>One price. Own it forever.</h2>
+        <p>No tiers, no subscription, no Pro version to unlock later. Every feature, one payment.</p>
+      </div>
+      <div class="pricing">
+        <div class="price-card featured" data-badge="Launch price">
+          <h3>Limited-time launch offer</h3>
+          <p class="price-sub-label">For early adopters at launch</p>
+          <div class="price amber-text"><span class="price-strike">3,99 €</span>1,99 €</div>
+          <ul class="list">
+            <li>Unlimited voice reminders, forever</li>
+            <li>All list, search, and recurring features</li>
+            <li>Local desktop web view</li>
+            <li>Full backup, export, and restore</li>
+            <li>All future updates included</li>
+          </ul>
+          <span class="soon-badge" style="align-self:flex-start"><i class="ti ti-clock" aria-hidden="true"></i> Coming soon to Google Play</span>
+        </div>
+        <div class="price-card">
+          <h3>Regular price</h3>
+          <p class="price-sub-label">After the launch period</p>
+          <div class="price">3,99 €</div>
+          <ul class="list">
+            <li>Unlimited voice reminders, forever</li>
+            <li>All list, search, and recurring features</li>
+            <li>Local desktop web view</li>
+            <li>Full backup, export, and restore</li>
+            <li>All future updates included</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container split">
+      <div class="section-head">
+        <div class="kicker">FAQ</div>
+        <h2>Simple answers before you buy</h2>
+        <p>Nocito Reminder is Android-first, privacy-first, and designed to work with zero internet connection required.</p>
+      </div>
+      <div class="faq">
+        <details class="faq-item" open><summary>Does it need an internet connection?</summary><p>No. Transcription and AI processing run entirely on your device. It works the same on a plane as it does at home.</p></details>
+        <details class="faq-item"><summary>Do I need an account?</summary><p>No. There's no sign-up, no login, and no account of any kind.</p></details>
+        <details class="faq-item"><summary>Is this a subscription?</summary><p>No. It's a single one-time purchase. No recurring charges, no Pro tier to upsell you into later.</p></details>
+        <details class="faq-item"><summary>What languages are supported?</summary><p>Croatian and English at launch, with more major languages planned before the public release.</p></details>
+        <details class="faq-item"><summary>When is it launching?</summary><p>Nocito Reminder is in final development. It will be available on Google Play soon — check back or follow the Nocito Private Apps page for updates.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="final-cta">
+        <div class="kicker amber">Nocito Reminder</div>
+        <h2>The only reminder app that's 100% offline — and entirely yours.</h2>
+        <p>One purchase. No account. No subscription. Just your thoughts, remembered.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <span class="soon-badge"><i class="ti ti-clock" aria-hidden="true"></i> Coming soon to Google Play</span>
+          <a class="btn btn-secondary" href="https://nocito.app/">Explore Nocito Private Apps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 Nocito™ · nocito.app/reminder</div>
+    <div class="footer-links">
+      <a href="https://nocito.app/">Nocito Private Apps</a>
+      <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css">
+<script>
+  (function () {
+    var wrap = document.getElementById('langSwitcher');
+    var trigger = document.getElementById('langTrigger');
+    if (!wrap || !trigger) return;
+    function close() { wrap.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); }
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = wrap.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    window.addEventListener('scroll', close, { passive: true });
+  })();
+  document.querySelectorAll('.app-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var target = tab.dataset.target;
+      document.querySelectorAll('.app-tab').forEach(function (t) { t.classList.remove('active'); });
+      document.querySelectorAll('.app-slide').forEach(function (s) { s.classList.remove('active'); });
+      tab.classList.add('active');
+      document.querySelector('.app-slide[data-tab="' + target + '"]').classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
