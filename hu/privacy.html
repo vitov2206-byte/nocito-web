@@ -72,7 +72,7 @@
   <div class="hero-badge">Jogi</div>
   <h1>Adatvédelmi szabályzat</h1>
   <p>Hogyan kezeli a Nocito™ az adataidat — és miért nem hagyja el a legtöbb adat soha a telefonodat.</p>
-  <div class="hero-meta">Hatálybalépés dátuma: 2025. június 1. &nbsp;·&nbsp; Utolsó frissítés: 2026. május (v1.0 kiadás)</div>
+  <div class="hero-meta">Hatálybalépés dátuma: 2025. június 1. &nbsp;·&nbsp; Utolsó frissítés: 2026. október (v1.2 kiadás)</div>
 </div>
 
 <div class="privacy-highlight">
@@ -80,7 +80,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>A rövid verzió</h3>
-      <p>A Nocito™ minden kiadásodat, nyugtádat, képedet és hangfelvételedet <strong>helyben, az eszközödön</strong> tárolja. Nincs szerverünk az adataiddal. Alapértelmezés szerint a megtisztított OCR-szöveg egy felhő alapú AI szolgáltatáshoz kerül a kiadás feldolgozásához, a hangalapú diktálás pedig felhő alapú átiratot használ. A Beállításokban a helyi modellek engedélyezésével teljesen eszközön belüli AI-feldolgozásra és átiratra válthatsz — ehhez egyszeri letöltés szükséges az alkalmazáson belül. A PDF-importálás alapértelmezés szerint helyben nyeri ki a szöveget; a teljes PDF felhőbe küldése opcionális beállítás. Az alkalmazás a Sentryt használja névtelen hibajelentésre. Minden ebben a szabályzatban van feltüntetve.</p>
+      <p>A Nocito™ minden kiadásodat, nyugtádat, képedet és hangfelvételedet <strong>helyben, az eszközödön</strong> tárolja. Nincs szerverünk az adataiddal. Alapértelmezés szerint a megtisztított OCR-szöveg egy felhő alapú AI szolgáltatáshoz kerül a kiadás feldolgozásához, a hangalapú diktálás pedig felhő alapú átírást használ. A Beállításokban a helyi modellek bekapcsolásával teljesen eszközön futó AI-feldolgozásra és átírásra válthatsz — ez egyszeri letöltést igényel az alkalmazásban. A PDF-importálás alapértelmezés szerint helyben nyeri ki a szöveget; a teljes PDF felhőbe küldése opcionális beállítás. Horvátországban a Price Intelligence funkció ezen felül nyilvános kereskedői árlistákat tölt le a telefonodra, és az adatvédelmi szűrőn átment terméknevek elküldhetők egy felhő alapú AI szolgáltatásnak, hogy a nyugták tételeit összekösse ezekkel az árlistákkal; ez nem történik meg, ha a Helyi AI-feldolgozás be van kapcsolva. Az alkalmazás a Sentryt használja az összeomlások jelentésére, amely technikai adatokat, például az IP-címedet is tartalmazza. Minden ebben a szabályzatban szerepel.</p>
     </div>
   </div>
 </div>
@@ -140,15 +140,21 @@
         <td>Amikor a Helyi átirat aktív és a Felhő alapú AI-feldolgozás engedélyezve van. Tiltsd le a Felhő alapú AI-feldolgozást, hogy minden teljesen eszközön belül maradjon.</td>
       </tr>
       <tr>
-        <td>Névtelen összeomlási adatok (stack trace-ek, eszközinformációk, alkalmazásverzió)</td>
+        <td>A nyugtáidon szereplő (és a lediktált bevásárlólistákból származó) terméknevek az adatvédelmi szűrő után; egyes esetekben árak is</td>
+        <td><span class="tag tag-cloud">Felhő alapú AI szolgáltatás</span></td>
+        <td>Price Intelligence (Horvátország): nyugtatételek összekapcsolása a kereskedői árlistákkal</td>
+        <td>Csak ha kiválasztottál üzleteket a Price Intelligence-hez, és a Helyi AI-feldolgozás ki van kapcsolva. Havi tétel-összekapcsolási kvótába számít.</td>
+      </tr>
+      <tr>
+        <td>Összeomlás-jelentések: stack trace, IP-cím, eszköz modellje, operációs rendszer és alkalmazás verziója, a közelmúlt technikai naplóbejegyzései</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
-        <td>Összeomlási jelentés és stabilitásfigyelés</td>
-        <td>Automatikusan alkalmazásösszeomláskor — személyes adat nélkül</td>
+        <td>Összeomlás-jelentés és stabilitásfigyelés</td>
+        <td>Automatikusan az alkalmazás összeomlásakor. Kiadási adatokat szándékosan nem tartalmaz.</td>
       </tr>
     </table>
 
     <div class="warning-box">
-      <p><strong>Megjegyzés az adatvédelmi előszűrőről:</strong> Mielőtt bármilyen OCR-szöveg elküldésre kerülne egy felhő alapú AI szolgáltatásnak, a telefonod automatikusan eltávolítja a személyes adatokat — neveket, címeket, nemzeti azonosító számokat, telefonszámokat és e-mail-címeket. Csak összegek, dátumok, kereskedőnevek és terméknevek kerülnek elküldésre. Ne feledd, hogy a <strong>Felhő alapú PDF-kinyerés</strong> (opt-in) a teljes PDF-et előszűrés nélkül küldi el, a <strong>Felhő alapú átirat</strong> (alapértelmezett) pedig nyers hangot küld előszűrés nélkül — az előszűrő csak az átírt szövegre vonatkozik, mielőtt az eljut az AI-feldolgozási lépéshez. Az egyetlen 100%-ban garantáltan privát opció a Helyi AI-feldolgozás, a Helyi átirat engedélyezése, valamint a Felhő alapú PDF-kinyerés kikapcsolva tartása — ebben a konfigurációban semmilyen adat nem kerül külső szolgáltatásokhoz.</p>
+      <p><strong>Megjegyzés az adatvédelmi szűrőről:</strong> Mielőtt bármilyen OCR-szöveget elküldenénk egy felhő alapú AI szolgáltatásnak, a telefonod automatikusan eltávolítja a személyes adatokat — neveket, címeket, nemzeti azonosítószámokat, telefonszámokat és e-mail-címeket. Csak összegek, dátumok, kereskedők nevei és terméknevek kerülnek elküldésre. Vedd figyelembe: a <strong>felhő alapú PDF-kinyerés</strong> (opcionális) a teljes PDF-et előszűrés nélkül küldi el, a <strong>felhő alapú átírás</strong> (alapértelmezett) pedig nyers hangot küld előszűrés nélkül — a szűrő csak az átírt szövegre vonatkozik, mielőtt az az AI-feldolgozáshoz érne. Az egyetlen teljesen privát megoldás a Helyi AI-feldolgozás és a Helyi átírás bekapcsolása, a felhő alapú PDF-kinyerés kikapcsolva hagyásával — ebben a beállításban a nyugtáid, kiadásaid vagy a hangod tartalma nem kerül külső szolgáltatáshoz. (Az alkalmazás ilyenkor is csatlakozik az internethez árlisták és modellek letöltéséhez, valamint összeomlás-jelentések küldéséhez; lásd a 6. szakaszt.)</p>
     </div>
 
     <h3>Adatok, amelyeket soha nem gyűjtünk</h3>
@@ -223,9 +229,21 @@
     <p>Ezeknek a beállításoknak a módosítása azonnal életbe lép. A meglévő kiadásaidat nem érinti.</p>
   </div>
 <div class="section">
+    <h2>4d. Price Intelligence (Horvátország)</h2>
+    <p>A Price Intelligence jelenleg csak a horvát piacon érhető el. A nyugtáidon szereplő tételeket hasonlítja össze azokkal az árlistákkal, amelyeket a horvát kereskedelmi láncoknak törvény szerint közzé kell tenniük. Csak azután lép működésbe, hogy az alkalmazásban kiválasztottál üzleteket.</p>
+    <ul>
+      <li><strong>Árlisták:</strong> a telefonod a kiválasztott üzletek kereskedelmi láncainak weboldalairól közvetlenül tölti le a nyilvános árlistákat. Ezek a weboldalak egy átlagos internetes kérést látnak az eszközödről (például az IP-címét). Mi nem kapjuk meg ezeket a kéréseket, a nyugtáidat pedig soha nem küldjük el a láncoknak.</li>
+      <li><strong>Az üzleteid:</strong> az üzleteket a település vagy az irányítószám megadásával választod ki. Ez a választás az eszközödön marad. A Nocito nem használ GPS-t, és nem használja a tartózkodási helyedet.</li>
+      <li><strong>Egyeztetés:</strong> a nyugtatételek többségét a telefonod egyezteti az árlisták termékeivel. Rövidített vagy nem egyértelmű nevek esetén a terméknév (az adatvédelmi szűrő után, egyes esetekben az árral együtt) egy felhő alapú AI szolgáltatáshoz kerül. Havi tétel-összekapcsolási kvóta érvényes.</li>
+      <li><strong>Helyi AI-feldolgozás:</strong> ha a Helyi AI-feldolgozás be van kapcsolva, a Nocito a Price Intelligence-hez nem küld terméknevet felhő alapú AI szolgáltatásnak.</li>
+      <li><strong>Vonalkód-olvasó és árriasztások:</strong> a vonalkódokat az eszközöd olvassa le, és a telefonodon tárolt árlistákban keresi meg; a kamera képe sehova nem kerül elküldésre. Az árriasztásokat a telefonod értékeli ki, és helyi értesítésként jelennek meg.</li>
+      <li><strong>Bevásárlólista diktálása:</strong> a diktáláshoz hasonlóan működik (4. szakasz): a hang a felhőben kerül átírásra, kivéve ha helyi átírást használsz, a szöveget pedig felhő alapú AI szolgáltatás dolgozza fel, kivéve ha a Helyi AI-feldolgozás be van kapcsolva.</li>
+    </ul>
+  </div>
+<div class="section">
     <h2>5. Super Snap (jövőbeli) és Super Dictate (Pro)</h2>
     <p>A Nocito™ jövőbeli Pro verziói tartalmazni fogják a Super Snapet — egy prémium funkciót, amely a teljes nyugtaképeket közvetlenül egy AI Vision szolgáltatáshoz küldi nagyobb pontosságú kinyerés céljából, megkerülve a standard OCR-t és az adatvédelmi előszűrési folyamatot.</p>
-    <p>A Super Dictate, amely hangot küld az OpenAI Whisper API-nak nagyobb pontosságú átirathoz, a jelenlegi verzióban a Pro szint egyik opciójaként érhető el.</p>
+    <p>A Super Dictate, amely a pontosabb átírás érdekében a hangot egy felhő alapú beszédfelismerő szolgáltatásnak (OpenAI Whisper) küldi, az aktuális verzióban elérhető: az ingyenes csomagban havonta néhány alkalommal, a Pro csomaggal többször.</p>
     <div class="warning-box">
       <p><strong>Super Snap vagy Super Dictate használatakor:</strong> a teljes képed vagy hangfelvételed egy külső AI szolgáltatáshoz kerül továbbításra. Mindig meg kell erősítened, mielőtt ilyen továbbítás megtörténne. Kerüld ezeknek a funkcióknak a használatát érzékeny személyes adatokat tartalmazó dokumentumokkal.</p>
     </div>
@@ -250,9 +268,29 @@
         <td>Hangfelvétel (csak opt-in)</td>
       </tr>
       <tr>
-        <td>Összeomlási jelentés</td>
-        <td>Sentry (sentry.io)</td>
-        <td>Névtelen összeomlási adatok: stack trace-ek, eszközmodell, OS-verzió, alkalmazásverzió. Nincs személyes adat, nincs kiadási adat.</td>
+        <td>Price Intelligence – nyugtatételek összekapcsolása (Horvátország)</td>
+        <td>Felhő alapú AI szolgáltatás</td>
+        <td>Terméknevek az adatvédelmi szűrő után, egyes esetekben árak is. Bekapcsolt Helyi AI-feldolgozásnál nem kerülnek elküldésre.</td>
+      </tr>
+      <tr>
+        <td>Price Intelligence – árlisták</td>
+        <td>Horvát kereskedelmi láncok weboldalai</td>
+        <td>Semmi a nyugtáidról. A telefonod nyilvános árlistákat kér le, ezért a lánc szervere látja az IP-címedet.</td>
+      </tr>
+      <tr>
+        <td>Helyi AI- és hangmodellek (opcionális)</td>
+        <td>Hugging Face (huggingface.co)</td>
+        <td>Modellfájlok egyszeri letöltése, legfeljebb kb. 3,2 GB. A szerver látja az IP-címedet.</td>
+      </tr>
+      <tr>
+        <td>Pro előfizetés</td>
+        <td>Google Play</td>
+        <td>A Google Play kezeli. A fizetési adataidat nem kapjuk meg.</td>
+      </tr>
+      <tr>
+        <td>Összeomlás-jelentés</td>
+        <td>Sentry (sentry.io), EU adatrégió</td>
+        <td>Stack trace, IP-cím, eszközmodell, operációs rendszer és alkalmazás verziója, valamint a közelmúlt technikai naplóbejegyzései. Kiadási adatokat szándékosan nem tartalmaz.</td>
       </tr>
     </table>
     <p>A kiadáskinyeréshez és átirathoz használt konkrét felhő alapú AI szolgáltatások változhatnak, ahogy jobb vagy adatvédelem-barátibb lehetőségek válnak elérhetővé. Az elküldött adatok típusának bármilyen jelentős változása tükröződni fog egy frissített Adatvédelmi szabályzatban.</p>
@@ -280,7 +318,8 @@
     <ul>
       <li><strong>Szerződés teljesítése</strong> — a kiadási adataid feldolgozása az általad kért alapvető funkcionalitás biztosításához</li>
       <li><strong>Jogos érdek</strong> — megtisztított OCR-szöveg küldése felhő alapú AI szolgáltatásoknak a pontos kiadáskategorizálás érdekében</li>
-      <li><strong>Jogos érdek</strong> — névtelen összeomlási jelentés a Sentryn keresztül az alkalmazás stabilitásának fenntartásához</li>
+      <li><strong>Jogos érdek</strong> — adatvédelmi szűrőn átment terméknevek küldése felhő alapú AI szolgáltatásoknak a nyugtatételek árlistákhoz kapcsolásához (Price Intelligence, csak üzletek kiválasztása után és csak kikapcsolt Helyi AI-feldolgozásnál)</li>
+      <li><strong>Jogos érdek</strong> — összeomlás-jelentés a Sentryn keresztül az alkalmazás stabilitásának fenntartásához</li>
       <li><strong>Hozzájárulás</strong> — hang küldése egy felhő alapú átiratszolgáltatásnak (csak ha a Felhő alapú átirat engedélyezve van a Beállításokban)</li>
       <li><strong>Hozzájárulás</strong> — teljes PDF-dokumentumok küldése egy felhő alapú AI szolgáltatásnak (csak ha a Felhő alapú PDF-kinyerés engedélyezve van a Beállításokban)</li>
     </ul>
@@ -300,14 +339,16 @@
   </div>
 <div class="section">
     <h2>10b. Összeomlási jelentés</h2>
-    <p>A Nocito™ a <strong>Sentryt</strong> (sentry.io) használja összeomlási jelentésekhez. Amikor az alkalmazás összeomlik vagy váratlan hibába ütközik, a Sentry automatikusan egy névtelen jelentést küld, amely a következőket tartalmazza:</p>
+    <p>A Nocito™ a <strong>Sentryt</strong> (sentry.io, EU adatrégió) használja az összeomlások jelentésére. Amikor az alkalmazás összeomlik vagy váratlan hibába ütközik, a Sentry egy technikai jelentést kap, amely tartalmazza:</p>
     <ul>
-      <li>Stack trace (technikai leírás arról, hol történt a hiba a kódban)</li>
-      <li>Eszközmodell és gyártó</li>
-      <li>Android OS-verzió</li>
-      <li>Alkalmazásverzió</li>
+      <li>A stack trace-t (a hiba kódbeli helyének technikai leírása)</li>
+      <li>Az eszköz modelljét és gyártóját</li>
+      <li>Az Android-verziót</li>
+      <li>Az alkalmazás verzióját</li>
+      <li>Az IP-címedet, amelyet a Sentry minden kéréssel megkap</li>
+      <li>A hibát megelőző legutóbbi technikai naplóbejegyzések rövid sorát</li>
     </ul>
-    <p>Az összeomlási jelentések <strong>nem</strong> tartalmazzák a kiadási adataidat, nyugtaképeidet, hangfelvételeidet vagy bármilyen személyazonosításra alkalmas adatot. Kizárólag hibák azonosítására és javítására szolgálnak.</p>
+    <p>A jelentések nem arra szolgálnak, hogy kiadási adataidat, nyugtaképeidet vagy hangfelvételeidet tartalmazzák, és kizárólag hibák megtalálására és javítására használjuk őket. Mivel technikai azonosítókat, például IP-címet tartalmaznak, a GDPR értelmében személyes adatnak minősülnek. Az összeomlás-jelentés a kiadott alkalmazásban aktív, és jelenleg nem kapcsolható ki a Beállításokban. A Sentry adatvédelmi szabályzata: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section">
     <h2>11. Gyermekek adatvédelme</h2>

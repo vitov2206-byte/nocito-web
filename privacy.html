@@ -71,7 +71,7 @@
   <div class="hero-badge">Legal</div>
   <h1>Privacy Policy</h1>
   <p>How Nocito™ handles your data — and why most of it never leaves your phone.</p>
-  <div class="hero-meta">Effective date: 1 June 2025 &nbsp;·&nbsp; Last updated: May 2026 (v1.0 release)</div>
+  <div class="hero-meta">Effective date: 1 June 2025 &nbsp;·&nbsp; Last updated: October 2026 (v1.2)</div>
 </div>
 
 <div class="privacy-highlight">
@@ -79,7 +79,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>The short version</h3>
-      <p>Nocito™ stores all your expenses, receipts, images, and audio <strong>locally on your device</strong>. We do not have a server with your data. By default, sanitised OCR text is sent to a cloud AI service for expense parsing, and voice dictation uses cloud transcription. You can switch to fully on-device AI processing and transcription by enabling local models in Settings — this requires a one-time download within the app. PDF import extracts text locally by default; sending the full PDF to cloud is an opt-in setting. The app uses Sentry for anonymous crash reporting. Everything is disclosed in this policy.</p>
+      <p>Nocito™ stores all your expenses, receipts, images, and audio <strong>locally on your device</strong>. We do not have a server with your data. By default, sanitised OCR text is sent to a cloud AI service for expense parsing, and voice dictation uses cloud transcription. You can switch to fully on-device AI processing and transcription by enabling local models in Settings — this requires a one-time download within the app. PDF import extracts text locally by default; sending the full PDF to the cloud is an opt-in setting. In Croatia, the Price Intelligence feature also downloads public retailer price lists to your phone and may send privacy-filtered product names to a cloud AI service to link your receipt items to those lists; this is not done when Local AI Processing is on. The app uses Sentry for crash reporting, which includes technical data such as your IP address. Everything is disclosed in this policy.</p>
     </div>
   </div>
 </div>
@@ -140,15 +140,21 @@
         <td>When Local Transcription is active and Cloud AI Processing is enabled. Disable Cloud AI Processing to keep all processing fully on-device.</td>
       </tr>
       <tr>
-        <td>Anonymous crash data (stack traces, device info, app version)</td>
+        <td>Product names from your receipts (and from dictated shopping lists), after the privacy filter; in some cases also prices</td>
+        <td><span class="tag tag-cloud">Cloud AI service</span></td>
+        <td>Price Intelligence (Croatia): linking receipt items to retailer price lists</td>
+        <td>Only if you have selected stores for Price Intelligence and Local AI Processing is off. Counts towards a monthly item-linking quota.</td>
+      </tr>
+      <tr>
+        <td>Crash reports: stack traces, IP address, device model, OS and app version, recent technical log events</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Crash reporting and stability monitoring</td>
-        <td>Automatically on app crash — no personal data included</td>
+        <td>Automatically when the app crashes. Expense data is not intentionally included.</td>
       </tr>
     </table>
 
     <div class="warning-box">
-      <p><strong>Privacy pre-filter note:</strong> Before any OCR text is sent to a cloud AI service, your phone automatically strips personal information — names, addresses, national ID numbers, phone numbers, and email addresses. Only amounts, dates, merchant names, and product names are sent. Note that <strong>Cloud PDF Extraction</strong> (opt-in) sends the full PDF without pre-filtering, and <strong>Cloud Transcription</strong> (default) sends raw audio without pre-filtering — the pre-filter only applies to the transcribed text before it reaches the AI parsing step. The only 100% guaranteed private option is enabling Local AI Processing, Local Transcription, and keeping Cloud PDF Extraction off — in this configuration no data of any kind is sent to external services.</p>
+      <p><strong>Privacy pre-filter note:</strong> Before any OCR text is sent to a cloud AI service, your phone automatically strips personal information — names, addresses, national ID numbers, phone numbers, and email addresses. Only amounts, dates, merchant names, and product names are sent. Note that <strong>Cloud PDF Extraction</strong> (opt-in) sends the full PDF without pre-filtering, and <strong>Cloud Transcription</strong> (default) sends raw audio without pre-filtering — the pre-filter only applies to the transcribed text before it reaches the AI parsing step. The only fully private option is enabling Local AI Processing and Local Transcription and keeping Cloud PDF Extraction off — in this configuration none of your receipt, expense or voice content is sent to external services. (The app still connects to the internet to download price lists and models and to send crash reports; see section 6.)</p>
     </div>
 
     <h3>Data we never collect</h3>
@@ -227,9 +233,22 @@
   </div>
 
   <div class="section">
+    <h2>4d. Price Intelligence (Croatia)</h2>
+    <p>Price Intelligence is currently available for the Croatian market only. It compares the items on your receipts with the price lists that Croatian retail chains are legally required to publish. It only becomes active after you select stores in the app.</p>
+    <ul>
+      <li><strong>Price lists:</strong> your phone downloads the public price lists directly from the websites of the retail chains whose stores you selected. Those websites can see an ordinary internet request from your device (for example its IP address). We do not receive these requests, and your receipts are never sent to the chains.</li>
+      <li><strong>Your stores:</strong> you choose stores by typing a town or postcode. This choice stays on your device. Nocito does not use GPS or your location.</li>
+      <li><strong>Matching:</strong> most receipt items are matched to price-list products on your phone. For abbreviated or unclear names, the product name (after the privacy pre-filter, and in some cases the price) is sent to a cloud AI service. A monthly item-linking quota applies.</li>
+      <li><strong>Local AI Processing:</strong> if Local AI Processing is turned on, Nocito does not send product names to a cloud AI service for Price Intelligence.</li>
+      <li><strong>Barcode scanner and price alerts:</strong> barcodes are read on your device and looked up in the price lists stored on your phone; the camera image is not sent anywhere. Price alerts are checked on your phone and shown as local notifications.</li>
+      <li><strong>Shopping-list dictation:</strong> works like dictation (section 4): audio is transcribed in the cloud unless you use local transcription, and the text is processed by a cloud AI service unless Local AI Processing is on.</li>
+    </ul>
+  </div>
+
+  <div class="section">
     <h2>5. Super Snap (future) and Super Dictate (Pro)</h2>
     <p>Future Pro versions of Nocito™ will include Super Snap — a premium feature that sends full receipt images directly to an AI Vision service for higher-accuracy extraction, bypassing the standard OCR and privacy pre-filter flow.</p>
-    <p>Super Dictate, which sends audio to OpenAI Whisper API for higher-accuracy transcription, is available in the current version as an option within the Pro tier.</p>
+    <p>Super Dictate, which sends audio to a cloud speech-to-text service (OpenAI Whisper) for higher-accuracy transcription, is available in the current version: a small number of sessions per month on the Free plan and more with Pro.</p>
     <div class="warning-box">
       <p><strong>When using Super Snap or Super Dictate:</strong> your full image or audio recording is transmitted to an external AI service. You will always be asked to confirm before any such transmission occurs. Avoid using these features with documents containing sensitive personal information.</p>
     </div>
@@ -255,9 +274,29 @@
         <td>Audio recording (opt-in only)</td>
       </tr>
       <tr>
+        <td>Price Intelligence – linking receipt items (Croatia)</td>
+        <td>Cloud AI service</td>
+        <td>Product names after the privacy filter, in some cases prices. Not sent when Local AI Processing is on.</td>
+      </tr>
+      <tr>
+        <td>Price Intelligence – price lists</td>
+        <td>Websites of Croatian retail chains</td>
+        <td>Nothing from your receipts. Your phone requests public price lists, so the chain's server sees your IP address.</td>
+      </tr>
+      <tr>
+        <td>Local AI and voice models (optional)</td>
+        <td>Hugging Face (huggingface.co)</td>
+        <td>One-time download of model files, up to about 3.2 GB. The server sees your IP address.</td>
+      </tr>
+      <tr>
+        <td>Pro subscription</td>
+        <td>Google Play</td>
+        <td>Handled by Google Play. We do not receive your payment details.</td>
+      </tr>
+      <tr>
         <td>Crash reporting</td>
-        <td>Sentry (sentry.io)</td>
-        <td>Anonymous crash data: stack traces, device model, OS version, app version. No personal data, no expense data.</td>
+        <td>Sentry (sentry.io), EU data region</td>
+        <td>Stack traces, IP address, device model, OS version, app version and recent technical log events. Expense data is not intentionally included.</td>
       </tr>
     </table>
     <p>The specific cloud AI services used for expense extraction and transcription may change as better or more privacy-preserving options become available. Any material change to the types of data transmitted will be reflected in an updated Privacy Policy.</p>
@@ -288,7 +327,8 @@
     <ul>
       <li><strong>Contract performance</strong> — processing your expense data to provide the core functionality you requested</li>
       <li><strong>Legitimate interests</strong> — sending sanitised OCR text to cloud AI services to provide accurate expense categorisation</li>
-      <li><strong>Legitimate interests</strong> — anonymous crash reporting via Sentry to maintain app stability</li>
+      <li><strong>Legitimate interests</strong> — sending privacy-filtered product names to cloud AI services to link receipt items to price lists (Price Intelligence, only after you select stores and only when Local AI Processing is off)</li>
+      <li><strong>Legitimate interests</strong> — crash reporting via Sentry to maintain app stability</li>
       <li><strong>Consent</strong> — sending audio to a cloud transcription service (only when Cloud Transcription is enabled in Settings)</li>
       <li><strong>Consent</strong> — sending full PDF documents to a cloud AI service (only when Cloud PDF Extraction is enabled in Settings)</li>
     </ul>
@@ -310,14 +350,16 @@
 
   <div class="section">
     <h2>10b. Crash Reporting</h2>
-    <p>Nocito™ uses <strong>Sentry</strong> (sentry.io) for crash reporting. When the app crashes or encounters an unexpected error, Sentry automatically sends an anonymous report containing:</p>
+    <p>Nocito™ uses <strong>Sentry</strong> (sentry.io, EU data region) for crash reporting. When the app crashes or encounters an unexpected error, Sentry receives a technical report containing:</p>
     <ul>
-      <li>Stack trace (technical description of where the error occurred in the code)</li>
+      <li>Stack trace (technical description of where in the code the error occurred)</li>
       <li>Device model and manufacturer</li>
       <li>Android OS version</li>
       <li>App version</li>
+      <li>Your IP address, which Sentry receives with every request</li>
+      <li>A short trail of recent technical log events leading up to the error</li>
     </ul>
-    <p>Crash reports do <strong>not</strong> contain your expense data, receipt images, audio recordings, or any personally identifiable information. They are used solely to identify and fix bugs.</p>
+    <p>Reports are not meant to contain your expense data, receipt images, or audio recordings, and we use them only to find and fix bugs. Because they include technical identifiers such as an IP address, they count as personal data under the GDPR. Crash reporting is active in the released app and cannot currently be switched off in Settings. Sentry's privacy policy: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 
   <div class="section">

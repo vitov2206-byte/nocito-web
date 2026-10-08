@@ -72,7 +72,7 @@
   <div class="hero-badge">Informacje prawne</div>
   <h1>Polityka prywatności</h1>
   <p>Jak Nocito™ przetwarza Twoje dane — i dlaczego większość z nich nigdy nie opuszcza Twojego telefonu.</p>
-  <div class="hero-meta">Data wejścia w życie: 1 czerwca 2025 &nbsp;·&nbsp; Ostatnia aktualizacja: maj 2026 (wersja v1.0)</div>
+  <div class="hero-meta">Data wejścia w życie: 1 czerwca 2025 &nbsp;·&nbsp; Ostatnia aktualizacja: październik 2026 (wersja v1.2)</div>
 </div>
 
 <div class="privacy-highlight">
@@ -80,7 +80,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>Krótka wersja</h3>
-      <p>Nocito™ przechowuje wszystkie Twoje wydatki, paragony, zdjęcia i nagrania audio <strong>lokalnie na Twoim urządzeniu</strong>. Nie posiadamy serwera z Twoimi danymi. Domyślnie oczyszczony tekst OCR jest wysyłany do usługi AI w chmurze w celu przetworzenia wydatku, a dyktowanie głosowe korzysta z transkrypcji w chmurze. Możesz przełączyć się na pełne przetwarzanie AI i transkrypcję na urządzeniu, włączając lokalne modele w Ustawieniach — wymaga to jednorazowego pobrania w aplikacji. Import PDF domyślnie wyodrębnia tekst lokalnie; wysłanie całego PDF-a do chmury jest ustawieniem opcjonalnym. Aplikacja korzysta z Sentry do anonimowego raportowania awarii. Wszystko jest ujawnione w niniejszej polityce.</p>
+      <p>Nocito™ przechowuje wszystkie Twoje wydatki, paragony, zdjęcia i nagrania audio <strong>lokalnie na Twoim urządzeniu</strong>. Nie posiadamy serwera z Twoimi danymi. Domyślnie oczyszczony tekst OCR jest wysyłany do usługi AI w chmurze w celu przetworzenia wydatku, a dyktowanie głosowe korzysta z transkrypcji w chmurze. Możesz przejść na w pełni lokalne przetwarzanie AI i transkrypcję, włączając lokalne modele w Ustawieniach — wymaga to jednorazowego pobrania w aplikacji. Import PDF domyślnie wyodrębnia tekst lokalnie; wysyłanie całego pliku PDF do chmury jest ustawieniem opcjonalnym. W Chorwacji funkcja Price Intelligence dodatkowo pobiera na Twój telefon publiczne cenniki sklepów i może wysyłać do usługi AI w chmurze nazwy produktów (po filtrze prywatności), aby powiązać pozycje z paragonów z tymi cennikami; nie dzieje się tak, gdy włączone jest Lokalne przetwarzanie AI. Aplikacja używa Sentry do raportowania awarii, co obejmuje dane techniczne, takie jak Twój adres IP. Wszystko jest ujawnione w tej polityce.</p>
     </div>
   </div>
 </div>
@@ -140,15 +140,21 @@
         <td>Gdy Lokalna transkrypcja jest aktywna, a Przetwarzanie AI w chmurze jest włączone. Wyłącz Przetwarzanie AI w chmurze, aby wszystko pozostało w pełni na urządzeniu.</td>
       </tr>
       <tr>
-        <td>Anonimowe dane o awarii (ślady stosu, informacje o urządzeniu, wersja aplikacji)</td>
+        <td>Nazwy produktów z Twoich paragonów (i podyktowanych list zakupów) po filtrze prywatności; w niektórych przypadkach także ceny</td>
+        <td><span class="tag tag-cloud">Usługa AI w chmurze</span></td>
+        <td>Price Intelligence (Chorwacja): powiązanie pozycji z paragonów z cennikami sklepów</td>
+        <td>Tylko jeśli wybierzesz sklepy dla Price Intelligence, a Lokalne przetwarzanie AI jest wyłączone. Zużywa miesięczny limit powiązań pozycji.</td>
+      </tr>
+      <tr>
+        <td>Raporty o awariach: stack trace, adres IP, model urządzenia, wersja systemu i aplikacji, ostatnie wpisy techniczne</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Raportowanie awarii i monitorowanie stabilności</td>
-        <td>Automatycznie w przypadku awarii aplikacji — bez danych osobowych</td>
+        <td>Automatycznie przy awarii aplikacji. Dane o wydatkach nie są celowo przesyłane.</td>
       </tr>
     </table>
 
     <div class="warning-box">
-      <p><strong>Uwaga o filtrze prywatności:</strong> Zanim jakikolwiek tekst OCR zostanie wysłany do usługi AI w chmurze, Twój telefon automatycznie usuwa dane osobowe — imiona i nazwiska, adresy, krajowe numery identyfikacyjne, numery telefonów i adresy e-mail. Wysyłane są tylko kwoty, daty, nazwy sprzedawców i nazwy produktów. Zwróć uwagę, że <strong>Ekstrakcja PDF w chmurze</strong> (opcjonalna) wysyła cały PDF bez wstępnego filtrowania, a <strong>Transkrypcja w chmurze</strong> (domyślna) wysyła surowe audio bez wstępnego filtrowania — filtr wstępny dotyczy tylko transkrybowanego tekstu przed dotarciem do etapu przetwarzania AI. Jedyną w 100% gwarantowaną prywatną opcją jest włączenie Lokalnego przetwarzania AI, Lokalnej transkrypcji oraz pozostawienie wyłączonej Ekstrakcji PDF w chmurze — w tej konfiguracji żadne dane nie są wysyłane do usług zewnętrznych.</p>
+      <p><strong>Uwaga o filtrze prywatności:</strong> Zanim jakikolwiek tekst OCR zostanie wysłany do usługi AI w chmurze, Twój telefon automatycznie usuwa dane osobowe — imiona i nazwiska, adresy, krajowe numery identyfikacyjne, numery telefonów i adresy e-mail. Wysyłane są tylko kwoty, daty, nazwy sprzedawców i nazwy produktów. Pamiętaj: <strong>Wyodrębnianie PDF w chmurze</strong> (opcjonalne) wysyła cały PDF bez wstępnego filtrowania, a <strong>Transkrypcja w chmurze</strong> (domyślna) wysyła surowe audio bez wstępnego filtrowania — filtr działa tylko na transkrybowany tekst, zanim trafi do analizy AI. Jedyną w pełni prywatną opcją jest włączenie Lokalnego przetwarzania AI i Lokalnej transkrypcji oraz pozostawienie wyłączonego Wyodrębniania PDF w chmurze — w tej konfiguracji żadna treść Twoich paragonów, wydatków ani głosu nie jest wysyłana do usług zewnętrznych. (Aplikacja nadal łączy się z internetem, aby pobierać cenniki i modele oraz wysyłać raporty o awariach; zob. punkt 6.)</p>
     </div>
 
     <h3>Dane, których nigdy nie zbieramy</h3>
@@ -223,9 +229,21 @@
     <p>Zmiana tych ustawień obowiązuje natychmiast. Twoje istniejące wydatki nie są dotknięte.</p>
   </div>
 <div class="section">
+    <h2>4d. Price Intelligence (Chorwacja)</h2>
+    <p>Price Intelligence jest obecnie dostępne tylko na rynku chorwackim. Porównuje pozycje z Twoich paragonów z cennikami, które chorwackie sieci handlowe mają ustawowy obowiązek publikować. Włącza się dopiero po wybraniu sklepów w aplikacji.</p>
+    <ul>
+      <li><strong>Cenniki:</strong> Twój telefon pobiera publiczne cenniki bezpośrednio ze stron internetowych sieci handlowych, których sklepy zostały przez Ciebie wybrane. Te strony widzą zwykłe zapytanie internetowe z Twojego urządzenia (na przykład jego adres IP). Nie otrzymujemy tych zapytań, a Twoje paragony nigdy nie są wysyłane do sieci.</li>
+      <li><strong>Twoje sklepy:</strong> sklepy wybierasz, wpisując miejscowość lub kod pocztowy. Ten wybór pozostaje na Twoim urządzeniu. Nocito nie używa GPS ani Twojej lokalizacji.</li>
+      <li><strong>Dopasowanie:</strong> większość pozycji z paragonów jest dopasowywana do produktów z cenników na Twoim telefonie. W przypadku skróconych lub niejasnych nazw nazwa produktu (po filtrze prywatności, w niektórych przypadkach także cena) jest wysyłana do usługi AI w chmurze. Obowiązuje miesięczny limit powiązań pozycji.</li>
+      <li><strong>Lokalne przetwarzanie AI:</strong> gdy Lokalne przetwarzanie AI jest włączone, Nocito nie wysyła nazw produktów do usługi AI w chmurze na potrzeby Price Intelligence.</li>
+      <li><strong>Skaner kodów kreskowych i alerty cenowe:</strong> kody kreskowe są odczytywane na urządzeniu i wyszukiwane w cennikach zapisanych w telefonie; obraz z kamery nie jest nigdzie wysyłany. Alerty cenowe są sprawdzane na telefonie i wyświetlane jako powiadomienia lokalne.</li>
+      <li><strong>Dyktowanie listy zakupów:</strong> działa jak dyktowanie (punkt 4): audio jest transkrybowane w chmurze, chyba że używasz transkrypcji lokalnej, a tekst przetwarza usługa AI w chmurze, chyba że włączone jest Lokalne przetwarzanie AI.</li>
+    </ul>
+  </div>
+<div class="section">
     <h2>5. Super Snap (przyszłość) i Super Dictate (Pro)</h2>
     <p>Przyszłe wersje Pro Nocito™ będą zawierać Super Snap — funkcję premium, która wysyła pełne zdjęcia paragonów bezpośrednio do usługi AI Vision w celu dokładniejszej ekstrakcji, omijając standardowy proces OCR i filtr prywatności.</p>
-    <p>Super Dictate, który wysyła audio do OpenAI Whisper API w celu dokładniejszej transkrypcji, jest dostępny w obecnej wersji jako opcja w ramach poziomu Pro.</p>
+    <p>Super Dictate, który wysyła audio do usługi rozpoznawania mowy w chmurze (OpenAI Whisper) w celu dokładniejszej transkrypcji, jest dostępny w obecnej wersji: w planie bezpłatnym kilka sesji miesięcznie, w Pro więcej.</p>
     <div class="warning-box">
       <p><strong>Podczas korzystania z Super Snap lub Super Dictate:</strong> Twoje pełne zdjęcie lub nagranie audio jest przesyłane do zewnętrznej usługi AI. Zawsze zostaniesz poproszony o potwierdzenie przed jakąkolwiek taką transmisją. Unikaj korzystania z tych funkcji z dokumentami zawierającymi wrażliwe dane osobowe.</p>
     </div>
@@ -250,9 +268,29 @@
         <td>Nagranie audio (tylko opcjonalnie)</td>
       </tr>
       <tr>
+        <td>Price Intelligence – powiązanie pozycji z paragonów (Chorwacja)</td>
+        <td>Usługa AI w chmurze</td>
+        <td>Nazwy produktów po filtrze prywatności, w niektórych przypadkach także ceny. Nie są wysyłane, gdy włączone jest Lokalne przetwarzanie AI.</td>
+      </tr>
+      <tr>
+        <td>Price Intelligence – cenniki</td>
+        <td>Strony internetowe chorwackich sieci handlowych</td>
+        <td>Nic z Twoich paragonów. Twój telefon pobiera publiczne cenniki, więc serwer sieci widzi Twój adres IP.</td>
+      </tr>
+      <tr>
+        <td>Lokalne modele AI i głosowe (opcjonalnie)</td>
+        <td>Hugging Face (huggingface.co)</td>
+        <td>Jednorazowe pobranie plików modeli, do około 3,2 GB. Serwer widzi Twój adres IP.</td>
+      </tr>
+      <tr>
+        <td>Subskrypcja Pro</td>
+        <td>Google Play</td>
+        <td>Obsługiwana przez Google Play. Nie otrzymujemy Twoich danych płatniczych.</td>
+      </tr>
+      <tr>
         <td>Raportowanie awarii</td>
-        <td>Sentry (sentry.io)</td>
-        <td>Anonimowe dane o awarii: ślady stosu, model urządzenia, wersja systemu operacyjnego, wersja aplikacji. Bez danych osobowych, bez danych o wydatkach.</td>
+        <td>Sentry (sentry.io), region danych UE</td>
+        <td>Stack trace, adres IP, model urządzenia, wersja systemu i aplikacji oraz ostatnie wpisy techniczne. Dane o wydatkach nie są celowo przesyłane.</td>
       </tr>
     </table>
     <p>Konkretne usługi AI w chmurze wykorzystywane do ekstrakcji wydatków i transkrypcji mogą się zmieniać w miarę pojawiania się lepszych lub bardziej przyjaznych dla prywatności opcji. Wszelkie istotne zmiany rodzajów przesyłanych danych zostaną odzwierciedlone w zaktualizowanej Polityce prywatności.</p>
@@ -280,7 +318,8 @@
     <ul>
       <li><strong>Wykonanie umowy</strong> — przetwarzanie Twoich danych o wydatkach w celu zapewnienia podstawowej funkcjonalności, o którą prosiłeś/aś</li>
       <li><strong>Uzasadniony interes</strong> — wysyłanie oczyszczonego tekstu OCR do usług AI w chmurze w celu zapewnienia dokładnej kategoryzacji wydatków</li>
-      <li><strong>Uzasadniony interes</strong> — anonimowe raportowanie awarii za pośrednictwem Sentry w celu utrzymania stabilności aplikacji</li>
+      <li><strong>Prawnie uzasadniony interes</strong> — wysyłanie nazw produktów (po filtrze prywatności) do usług AI w chmurze w celu powiązania pozycji z paragonów z cennikami (Price Intelligence, tylko po wyborze sklepów i tylko przy wyłączonym Lokalnym przetwarzaniu AI)</li>
+      <li><strong>Prawnie uzasadniony interes</strong> — raportowanie awarii przez Sentry w celu utrzymania stabilności aplikacji</li>
       <li><strong>Zgoda</strong> — wysyłanie audio do usługi transkrypcji w chmurze (tylko gdy Transkrypcja w chmurze jest włączona w Ustawieniach)</li>
       <li><strong>Zgoda</strong> — wysyłanie pełnych dokumentów PDF do usługi AI w chmurze (tylko gdy Ekstrakcja PDF w chmurze jest włączona w Ustawieniach)</li>
     </ul>
@@ -300,14 +339,16 @@
   </div>
 <div class="section">
     <h2>10b. Raportowanie awarii</h2>
-    <p>Nocito™ korzysta z <strong>Sentry</strong> (sentry.io) do raportowania awarii. Gdy aplikacja ulegnie awarii lub napotka nieoczekiwany błąd, Sentry automatycznie wysyła anonimowy raport zawierający:</p>
+    <p>Nocito™ używa <strong>Sentry</strong> (sentry.io, region danych UE) do raportowania awarii. Gdy aplikacja ulegnie awarii lub napotka nieoczekiwany błąd, Sentry otrzymuje raport techniczny zawierający:</p>
     <ul>
-      <li>Ślad stosu (techniczny opis miejsca w kodzie, w którym wystąpił błąd)</li>
+      <li>Stack trace (techniczny opis miejsca w kodzie, w którym wystąpił błąd)</li>
       <li>Model i producenta urządzenia</li>
       <li>Wersję systemu Android</li>
       <li>Wersję aplikacji</li>
+      <li>Twój adres IP, który Sentry otrzymuje przy każdym zapytaniu</li>
+      <li>Krótki ślad ostatnich wpisów technicznych poprzedzających błąd</li>
     </ul>
-    <p>Raporty awarii <strong>nie</strong> zawierają Twoich danych o wydatkach, zdjęć paragonów, nagrań audio ani żadnych danych umożliwiających identyfikację osoby. Są wykorzystywane wyłącznie do identyfikacji i naprawiania błędów.</p>
+    <p>Raporty nie są przeznaczone do zawierania Twoich danych o wydatkach, zdjęć paragonów ani nagrań audio i wykorzystujemy je wyłącznie do znajdowania i naprawiania błędów. Ponieważ zawierają identyfikatory techniczne, takie jak adres IP, w rozumieniu RODO stanowią dane osobowe. Raportowanie awarii jest aktywne w wydanej aplikacji i obecnie nie można go wyłączyć w Ustawieniach. Polityka prywatności Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section">
     <h2>11. Prywatność dzieci</h2>

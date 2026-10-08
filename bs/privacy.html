@@ -72,7 +72,7 @@
   <div class="hero-badge">Pravno</div>
   <h1>Politika privatnosti</h1>
   <p>Kako Nocito™ postupa s tvojim podacima — i zašto većina njih nikad ne napušta tvoj telefon.</p>
-  <div class="hero-meta">Datum stupanja na snagu: 1. juna 2025. &nbsp;·&nbsp; Zadnje ažurirano: maj 2026. (izdanje v1.0)</div>
+  <div class="hero-meta">Datum stupanja na snagu: 1. juna 2025. &nbsp;·&nbsp; Zadnje ažurirano: oktobar 2026. (izdanje v1.2)</div>
 </div>
 
 <div class="privacy-highlight">
@@ -80,7 +80,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>Kratka verzija</h3>
-      <p>Nocito™ pohranjuje sve tvoje troškove, račune, slike i audio zapise <strong>lokalno na tvom uređaju</strong>. Nemamo server s tvojim podacima. Prema zadanim postavkama, pročišćeni OCR tekst se šalje cloud AI servisu radi obrade troška, a glasovno diktiranje koristi cloud transkripciju. Možeš prijeći na potpunu obradu na uređaju i transkripciju uključivanjem lokalnih modela u Postavkama — to zahtijeva jednokratno preuzimanje unutar aplikacije. Uvoz PDF-a prema zadanim postavkama izvlači tekst lokalno; slanje cijelog PDF-a u cloud je opcionalna postavka koju sam uključuješ. Aplikacija koristi Sentry za anonimno prijavljivanje padova. Sve je otkriveno u ovim pravilima.</p>
+      <p>Nocito™ pohranjuje sve tvoje troškove, račune, slike i audio zapise <strong>lokalno na tvom uređaju</strong>. Nemamo server s tvojim podacima. Prema zadanim postavkama, pročišćeni OCR tekst se šalje cloud AI servisu radi obrade troška, a glasovno diktiranje koristi cloud transkripciju. Možeš prijeći na potpunu obradu na uređaju i transkripciju uključivanjem lokalnih modela u Postavkama — to zahtijeva jednokratno preuzimanje unutar aplikacije. Uvoz PDF-a prema zadanim postavkama izvlači tekst lokalno; slanje cijelog PDF-a u cloud je opcionalna postavka koju sam uključuješ. U Hrvatskoj značajka Price Intelligence dodatno preuzima javne cjenike trgovina na tvoj telefon i može cloud AI servisu poslati nazive proizvoda (nakon filtra privatnosti) radi povezivanja artikala s računa s tim cjenicima; to se ne događa kad je uključena Lokalna AI obrada. Aplikacija koristi Sentry za prijavu padova, što uključuje tehničke podatke poput tvoje IP adrese. Sve je otkriveno u ovim pravilima.</p>
     </div>
   </div>
 </div>
@@ -140,15 +140,21 @@
         <td>Kad je Lokalna transkripcija aktivna i Cloud AI obrada uključena. Isključi Cloud AI obradu da sve ostane potpuno na uređaju.</td>
       </tr>
       <tr>
-        <td>Anonimni podaci o padu aplikacije (stack traces, podaci o uređaju, verzija aplikacije)</td>
+        <td>Nazivi proizvoda s tvojih računa (i iz diktiranih popisa za kupnju) nakon filtra privatnosti; u nekim slučajevima i cijene</td>
+        <td><span class="tag tag-cloud">Cloud AI servis</span></td>
+        <td>Price Intelligence (Hrvatska): povezivanje artikala s računa s cjenicima trgovina</td>
+        <td>Samo ako si odabrao/odabrala trgovine za Price Intelligence i Lokalna AI obrada je isključena. Troši mjesečnu kvotu povezivanja artikala.</td>
+      </tr>
+      <tr>
+        <td>Izvještaji o padovima: stack traces, IP adresa, model uređaja, verzija OS-a i aplikacije, nedavni tehnički zapisi</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Prijava padova i praćenje stabilnosti</td>
-        <td>Automatski kod pada aplikacije — bez osobnih podataka</td>
+        <td>Automatski kod pada aplikacije. Podaci o troškovima se ne šalju namjerno.</td>
       </tr>
     </table>
 
     <div class="warning-box">
-      <p><strong>Napomena o filteru privatnosti:</strong> Prije nego se ikakav OCR tekst pošalje cloud AI servisu, tvoj telefon automatski uklanja osobne podatke — imena, adrese, OIB i slične identifikacijske brojeve, telefonske brojeve i email adrese. Šalju se samo iznosi, datumi, nazivi trgovina i naziva proizvoda. Napomena: <strong>Cloud PDF ekstrakcija</strong> (opcionalno) šalje cijeli PDF bez prethodnog filtriranja, a <strong>Cloud transkripcija</strong> (zadano) šalje sirov audio zapis bez prethodnog filtriranja — filter se primjenjuje samo na transkribirani tekst prije nego stigne do AI obrade. Jedina 100% zajamčeno privatna opcija je uključivanje Lokalne AI obrade, Lokalne transkripcije i isključivanje Cloud PDF ekstrakcije — u toj konfiguraciji nijedan podatak ne odlazi vanjskim servisima.</p>
+      <p><strong>Napomena o filteru privatnosti:</strong> Prije nego se ikakav OCR tekst pošalje cloud AI servisu, tvoj telefon automatski uklanja osobne podatke — imena, adrese, OIB i slične identifikacijske brojeve, telefonske brojeve i email adrese. Šalju se samo iznosi, datumi, nazivi trgovina i nazivi proizvoda. Napomena: <strong>Cloud PDF ekstrakcija</strong> (opcionalno) šalje cijeli PDF bez prethodnog filtriranja, a <strong>Cloud transkripcija</strong> (zadano) šalje sirov audio zapis bez prethodnog filtriranja — filter se primjenjuje samo na transkribirani tekst prije nego stigne do AI obrade. Jedina potpuno privatna opcija je uključivanje Lokalne AI obrade i Lokalne transkripcije uz isključenu Cloud PDF ekstrakciju — u toj konfiguraciji nijedan sadržaj tvojih računa, troškova ili glasa ne odlazi vanjskim servisima. (Aplikacija se i tada povezuje na internet radi preuzimanja cjenika i modela te slanja izvještaja o padovima; vidi poglavlje 6.)</p>
     </div>
 
     <h3>Podatke koje nikad ne prikupljamo</h3>
@@ -223,9 +229,21 @@
     <p>Promjena ovih postavki stupa na snagu odmah. Tvoji postojeći troškovi nisu pogođeni.</p>
   </div>
 <div class="section">
+    <h2>4d. Price Intelligence (Hrvatska)</h2>
+    <p>Price Intelligence je trenutno dostupan samo za hrvatsko tržište. Uspoređuje artikle s tvojih računa s cjenicima koje su hrvatski trgovački lanci zakonom dužni objavljivati. Aktivira se tek nakon što u aplikaciji odabereš trgovine.</p>
+    <ul>
+      <li><strong>Cjenici:</strong> tvoj telefon preuzima javne cjenike izravno s web stranica trgovačkih lanaca čije si trgovine odabrao/odabrala. Te stranice vide običan internetski zahtjev s tvog uređaja (primjerice njegovu IP adresu). Mi te zahtjeve ne primamo, a tvoji računi se lancima nikad ne šalju.</li>
+      <li><strong>Tvoje trgovine:</strong> trgovine biraš upisom mjesta ili poštanskog broja. Taj izbor ostaje na tvom uređaju. Nocito ne koristi GPS ni tvoju lokaciju.</li>
+      <li><strong>Povezivanje:</strong> većina artikala s računa povezuje se s proizvodima iz cjenika na tvom telefonu. Za skraćene ili nejasne nazive, naziv proizvoda (nakon filtra privatnosti, a u nekim slučajevima i cijena) šalje se cloud AI servisu. Vrijedi mjesečna kvota povezivanja artikala.</li>
+      <li><strong>Lokalna AI obrada:</strong> kad je Lokalna AI obrada uključena, Nocito ne šalje nazive proizvoda cloud AI servisu za potrebe Price Intelligencea.</li>
+      <li><strong>Skener barkoda i upozorenja o cijenama:</strong> barkodovi se čitaju na uređaju i traže u cjenicima pohranjenima na telefonu; slika kamere se nigdje ne šalje. Upozorenja o cijenama provjeravaju se na telefonu i prikazuju kao lokalne obavijesti.</li>
+      <li><strong>Diktiranje popisa za kupnju:</strong> radi kao diktiranje (poglavlje 4): audio se transkribira u cloudu osim ako koristiš lokalnu transkripciju, a tekst obrađuje cloud AI servis osim ako je uključena Lokalna AI obrada.</li>
+    </ul>
+  </div>
+<div class="section">
     <h2>5. Super Snap (budući) i Super Dictate (Pro)</h2>
     <p>Buduće Pro verzije Nocito™-a uključivat će Super Snap — premium značajku koja šalje cijele slike računa izravno AI Vision servisu radi tačnije obrade, zaobilazeći standardni OCR i filter privatnosti.</p>
-    <p>Super Dictate, koji šalje audio OpenAI Whisper API-ju radi tačnije transkripcije, dostupan je u trenutnoj verziji kao opcija unutar Pro razine.</p>
+    <p>Super Dictate, koji šalje audio cloud servisu za pretvaranje govora u tekst (OpenAI Whisper) radi točnije transkripcije, dostupan je u trenutnoj verziji: manji broj sesija mjesečno u besplatnoj razini, a više uz Pro.</p>
     <div class="warning-box">
       <p><strong>Kad koristiš Super Snap ili Super Dictate:</strong> cijela tvoja slika ili audio zapis šalje se vanjskom AI servisu. Uvijek ćeš biti zamoljen za potvrdu prije bilo kakvog takvog slanja. Izbjegavaj koristiti ove značajke s dokumentima koji sadrže osjetljive osobne podatke.</p>
     </div>
@@ -250,9 +268,29 @@
         <td>Audio zapis (samo opcionalno)</td>
       </tr>
       <tr>
+        <td>Price Intelligence – povezivanje artikala s računa (Hrvatska)</td>
+        <td>Cloud AI servis</td>
+        <td>Nazivi proizvoda nakon filtra privatnosti, u nekim slučajevima i cijene. Ne šalju se kad je uključena Lokalna AI obrada.</td>
+      </tr>
+      <tr>
+        <td>Price Intelligence – cjenici</td>
+        <td>Web stranice hrvatskih trgovačkih lanaca</td>
+        <td>Ništa s tvojih računa. Tvoj telefon traži javne cjenike pa server lanca vidi tvoju IP adresu.</td>
+      </tr>
+      <tr>
+        <td>Lokalni AI i glasovni modeli (opcionalno)</td>
+        <td>Hugging Face (huggingface.co)</td>
+        <td>Jednokratno preuzimanje datoteka modela, do oko 3,2 GB. Server vidi tvoju IP adresu.</td>
+      </tr>
+      <tr>
+        <td>Pro pretplata</td>
+        <td>Google Play</td>
+        <td>Obrađuje Google Play. Ne primamo podatke o tvom plaćanju.</td>
+      </tr>
+      <tr>
         <td>Prijava padova aplikacije</td>
-        <td>Sentry (sentry.io)</td>
-        <td>Anonimni podaci o padu: stack traces, model uređaja, verzija OS-a, verzija aplikacije. Bez osobnih podataka, bez podataka o troškovima.</td>
+        <td>Sentry (sentry.io), podatkovna regija EU</td>
+        <td>Stack traces, IP adresa, model uređaja, verzija OS-a, verzija aplikacije i nedavni tehnički zapisi. Podaci o troškovima se ne šalju namjerno.</td>
       </tr>
     </table>
     <p>Specifični cloud AI servisi koji se koriste za izvlačenje troškova i transkripciju mogu se mijenjati kako postaju dostupne bolje ili privatnije opcije. Svaka značajnija promjena vrste podataka koji se šalju bit će odražena u ažuriranim Pravilima privatnosti.</p>
@@ -280,7 +318,8 @@
     <ul>
       <li><strong>Izvršenje ugovora</strong> — obrada tvojih podataka o troškovima radi pružanja osnovne funkcionalnosti koju si zatražio/zatražila</li>
       <li><strong>Legitimni interes</strong> — slanje pročišćenog OCR teksta cloud AI servisima radi točne kategorizacije troškova</li>
-      <li><strong>Legitimni interes</strong> — anonimna prijava padova putem Sentryja radi održavanja stabilnosti aplikacije</li>
+      <li><strong>Legitimni interes</strong> — slanje naziva proizvoda (nakon filtra privatnosti) cloud AI servisima radi povezivanja artikala s računa s cjenicima (Price Intelligence, samo nakon što odabereš trgovine i samo kad je Lokalna AI obrada isključena)</li>
+      <li><strong>Legitimni interes</strong> — prijava padova putem Sentryja radi održavanja stabilnosti aplikacije</li>
       <li><strong>Pristanak</strong> — slanje audia cloud servisu za transkripciju (samo kad je Cloud transkripcija uključena u Postavkama)</li>
       <li><strong>Pristanak</strong> — slanje cijelih PDF dokumenata cloud AI servisu (samo kad je Cloud PDF ekstrakcija uključena u Postavkama)</li>
     </ul>
@@ -300,14 +339,16 @@
   </div>
 <div class="section">
     <h2>10b. Prijava padova aplikacije</h2>
-    <p>Nocito™ koristi <strong>Sentry</strong> (sentry.io) za prijavu padova aplikacije. Kad aplikacija padne ili naiđe na neočekivanu grešku, Sentry automatski šalje anonimni izvještaj koji sadrži:</p>
+    <p>Nocito™ koristi <strong>Sentry</strong> (sentry.io, podatkovna regija EU) za prijavu padova aplikacije. Kad aplikacija padne ili naiđe na neočekivanu grešku, Sentry prima tehnički izvještaj koji sadrži:</p>
     <ul>
       <li>Stack trace (tehnički opis mjesta u kodu gdje se dogodila greška)</li>
       <li>Model i proizvođača uređaja</li>
       <li>Verziju Android OS-a</li>
       <li>Verziju aplikacije</li>
+      <li>Tvoju IP adresu, koju Sentry prima uz svaki zahtjev</li>
+      <li>Kratak slijed nedavnih tehničkih zapisa prije greške</li>
     </ul>
-    <p>Izvještaji o padovima <strong>ne</strong> sadrže tvoje podatke o troškovima, slike računa, audio zapise niti bilo kakve osobno prepoznatljive podatke. Koriste se isključivo za identificiranje i ispravljanje grešaka.</p>
+    <p>Izvještaji nisu namijenjeni tome da sadrže tvoje podatke o troškovima, slike računa ni audio zapise i koristimo ih isključivo za pronalaženje i ispravljanje grešaka. Budući da uključuju tehničke identifikatore poput IP adrese, prema GDPR-u smatraju se osobnim podacima. Prijava padova aktivna je u objavljenoj aplikaciji i trenutno se ne može isključiti u Postavkama. Pravila privatnosti Sentryja: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section">
     <h2>11. Privatnost djece</h2>

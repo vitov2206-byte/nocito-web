@@ -72,7 +72,7 @@
   <div class="hero-badge">Mentions légales</div>
   <h1>Politique de confidentialité</h1>
   <p>Comment Nocito™ traite vos données — et pourquoi la plupart ne quittent jamais votre téléphone.</p>
-  <div class="hero-meta">Date d'entrée en vigueur : 1er juin 2025 &nbsp;·&nbsp; Dernière mise à jour : mai 2026 (version v1.0)</div>
+  <div class="hero-meta">Date d'entrée en vigueur : 1er juin 2025 &nbsp;·&nbsp; Dernière mise à jour : octobre 2026 (version v1.2)</div>
 </div>
 
 <div class="privacy-highlight">
@@ -80,7 +80,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>La version courte</h3>
-      <p>Nocito™ stocke toutes vos dépenses, reçus, images et fichiers audio <strong>localement sur votre appareil</strong>. Nous n'avons pas de serveur contenant vos données. Par défaut, le texte OCR assaini est envoyé à un service d'IA dans le cloud pour l'analyse des dépenses, et la dictée vocale utilise la transcription dans le cloud. Vous pouvez passer à un traitement IA et à une transcription entièrement sur l'appareil en activant les modèles locaux dans les Paramètres — cela nécessite un téléchargement unique dans l'application. L'importation de PDF extrait le texte localement par défaut ; l'envoi du PDF complet vers le cloud est un paramètre facultatif que vous devez activer vous-même. L'application utilise Sentry pour les rapports de plantage anonymes. Tout est divulgué dans cette politique.</p>
+      <p>Nocito™ stocke toutes vos dépenses, reçus, images et fichiers audio <strong>localement sur votre appareil</strong>. Nous n'avons pas de serveur contenant vos données. Par défaut, le texte OCR assaini est envoyé à un service d'IA dans le cloud pour l'analyse des dépenses, et la dictée vocale utilise la transcription dans le cloud. Vous pouvez passer à un traitement et une transcription entièrement sur l'appareil en activant les modèles locaux dans les Réglages — cela nécessite un téléchargement unique dans l'application. L'import de PDF extrait le texte localement par défaut ; l'envoi du PDF complet dans le cloud est un réglage optionnel. En Croatie, la fonction Price Intelligence télécharge en outre sur votre téléphone les listes de prix publiques des enseignes et peut envoyer des noms de produits (après le filtre de confidentialité) à un service d'IA dans le cloud afin de relier les articles de vos reçus à ces listes ; cela n'a pas lieu lorsque le Traitement IA local est activé. L'application utilise Sentry pour signaler les plantages, ce qui inclut des données techniques comme votre adresse IP. Tout est détaillé dans cette politique.</p>
     </div>
   </div>
 </div>
@@ -140,15 +140,21 @@
         <td>Lorsque la Transcription locale est active et que le traitement IA dans le cloud est activé. Désactivez le traitement IA dans le cloud pour que tout reste entièrement sur l'appareil.</td>
       </tr>
       <tr>
-        <td>Données de plantage anonymes (traces de pile, informations sur l'appareil, version de l'application)</td>
+        <td>Noms de produits de vos reçus (et de listes de courses dictées) après le filtre de confidentialité ; dans certains cas aussi les prix</td>
+        <td><span class="tag tag-cloud">Service d'IA dans le cloud</span></td>
+        <td>Price Intelligence (Croatie) : relier les articles des reçus aux listes de prix des enseignes</td>
+        <td>Uniquement si vous avez choisi des magasins pour Price Intelligence et que le Traitement IA local est désactivé. Compte dans un quota mensuel de liaison d'articles.</td>
+      </tr>
+      <tr>
+        <td>Rapports de plantage : stack trace, adresse IP, modèle de l'appareil, version du système et de l'application, événements techniques récents</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
-        <td>Rapports de plantage et surveillance de la stabilité</td>
-        <td>Automatiquement en cas de plantage de l'application — aucune donnée personnelle incluse</td>
+        <td>Signalement des plantages et suivi de la stabilité</td>
+        <td>Automatiquement lors d'un plantage de l'application. Les données de dépenses ne sont pas incluses intentionnellement.</td>
       </tr>
     </table>
 
     <div class="warning-box">
-      <p><strong>Remarque sur le pré-filtre de confidentialité :</strong> Avant que tout texte OCR ne soit envoyé à un service d'IA dans le cloud, votre téléphone supprime automatiquement les informations personnelles — noms, adresses, numéros d'identification nationaux, numéros de téléphone et adresses e-mail. Seuls les montants, dates, noms de commerçants et noms de produits sont envoyés. Notez que l'<strong>Extraction PDF dans le cloud</strong> (facultative) envoie le PDF complet sans pré-filtrage, et que la <strong>Transcription dans le cloud</strong> (par défaut) envoie l'audio brut sans pré-filtrage — le pré-filtre ne s'applique qu'au texte transcrit avant qu'il n'atteigne l'étape de traitement IA. La seule option garantie 100% privée est d'activer le traitement IA local, la transcription locale et de laisser l'extraction PDF dans le cloud désactivée — dans cette configuration, aucune donnée n'est envoyée à des services externes.</p>
+      <p><strong>Remarque sur le filtre de confidentialité :</strong> Avant l'envoi de tout texte OCR à un service d'IA dans le cloud, votre téléphone supprime automatiquement les informations personnelles — noms, adresses, numéros d'identification nationaux, numéros de téléphone et adresses e-mail. Seuls les montants, dates, noms de commerçants et noms de produits sont envoyés. Notez que l'<strong>extraction de PDF dans le cloud</strong> (optionnelle) envoie le PDF complet sans préfiltrage, et que la <strong>transcription dans le cloud</strong> (par défaut) envoie l'audio brut sans préfiltrage — le filtre ne s'applique qu'au texte transcrit avant son analyse par l'IA. La seule option totalement privée consiste à activer le Traitement IA local et la Transcription locale et à laisser l'extraction de PDF dans le cloud désactivée — dans cette configuration, aucun contenu de vos reçus, dépenses ou de votre voix n'est envoyé à des services externes. (L'application se connecte tout de même à internet pour télécharger les listes de prix et les modèles et pour envoyer les rapports de plantage ; voir la section 6.)</p>
     </div>
 
     <h3>Données que nous ne collectons jamais</h3>
@@ -223,9 +229,21 @@
     <p>Les modifications de ces paramètres prennent effet immédiatement. Vos dépenses existantes ne sont pas affectées.</p>
   </div>
 <div class="section">
+    <h2>4d. Price Intelligence (Croatie)</h2>
+    <p>Price Intelligence n'est actuellement disponible que pour le marché croate. Elle compare les articles de vos reçus aux listes de prix que les enseignes croates sont légalement tenues de publier. Elle ne s'active qu'après que vous avez choisi des magasins dans l'application.</p>
+    <ul>
+      <li><strong>Listes de prix :</strong> votre téléphone télécharge les listes de prix publiques directement depuis les sites web des enseignes dont vous avez choisi les magasins. Ces sites voient une requête internet ordinaire de votre appareil (par exemple son adresse IP). Nous ne recevons pas ces requêtes et vos reçus ne sont jamais envoyés aux enseignes.</li>
+      <li><strong>Vos magasins :</strong> vous choisissez les magasins en saisissant une ville ou un code postal. Ce choix reste sur votre appareil. Nocito n'utilise ni le GPS ni votre position.</li>
+      <li><strong>Mise en correspondance :</strong> la plupart des articles des reçus sont associés sur votre téléphone aux produits des listes de prix. Pour les noms abrégés ou peu clairs, le nom du produit (après le filtre de confidentialité et, dans certains cas, le prix) est envoyé à un service d'IA dans le cloud. Un quota mensuel de liaison d'articles s'applique.</li>
+      <li><strong>Traitement IA local :</strong> lorsque le Traitement IA local est activé, Nocito n'envoie aucun nom de produit à un service d'IA dans le cloud pour Price Intelligence.</li>
+      <li><strong>Scanner de codes-barres et alertes de prix :</strong> les codes-barres sont lus sur votre appareil et recherchés dans les listes de prix enregistrées sur le téléphone ; l'image de la caméra n'est envoyée nulle part. Les alertes de prix sont vérifiées sur votre téléphone et affichées sous forme de notifications locales.</li>
+      <li><strong>Dictée de la liste de courses :</strong> fonctionne comme la dictée (section 4) : l'audio est transcrit dans le cloud sauf si vous utilisez la transcription locale, et le texte est traité par un service d'IA dans le cloud sauf si le Traitement IA local est activé.</li>
+    </ul>
+  </div>
+<div class="section">
     <h2>5. Super Snap (futur) et Super Dictate (Pro)</h2>
     <p>Les futures versions Pro de Nocito™ incluront Super Snap — une fonctionnalité premium qui envoie des images complètes de reçus directement à un service de vision par IA pour une extraction de plus grande précision, en contournant le flux OCR et de pré-filtre de confidentialité standard.</p>
-    <p>Super Dictate, qui envoie l'audio à l'API OpenAI Whisper pour une transcription de plus grande précision, est disponible dans la version actuelle en tant qu'option au sein du niveau Pro.</p>
+    <p>Super Dictate, qui envoie l'audio à un service de reconnaissance vocale dans le cloud (OpenAI Whisper) pour une transcription plus précise, est disponible dans la version actuelle : quelques sessions par mois avec l'offre gratuite, davantage avec Pro.</p>
     <div class="warning-box">
       <p><strong>Lors de l'utilisation de Super Snap ou Super Dictate :</strong> votre image ou enregistrement audio complet est transmis à un service d'IA externe. Une confirmation vous sera toujours demandée avant toute transmission de ce type. Évitez d'utiliser ces fonctionnalités avec des documents contenant des informations personnelles sensibles.</p>
     </div>
@@ -250,9 +268,29 @@
         <td>Enregistrement audio (facultatif uniquement)</td>
       </tr>
       <tr>
-        <td>Rapports de plantage</td>
-        <td>Sentry (sentry.io)</td>
-        <td>Données de plantage anonymes : traces de pile, modèle de l'appareil, version du système d'exploitation, version de l'application. Aucune donnée personnelle, aucune donnée de dépense.</td>
+        <td>Price Intelligence – liaison des articles des reçus (Croatie)</td>
+        <td>Service d'IA dans le cloud</td>
+        <td>Noms de produits après le filtre de confidentialité, parfois aussi les prix. Non envoyés lorsque le Traitement IA local est activé.</td>
+      </tr>
+      <tr>
+        <td>Price Intelligence – listes de prix</td>
+        <td>Sites web des enseignes croates</td>
+        <td>Rien de vos reçus. Votre téléphone demande des listes de prix publiques ; le serveur de l'enseigne voit donc votre adresse IP.</td>
+      </tr>
+      <tr>
+        <td>Modèles IA et vocaux locaux (optionnel)</td>
+        <td>Hugging Face (huggingface.co)</td>
+        <td>Téléchargement unique de fichiers de modèles, jusqu'à environ 3,2 Go. Le serveur voit votre adresse IP.</td>
+      </tr>
+      <tr>
+        <td>Abonnement Pro</td>
+        <td>Google Play</td>
+        <td>Géré par Google Play. Nous ne recevons pas vos données de paiement.</td>
+      </tr>
+      <tr>
+        <td>Signalement des plantages</td>
+        <td>Sentry (sentry.io), région de données UE</td>
+        <td>Stack trace, adresse IP, modèle de l'appareil, version du système et de l'application, événements techniques récents. Les données de dépenses ne sont pas incluses intentionnellement.</td>
       </tr>
     </table>
     <p>Les services d'IA dans le cloud spécifiques utilisés pour l'extraction des dépenses et la transcription peuvent changer à mesure que de meilleures options ou des options plus respectueuses de la confidentialité deviennent disponibles. Tout changement important dans les types de données transmises sera reflété dans une Politique de confidentialité mise à jour.</p>
@@ -280,7 +318,8 @@
     <ul>
       <li><strong>Exécution du contrat</strong> — traitement de vos données de dépenses pour fournir la fonctionnalité principale que vous avez demandée</li>
       <li><strong>Intérêts légitimes</strong> — envoi de texte OCR assaini à des services d'IA dans le cloud pour fournir une catégorisation précise des dépenses</li>
-      <li><strong>Intérêts légitimes</strong> — rapports de plantage anonymes via Sentry pour maintenir la stabilité de l'application</li>
+      <li><strong>Intérêt légitime</strong> — envoi de noms de produits (après le filtre de confidentialité) à des services d'IA dans le cloud pour relier les articles des reçus aux listes de prix (Price Intelligence, uniquement après le choix de magasins et uniquement si le Traitement IA local est désactivé)</li>
+      <li><strong>Intérêt légitime</strong> — signalement des plantages via Sentry pour maintenir la stabilité de l'application</li>
       <li><strong>Consentement</strong> — envoi d'audio à un service de transcription dans le cloud (uniquement lorsque la Transcription dans le cloud est activée dans les Paramètres)</li>
       <li><strong>Consentement</strong> — envoi de documents PDF complets à un service d'IA dans le cloud (uniquement lorsque l'Extraction PDF dans le cloud est activée dans les Paramètres)</li>
     </ul>
@@ -300,14 +339,16 @@
   </div>
 <div class="section">
     <h2>10b. Rapports de plantage</h2>
-    <p>Nocito™ utilise <strong>Sentry</strong> (sentry.io) pour les rapports de plantage. Lorsque l'application plante ou rencontre une erreur inattendue, Sentry envoie automatiquement un rapport anonyme contenant :</p>
+    <p>Nocito™ utilise <strong>Sentry</strong> (sentry.io, région de données UE) pour signaler les plantages. Lorsque l'application plante ou rencontre une erreur inattendue, Sentry reçoit un rapport technique contenant :</p>
     <ul>
-      <li>Une trace de pile (description technique de l'endroit où l'erreur s'est produite dans le code)</li>
-      <li>Le modèle et le fabricant de l'appareil</li>
-      <li>La version du système d'exploitation Android</li>
-      <li>La version de l'application</li>
+      <li>Stack trace (description technique de l'endroit du code où l'erreur s'est produite)</li>
+      <li>Modèle et fabricant de l'appareil</li>
+      <li>Version d'Android</li>
+      <li>Version de l'application</li>
+      <li>Votre adresse IP, que Sentry reçoit avec chaque requête</li>
+      <li>Une courte trace des événements techniques récents précédant l'erreur</li>
     </ul>
-    <p>Les rapports de plantage ne contiennent <strong>pas</strong> vos données de dépenses, images de reçus, enregistrements audio ni aucune information personnellement identifiable. Ils sont utilisés uniquement pour identifier et corriger les bogues.</p>
+    <p>Les rapports ne sont pas destinés à contenir vos données de dépenses, images de reçus ou enregistrements audio, et nous ne les utilisons que pour trouver et corriger des bugs. Comme ils comprennent des identifiants techniques tels qu'une adresse IP, ils constituent des données personnelles au sens du RGPD. Le signalement des plantages est actif dans l'application publiée et ne peut actuellement pas être désactivé dans les Réglages. Politique de confidentialité de Sentry : <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section">
     <h2>11. Confidentialité des enfants</h2>

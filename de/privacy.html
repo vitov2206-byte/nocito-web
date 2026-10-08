@@ -72,7 +72,7 @@
   <div class="hero-badge">Rechtliches</div>
   <h1>Datenschutzerklärung</h1>
   <p>Wie Nocito™ mit deinen Daten umgeht — und warum die meisten davon dein Telefon nie verlassen.</p>
-  <div class="hero-meta">Gültig ab: 1. Juni 2025 &nbsp;·&nbsp; Zuletzt aktualisiert: Mai 2026 (Version v1.0)</div>
+  <div class="hero-meta">Gültig ab: 1. Juni 2025 &nbsp;·&nbsp; Zuletzt aktualisiert: Oktober 2026 (Version v1.2)</div>
 </div>
 
 <div class="privacy-highlight">
@@ -80,7 +80,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>Die Kurzfassung</h3>
-      <p>Nocito™ speichert alle deine Ausgaben, Belege, Bilder und Audioaufnahmen <strong>lokal auf deinem Gerät</strong>. Wir haben keinen Server mit deinen Daten. Standardmäßig wird bereinigter OCR-Text zur Ausgabenverarbeitung an einen Cloud-KI-Dienst gesendet, und die Sprachdiktierung nutzt Cloud-Transkription. Du kannst durch Aktivierung lokaler Modelle in den Einstellungen vollständig auf geräteinterne KI-Verarbeitung und Transkription umstellen — dies erfordert einen einmaligen Download in der App. Der PDF-Import extrahiert Text standardmäßig lokal; das Senden des vollständigen PDFs in die Cloud ist eine optionale Einstellung. Die App nutzt Sentry für anonyme Absturzberichte. Alles wird in dieser Erklärung offengelegt.</p>
+      <p>Nocito™ speichert alle deine Ausgaben, Belege, Bilder und Audioaufnahmen <strong>lokal auf deinem Gerät</strong>. Wir haben keinen Server mit deinen Daten. Standardmäßig wird bereinigter OCR-Text zur Ausgabenverarbeitung an einen Cloud-KI-Dienst gesendet, und die Sprachdiktierfunktion nutzt Cloud-Transkription. Du kannst in den Einstellungen auf vollständig lokale KI-Verarbeitung und Transkription umstellen, indem du lokale Modelle aktivierst — dafür ist ein einmaliger Download in der App nötig. Der PDF-Import extrahiert Text standardmäßig lokal; das Senden des vollständigen PDFs in die Cloud ist eine optionale Einstellung. In Kroatien lädt die Funktion Price Intelligence zusätzlich öffentliche Preislisten von Händlern auf dein Telefon und kann nach dem Datenschutzfilter bereinigte Produktnamen an einen Cloud-KI-Dienst senden, um Belegartikel mit diesen Preislisten zu verknüpfen; bei aktivierter lokaler KI-Verarbeitung geschieht das nicht. Die App nutzt Sentry für Absturzberichte, die technische Daten wie deine IP-Adresse enthalten. Alles ist in dieser Erklärung offengelegt.</p>
     </div>
   </div>
 </div>
@@ -140,15 +140,21 @@
         <td>Wenn lokale Transkription aktiv und Cloud-KI-Verarbeitung aktiviert ist. Deaktiviere die Cloud-KI-Verarbeitung, damit alles vollständig auf dem Gerät bleibt.</td>
       </tr>
       <tr>
-        <td>Anonyme Absturzdaten (Stack Traces, Geräteinfos, App-Version)</td>
+        <td>Produktnamen aus deinen Belegen (und aus diktierten Einkaufslisten) nach dem Datenschutzfilter; in manchen Fällen auch Preise</td>
+        <td><span class="tag tag-cloud">Cloud-KI-Dienst</span></td>
+        <td>Price Intelligence (Kroatien): Verknüpfung von Belegartikeln mit Preislisten der Händler</td>
+        <td>Nur wenn du Geschäfte für Price Intelligence ausgewählt hast und die lokale KI-Verarbeitung ausgeschaltet ist. Zählt zum monatlichen Kontingent für Artikelverknüpfung.</td>
+      </tr>
+      <tr>
+        <td>Absturzberichte: Stack-Traces, IP-Adresse, Gerätemodell, Betriebssystem- und App-Version, aktuelle technische Protokolleinträge</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Absturzberichte und Stabilitätsüberwachung</td>
-        <td>Automatisch bei App-Absturz — keine personenbezogenen Daten enthalten</td>
+        <td>Automatisch bei einem App-Absturz. Ausgabendaten werden nicht absichtlich übermittelt.</td>
       </tr>
     </table>
 
     <div class="warning-box">
-      <p><strong>Hinweis zum Datenschutz-Vorfilter:</strong> Bevor OCR-Text an einen Cloud-KI-Dienst gesendet wird, entfernt dein Telefon automatisch persönliche Angaben — Namen, Adressen, nationale Identifikationsnummern, Telefonnummern und E-Mail-Adressen. Gesendet werden nur Beträge, Daten, Händlernamen und Produktnamen. Beachte: Die <strong>Cloud-PDF-Extraktion</strong> (Opt-in) sendet das vollständige PDF ohne Vorfilterung, und die <strong>Cloud-Transkription</strong> (Standard) sendet rohe Audiodaten ohne Vorfilterung — der Vorfilter gilt nur für den transkribierten Text, bevor dieser die KI-Verarbeitung erreicht. Die einzige zu 100% garantiert private Option ist die Aktivierung von lokaler KI-Verarbeitung und lokaler Transkription bei deaktivierter Cloud-PDF-Extraktion — in dieser Konfiguration werden keinerlei Daten an externe Dienste gesendet.</p>
+      <p><strong>Hinweis zum Datenschutzfilter:</strong> Bevor OCR-Text an einen Cloud-KI-Dienst gesendet wird, entfernt dein Telefon automatisch persönliche Informationen — Namen, Adressen, nationale Ausweisnummern, Telefonnummern und E-Mail-Adressen. Gesendet werden nur Beträge, Daten, Händlernamen und Produktnamen. Beachte: Die <strong>Cloud-PDF-Extraktion</strong> (optional) sendet das vollständige PDF ohne Vorfilterung, und die <strong>Cloud-Transkription</strong> (Standard) sendet Rohaudio ohne Vorfilterung — der Filter wirkt nur auf den transkribierten Text, bevor er die KI-Auswertung erreicht. Die einzige vollständig private Option ist, die lokale KI-Verarbeitung und die lokale Transkription zu aktivieren und die Cloud-PDF-Extraktion ausgeschaltet zu lassen — in dieser Konfiguration werden keine Inhalte deiner Belege, Ausgaben oder deiner Stimme an externe Dienste gesendet. (Die App verbindet sich auch dann mit dem Internet, um Preislisten und Modelle herunterzuladen und Absturzberichte zu senden; siehe Abschnitt 6.)</p>
     </div>
 
     <h3>Daten, die wir niemals erheben</h3>
@@ -223,9 +229,21 @@
     <p>Änderungen dieser Einstellungen wirken sofort. Deine bestehenden Ausgaben sind davon nicht betroffen.</p>
   </div>
 <div class="section">
+    <h2>4d. Price Intelligence (Kroatien)</h2>
+    <p>Price Intelligence ist derzeit nur für den kroatischen Markt verfügbar. Es vergleicht die Artikel auf deinen Belegen mit den Preislisten, die kroatische Handelsketten gesetzlich veröffentlichen müssen. Es wird erst aktiv, nachdem du in der App Geschäfte ausgewählt hast.</p>
+    <ul>
+      <li><strong>Preislisten:</strong> Dein Telefon lädt die öffentlichen Preislisten direkt von den Websites der Handelsketten herunter, deren Geschäfte du ausgewählt hast. Diese Websites sehen eine gewöhnliche Internetanfrage deines Geräts (zum Beispiel die IP-Adresse). Wir erhalten diese Anfragen nicht, und deine Belege werden nie an die Ketten gesendet.</li>
+      <li><strong>Deine Geschäfte:</strong> Du wählst Geschäfte, indem du einen Ort oder eine Postleitzahl eingibst. Diese Auswahl bleibt auf deinem Gerät. Nocito nutzt weder GPS noch deinen Standort.</li>
+      <li><strong>Zuordnung:</strong> Die meisten Belegartikel werden auf deinem Telefon den Produkten der Preislisten zugeordnet. Bei abgekürzten oder unklaren Namen wird der Produktname (nach dem Datenschutzfilter, in manchen Fällen auch der Preis) an einen Cloud-KI-Dienst gesendet. Es gilt ein monatliches Kontingent für Artikelverknüpfung.</li>
+      <li><strong>Lokale KI-Verarbeitung:</strong> Ist die lokale KI-Verarbeitung eingeschaltet, sendet Nocito für Price Intelligence keine Produktnamen an einen Cloud-KI-Dienst.</li>
+      <li><strong>Barcode-Scanner und Preisalarme:</strong> Barcodes werden auf deinem Gerät gelesen und in den auf dem Telefon gespeicherten Preislisten nachgeschlagen; das Kamerabild wird nirgendwohin gesendet. Preisalarme werden auf deinem Telefon geprüft und als lokale Benachrichtigungen angezeigt.</li>
+      <li><strong>Einkaufsliste diktieren:</strong> Funktioniert wie das Diktieren (Abschnitt 4): Das Audio wird in der Cloud transkribiert, sofern du nicht die lokale Transkription nutzt, und der Text wird von einem Cloud-KI-Dienst verarbeitet, sofern die lokale KI-Verarbeitung nicht eingeschaltet ist.</li>
+    </ul>
+  </div>
+<div class="section">
     <h2>5. Super Snap (zukünftig) und Super Dictate (Pro)</h2>
     <p>Künftige Pro-Versionen von Nocito™ werden Super Snap enthalten — eine Premium-Funktion, die vollständige Belegbilder zur genaueren Extraktion direkt an einen KI-Vision-Dienst sendet und dabei den standardmäßigen OCR- und Datenschutz-Vorfilter-Ablauf umgeht.</p>
-    <p>Super Dictate, das Audio zur genaueren Transkription an die OpenAI Whisper API sendet, ist in der aktuellen Version als Option innerhalb der Pro-Stufe verfügbar.</p>
+    <p>Super Dictate, das Audio zur genaueren Transkription an einen Cloud-Spracherkennungsdienst (OpenAI Whisper) sendet, ist in der aktuellen Version verfügbar: wenige Sitzungen pro Monat im Gratis-Tarif, mehr mit Pro.</p>
     <div class="warning-box">
       <p><strong>Bei Nutzung von Super Snap oder Super Dictate:</strong> Dein vollständiges Bild oder deine Audioaufnahme wird an einen externen KI-Dienst übertragen. Du wirst vor jeder solchen Übertragung immer um Bestätigung gebeten. Vermeide die Nutzung dieser Funktionen bei Dokumenten mit sensiblen personenbezogenen Daten.</p>
     </div>
@@ -250,9 +268,29 @@
         <td>Audioaufnahme (nur Opt-in)</td>
       </tr>
       <tr>
+        <td>Price Intelligence – Verknüpfung von Belegartikeln (Kroatien)</td>
+        <td>Cloud-KI-Dienst</td>
+        <td>Produktnamen nach dem Datenschutzfilter, in manchen Fällen auch Preise. Werden bei aktivierter lokaler KI-Verarbeitung nicht gesendet.</td>
+      </tr>
+      <tr>
+        <td>Price Intelligence – Preislisten</td>
+        <td>Websites kroatischer Handelsketten</td>
+        <td>Nichts aus deinen Belegen. Dein Telefon fordert öffentliche Preislisten an, daher sieht der Server der Kette deine IP-Adresse.</td>
+      </tr>
+      <tr>
+        <td>Lokale KI- und Sprachmodelle (optional)</td>
+        <td>Hugging Face (huggingface.co)</td>
+        <td>Einmaliger Download von Modelldateien, bis zu etwa 3,2 GB. Der Server sieht deine IP-Adresse.</td>
+      </tr>
+      <tr>
+        <td>Pro-Abonnement</td>
+        <td>Google Play</td>
+        <td>Wird von Google Play abgewickelt. Wir erhalten deine Zahlungsdaten nicht.</td>
+      </tr>
+      <tr>
         <td>Absturzberichte</td>
-        <td>Sentry (sentry.io)</td>
-        <td>Anonyme Absturzdaten: Stack Traces, Gerätemodell, OS-Version, App-Version. Keine personenbezogenen Daten, keine Ausgabendaten.</td>
+        <td>Sentry (sentry.io), EU-Datenregion</td>
+        <td>Stack-Traces, IP-Adresse, Gerätemodell, Betriebssystem- und App-Version sowie aktuelle technische Protokolleinträge. Ausgabendaten werden nicht absichtlich übermittelt.</td>
       </tr>
     </table>
     <p>Die konkret genutzten Cloud-KI-Dienste für Ausgabenextraktion und Transkription können sich ändern, sobald bessere oder datenschutzfreundlichere Optionen verfügbar werden. Jede wesentliche Änderung der übertragenen Datenarten wird in einer aktualisierten Datenschutzerklärung berücksichtigt.</p>
@@ -280,7 +318,8 @@
     <ul>
       <li><strong>Vertragserfüllung</strong> — Verarbeitung deiner Ausgabendaten zur Bereitstellung der von dir angeforderten Kernfunktionalität</li>
       <li><strong>Berechtigte Interessen</strong> — Senden von bereinigtem OCR-Text an Cloud-KI-Dienste zur genauen Ausgabenkategorisierung</li>
-      <li><strong>Berechtigte Interessen</strong> — anonyme Absturzberichte über Sentry zur Aufrechterhaltung der App-Stabilität</li>
+      <li><strong>Berechtigtes Interesse</strong> — Senden von Produktnamen (nach dem Datenschutzfilter) an Cloud-KI-Dienste, um Belegartikel mit Preislisten zu verknüpfen (Price Intelligence, nur nach Auswahl von Geschäften und nur bei ausgeschalteter lokaler KI-Verarbeitung)</li>
+      <li><strong>Berechtigtes Interesse</strong> — Absturzberichte über Sentry zur Sicherung der App-Stabilität</li>
       <li><strong>Einwilligung</strong> — Senden von Audio an einen Cloud-Transkriptionsdienst (nur wenn die Cloud-Transkription in den Einstellungen aktiviert ist)</li>
       <li><strong>Einwilligung</strong> — Senden vollständiger PDF-Dokumente an einen Cloud-KI-Dienst (nur wenn die Cloud-PDF-Extraktion in den Einstellungen aktiviert ist)</li>
     </ul>
@@ -300,14 +339,16 @@
   </div>
 <div class="section">
     <h2>10b. Absturzberichte</h2>
-    <p>Nocito™ nutzt <strong>Sentry</strong> (sentry.io) für Absturzberichte. Wenn die App abstürzt oder auf einen unerwarteten Fehler stößt, sendet Sentry automatisch einen anonymen Bericht mit:</p>
+    <p>Nocito™ nutzt <strong>Sentry</strong> (sentry.io, EU-Datenregion) für Absturzberichte. Wenn die App abstürzt oder einen unerwarteten Fehler meldet, erhält Sentry einen technischen Bericht mit:</p>
     <ul>
-      <li>Stack Trace (technische Beschreibung, wo im Code der Fehler auftrat)</li>
+      <li>Stack-Trace (technische Beschreibung, wo im Code der Fehler auftrat)</li>
       <li>Gerätemodell und Hersteller</li>
-      <li>Android-OS-Version</li>
+      <li>Android-Version</li>
       <li>App-Version</li>
+      <li>Deiner IP-Adresse, die Sentry bei jeder Anfrage erhält</li>
+      <li>Einer kurzen Spur der letzten technischen Protokolleinträge vor dem Fehler</li>
     </ul>
-    <p>Absturzberichte enthalten <strong>keine</strong> Ausgabendaten, Belegbilder, Audioaufnahmen oder personenbezogenen Daten. Sie dienen ausschließlich der Identifikation und Behebung von Fehlern.</p>
+    <p>Die Berichte sind nicht dafür gedacht, deine Ausgabendaten, Belegbilder oder Audioaufnahmen zu enthalten, und wir verwenden sie ausschließlich zum Finden und Beheben von Fehlern. Da sie technische Kennungen wie eine IP-Adresse enthalten, gelten sie nach der DSGVO als personenbezogene Daten. Die Absturzberichterstattung ist in der veröffentlichten App aktiv und lässt sich derzeit in den Einstellungen nicht ausschalten. Datenschutzerklärung von Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section">
     <h2>11. Datenschutz von Kindern</h2>

@@ -72,7 +72,7 @@
   <div class="hero-badge">Legale</div>
   <h1>Informativa sulla privacy</h1>
   <p>Come Nocito™ gestisce i tuoi dati — e perché la maggior parte non lascia mai il tuo telefono.</p>
-  <div class="hero-meta">Data di entrata in vigore: 1 giugno 2025 &nbsp;·&nbsp; Ultimo aggiornamento: maggio 2026 (versione v1.0)</div>
+  <div class="hero-meta">Data di entrata in vigore: 1 giugno 2025 &nbsp;·&nbsp; Ultimo aggiornamento: ottobre 2026 (versione v1.2)</div>
 </div>
 
 <div class="privacy-highlight">
@@ -80,7 +80,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>La versione breve</h3>
-      <p>Nocito™ memorizza tutte le tue spese, scontrini, immagini e audio <strong>localmente sul tuo dispositivo</strong>. Non abbiamo un server con i tuoi dati. Per impostazione predefinita, il testo OCR pulito viene inviato a un servizio di IA cloud per l'elaborazione della spesa, e la dettatura vocale usa la trascrizione cloud. Puoi passare a un'elaborazione IA e trascrizione interamente sul dispositivo attivando i modelli locali nelle Impostazioni — ciò richiede un download una tantum all'interno dell'app. L'importazione di PDF estrae il testo localmente per impostazione predefinita; l'invio del PDF completo al cloud è un'impostazione opzionale da attivare manualmente. L'app usa Sentry per la segnalazione anonima dei crash. Tutto è divulgato in questa informativa.</p>
+      <p>Nocito™ memorizza tutte le tue spese, scontrini, immagini e audio <strong>localmente sul tuo dispositivo</strong>. Non abbiamo un server con i tuoi dati. Per impostazione predefinita, il testo OCR pulito viene inviato a un servizio di IA cloud per l'analisi delle spese e il dettato vocale usa la trascrizione cloud. Puoi passare a un'elaborazione e a una trascrizione interamente sul dispositivo attivando i modelli locali nelle Impostazioni — richiede un download una tantum nell'app. L'importazione dei PDF estrae il testo localmente per impostazione predefinita; l'invio del PDF completo al cloud è un'impostazione facoltativa. In Croazia, la funzione Price Intelligence scarica inoltre sul tuo telefono i listini prezzi pubblici dei negozi e può inviare a un servizio di IA cloud i nomi dei prodotti (dopo il filtro privacy) per collegare gli articoli degli scontrini a quei listini; questo non avviene quando l'Elaborazione IA locale è attiva. L'app usa Sentry per la segnalazione dei crash, che include dati tecnici come il tuo indirizzo IP. Tutto è dichiarato in questa informativa.</p>
     </div>
   </div>
 </div>
@@ -140,15 +140,21 @@
         <td>Quando la Trascrizione locale è attiva e l'Elaborazione IA cloud è attivata. Disattiva l'Elaborazione IA cloud per mantenere tutto interamente sul dispositivo.</td>
       </tr>
       <tr>
-        <td>Dati anonimi sui crash (stack trace, informazioni sul dispositivo, versione dell'app)</td>
+        <td>Nomi dei prodotti dei tuoi scontrini (e delle liste della spesa dettate) dopo il filtro privacy; in alcuni casi anche i prezzi</td>
+        <td><span class="tag tag-cloud">Servizio IA cloud</span></td>
+        <td>Price Intelligence (Croazia): collegare gli articoli degli scontrini ai listini dei negozi</td>
+        <td>Solo se hai scelto dei negozi per Price Intelligence e l'Elaborazione IA locale è disattivata. Conta nella quota mensile di collegamento articoli.</td>
+      </tr>
+      <tr>
+        <td>Report di crash: stack trace, indirizzo IP, modello del dispositivo, versione del sistema e dell'app, eventi tecnici recenti</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Segnalazione dei crash e monitoraggio della stabilità</td>
-        <td>Automaticamente in caso di crash dell'app — nessun dato personale incluso</td>
+        <td>Automaticamente quando l'app va in crash. I dati delle spese non sono inclusi intenzionalmente.</td>
       </tr>
     </table>
 
     <div class="warning-box">
-      <p><strong>Nota sul pre-filtro privacy:</strong> Prima che qualsiasi testo OCR venga inviato a un servizio IA cloud, il tuo telefono rimuove automaticamente le informazioni personali — nomi, indirizzi, numeri di identificazione nazionale, numeri di telefono e indirizzi e-mail. Vengono inviati solo importi, date, nomi degli esercenti e nomi dei prodotti. Nota che l'<strong>Estrazione PDF cloud</strong> (opzionale) invia l'intero PDF senza pre-filtraggio, e la <strong>Trascrizione cloud</strong> (predefinita) invia l'audio grezzo senza pre-filtraggio — il pre-filtro si applica solo al testo trascritto prima che raggiunga la fase di elaborazione IA. L'unica opzione garantita al 100% privata è attivare l'Elaborazione IA locale, la Trascrizione locale e mantenere disattivata l'Estrazione PDF cloud — in questa configurazione nessun dato viene inviato a servizi esterni.</p>
+      <p><strong>Nota sul filtro privacy:</strong> Prima che qualsiasi testo OCR venga inviato a un servizio di IA cloud, il tuo telefono rimuove automaticamente le informazioni personali — nomi, indirizzi, numeri di identificazione nazionali, numeri di telefono e indirizzi email. Vengono inviati solo importi, date, nomi degli esercenti e nomi dei prodotti. Nota che l'<strong>estrazione PDF cloud</strong> (facoltativa) invia il PDF completo senza prefiltraggio e la <strong>trascrizione cloud</strong> (predefinita) invia l'audio grezzo senza prefiltraggio — il filtro si applica solo al testo trascritto prima che raggiunga l'analisi dell'IA. L'unica opzione completamente privata è attivare l'Elaborazione IA locale e la Trascrizione locale e lasciare disattivata l'estrazione PDF cloud — in questa configurazione nessun contenuto dei tuoi scontrini, delle tue spese o della tua voce viene inviato a servizi esterni. (L'app si connette comunque a internet per scaricare listini e modelli e per inviare i report di crash; vedi la sezione 6.)</p>
     </div>
 
     <h3>Dati che non raccogliamo mai</h3>
@@ -223,9 +229,21 @@
     <p>La modifica di queste impostazioni ha effetto immediato. Le tue spese esistenti non sono interessate.</p>
   </div>
 <div class="section">
+    <h2>4d. Price Intelligence (Croazia)</h2>
+    <p>Price Intelligence è attualmente disponibile solo per il mercato croato. Confronta gli articoli dei tuoi scontrini con i listini prezzi che le catene croate sono tenute per legge a pubblicare. Si attiva solo dopo che hai scelto dei negozi nell'app.</p>
+    <ul>
+      <li><strong>Listini prezzi:</strong> il tuo telefono scarica i listini pubblici direttamente dai siti web delle catene i cui negozi hai scelto. Quei siti vedono una normale richiesta internet dal tuo dispositivo (ad esempio il suo indirizzo IP). Noi non riceviamo queste richieste e i tuoi scontrini non vengono mai inviati alle catene.</li>
+      <li><strong>I tuoi negozi:</strong> scegli i negozi digitando una località o un CAP. Questa scelta resta sul tuo dispositivo. Nocito non usa il GPS né la tua posizione.</li>
+      <li><strong>Abbinamento:</strong> la maggior parte degli articoli degli scontrini viene abbinata ai prodotti dei listini sul tuo telefono. Per i nomi abbreviati o poco chiari, il nome del prodotto (dopo il filtro privacy e, in alcuni casi, il prezzo) viene inviato a un servizio di IA cloud. Si applica una quota mensile di collegamento articoli.</li>
+      <li><strong>Elaborazione IA locale:</strong> quando l'Elaborazione IA locale è attiva, Nocito non invia nomi di prodotti a un servizio di IA cloud per Price Intelligence.</li>
+      <li><strong>Scanner di codici a barre e avvisi di prezzo:</strong> i codici a barre vengono letti sul tuo dispositivo e cercati nei listini salvati sul telefono; l'immagine della fotocamera non viene inviata da nessuna parte. Gli avvisi di prezzo vengono controllati sul tuo telefono e mostrati come notifiche locali.</li>
+      <li><strong>Dettatura della lista della spesa:</strong> funziona come la dettatura (sezione 4): l'audio viene trascritto nel cloud a meno che tu non usi la trascrizione locale, e il testo è elaborato da un servizio di IA cloud a meno che l'Elaborazione IA locale sia attiva.</li>
+    </ul>
+  </div>
+<div class="section">
     <h2>5. Super Snap (futuro) e Super Dictate (Pro)</h2>
     <p>Le future versioni Pro di Nocito™ includeranno Super Snap — una funzione premium che invia immagini complete di scontrini direttamente a un servizio IA Vision per un'estrazione più accurata, bypassando il flusso standard di OCR e pre-filtro privacy.</p>
-    <p>Super Dictate, che invia l'audio all'API OpenAI Whisper per una trascrizione più accurata, è disponibile nella versione attuale come opzione all'interno del livello Pro.</p>
+    <p>Super Dictate, che invia l'audio a un servizio cloud di riconoscimento vocale (OpenAI Whisper) per una trascrizione più accurata, è disponibile nella versione attuale: poche sessioni al mese nel piano gratuito e più sessioni con Pro.</p>
     <div class="warning-box">
       <p><strong>Quando usi Super Snap o Super Dictate:</strong> la tua immagine o registrazione audio completa viene trasmessa a un servizio IA esterno. Ti verrà sempre chiesto di confermare prima che avvenga tale trasmissione. Evita di usare queste funzioni con documenti contenenti informazioni personali sensibili.</p>
     </div>
@@ -250,9 +268,29 @@
         <td>Registrazione audio (solo opzionale)</td>
       </tr>
       <tr>
+        <td>Price Intelligence – collegamento degli articoli degli scontrini (Croazia)</td>
+        <td>Servizio IA cloud</td>
+        <td>Nomi dei prodotti dopo il filtro privacy, in alcuni casi anche i prezzi. Non inviati quando l'Elaborazione IA locale è attiva.</td>
+      </tr>
+      <tr>
+        <td>Price Intelligence – listini prezzi</td>
+        <td>Siti web delle catene croate</td>
+        <td>Nulla dei tuoi scontrini. Il tuo telefono richiede listini pubblici, quindi il server della catena vede il tuo indirizzo IP.</td>
+      </tr>
+      <tr>
+        <td>Modelli IA e vocali locali (facoltativo)</td>
+        <td>Hugging Face (huggingface.co)</td>
+        <td>Download una tantum dei file dei modelli, fino a circa 3,2 GB. Il server vede il tuo indirizzo IP.</td>
+      </tr>
+      <tr>
+        <td>Abbonamento Pro</td>
+        <td>Google Play</td>
+        <td>Gestito da Google Play. Non riceviamo i tuoi dati di pagamento.</td>
+      </tr>
+      <tr>
         <td>Segnalazione dei crash</td>
-        <td>Sentry (sentry.io)</td>
-        <td>Dati anonimi sui crash: stack trace, modello del dispositivo, versione del sistema operativo, versione dell'app. Nessun dato personale, nessun dato di spesa.</td>
+        <td>Sentry (sentry.io), regione dati UE</td>
+        <td>Stack trace, indirizzo IP, modello del dispositivo, versione del sistema e dell'app, eventi tecnici recenti. I dati delle spese non sono inclusi intenzionalmente.</td>
       </tr>
     </table>
     <p>I servizi IA cloud specifici utilizzati per l'estrazione delle spese e la trascrizione possono cambiare man mano che diventano disponibili opzioni migliori o più rispettose della privacy. Qualsiasi cambiamento significativo nei tipi di dati trasmessi si rifletterà in un'Informativa sulla privacy aggiornata.</p>
@@ -280,7 +318,8 @@
     <ul>
       <li><strong>Esecuzione del contratto</strong> — elaborazione dei tuoi dati di spesa per fornire la funzionalità principale richiesta</li>
       <li><strong>Interesse legittimo</strong> — invio di testo OCR pulito a servizi IA cloud per fornire una categorizzazione accurata delle spese</li>
-      <li><strong>Interesse legittimo</strong> — segnalazione anonima dei crash tramite Sentry per mantenere la stabilità dell'app</li>
+      <li><strong>Legittimo interesse</strong> — invio di nomi di prodotti (dopo il filtro privacy) a servizi di IA cloud per collegare gli articoli degli scontrini ai listini (Price Intelligence, solo dopo la scelta dei negozi e solo con l'Elaborazione IA locale disattivata)</li>
+      <li><strong>Legittimo interesse</strong> — segnalazione dei crash tramite Sentry per mantenere la stabilità dell'app</li>
       <li><strong>Consenso</strong> — invio di audio a un servizio di trascrizione cloud (solo quando la Trascrizione cloud è attivata nelle Impostazioni)</li>
       <li><strong>Consenso</strong> — invio di documenti PDF completi a un servizio IA cloud (solo quando l'Estrazione PDF cloud è attivata nelle Impostazioni)</li>
     </ul>
@@ -300,14 +339,16 @@
   </div>
 <div class="section">
     <h2>10b. Segnalazione dei crash</h2>
-    <p>Nocito™ utilizza <strong>Sentry</strong> (sentry.io) per la segnalazione dei crash. Quando l'app si blocca o incontra un errore imprevisto, Sentry invia automaticamente una segnalazione anonima contenente:</p>
+    <p>Nocito™ usa <strong>Sentry</strong> (sentry.io, regione dati UE) per la segnalazione dei crash. Quando l'app va in crash o incontra un errore imprevisto, Sentry riceve un report tecnico contenente:</p>
     <ul>
-      <li>Stack trace (descrizione tecnica di dove si è verificato l'errore nel codice)</li>
+      <li>Stack trace (descrizione tecnica del punto del codice in cui si è verificato l'errore)</li>
       <li>Modello e produttore del dispositivo</li>
-      <li>Versione del sistema operativo Android</li>
+      <li>Versione di Android</li>
       <li>Versione dell'app</li>
+      <li>Il tuo indirizzo IP, che Sentry riceve a ogni richiesta</li>
+      <li>Una breve traccia degli eventi tecnici recenti prima dell'errore</li>
     </ul>
-    <p>Le segnalazioni di crash <strong>non</strong> contengono i tuoi dati di spesa, immagini di scontrini, registrazioni audio o qualsiasi informazione personale identificabile. Vengono utilizzate esclusivamente per identificare e correggere i bug.</p>
+    <p>I report non sono pensati per contenere i tuoi dati di spesa, le immagini degli scontrini o le registrazioni audio e li usiamo esclusivamente per trovare e correggere i bug. Poiché includono identificatori tecnici come l'indirizzo IP, ai sensi del GDPR sono dati personali. La segnalazione dei crash è attiva nell'app pubblicata e al momento non può essere disattivata nelle Impostazioni. Informativa sulla privacy di Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section">
     <h2>11. Privacy dei minori</h2>

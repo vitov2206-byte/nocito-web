@@ -72,7 +72,7 @@
   <div class="hero-badge">Právní</div>
   <h1>Zásady ochrany osobních údajů</h1>
   <p>Jak Nocito™ zachází s vašimi údaji — a proč většina z nich nikdy neopustí váš telefon.</p>
-  <div class="hero-meta">Datum účinnosti: 1. června 2025 &nbsp;·&nbsp; Poslední aktualizace: květen 2026 (verze 1.0)</div>
+  <div class="hero-meta">Datum účinnosti: 1. června 2025 &nbsp;·&nbsp; Poslední aktualizace: říjen 2026 (verze 1.2)</div>
 </div>
 
 <div class="privacy-highlight">
@@ -80,7 +80,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>Stručná verze</h3>
-      <p>Nocito™ ukládá všechny vaše výdaje, účtenky, obrázky a zvukové záznamy <strong>lokálně ve vašem zařízení</strong>. Nemáme server s vašimi daty. Ve výchozím nastavení se očištěný OCR text odesílá do cloudové AI služby ke zpracování výdajů a hlasové diktování využívá cloudový přepis. V nastavení můžete přepnout na plné zpracování AI a přepis přímo v zařízení aktivací lokálních modelů — to vyžaduje jednorázové stažení v rámci aplikace. Import PDF ve výchozím nastavení extrahuje text lokálně; odeslání celého PDF do cloudu je volitelné nastavení. Aplikace používá Sentry pro anonymní hlášení pádů. Vše je uvedeno v těchto zásadách.</p>
+      <p>Nocito™ ukládá všechny vaše výdaje, účtenky, obrázky a zvukové záznamy <strong>lokálně ve vašem zařízení</strong>. Nemáme server s vašimi daty. Ve výchozím nastavení se očištěný OCR text odesílá do cloudové AI služby ke zpracování výdaje a hlasové diktování používá cloudový přepis. Na plně lokální zpracování a přepis můžete přepnout zapnutím lokálních modelů v Nastavení — vyžaduje to jednorázové stažení v aplikaci. Import PDF ve výchozím nastavení extrahuje text lokálně; odeslání celého PDF do cloudu je volitelné nastavení. V Chorvatsku funkce Price Intelligence navíc stahuje do telefonu veřejné ceníky obchodů a může cloudové AI službě poslat názvy produktů (po filtru soukromí), aby propojila položky z účtenek s těmito ceníky; při zapnutém Lokálním AI zpracování se to neděje. Aplikace používá Sentry pro hlášení pádů, které zahrnuje technické údaje, například vaši IP adresu. Vše je uvedeno v těchto zásadách.</p>
     </div>
   </div>
 </div>
@@ -140,15 +140,21 @@
         <td>Když je aktivní Lokální přepis a zapnuté Cloudové AI zpracování. Vypněte Cloudové AI zpracování, aby vše zůstalo plně v zařízení.</td>
       </tr>
       <tr>
-        <td>Anonymní data o pádu (stack traces, informace o zařízení, verze aplikace)</td>
+        <td>Názvy produktů z vašich účtenek (a z nadiktovaných nákupních seznamů) po filtru soukromí; v některých případech i ceny</td>
+        <td><span class="tag tag-cloud">Cloudová AI služba</span></td>
+        <td>Price Intelligence (Chorvatsko): propojení položek z účtenek s ceníky obchodů</td>
+        <td>Pouze pokud jste pro Price Intelligence vybrali obchody a Lokální AI zpracování je vypnuté. Spotřebovává měsíční kvótu propojování položek.</td>
+      </tr>
+      <tr>
+        <td>Hlášení pádů: stack trace, IP adresa, model zařízení, verze OS a aplikace, nedávné technické záznamy</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Hlášení pádů a sledování stability</td>
-        <td>Automaticky při pádu aplikace — bez osobních údajů</td>
+        <td>Automaticky při pádu aplikace. Údaje o výdajích se záměrně neodesílají.</td>
       </tr>
     </table>
 
     <div class="warning-box">
-      <p><strong>Poznámka k filtru soukromí:</strong> Než je jakýkoli OCR text odeslán do cloudové AI služby, váš telefon automaticky odstraní osobní údaje — jména, adresy, rodná čísla, telefonní čísla a e-mailové adresy. Odesílají se pouze částky, data, názvy obchodníků a produktů. Upozorňujeme, že <strong>Cloudová extrakce PDF</strong> (volitelná) odesílá celé PDF bez předfiltrování a <strong>Cloudový přepis</strong> (výchozí) odesílá surový zvuk bez předfiltrování — filtr se vztahuje pouze na přepsaný text před tím, než se dostane ke zpracování AI. Jedinou 100% zaručeně soukromou možností je zapnutí Lokálního AI zpracování, Lokálního přepisu a ponechání Cloudové extrakce PDF vypnuté — v této konfiguraci se žádná data neodesílají externím službám.</p>
+      <p><strong>Poznámka k filtru soukromí:</strong> Než se jakýkoli OCR text odešle cloudové AI službě, váš telefon automaticky odstraní osobní údaje — jména, adresy, národní identifikační čísla, telefonní čísla a e-mailové adresy. Odesílají se pouze částky, data, názvy obchodníků a názvy produktů. Upozornění: <strong>Cloudová extrakce PDF</strong> (volitelná) odesílá celé PDF bez předchozího filtrování a <strong>Cloudový přepis</strong> (výchozí) odesílá surový zvuk bez předchozího filtrování — filtr se týká jen přepsaného textu, než se dostane ke zpracování AI. Jedinou plně soukromou možností je zapnout Lokální AI zpracování a Lokální přepis a nechat Cloudovou extrakci PDF vypnutou — v této konfiguraci se externím službám neodesílá žádný obsah vašich účtenek, výdajů ani hlasu. (Aplikace se i tak připojuje k internetu kvůli stahování ceníků a modelů a odesílání hlášení o pádech; viz kapitola 6.)</p>
     </div>
 
     <h3>Data, která nikdy neshromažďujeme</h3>
@@ -223,9 +229,21 @@
     <p>Změna těchto nastavení se projeví okamžitě. Vaše stávající výdaje nejsou dotčeny.</p>
   </div>
 <div class="section">
+    <h2>4d. Price Intelligence (Chorvatsko)</h2>
+    <p>Price Intelligence je v současnosti dostupná pouze pro chorvatský trh. Porovnává položky na vašich účtenkách s ceníky, které chorvatské obchodní řetězce ze zákona zveřejňují. Aktivuje se až poté, co v aplikaci vyberete obchody.</p>
+    <ul>
+      <li><strong>Ceníky:</strong> váš telefon stahuje veřejné ceníky přímo z webových stránek obchodních řetězců, jejichž obchody jste vybrali. Tyto stránky vidí obyčejný internetový požadavek z vašeho zařízení (například jeho IP adresu). Tyto požadavky nepřijímáme a vaše účtenky se řetězcům nikdy neodesílají.</li>
+      <li><strong>Vaše obchody:</strong> obchody vybíráte zadáním města nebo PSČ. Tato volba zůstává ve vašem zařízení. Nocito nepoužívá GPS ani vaši polohu.</li>
+      <li><strong>Párování:</strong> většina položek z účtenek se páruje s produkty z ceníků ve vašem telefonu. U zkrácených nebo nejasných názvů se název produktu (po filtru soukromí, v některých případech i cena) odesílá cloudové AI službě. Platí měsíční kvóta propojování položek.</li>
+      <li><strong>Lokální AI zpracování:</strong> je-li Lokální AI zpracování zapnuté, Nocito pro Price Intelligence neodesílá názvy produktů cloudové AI službě.</li>
+      <li><strong>Čtečka čárových kódů a cenová upozornění:</strong> čárové kódy se čtou ve vašem zařízení a vyhledávají v ceníkách uložených v telefonu; obraz z kamery se nikam neodesílá. Cenová upozornění se vyhodnocují ve vašem telefonu a zobrazují jako lokální oznámení.</li>
+      <li><strong>Diktování nákupního seznamu:</strong> funguje jako diktování (kapitola 4): zvuk se přepisuje v cloudu, pokud nepoužijete lokální přepis, a text zpracovává cloudová AI služba, pokud není zapnuté Lokální AI zpracování.</li>
+    </ul>
+  </div>
+<div class="section">
     <h2>5. Super Snap (budoucí) a Super Dictate (Pro)</h2>
     <p>Budoucí Pro verze Nocito™ budou zahrnovat Super Snap — prémiovou funkci, která odesílá celé obrázky účtenek přímo do služby AI Vision pro přesnější extrakci, čímž obchází standardní OCR a filtr soukromí.</p>
-    <p>Super Dictate, který odesílá zvuk do OpenAI Whisper API pro přesnější přepis, je v aktuální verzi dostupný jako možnost v rámci úrovně Pro.</p>
+    <p>Super Dictate, který odesílá zvuk cloudové službě pro převod řeči na text (OpenAI Whisper) kvůli přesnějšímu přepisu, je dostupný v aktuální verzi: v tarifu zdarma malý počet relací měsíčně, s Pro více.</p>
     <div class="warning-box">
       <p><strong>Při použití Super Snap nebo Super Dictate:</strong> je váš celý obrázek nebo zvukový záznam přenesen externí AI službě. Vždy budete požádáni o potvrzení před jakýmkoli takovým přenosem. Vyhněte se použití těchto funkcí s dokumenty obsahujícími citlivé osobní údaje.</p>
     </div>
@@ -250,9 +268,29 @@
         <td>Zvukový záznam (pouze volitelné)</td>
       </tr>
       <tr>
-        <td>Hlášení pádů</td>
-        <td>Sentry (sentry.io)</td>
-        <td>Anonymní data o pádu: stack traces, model zařízení, verze OS, verze aplikace. Bez osobních údajů, bez výdajových dat.</td>
+        <td>Price Intelligence – propojení položek z účtenek (Chorvatsko)</td>
+        <td>Cloudová AI služba</td>
+        <td>Názvy produktů po filtru soukromí, v některých případech i ceny. Při zapnutém Lokálním AI zpracování se neodesílají.</td>
+      </tr>
+      <tr>
+        <td>Price Intelligence – ceníky</td>
+        <td>Webové stránky chorvatských obchodních řetězců</td>
+        <td>Nic z vašich účtenek. Váš telefon žádá o veřejné ceníky, takže server řetězce vidí vaši IP adresu.</td>
+      </tr>
+      <tr>
+        <td>Lokální AI a hlasové modely (volitelné)</td>
+        <td>Hugging Face (huggingface.co)</td>
+        <td>Jednorázové stažení souborů modelů, až zhruba 3,2 GB. Server vidí vaši IP adresu.</td>
+      </tr>
+      <tr>
+        <td>Předplatné Pro</td>
+        <td>Google Play</td>
+        <td>Zajišťuje Google Play. Údaje o vaší platbě neobdržíme.</td>
+      </tr>
+      <tr>
+        <td>Hlášení pádů aplikace</td>
+        <td>Sentry (sentry.io), datový region EU</td>
+        <td>Stack trace, IP adresa, model zařízení, verze OS, verze aplikace a nedávné technické záznamy. Údaje o výdajích se záměrně neodesílají.</td>
       </tr>
     </table>
     <p>Konkrétní cloudové AI služby používané pro extrakci výdajů a přepis se mohou měnit, jakmile budou dostupné lepší nebo více soukromí zachovávající možnosti. Jakákoli podstatná změna typů přenášených dat bude odražena v aktualizovaných Zásadách ochrany osobních údajů.</p>
@@ -280,7 +318,8 @@
     <ul>
       <li><strong>Plnění smlouvy</strong> — zpracování vašich výdajových údajů za účelem poskytnutí základní funkčnosti, o kterou jste požádali</li>
       <li><strong>Oprávněné zájmy</strong> — odesílání očištěného OCR textu cloudovým AI službám za účelem přesné kategorizace výdajů</li>
-      <li><strong>Oprávněné zájmy</strong> — anonymní hlášení pádů přes Sentry za účelem udržení stability aplikace</li>
+      <li><strong>Oprávněný zájem</strong> — odesílání názvů produktů (po filtru soukromí) cloudovým AI službám za účelem propojení položek z účtenek s ceníky (Price Intelligence, pouze po výběru obchodů a pouze při vypnutém Lokálním AI zpracování)</li>
+      <li><strong>Oprávněný zájem</strong> — hlášení pádů přes Sentry pro zajištění stability aplikace</li>
       <li><strong>Souhlas</strong> — odesílání zvuku cloudové přepisové službě (pouze pokud je Cloudový přepis zapnutý v Nastavení)</li>
       <li><strong>Souhlas</strong> — odesílání celých PDF dokumentů cloudové AI službě (pouze pokud je Cloudová extrakce PDF zapnutá v Nastavení)</li>
     </ul>
@@ -300,14 +339,16 @@
   </div>
 <div class="section">
     <h2>10b. Hlášení pádů</h2>
-    <p>Nocito™ používá <strong>Sentry</strong> (sentry.io) pro hlášení pádů. Když aplikace spadne nebo narazí na neočekávanou chybu, Sentry automaticky odešle anonymní hlášení obsahující:</p>
+    <p>Nocito™ používá <strong>Sentry</strong> (sentry.io, datový region EU) k hlášení pádů. Když aplikace spadne nebo narazí na neočekávanou chybu, Sentry obdrží technické hlášení obsahující:</p>
     <ul>
       <li>Stack trace (technický popis místa v kódu, kde k chybě došlo)</li>
       <li>Model a výrobce zařízení</li>
-      <li>Verzi Android OS</li>
+      <li>Verzi systému Android</li>
       <li>Verzi aplikace</li>
+      <li>Vaši IP adresu, kterou Sentry obdrží s každým požadavkem</li>
+      <li>Krátkou stopu nedávných technických záznamů před chybou</li>
     </ul>
-    <p>Hlášení o pádech <strong>neobsahují</strong> vaše výdajová data, obrázky účtenek, zvukové záznamy ani žádné osobně identifikovatelné údaje. Slouží výhradně k identifikaci a opravě chyb.</p>
+    <p>Hlášení nejsou určena k tomu, aby obsahovala vaše údaje o výdajích, obrázky účtenek ani zvukové záznamy, a používáme je výhradně k nalezení a opravě chyb. Protože obsahují technické identifikátory, jako je IP adresa, jsou podle GDPR osobními údaji. Hlášení pádů je ve vydané aplikaci aktivní a v Nastavení ho v současnosti nelze vypnout. Zásady ochrany soukromí Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section">
     <h2>11. Ochrana soukromí dětí</h2>
