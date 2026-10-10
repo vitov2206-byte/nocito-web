@@ -126,6 +126,8 @@
   @media (max-width: 640px) {
     .container { width: min(100% - 28px, var(--container)); }
     .nav-inner { min-height: 64px; gap: 10px; }
+    /* hub-nav-fit: keep brand + language + CTA inside narrow phones */
+    .nav-links { gap: 8px; } .nav-cta { white-space: nowrap; min-height: 40px; padding: 0 14px; font-size: .8rem; } .lang-trigger { padding: 6px 9px; }
     .section { padding: 56px 0; }
     .hero { padding: 44px 0 40px; }
     .product-grid, .pillars { grid-template-columns: 1fr; }
