@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nocito™ — Slikaj. Gotovo.</title>
-<meta name="description" content="Nocito je AI tracker troškova za Android koji stavlja privatnost na prvo mjesto. Slikaj račune, uspoređuj cijene po trgovinama uz Inteligenciju cijena i zadrži podatke na svom telefonu." />
-<meta property="og:title" content="Nocito™ — Slikaj. Gotovo." />
-<meta property="og:description" content="Tracker troškova koji stavlja privatnost na prvo mjesto — hvata račune, PDF-ove i glasovne bilješke, bez bankovne sinkronizacije, računa ili praćenja." />
+<title>Nocito™: cijene i troškovi</title>
+<meta name="description" content="Usporedi cijene u hrvatskim trgovinama i prati troškove s računa. Privatno." />
+<meta property="og:title" content="Nocito™: cijene i troškovi" />
+<meta property="og:description" content="Usporedi cijene u hrvatskim trgovinama i prati troškove s računa. Privatno." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nocito.app/hr/expense-tracker/" />
 <meta name="theme-color" content="#1B2A4A" />
@@ -496,6 +496,7 @@
   .app-tab-bar { bottom: 0; height: 8%; background: transparent; border-top: 0; }
   .app-tab svg, .app-tab span { opacity: 0; }
   @media (max-width: 980px) { .stage.rev .stage-vis { order: 0; } }
+  .pi-chains { max-width: 760px; margin: 22px auto 0; text-align: center; color: var(--muted); font-size: .92rem; line-height: 1.65; }
 </style>
 </head>
 <body>
@@ -643,7 +644,7 @@
       </article>
       <article class="card featured">
         <span class="tag amber">Novo</span>
-        <h3>Inteligencija cijena</h3>
+        <h3>Price Intelligence</h3>
         <p>Vidi na što stvarno trošiš — i gdje je jeftinije. Trenutno dostupno za Hrvatsku, uskoro i drugdje.</p>
       </article>
     </div>
@@ -667,8 +668,8 @@
       <div class="card-grid three">
         <article class="card"><h3>Jedna slika</h3><p>Dodirni gumb i odmah zabilježi račun.</p></article>
         <article class="card"><h3>Više slika odjednom</h3><p>Dugim pritiskom snimi više računa u jednom brzom nizu.</p></article>
-        <article class="card"><h3>Jedan uvoz</h3><p>Odaberi jednu sliku ili PDF dokument iz galerije ili datoteka.</p></article>
-        <article class="card"><h3>Više uvoza odjednom</h3><p>Odaberi više slika ili PDF dokumenata odjednom i pregledaj ih u jednom koraku.</p></article>
+        <article class="card"><h3>Jedan uvoz</h3><p>Odaberi jednu sliku ili PDF dokument iz galerije ili datoteka. Uvoz PDF-a je Pro značajka.</p></article>
+        <article class="card"><h3>Više uvoza odjednom</h3><p>Odaberi više slika ili PDF dokumenata odjednom i pregledaj ih u jednom koraku. Uvoz PDF-a je Pro značajka.</p></article>
         <article class="card"><h3>Glasovni unos</h3><p>Izgovori jedan trošak ili više njih zaredom — Nocito ih automatski razdvaja u zasebne stavke.</p></article>
         <article class="card"><h3>Ručni unos</h3><p>Upiši troškove sam kad god želiš — uvijek besplatno, bez korištenja AI-ja.</p></article>
       </div>
@@ -710,7 +711,7 @@
   <section id="price-intelligence" class="pi-band">
     <div class="container">
       <div class="section-head center">
-        <div class="kicker amber">Inteligencija cijena</div>
+        <div class="kicker amber">Price Intelligence</div>
         <h2>Ne samo gdje trošiš. I gdje je jeftinije.</h2>
         <p>Nocito čita svaki redak tvog računa i uspoređuje ga s javno dostupnim cjenicima trgovina. Povezivanje se uglavnom odvija na tvom telefonu; cloud AI-ju šalju se samo nazivi proizvoda nakon filtra privatnosti, i to za razrješavanje skraćenih naziva s računa — nikad u potpuno lokalnom načinu.</p>
         <div class="market-badge">🇭🇷 Dostupno za Hrvatsku · širenje na druga tržišta u planu</div>
@@ -727,6 +728,13 @@
         </article>
       </div>
     
+            <div class="card-grid three pi-more" style="margin-top:22px;">
+        <article class="card featured"><h3>Skeniraj barkod</h3><p>Vidi cijenu bilo kojeg proizvoda u svim svojim trgovinama, po kilogramu ili litri, s istaknutim akcijama.</p></article>
+        <article class="card featured"><h3>Pitaj glasom</h3><p>Diktiraj „najjeftinija čokolada 100 g s lješnjakom” i Nocito pretražuje cjenike umjesto tebe.</p></article>
+        <article class="card featured"><h3>Upozorenja o cijenama</h3><p>Dobij obavijest kad artikl koji kupuješ dođe na akciju ili cijena padne ispod one koju si platio.</p></article>
+      </div>
+      <p class="pi-chains">Cjenici 10 lanaca: Konzum, Lidl, Plodine, Spar, Tommy, Studenac, Kaufland, Eurospin, NTL i KTC. Najbolju kupovinu usporedi kao popis ili tablicu, a sve naučiš kroz vodič od 18 koraka.</p>
+
       <div class="pi-stage"><div class="pi-gallery">
         <figure><div class="shot"><img src="/img/tr-hr-stats.jpg" data-lg="/img/lg-tr-hr-stats.jpg" width="600" height="1171" loading="lazy" alt="Izbornik Price Intelligence: moje trgovine, moji artikli, upozorenja, povezivanje s cjenicima"></div><figcaption>Tvoje trgovine, artikli i upozorenja</figcaption></figure>
         <figure><div class="shot"><img src="/img/tr-hr-compare.jpg" data-lg="/img/lg-tr-hr-compare.jpg" width="600" height="1171" loading="lazy" alt="Najbolja kupovina: trgovine poredane po cijeni s detaljima artikala"></div><figcaption>Najbolja kupovina, poredana po cijeni</figcaption></figure>
@@ -832,7 +840,7 @@
             <li>1 grupa, 18 unaprijed zadanih kategorija i neograničene vlastite kategorije</li>
             <li>Rokovi plaćanja i podsjetnici</li>
             <li>Kontrole privatnosti s naglaskom na lokalno</li>
-            <li><strong style="color:var(--text);">Inteligencija cijena</strong> — Hrvatska, besplatno za sve</li>
+            <li><strong style="color:var(--text);">Price Intelligence</strong> — Hrvatska, besplatno za sve</li>
             <li>50 jednokratnih AI povezivanja proizvoda za Price Intelligence (točno i približno povezivanje je besplatno i neograničeno)</li>
           </ul>
           <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.nocito.app">Kreni besplatno</a>
@@ -847,7 +855,7 @@
             <li>50 Super Dictate sesija / mjesečno</li>
             <li>3000 AI povezivanja proizvoda / mjesečno za Price Intelligence</li>
             <li>Potpuna statistika i analitika</li>
-            <li>Mjesečni i kategorijski proračuni s upozorenjima</li>
+            <li>Detaljno praćenje proračuna u Statistici</li>
             <li>Pregled originalnih slika računa, PDF-ova i audia</li>
             <li>Uvoz PDF-a</li>
             <li>Sve grupe troškova</li>
@@ -866,7 +874,7 @@
       <div class="section-head center">
         <div class="kicker amber">Uskoro stiže</div>
         <h2>Stiže još pametnijih uvida u potrošnju.</h2>
-        <p>Ove funkcije su planirane sljedeće, dok Nocito već danas rukuje snimanjem računa, detaljima po artiklu, inteligencijom cijena, organizacijom, kontrolama privatnosti, proračunima, sigurnosnim kopijama i Pro analitikom.</p>
+        <p>Ove funkcije su planirane sljedeće, dok Nocito već danas rukuje snimanjem računa, detaljima po artiklu, funkcijom Price Intelligence, organizacijom, kontrolama privatnosti, proračunima, sigurnosnim kopijama i Pro analitikom.</p>
       </div>
       <div class="card-grid four">
         <article class="card"><h3>Super Snap</h3><p>Jedan AI poziv čita tiskani i rukom pisani sadržaj zajedno.</p></article>
@@ -904,7 +912,7 @@
         </details>
         <details>
           <summary>Koji su jezici i formati podržani?</summary>
-          <p>Nocito podržava 12 jezika, 10 valuta (bez automatske konverzije) te EU i US format datuma i brojeva.</p>
+          <p>Nocito podržava 12 jezika, 10 valuta (automatska konverzija stiže) te EU i US format datuma i brojeva.</p>
         </details>
         <details>
           <summary>Je li Nocito dostupan na iPhoneu?</summary>

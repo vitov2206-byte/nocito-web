@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nocito™ — Fotózd. Kész.</title>
-<meta name="description" content="A Nocito egy adatvédelem-központú kiadáskövető Androidra. Fotózz nyugtákat, hasonlítsd össze az árakat üzletek között a Price Intelligence-szel, és tartsd az adataidat a telefonodon." />
-<meta property="og:title" content="Nocito™ — Fotózd. Kész." />
-<meta property="og:description" content="Az adatvédelem-központú kiadáskövető, amely nyugtákat, PDF-eket és hangjegyzeteket rögzít — banki szinkronizálás, fiók vagy nyomkövetés nélkül." />
+<title>Nocito™: árak és kiadások</title>
+<meta name="description" content="Horvát boltok árait hasonlítsd össze, a kiadásokat blokkból követd. Privát." />
+<meta property="og:title" content="Nocito™: árak és kiadások" />
+<meta property="og:description" content="Horvát boltok árait hasonlítsd össze, a kiadásokat blokkból követd. Privát." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nocito.app/hu/expense-tracker/" />
 <meta name="theme-color" content="#1B2A4A" />
@@ -496,6 +496,7 @@
   .app-tab-bar { bottom: 0; height: 8%; background: transparent; border-top: 0; }
   .app-tab svg, .app-tab span { opacity: 0; }
   @media (max-width: 980px) { .stage.rev .stage-vis { order: 0; } }
+  .pi-chains { max-width: 760px; margin: 22px auto 0; text-align: center; color: var(--muted); font-size: .92rem; line-height: 1.65; }
 </style>
 </head>
 <body>
@@ -667,8 +668,8 @@
       <div class="card-grid three">
         <article class="card"><h3>Egyszeri fotó</h3><p>Koppints a zárógombra, és azonnal rögzítsd a nyugtát.</p></article>
         <article class="card"><h3>Több fotó egyszerre</h3><p>Hosszú nyomással több nyugtát is rögzíthetsz egy gyors menetben.</p></article>
-        <article class="card"><h3>Egyszeri importálás</h3><p>Válassz ki egy képet vagy PDF dokumentumot a galériádból vagy fájljaidból.</p></article>
-        <article class="card"><h3>Több fájl importálása</h3><p>Válassz ki több képet vagy PDF dokumentumot egyszerre, és ellenőrizd őket egy menetben.</p></article>
+        <article class="card"><h3>Egyszeri importálás</h3><p>Válassz ki egy képet vagy PDF dokumentumot a galériádból vagy fájljaidból. A PDF import Pro funkció.</p></article>
+        <article class="card"><h3>Több fájl importálása</h3><p>Válassz ki több képet vagy PDF dokumentumot egyszerre, és ellenőrizd őket egy menetben. A PDF import Pro funkció.</p></article>
         <article class="card"><h3>Hangalapú rögzítés</h3><p>Mondj be egy vagy több kiadást egymás után — a Nocito automatikusan külön tételekre bontja őket.</p></article>
         <article class="card"><h3>Kézi rögzítés</h3><p>Írd be a kiadásokat magad, amikor csak akarod — mindig ingyenes, AI nélkül.</p></article>
       </div>
@@ -727,6 +728,13 @@
         </article>
       </div>
     
+            <div class="card-grid three pi-more" style="margin-top:22px;">
+        <article class="card featured"><h3>Vonalkód beolvasása</h3><p>Nézd meg bármely termék árát az összes üzletedben, kilogrammra vagy literre vetítve, kiemelt akciókkal.</p></article>
+        <article class="card featured"><h3>Kérdezz hanggal</h3><p>Diktáld be: „a legolcsóbb mogyorós csokoládé 100 g”, és a Nocito átkeresi az árlistákat helyetted.</p></article>
+        <article class="card featured"><h3>Ár-értesítések</h3><p>Értesítést kapsz, ha egy általad vásárolt termék akciós lesz, vagy az ára a kifizetett ár alá csökken.</p></article>
+      </div>
+      <p class="pi-chains">10 lánc árlistái: Konzum, Lidl, Plodine, Spar, Tommy, Studenac, Kaufland, Eurospin, NTL és KTC. A legjobb bevásárlást hasonlítsd össze listában vagy táblázatban, és az egészet megtanulod egy 18 lépéses bemutatóban.</p>
+
       <div class="pi-stage"><div class="pi-gallery">
         <figure><div class="shot"><img src="/img/tr-en-stats.jpg" data-lg="/img/lg-tr-en-stats.jpg" width="600" height="1171" loading="lazy" alt="Price Intelligence menu: my stores, my items, alerts, link to price lists"></div><figcaption>Az üzleteid, tételeid és riasztásaid</figcaption></figure>
         <figure><div class="shot"><img src="/img/tr-en-compare.jpg" data-lg="/img/lg-tr-en-compare.jpg" width="600" height="1171" loading="lazy" alt="Best basket: stores ranked by price with item details"></div><figcaption>Legjobb kosár, ár szerint rangsorolva</figcaption></figure>
@@ -848,7 +856,7 @@
             <li>50 Super Dictate munkamenet / hó</li>
             <li>3000 AI termékkapcsolás / hó a Price Intelligence-hez</li>
             <li>Teljes statisztika és elemzés</li>
-            <li>Havi és kategóriánkénti költségvetések értesítésekkel</li>
+            <li>Részletes költségvetés-követés a Statisztikákban</li>
             <li>Eredeti nyugtaképek, PDF-ek &amp; hang megtekintése</li>
             <li>PDF import</li>
             <li>Minden kiadási csoport</li>
@@ -905,7 +913,7 @@
         </details>
         <details>
           <summary>Milyen nyelvek és formátumok támogatottak?</summary>
-          <p>A Nocito 12 nyelvet, 10 pénznemet (automatikus átváltás nélkül), valamint EU és US dátum- és számformátumot támogat.</p>
+          <p>A Nocito 12 nyelvet, 10 pénznemet (az automatikus átváltás hamarosan érkezik), valamint EU és US dátum- és számformátumot támogat.</p>
         </details>
         <details>
           <summary>Elérhető a Nocito iPhone-on?</summary>

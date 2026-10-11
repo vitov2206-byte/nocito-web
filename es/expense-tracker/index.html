@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nocito™ — Escanea. Listo.</title>
-<meta name="description" content="Nocito es un gestor de gastos para Android centrado en la privacidad. Escanea recibos, compara precios entre tiendas con Price Intelligence y mantén tus datos en tu teléfono." />
-<meta property="og:title" content="Nocito™ — Escanea. Listo." />
-<meta property="og:description" content="El gestor de gastos centrado en la privacidad que captura recibos, PDF y notas de voz — sin sincronización bancaria, cuenta ni seguimiento." />
+<title>Nocito™: precios y gastos</title>
+<meta name="description" content="Compara precios de tiendas croatas y controla gastos con tickets. Privado." />
+<meta property="og:title" content="Nocito™: precios y gastos" />
+<meta property="og:description" content="Compara precios de tiendas croatas y controla gastos con tickets. Privado." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nocito.app/es/expense-tracker/" />
 <meta name="theme-color" content="#1B2A4A" />
@@ -496,6 +496,7 @@
   .app-tab-bar { bottom: 0; height: 8%; background: transparent; border-top: 0; }
   .app-tab svg, .app-tab span { opacity: 0; }
   @media (max-width: 980px) { .stage.rev .stage-vis { order: 0; } }
+  .pi-chains { max-width: 760px; margin: 22px auto 0; text-align: center; color: var(--muted); font-size: .92rem; line-height: 1.65; }
 </style>
 </head>
 <body>
@@ -667,8 +668,8 @@
       <div class="card-grid three">
         <article class="card"><h3>Foto única</h3><p>Toca el botón y captura un recibo al instante.</p></article>
         <article class="card"><h3>Varias fotos</h3><p>Mantén pulsado para capturar varios recibos en un flujo rápido.</p></article>
-        <article class="card"><h3>Importación única</h3><p>Elige una imagen o documento PDF de tu galería o archivos.</p></article>
-        <article class="card"><h3>Importación múltiple</h3><p>Selecciona varias imágenes o documentos PDF a la vez y revísalos en un solo paso.</p></article>
+        <article class="card"><h3>Importación única</h3><p>Elige una imagen o documento PDF de tu galería o archivos. La importación de PDF es una función Pro.</p></article>
+        <article class="card"><h3>Importación múltiple</h3><p>Selecciona varias imágenes o documentos PDF a la vez y revísalos en un solo paso. La importación de PDF es una función Pro.</p></article>
         <article class="card"><h3>Dictado por voz</h3><p>Di un gasto o varios seguidos — Nocito los separa automáticamente en entradas individuales.</p></article>
         <article class="card"><h3>Entrada manual</h3><p>Escribe tus gastos tú mismo cuando quieras — siempre gratis, sin usar IA.</p></article>
       </div>
@@ -727,6 +728,13 @@
         </article>
       </div>
     
+            <div class="card-grid three pi-more" style="margin-top:22px;">
+        <article class="card featured"><h3>Escanea un código de barras</h3><p>Ve el precio de cualquier producto en todas tus tiendas, por kg o litro, con las ofertas destacadas.</p></article>
+        <article class="card featured"><h3>Pregunta con la voz</h3><p>Dicta «el chocolate con avellanas de 100 g más barato» y Nocito busca en las listas de precios por ti.</p></article>
+        <article class="card featured"><h3>Alertas de precio</h3><p>Recibe un aviso cuando un artículo que compras entra en oferta o baja del precio que pagaste.</p></article>
+      </div>
+      <p class="pi-chains">Listas de precios de 10 cadenas: Konzum, Lidl, Plodine, Spar, Tommy, Studenac, Kaufland, Eurospin, NTL y KTC. Compara tu mejor compra como lista o tabla y aprende todo en una visita guiada de 18 pasos.</p>
+
       <div class="pi-stage"><div class="pi-gallery">
         <figure><div class="shot"><img src="/img/tr-en-stats.jpg" data-lg="/img/lg-tr-en-stats.jpg" width="600" height="1171" loading="lazy" alt="Price Intelligence menu: my stores, my items, alerts, link to price lists"></div><figcaption>Tus tiendas, artículos y alertas</figcaption></figure>
         <figure><div class="shot"><img src="/img/tr-en-compare.jpg" data-lg="/img/lg-tr-en-compare.jpg" width="600" height="1171" loading="lazy" alt="Best basket: stores ranked by price with item details"></div><figcaption>La mejor cesta, ordenada por precio</figcaption></figure>
@@ -848,7 +856,7 @@
             <li>50 sesiones de Super Dictate / mes</li>
             <li>3000 vinculaciones de producto con IA / mes para Price Intelligence</li>
             <li>Estadísticas y análisis completos</li>
-            <li>Presupuestos mensuales y por categoría con alertas</li>
+            <li>Seguimiento detallado de presupuestos en Estadísticas</li>
             <li>Ver imágenes originales de recibos, PDF y audio</li>
             <li>Importación de PDF</li>
             <li>Todos los grupos de gastos</li>
@@ -905,7 +913,7 @@
         </details>
         <details>
           <summary>¿Qué idiomas y formatos son compatibles?</summary>
-          <p>Nocito es compatible con 12 idiomas, 10 monedas (sin conversión automática), y formatos de fecha y número de la UE y de EE. UU.</p>
+          <p>Nocito es compatible con 12 idiomas, 10 monedas (conversión automática próximamente), y formatos de fecha y número de la UE y de EE. UU.</p>
         </details>
         <details>
           <summary>¿Está Nocito disponible en iPhone?</summary>
