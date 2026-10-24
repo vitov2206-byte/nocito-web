@@ -500,10 +500,9 @@
   .card .thumb { margin: -6px -6px 14px; border-radius: 14px; overflow: hidden; background: #0b1422; border: 1px solid rgba(255,255,255,.08); }
   .card .thumb img { display: block; width: 100%; height: 112px; object-fit: cover; object-position: center; }
   .cap6 .thumb img { height: 120px; }
-  .pi-more:not(.two) .thumb img { height: 132px; object-position: center 40%; }
-  .card-grid.two .card .thumb img { height: 190px; }
-  .card.featured .thumb img { object-position: center top; }
-  @media (max-width: 640px) { .card .thumb img { height: 104px; } .card-grid.two .card .thumb img { height: 120px; } }
+  @media (max-width: 640px) { .card:not(.featured) .thumb img { height: 104px; } }
+  .card.featured .thumb { margin: -6px -6px 16px; border-radius: 16px; background: #0b1422; }
+  .card.featured .thumb img { height: auto; aspect-ratio: 2.4 / 1; object-fit: cover; object-position: center; width: 100%; }
 </style>
 <!-- sync3 -->
 <!-- sync5 -->
@@ -729,17 +728,17 @@
       </div>
       <div class="card-grid two">
         <article class="card featured">
-          <div class="thumb"><img src="/img/hr2-t-zadnji.jpg" width="520" loading="lazy" alt="Zadnji račun i najjeftinija trgovina"></div><h3>Vidi odmah je li jeftinije</h3><p>Svaki skenirani račun automatski pokazuje je li artikl na akciji, je li jeftiniji drugdje ili već kupuješ po najboljoj cijeni — bez ijednog dodatnog koraka.</p>
+          <div class="thumb"><img src="/img/hr2-p-zadnji.jpg" width="520" loading="lazy" alt="Zadnji račun i najjeftinija trgovina"></div><h3>Vidi odmah je li jeftinije</h3><p>Svaki skenirani račun automatski pokazuje je li artikl na akciji, je li jeftiniji drugdje ili već kupuješ po najboljoj cijeni — bez ijednog dodatnog koraka.</p>
         </article>
         <article class="card featured teal-tint">
-          <div class="thumb"><img src="/img/hr2-t-podium.jpg" width="520" loading="lazy" alt="Najbolja kupovina po trgovinama"></div><h3>Pronađi najbolju kupovinu</h3><p>Dodaj artikle na listu i jednim dodirom usporedi ukupnu cijenu košarice u svim tvojim trgovinama — rangirano, s prikazom uštede. Dodirni najbolju opciju i Google Maps otvara rutu do te trgovine.</p>
+          <div class="thumb"><img src="/img/hr2-p-kupovina.jpg" width="520" loading="lazy" alt="Najbolja kupovina: Spar je najjeftiniji, 4,67 €"></div><h3>Pronađi najbolju kupovinu</h3><p>Dodaj artikle na listu i jednim dodirom usporedi ukupnu cijenu košarice u svim tvojim trgovinama — rangirano, s prikazom uštede. Dodirni najbolju opciju i Google Maps otvara rutu do te trgovine.</p>
         </article>
         </div>
     
             <div class="card-grid three pi-more" style="margin-top:22px;">
-        <article class="card featured"><div class="thumb"><img src="/img/hr2-t-skeniraj.jpg" width="520" loading="lazy" alt="Pločica Skeniraj"></div><h3>Skeniraj barkod</h3><p>Vidi cijenu bilo kojeg proizvoda u svim svojim trgovinama, po kilogramu ili litri, s istaknutim akcijama.</p></article>
-        <article class="card featured"><div class="thumb"><img src="/img/hr2-t-reci.jpg" width="520" loading="lazy" alt="Pločica Reci artikl"></div><h3>Pitaj glasom</h3><p>Diktiraj „najjeftinija čokolada 100 g s lješnjakom” i Nocito pretražuje cjenike umjesto tebe.</p></article>
-        <article class="card featured"><div class="thumb"><img src="/img/hr2-t-akcije.jpg" width="520" loading="lazy" alt="Akcije za tvoje artikle"></div><h3>Upozorenja o cijenama</h3><p>Dobij obavijest kad artikl koji kupuješ dođe na akciju ili cijena padne ispod one koju si platio.</p></article>
+        <article class="card featured"><div class="thumb"><img src="/img/hr2-p-skeniraj.jpg" width="520" loading="lazy" alt="Pločica Skeniraj"></div><h3>Skeniraj barkod</h3><p>Vidi cijenu bilo kojeg proizvoda u svim svojim trgovinama, po kilogramu ili litri, s istaknutim akcijama.</p></article>
+        <article class="card featured"><div class="thumb"><img src="/img/hr2-p-reci.jpg" width="520" loading="lazy" alt="Pločica Reci artikl"></div><h3>Pitaj glasom</h3><p>Diktiraj „najjeftinija čokolada 100 g s lješnjakom” i Nocito pretražuje cjenike umjesto tebe.</p></article>
+        <article class="card featured"><div class="thumb"><img src="/img/hr2-p-akcije.jpg" width="520" loading="lazy" alt="Akcije za tvoje artikle"></div><h3>Upozorenja o cijenama</h3><p>Dobij obavijest kad artikl koji kupuješ dođe na akciju ili cijena padne ispod one koju si platio.</p></article>
       </div>
       <p class="pi-chains">Cjenici 10 lanaca: Konzum, Lidl, Plodine, Spar, Tommy, Studenac, Kaufland, Eurospin, NTL i KTC. Najbolju kupovinu usporedi kao popis ili tablicu, a sve naučiš kroz vodič od 19 koraka.</p>
       <div class="card-grid two pi-more" style="margin-top:22px;">
