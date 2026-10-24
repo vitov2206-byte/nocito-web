@@ -497,10 +497,18 @@
   .app-tab svg, .app-tab span { opacity: 0; }
   @media (max-width: 980px) { .stage.rev .stage-vis { order: 0; } }
   .pi-chains { max-width: 760px; margin: 22px auto 0; text-align: center; color: var(--muted); font-size: .92rem; line-height: 1.65; }
+  .card .thumb { margin: -6px -6px 14px; border-radius: 14px; overflow: hidden; background: #0b1422; border: 1px solid rgba(255,255,255,.08); }
+  .card .thumb img { display: block; width: 100%; height: 112px; object-fit: cover; object-position: center; }
+  .cap6 .thumb img { height: 120px; }
+  .pi-more:not(.two) .thumb img { height: 132px; object-position: center 40%; }
+  .card-grid.two .card .thumb img { height: 190px; }
+  .card.featured .thumb img { object-position: center top; }
+  @media (max-width: 640px) { .card .thumb img { height: 104px; } .card-grid.two .card .thumb img { height: 120px; } }
 </style>
 <!-- sync3 -->
 <!-- sync5 -->
 <!-- sync6 -->
+<!-- sync7 -->
 </head>
 <body>
 
@@ -663,20 +671,18 @@
         <p>Nocito je napravljen za kaotičnu stvarnost: papirnate račune, screenshotove, PDF fakture, gotovinska plaćanja, poslovne troškove, putne račune i brze glasovne bilješke.</p>
         </div>
         <div class="stage-vis"><div class="comp">
-          <div class="cphone" style="left:12px;top:46px;"><img src="/img/tr-hr-home.jpg" data-lg="/img/lg-tr-hr-home.jpg" width="600" height="1171" loading="lazy" alt="Početni ekran s karticom najbolje kupovine"></div>
-          <div class="call" style="left:214px;top:40px;width:296px;"><img src="/img/tr-hr-zoom-basket.jpg" data-lg="/img/tr-hr-zoom-basket.jpg" width="760" height="414" loading="lazy" alt="Kartica najbolje kupovine uvećano"></div>
-          <div class="call" style="left:176px;top:236px;width:334px;"><img src="/img/tr-hr-zoom-add.jpg" data-lg="/img/tr-hr-zoom-add.jpg" width="760" height="274" loading="lazy" alt="Gumbi za unos troška: Slikaj, Diktiraj, Uvezi, Ručno"></div>
+          <div class="cphone" style="left:12px;top:46px;"><img src="/img/tr-hr2-home2.jpg" data-lg="/img/lg-tr-hr2-home2.jpg" width="600" height="1171" loading="lazy" alt="Početni ekran Dom sa zadnjim računom"></div>
+          <div class="call" style="left:214px;top:40px;width:296px;"><img src="/img/hr2-z-basket.jpg" data-lg="/img/hr2-z-basket.jpg" width="520" loading="lazy" alt="Kartica zadnjeg računa i najjeftinije trgovine uvećano"></div>
+          <div class="call" style="left:338px;top:250px;width:172px;"><img src="/img/hr2-z-add.jpg" data-lg="/img/hr2-z-add.jpg" width="520" loading="lazy" alt="Izbornik plus: Ručno, Uvezi, Diktiraj, Slikaj račun"></div>
         </div></div>
       </div>
-      <div class="card-grid four">
-        <article class="card"><h3>Jedna slika</h3><p>Dodirni gumb i odmah zabilježi račun.</p></article>
-        <article class="card"><h3>Više slika odjednom</h3><p>Dugim pritiskom snimi više računa u jednom brzom nizu.</p></article>
-        <article class="card"><h3>Jedan uvoz</h3><p>Odaberi jednu sliku ili PDF dokument iz galerije ili datoteka. Uvoz PDF-a je Pro značajka.</p></article>
-        <article class="card"><h3>Više uvoza odjednom</h3><p>Odaberi više slika ili PDF dokumenata odjednom i pregledaj ih u jednom koraku. Uvoz PDF-a je Pro značajka.</p></article>
-        <article class="card"><h3>Glasovni unos</h3><p>Izgovori jedan trošak ili više njih zaredom — Nocito ih automatski razdvaja u zasebne stavke.</p></article>
-        <article class="card"><h3>Ručni unos</h3><p>Upiši troškove sam kad god želiš — uvijek besplatno, bez korištenja AI-ja.</p></article>
-        <article class="card"><h3>Skener računa</h3><p>Googleov skener dokumenata sam nađe rubove i ispravi stranicu, a okvir možeš prilagoditi. Do 10 stranica odjednom, svaka je jedan račun. Radi na uređaju preko Google Play usluga; bez njih aplikacija koristi običnu kameru.</p></article>
-        <article class="card"><h3>Skeniranje barkoda</h3><p>Pločica Skeniraj sama čita barkod proizvoda, bez okidača, i odmah pokazuje cijenu u svim tvojim trgovinama.</p></article>
+      <div class="card-grid three cap6">
+        <article class="card"><div class="thumb"><img src="/img/hr2-t-slikaj.jpg" width="520" loading="lazy" alt="Gumb Slikaj račun"></div><h3>Slikaj račun</h3><p>Googleov skener dokumenata sam nađe rubove i ispravi stranicu, a okvir možeš prilagoditi. Do 10 stranica odjednom, svaka je jedan račun. Radi na uređaju preko Google Play usluga; bez njih aplikacija koristi običnu kameru.</p></article>
+        <article class="card"><div class="thumb"><img src="/img/hr2-t-uvezi.jpg" width="520" loading="lazy" alt="Gumb Uvezi"></div><h3>Uvoz iz galerije i PDF-a</h3><p>Odaberi jednu ili više slika ili PDF dokumenata i pregledaj ih u jednom koraku. Uvoz PDF-a je Pro značajka.</p></article>
+        <article class="card"><div class="thumb"><img src="/img/hr2-t-diktiraj.jpg" width="520" loading="lazy" alt="Gumb Diktiraj"></div><h3>Glasovni unos</h3><p>Izgovori jedan trošak ili više njih zaredom — Nocito ih sam razdvaja u zasebne stavke.</p></article>
+        <article class="card"><div class="thumb"><img src="/img/hr2-t-rucno.jpg" width="520" loading="lazy" alt="Gumb Ručno"></div><h3>Ručni unos</h3><p>Upiši trošak sam kad god želiš — uvijek besplatno, bez AI-ja.</p></article>
+        <article class="card"><div class="thumb"><img src="/img/hr2-t-skeniraj.jpg" width="520" loading="lazy" alt="Pločica Skeniraj"></div><h3>Skeniranje barkoda</h3><p>Pločica Skeniraj sama čita barkod, bez okidača, i odmah pokazuje cijenu u svim tvojim trgovinama.</p></article>
+        <article class="card"><div class="thumb"><img src="/img/hr2-t-provjereno.jpg" width="520" loading="lazy" alt="Popis Provjereno"></div><h3>Provjereno</h3><p>Sve što skeniraš ili diktiraš ostaje u Provjereno, s cijenama po trgovini i zvonom za upozorenja.</p></article>
       </div>
     </div>
   </section>
@@ -721,26 +727,22 @@
         <p>Nocito čita svaki redak tvog računa i uspoređuje ga s javno dostupnim cjenicima trgovina. Povezivanje se uglavnom odvija na tvom telefonu; cloud AI-ju šalju se samo nazivi proizvoda nakon filtra privatnosti, i to za razrješavanje skraćenih naziva s računa — nikad u potpuno lokalnom načinu.</p>
         <div class="market-badge">🇭🇷 Dostupno za Hrvatsku · širenje na druga tržišta u planu</div>
       </div>
-      <div class="card-grid three">
+      <div class="card-grid two">
         <article class="card featured">
-          <h3>Vidi odmah je li jeftinije</h3><p>Svaki skenirani račun automatski pokazuje je li artikl na akciji, je li jeftiniji drugdje ili već kupuješ po najboljoj cijeni — bez ijednog dodatnog koraka.</p>
+          <div class="thumb"><img src="/img/hr2-t-zadnji.jpg" width="520" loading="lazy" alt="Zadnji račun i najjeftinija trgovina"></div><h3>Vidi odmah je li jeftinije</h3><p>Svaki skenirani račun automatski pokazuje je li artikl na akciji, je li jeftiniji drugdje ili već kupuješ po najboljoj cijeni — bez ijednog dodatnog koraka.</p>
         </article>
         <article class="card featured teal-tint">
-          <h3>Pronađi najbolju kupovinu</h3><p>Dodaj artikle na listu i jednim dodirom usporedi ukupnu cijenu košarice u svim tvojim trgovinama — rangirano, s prikazom uštede.</p>
+          <div class="thumb"><img src="/img/hr2-t-podium.jpg" width="520" loading="lazy" alt="Najbolja kupovina po trgovinama"></div><h3>Pronađi najbolju kupovinu</h3><p>Dodaj artikle na listu i jednim dodirom usporedi ukupnu cijenu košarice u svim tvojim trgovinama — rangirano, s prikazom uštede. Dodirni najbolju opciju i Google Maps otvara rutu do te trgovine.</p>
         </article>
-        <article class="card featured">
-          <h3>Ruta do najbolje trgovine</h3><p>Tap na najbolju opciju u rang-listi odmah otvara Google Maps s rutom do te trgovine.</p>
-        </article>
-      </div>
+        </div>
     
             <div class="card-grid three pi-more" style="margin-top:22px;">
-        <article class="card featured"><h3>Skeniraj barkod</h3><p>Vidi cijenu bilo kojeg proizvoda u svim svojim trgovinama, po kilogramu ili litri, s istaknutim akcijama.</p></article>
-        <article class="card featured"><h3>Pitaj glasom</h3><p>Diktiraj „najjeftinija čokolada 100 g s lješnjakom” i Nocito pretražuje cjenike umjesto tebe.</p></article>
-        <article class="card featured"><h3>Upozorenja o cijenama</h3><p>Dobij obavijest kad artikl koji kupuješ dođe na akciju ili cijena padne ispod one koju si platio.</p></article>
+        <article class="card featured"><div class="thumb"><img src="/img/hr2-t-skeniraj.jpg" width="520" loading="lazy" alt="Pločica Skeniraj"></div><h3>Skeniraj barkod</h3><p>Vidi cijenu bilo kojeg proizvoda u svim svojim trgovinama, po kilogramu ili litri, s istaknutim akcijama.</p></article>
+        <article class="card featured"><div class="thumb"><img src="/img/hr2-t-reci.jpg" width="520" loading="lazy" alt="Pločica Reci artikl"></div><h3>Pitaj glasom</h3><p>Diktiraj „najjeftinija čokolada 100 g s lješnjakom” i Nocito pretražuje cjenike umjesto tebe.</p></article>
+        <article class="card featured"><div class="thumb"><img src="/img/hr2-t-akcije.jpg" width="520" loading="lazy" alt="Akcije za tvoje artikle"></div><h3>Upozorenja o cijenama</h3><p>Dobij obavijest kad artikl koji kupuješ dođe na akciju ili cijena padne ispod one koju si platio.</p></article>
       </div>
       <p class="pi-chains">Cjenici 10 lanaca: Konzum, Lidl, Plodine, Spar, Tommy, Studenac, Kaufland, Eurospin, NTL i KTC. Najbolju kupovinu usporedi kao popis ili tablicu, a sve naučiš kroz vodič od 19 koraka.</p>
-      <div class="card-grid three pi-more" style="margin-top:22px;">
-        <article class="card featured"><h3>Provjereno</h3><p>Sve što skeniraš ili diktiraš ostaje u Provjereno, s cijenama po trgovini i zvonom za upozorenja.</p></article>
+      <div class="card-grid two pi-more" style="margin-top:22px;">
         <article class="card featured"><h3>Vagani artikli</h3><p>Vagana stavka pokazuje plaćeni iznos i „vagano: 0,442 kg × 9,99 €/kg”.</p></article>
         <article class="card featured"><h3>Sporni artikli</h3><p>Kartice povlačenjem pokazuju zašto je artikl sporan: je li isto pakiranje i kolika je razlika u cijeni.</p></article>
       </div>
