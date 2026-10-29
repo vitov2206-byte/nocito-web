@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>News — Nocito</title>
+<meta name="description" content="What is new in the Nocito app: the change list per version, newest first." />
+<meta property="og:title" content="News — Nocito" />
+<meta property="og:description" content="What is new in the Nocito app, by version." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://nocito.app/news/" />
+<meta name="theme-color" content="#1B2A4A" />
+<link rel="canonical" href="https://nocito.app/news/" />
+<link rel="alternate" hreflang="en" href="https://nocito.app/news/" />
+<link rel="alternate" hreflang="hr" href="https://nocito.app/hr/novosti/" />
+<link rel="alternate" hreflang="x-default" href="https://nocito.app/news/" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0F1B2D; --bg-2: #0B1422; --navy: #1B2A4A; --panel: #1E3158;
+    --text: #F5EDD6; --muted: #9AAABB; --muted-2: #6B7A90; --line: rgba(255,255,255,.10);
+    --amber: #F5A623; --amber-2: #D88A12; --teal: #2A9D8F; --teal-2: #1D6B61;
+    --shadow: 0 24px 70px rgba(0,0,0,.35);
+    --radius-xl: 30px; --radius-lg: 22px;
+    --container: 1120px;
+    --font-head: 'Space Grotesk', sans-serif; --font-body: 'DM Sans', sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body {
+    margin: 0; font-family: var(--font-body); color: var(--text); overflow-x: hidden;
+    background:
+      radial-gradient(circle at 18% 0%, rgba(245,166,35,.10), transparent 26%),
+      radial-gradient(circle at 88% 20%, rgba(42,157,143,.14), transparent 28%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 52%, #070D18 100%);
+    line-height: 1.6; min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { width: min(var(--container), calc(100% - 40px)); margin: 0 auto; }
+
+  .nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(15,27,45,.78); border-bottom: 1px solid rgba(255,255,255,.08); }
+  .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; white-space: nowrap; }
+  .brand-icon { width: 36px; height: 36px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .brand-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .brand-name { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; color: var(--text); white-space: nowrap; }
+  .brand-name span { color: var(--amber); }
+  .brand-name sup { font-size: 0.55em; color: var(--muted); font-weight: 400; vertical-align: super; }
+  .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: .92rem; }
+  .nav-links a:hover { color: var(--text); }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 0 20px; border-radius: 999px; font-weight: 700; font-family: var(--font-body); border: 1px solid transparent; transition: transform .18s ease; white-space: nowrap; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { color: var(--navy); background: linear-gradient(180deg, var(--amber), var(--amber-2)); box-shadow: 0 16px 38px rgba(245,166,35,.25); }
+  .btn-secondary { color: var(--text); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
+
+  .section { padding: 84px 0; }
+  .section-tight { padding: 52px 0; }
+
+  .hero { padding: 72px 0 56px; text-align: center; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; background: rgba(245,166,35,.12); border: 1px solid rgba(245,166,35,.25); color: var(--amber); font-weight: 700; font-size: .85rem; margin-bottom: 22px; }
+  h1, h2, h3, p { margin-top: 0; font-family: var(--font-body); }
+  h1, h2, h3 { font-family: var(--font-head); }
+  h1 { font-weight: 700; font-size: clamp(2.6rem, 6.5vw, 4.6rem); line-height: 1.02; letter-spacing: -.035em; margin: 0 auto 20px; max-width: 780px; }
+  h1 .accent { color: var(--amber); }
+  .hero-copy { color: var(--muted); font-size: clamp(1.02rem, 1.6vw, 1.18rem); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+
+  .section-head { max-width: 720px; margin-bottom: 36px; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .kicker { color: var(--teal); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; margin-bottom: 12px; }
+  .kicker.amber { color: var(--amber); }
+  h2 { font-weight: 700; font-size: clamp(1.6rem, 3.4vw, 2.4rem); line-height: 1.14; letter-spacing: -.02em; margin-bottom: 14px; }
+  .section-head p { color: var(--muted); font-size: 1.0rem; margin: 0; line-height: 1.7; }
+
+  .product-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .product-card { background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px; display: flex; flex-direction: column; box-shadow: 0 18px 44px rgba(0,0,0,.16); }
+  .product-card.available { border-color: rgba(245,166,35,.32); background: linear-gradient(180deg, rgba(245,166,35,.09), rgba(255,255,255,.02)); }
+  .product-card.soon { border-color: rgba(42,157,143,.3); background: linear-gradient(180deg, rgba(42,157,143,.08), rgba(255,255,255,.02)); }
+  .product-card.future { opacity: .8; }
+  .icon { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; margin-bottom: 16px; font-size: 1.25rem; background: rgba(245,166,35,.13); color: var(--amber); }
+  .icon.teal { background: rgba(42,157,143,.13); color: var(--teal); }
+  .icon.slate { background: rgba(136,153,170,.13); color: var(--muted); }
+  .status-tag { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+  .status-tag.available { color: var(--amber); }
+  .status-tag.soon { color: var(--teal); }
+  .status-tag.future { color: var(--muted-2); }
+  .product-card h3 { font-size: 1.2rem; margin-bottom: 9px; }
+  .product-card p { color: var(--muted); font-size: .92rem; line-height: 1.65; margin-bottom: 18px; flex: 1; }
+  .card-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: .88rem; }
+  .card-link.amber { color: var(--amber); }
+  .card-link.teal { color: var(--teal); }
+
+  .pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .pillar { text-align: center; padding: 22px 14px; }
+  .pillar .icon { margin: 0 auto 14px; background: rgba(42,157,143,.13); color: var(--teal); }
+  .pillar h3 { font-size: 1.0rem; margin-bottom: 6px; }
+  .pillar p { color: var(--muted-2); font-size: .85rem; margin: 0; }
+
+  .quote-band { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: linear-gradient(90deg, rgba(245,166,35,.07), rgba(255,255,255,.02), rgba(42,157,143,.06)); }
+  .quote { max-width: 820px; margin: 0 auto; text-align: center; font-family: var(--font-head); font-weight: 700; font-size: clamp(1.4rem, 3.2vw, 2.2rem); line-height: 1.2; letter-spacing: -.025em; color: var(--text); }
+  .quote strong { color: var(--amber); }
+
+  footer { padding: 30px 0 48px; color: var(--muted-2); border-top: 1px solid var(--line); font-size: .9rem; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+  .footer-links a:hover { color: var(--text); }
+
+  .lang-switcher { position: relative; display: inline-block; }
+  .lang-trigger { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); color: #F5EDD6; font-size: .85rem; font-weight: 700; font-family: var(--font-body); cursor: pointer; white-space: nowrap; }
+  .lang-menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; z-index: 200; background: #1E3158; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; padding: 6px; min-width: 140px; box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+  .lang-switcher.open .lang-menu { display: block; }
+  .lang-menu a { display: block; padding: 10px 13px; border-radius: 9px; color: #C4D0DE; font-size: .88rem; font-weight: 500; text-decoration: none; }
+  .lang-menu a:hover { background: rgba(255,255,255,.08); color: #F5EDD6; }
+  .lang-menu a.active { color: #F5A623; font-weight: 700; background: rgba(245,166,35,.1); }
+
+  @media (max-width: 980px) {
+    .product-grid, .pillars { grid-template-columns: repeat(2,1fr); }
+    .nav-links > a:not(.nav-cta) { display: none; }
+  }
+  @media (max-width: 640px) {
+    .container { width: min(100% - 28px, var(--container)); }
+    .nav-inner { min-height: 64px; gap: 10px; }
+    /* hub-nav-fit: keep brand + language + CTA inside narrow phones */
+    .nav-links { gap: 8px; } .nav-cta { white-space: nowrap; min-height: 40px; padding: 0 14px; font-size: .8rem; } .lang-trigger { padding: 6px 9px; }
+    .section { padding: 56px 0; }
+    .hero { padding: 44px 0 40px; }
+    .product-grid, .pillars { grid-template-columns: 1fr; }
+  }
+  .product-grid { grid-template-columns: repeat(2,1fr); gap: 24px; }
+  .product-card { padding: 28px 28px 0; overflow: hidden; }
+  .product-card.future { grid-column: 1 / -1; padding: 22px 28px; }
+  .product-card p { margin-bottom: 14px; }
+  .prod-media { order: 9; position: relative; height: 290px; overflow: hidden; margin: 14px -28px 0; display: flex; justify-content: center; align-items: flex-start; gap: 16px; padding-top: 14px; }
+  .prod-media::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 60px; background: linear-gradient(rgba(15,27,45,0), rgba(15,27,45,.85)); pointer-events: none; }
+  .prod-media .shot { width: 42%; max-width: 205px; border: 7px solid #08101d; border-bottom: 0; border-radius: 28px 28px 0 0; background: #08101d; box-shadow: 0 22px 50px rgba(0,0,0,.5); overflow: hidden; padding: 0; }
+  .prod-media .shot img { width: 100%; height: auto; display: block; border-radius: 0; }
+  .prod-media .shot:first-child { transform: rotate(-3deg); transform-origin: bottom center; }
+  .prod-media .shot + .shot { margin-top: 34px; transform: rotate(3deg); transform-origin: bottom center; }
+  @media (max-width: 760px) { .product-grid { grid-template-columns: 1fr; } .prod-media { height: 250px; } .prod-media .shot { max-width: 170px; } }
+  /* lightbox */
+  [data-lg] { cursor: zoom-in; }
+  .lbx { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; padding: 22px; background: rgba(5,10,20,.9); backdrop-filter: blur(6px); }
+  .lbx.open { display: flex; }
+  .lbx img { max-width: 94vw; max-height: 92vh; width: auto; height: auto; border-radius: 20px; box-shadow: 0 30px 90px rgba(0,0,0,.6); }
+  .lbx button { position: absolute; top: 14px; right: 18px; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #F5EDD6; font-size: 26px; line-height: 1; cursor: pointer; }
+  .card-price { margin: -4px 0 14px; font-size: .84rem; color: var(--muted); }
+  .card-price a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+  .card-price a:hover { color: var(--text); }
+
+  .news-hero { padding: 64px 0 18px; }
+  .news-hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 10px 0 12px; letter-spacing: -.02em; }
+  .news-hero p { color: var(--muted); max-width: 56ch; margin: 0; font-size: 1.05rem; }
+  .news-wrap { max-width: 780px; margin: 0 auto; }
+  .release { border: 1px solid var(--line); border-radius: var(--radius-xl); padding: 34px 36px 30px; background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015)); box-shadow: var(--shadow); }
+  .release-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+  .release-head h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 0; }
+  .release-date { color: var(--teal); font-weight: 600; letter-spacing: .04em; font-size: .9rem; }
+  .release h3 { font-size: 1.02rem; letter-spacing: .02em; color: var(--text); margin: 28px 0 10px; }
+  .release h3::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--amber); margin-right: 10px; vertical-align: 1px; }
+  .release ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; }
+  .release li { color: var(--muted); line-height: 1.6; padding-left: 18px; position: relative; }
+  .release li::before { content: ""; position: absolute; left: 0; top: .68em; width: 6px; height: 1px; background: var(--muted-2); }
+  .release-foot { margin: 26px 0 0; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted-2); font-size: .9rem; }
+  .news-back { display: inline-block; margin-top: 22px; color: var(--muted); text-decoration: none; font-size: .92rem; }
+  .news-back:hover { color: var(--text); }
+  @media (max-width: 640px) { .news-hero { padding: 40px 0 10px; } .release { padding: 24px 20px 22px; border-radius: 24px; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="/" aria-label="Nocito home">
+      <span class="brand-icon"><img src="/icon.png" alt="Nocito icon"></span>
+      <span class="brand-name">No<span>c</span>ito<sup>™</sup></span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="https://nocito.app/#products">Products</a>
+      <a href="https://nocito.app/#vision">Vision</a>
+      <a href="https://nocito.app/#privacy">Privacy</a>
+      <div class="lang-switcher" id="langSwitcher">
+        <button type="button" class="lang-trigger" id="langTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Language / Jezik">
+          🌐 <span>EN</span>
+          <span style="font-size:.65em;color:#8899AA">▾</span>
+        </button>
+        <div class="lang-menu" id="langMenu" role="menu">
+          <a href="https://nocito.app/news/" hreflang="en" role="menuitem" class="active">English</a>
+          <a href="https://nocito.app/hr/novosti/" hreflang="hr" role="menuitem">Hrvatski</a>
+        </div>
+      </div>
+      <a class="btn btn-primary nav-cta" href="https://nocito.app/expense-tracker/">Try Nocito</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="news-hero">
+    <div class="container news-wrap">
+      <div class="eyebrow">News</div>
+      <h1>What is new in Nocito</h1>
+      <p>The change list per version, newest first.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container news-wrap">
+      <article class="release" id="v1-2-0">
+        <div class="release-head">
+          <h2>Nocito 1.2.0 — what’s new</h2>
+          <span class="release-date">RELEASE_DATE</span>
+        </div>
+        <h3>New home screen (Croatian, Price Intelligence)</h3>
+        <ul>
+          <li>One big card shows right away where your basket is cheaper and how much you save, with a bar per store.</li>
+          <li>Below it are four tiles: your items on sale, barcode scan, voice search and my items.</li>
+          <li>Adding an expense is behind one “+” button: snap a receipt, dictate, import or type it in.</li>
+          <li>The row with your stores and the “+” stays at the bottom of the screen, so nothing overlaps on smaller phones.</li>
+        </ul>
+        <h3>Shopping list</h3>
+        <ul>
+          <li>Make a list that looks like a rolled piece of paper and just tick items off in the store.</li>
+          <li>Add items by typing, from your own items, by voice or by scanning a barcode.</li>
+          <li>Each list is remembered by its date. You can open an old list, copy it into a new one or delete it.</li>
+          <li>Send the list as a message (for example on WhatsApp) and import a list when someone sends you theirs.</li>
+          <li>One tap compares the prices of the items on your list across your stores.</li>
+        </ul>
+        <h3>Prices and comparisons</h3>
+        <ul>
+          <li>“Provjereno” (Checked): everything you scanned or spoke, with prices per store and a bell to follow a deal.</li>
+          <li>Best basket: a comparison of the whole basket by store; the first one is the cheapest.</li>
+          <li>“Poveži s cjenicima” (Link to price lists): cards you swipe left or right. At the end of a round it says how many items are still waiting and you can carry on.</li>
+          <li>Price changes and What you could have saved: two new reports. If you do not have enough receipts with items, the app offers to pull them out of old receipts and tells you how many scans that uses.</li>
+          <li>The Kaufland price list was added, and price lists also refresh in the morning, on their own (when Android allows it).</li>
+          <li>More accurate AI matching of the same items across different stores.</li>
+        </ul>
+        <h3>Scanning and input</h3>
+        <ul>
+          <li>Receipt scanning goes through Google’s document scanner (up to 10 pages at once). A note on the screen says: lay the receipt flat, without creases.</li>
+          <li>“Skeniraj” (Scan) on the home screen reads only the barcode, with no pressing at all.</li>
+          <li>A receipt with weighed items (fruit, ham) shows the total amount and the “Cijena po kg” (price per kg).</li>
+        </ul>
+        <h3>Guided tour and free packs</h3>
+        <ul>
+          <li>A 19-step guided tour of the app, as an introduction or later in “Opcije” (Settings).</li>
+          <li>The free version has a bigger pack in the first 30 days (15 receipt scans, 5 dictations, 300 AI links), and a smaller monthly one after that.</li>
+          <li>The savings card is called “Ušteda na tvojim računima” (Savings on your receipts) and clearly says what it counts.</li>
+          <li>The price reports sit right below the Price Intelligence card in the “Cijene” (Prices) tab.</li>
+        </ul>
+        <h3>Fixes</h3>
+        <ul>
+          <li>Pro subscription: Pro no longer switches on just because the Google window opened. It switches on only once Google confirms the payment; when a subscription expires, the limits go back to the free ones (your data stays).</li>
+          <li>The card on the home screen no longer stays on “Povezujem tvoje artikle…” (Linking your items…) after the first receipt.</li>
+          <li>The badge on “Poveži s cjenicima” counts only what you can actually review.</li>
+          <li>The glowing “+” no longer touches the “Moji artikli” (My items) tile.</li>
+        </ul>
+        <h3>Coming next</h3>
+        <ul>
+          <li>Prices and statistics separated (suggestion: statistics go with Receipts).</li>
+          <li>A guided tour adapted to the shopping list and the reports.</li>
+          <li>Sharing a list with a link that opens directly in Nocito.</li>
+        </ul>
+        <p class="release-foot">Price comparisons work with Croatian stores.</p>
+      </article>
+      <a class="news-back" href="/">← Nocito Private Apps</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 Nocito™ · nocito.app</div>
+    <div class="footer-links">
+      <a href="https://nocito.app/privacy.html">Privacy Policy</a>
+      <a href="https://nocito.app/terms.html">Terms of Service</a>
+      <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var wrap = document.getElementById('langSwitcher');
+    var trigger = document.getElementById('langTrigger');
+    if (!wrap || !trigger) return;
+    function close() { wrap.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); }
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = wrap.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    window.addEventListener('scroll', close, { passive: true });
+  })();
+</script>
+</body>
+</html>
