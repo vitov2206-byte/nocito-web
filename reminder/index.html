@@ -269,7 +269,20 @@
   .lbx.open { display: flex; }
   .lbx img { max-width: 94vw; max-height: 92vh; width: auto; height: auto; border-radius: 20px; box-shadow: 0 30px 90px rgba(0,0,0,.6); }
   .lbx button { position: absolute; top: 14px; right: 18px; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #F5EDD6; font-size: 26px; line-height: 1; cursor: pointer; }
+  .card .thumb, .price-card .thumb { margin: -6px -6px 16px; border-radius: 16px; overflow: hidden; background: #0b1422; border: 1px solid rgba(255,255,255,.08); }
+  .card .thumb img, .price-card .thumb img { display: block; width: 100%; height: auto; aspect-ratio: 2.4 / 1; object-fit: cover; }
+  .rgal { max-width: 1040px; margin: 34px auto 0; padding: 30px 30px 0; border-radius: 30px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,.09); background: radial-gradient(90% 80% at 88% 6%, rgba(245,166,35,.16), transparent 60%), radial-gradient(80% 90% at 8% 100%, rgba(42,157,143,.2), transparent 62%), #12233f; }
+  .rgal::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: linear-gradient(rgba(18,35,63,0), rgba(18,35,63,.96)); pointer-events: none; }
+  .rgal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .rgal figure { margin: 0; display: flex; flex-direction: column-reverse; }
+  .rgal figure:nth-child(even) { margin-top: 38px; }
+  .rgal figcaption { text-align: center; color: var(--text); font-weight: 600; font-size: .9rem; line-height: 1.4; margin-bottom: 16px; min-height: 2.5em; }
+  .rgal .shot { height: 330px; overflow: hidden; border: 8px solid #08101d; border-bottom: 0; border-radius: 30px 30px 0 0; background: #08101d; box-shadow: 0 24px 50px rgba(0,0,0,.5); }
+  .rgal .shot img { width: 100%; height: auto; display: block; }
+  @media (max-width: 980px) { .rgal-grid { grid-template-columns: repeat(2, 1fr); } .rgal figure:nth-child(even) { margin-top: 0; } .rgal .shot { height: 280px; } }
+  @media (max-width: 640px) { .rgal { padding: 22px 16px 0; } .rgal-grid { gap: 14px; } .rgal .shot { height: 240px; } }
 </style>
+<!-- rem-sync-images -->
 </head>
 <body>
 
@@ -352,31 +365,37 @@
   <section class="section-tight" id="features">
     <div class="container card-grid">
       <article class="card">
+        <div class="thumb"><img src="/img/rem2-t-privateai.jpg" width="640" height="267" loading="lazy" alt="Processing screen: everything stays on this device"></div>
         <span class="tag">Private AI</span>
         <h3>Private AI, not a cloud assistant</h3>
         <p>Your speech and AI organization are processed on your phone, not uploaded to a cloud AI service.</p>
       </article>
       <article class="card">
+        <div class="thumb"><img src="/img/rem2-t-items.jpg" width="640" height="267" loading="lazy" alt="Inbox with a reminder and a note"></div>
         <span class="tag">More than a reminder</span>
         <h3>Tasks, notes, reminders and events</h3>
         <p>Keep them together, organized into your own lists and priorities.</p>
       </article>
       <article class="card">
+        <div class="thumb"><img src="/img/rem2-t-routines.jpg" width="640" height="267" loading="lazy" alt="Repeat options: does not repeat, daily, weekdays"></div>
         <span class="tag">Routines</span>
         <h3>Make repeat routines easier</h3>
         <p>Set weekdays, selected days, custom intervals and advance alerts without rebuilding the same reminder each time.</p>
       </article>
       <article class="card">
+        <div class="thumb"><img src="/img/rem2-t-review.jpg" width="640" height="267" loading="lazy" alt="Review screen with the due time in large figures"></div>
         <span class="tag">Review</span>
         <h3>Review when you're ready</h3>
         <p>Check what Nocito understood, edit the details, and listen to the original recording when you need context.</p>
       </article>
       <article class="card">
+        <div class="thumb"><img src="/img/rem2-t-data.jpg" width="640" height="267" loading="lazy" alt="Keep recordings: forever, 30 days, 7 days or delete after processing"></div>
         <span class="tag">Your data</span>
         <h3>Your information stays yours</h3>
         <p>Choose recording retention and make local backups or exports. Sharing is your choice.</p>
       </article>
       <article class="card featured">
+        <div class="thumb"><img src="/img/rem2-t-price.jpg" width="640" height="267" loading="lazy" alt="Private AI access: lifetime unlock, no subscription"></div>
         <span class="tag amber">One price</span>
         <h3>Start free. Unlock voice once.</h3>
         <p>Manual entry stays free. Try voice and AI, then keep using them with a one-time purchase — no subscription.</p>
@@ -405,7 +424,23 @@
     </div>
   </section>
 
-  <section class="section-tight">
+    <section class="section-tight">
+    <div class="container">
+      <div class="section-head center tight-head">
+        <div class="kicker">Capture</div>
+        <h2>Say it, then watch it work</h2>
+        <p>From the first tap to the finished item. Everything runs on your phone, and Nocito tells you when it is waiting and why.</p>
+      </div>
+      <div class="rgal"><div class="rgal-grid">
+        <figure><div class="shot"><img src="/img/rem2-voice.jpg" data-lg="/img/lg-rem2-voice.jpg" width="600" height="1171" loading="lazy" alt="Voice capture screen: listening, timer and waveform"></div><figcaption>Listening: tap to finish, silence stops it</figcaption></figure>
+        <figure><div class="shot"><img src="/img/rem2-working.jpg" data-lg="/img/lg-rem2-working.jpg" width="600" height="1171" loading="lazy" alt="Voice processing: text organization in progress on this device"></div><figcaption>Working on your phone</figcaption></figure>
+        <figure><div class="shot"><img src="/img/rem2-waiting.jpg" data-lg="/img/lg-rem2-waiting.jpg" width="600" height="1171" loading="lazy" alt="Waiting for more free memory; your capture is saved"></div><figcaption>Short on memory? It waits and says why</figcaption></figure>
+        <figure><div class="shot"><img src="/img/rem2-retry.jpg" data-lg="/img/lg-rem2-retry.jpg" width="600" height="1171" loading="lazy" alt="Review or retry with Try again and Delete recording"></div><figcaption>Try again or delete the recording</figcaption></figure>
+      </div></div>
+    </div>
+  </section>
+
+<section class="section-tight">
     <div class="container">
       <div class="section-head center tight-head">
         <div class="kicker">Try saying</div>
@@ -524,7 +559,23 @@
     </div>
   </section>
 
-  <section class="section-tight">
+    <section class="section-tight">
+    <div class="container">
+      <div class="section-head center tight-head">
+        <div class="kicker">In Settings</div>
+        <h2>Everything you control, in one place</h2>
+        <p>Models, alarms, recordings and feedback sit in Settings. Nothing is hidden and nothing is sent without you choosing it.</p>
+      </div>
+      <div class="rgal"><div class="rgal-grid">
+        <figure><div class="shot"><img src="/img/rem2-models.jpg" data-lg="/img/lg-rem2-models.jpg" width="600" height="1171" loading="lazy" alt="AI models: voice essentials, medium AI and large AI"></div><figcaption>AI models: download, check, remove</figcaption></figure>
+        <figure><div class="shot"><img src="/img/rem2-notif.jpg" data-lg="/img/lg-rem2-notif.jpg" width="600" height="1171" loading="lazy" alt="Notifications: permissions allowed and a test reminder in one minute"></div><figcaption>Alarm permissions and a one-minute test</figcaption></figure>
+        <figure><div class="shot"><img src="/img/rem2-reports.jpg" data-lg="/img/lg-rem2-reports.jpg" width="600" height="1171" loading="lazy" alt="Feedback screen with optional error reports, off by default"></div><figcaption>Optional error reports, off by default</figcaption></figure>
+        <figure><div class="shot"><img src="/img/rem2-tips.jpg" data-lg="/img/lg-rem2-tips.jpg" width="600" height="1171" loading="lazy" alt="How to dictate: examples and tips"></div><figcaption>How to dictate: examples and tips</figcaption></figure>
+      </div></div>
+    </div>
+  </section>
+
+<section class="section-tight">
     <div class="container">
       <div class="section-head center">
         <div class="kicker">Before you install</div>
@@ -532,9 +583,9 @@
         <p>Private AI runs on your phone, so it needs room and a capable device. We would rather tell you now than after you install.</p>
       </div>
       <div class="card-grid">
-        <article class="card"><h3>Setup download</h3><p>The recommended setup downloads about 4.75 GB of AI models on a fresh install, plus free space for setup and your data. You can postpone it and use manual entry.</p></article>
-        <article class="card"><h3>Compatible phones</h3><p>Android 8 or later on a 64-bit ARM phone. Larger models need more free memory; not every phone suits every model. No iOS version.</p></article>
-        <article class="card"><h3>English only</h3><p>The first release supports English only.</p></article>
+        <article class="card"><div class="thumb"><img src="/img/rem2-t-setup.jpg" width="640" height="267" loading="lazy" alt="AI models: voice essentials and medium AI, ready"></div><h3>Setup download</h3><p>The recommended setup downloads about 4.75 GB of AI models on a fresh install, plus free space for setup and your data. You can postpone it and use manual entry.</p></article>
+        <article class="card"><div class="thumb"><img src="/img/rem2-t-phones.jpg" width="640" height="267" loading="lazy" alt="AI models: medium and large model sizes"></div><h3>Compatible phones</h3><p>Android 8 or later on a 64-bit ARM phone. Larger models need more free memory; not every phone suits every model. No iOS version.</p></article>
+        <article class="card"><div class="thumb"><img src="/img/rem2-t-english.jpg" width="640" height="267" loading="lazy" alt="How to dictate: examples in English"></div><h3>English only</h3><p>The first release supports English only.</p></article>
       </div>
     </div>
   </section>
@@ -548,6 +599,7 @@
       </div>
       <div class="pricing">
         <div class="price-card">
+          <div class="thumb"><img src="/img/rem2-t-free.jpg" width="640" height="267" loading="lazy" alt="Typed note with Save and AI organize buttons"></div>
           <h3>Free</h3>
           <p class="price-sub-label">No account needed</p>
           <div class="price">€0</div>
@@ -559,6 +611,7 @@
           </ul>
         </div>
         <div class="price-card featured" data-badge="No subscription">
+          <div class="thumb"><img src="/img/rem2-t-price.jpg" width="640" height="267" loading="lazy" alt="Private AI access: lifetime unlock, no subscription"></div>
           <h3>Voice and AI unlock</h3>
           <p class="price-sub-label">One-time in-app purchase</p>
           <div class="price amber-text">€3.99</div>

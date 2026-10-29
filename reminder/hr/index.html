@@ -269,7 +269,20 @@
   .lbx.open { display: flex; }
   .lbx img { max-width: 94vw; max-height: 92vh; width: auto; height: auto; border-radius: 20px; box-shadow: 0 30px 90px rgba(0,0,0,.6); }
   .lbx button { position: absolute; top: 14px; right: 18px; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #F5EDD6; font-size: 26px; line-height: 1; cursor: pointer; }
+  .card .thumb, .price-card .thumb { margin: -6px -6px 16px; border-radius: 16px; overflow: hidden; background: #0b1422; border: 1px solid rgba(255,255,255,.08); }
+  .card .thumb img, .price-card .thumb img { display: block; width: 100%; height: auto; aspect-ratio: 2.4 / 1; object-fit: cover; }
+  .rgal { max-width: 1040px; margin: 34px auto 0; padding: 30px 30px 0; border-radius: 30px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,.09); background: radial-gradient(90% 80% at 88% 6%, rgba(245,166,35,.16), transparent 60%), radial-gradient(80% 90% at 8% 100%, rgba(42,157,143,.2), transparent 62%), #12233f; }
+  .rgal::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: linear-gradient(rgba(18,35,63,0), rgba(18,35,63,.96)); pointer-events: none; }
+  .rgal-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .rgal figure { margin: 0; display: flex; flex-direction: column-reverse; }
+  .rgal figure:nth-child(even) { margin-top: 38px; }
+  .rgal figcaption { text-align: center; color: var(--text); font-weight: 600; font-size: .9rem; line-height: 1.4; margin-bottom: 16px; min-height: 2.5em; }
+  .rgal .shot { height: 330px; overflow: hidden; border: 8px solid #08101d; border-bottom: 0; border-radius: 30px 30px 0 0; background: #08101d; box-shadow: 0 24px 50px rgba(0,0,0,.5); }
+  .rgal .shot img { width: 100%; height: auto; display: block; }
+  @media (max-width: 980px) { .rgal-grid { grid-template-columns: repeat(2, 1fr); } .rgal figure:nth-child(even) { margin-top: 0; } .rgal .shot { height: 280px; } }
+  @media (max-width: 640px) { .rgal { padding: 22px 16px 0; } .rgal-grid { gap: 14px; } .rgal .shot { height: 240px; } }
 </style>
+<!-- rem-sync-images -->
 </head>
 <body>
 
@@ -352,31 +365,37 @@
   <section class="section-tight" id="features">
     <div class="container card-grid">
       <article class="card">
+        <div class="thumb"><img src="/img/rem2-t-privateai.jpg" width="640" height="267" loading="lazy" alt="Zaslon obrade: sve ostaje na ovom uređaju"></div>
         <span class="tag">Privatni AI</span>
         <h3>Privatni AI, ne cloud asistent</h3>
         <p>Tvoj govor i AI organizacija obrađuju se na tvom telefonu, ne šalju se cloud AI servisu.</p>
       </article>
       <article class="card">
+        <div class="thumb"><img src="/img/rem2-t-items.jpg" width="640" height="267" loading="lazy" alt="Inbox s podsjetnikom i bilješkom"></div>
         <span class="tag">Više od podsjetnika</span>
         <h3>Zadaci, bilješke, podsjetnici i događaji</h3>
         <p>Sve na jednom mjestu, posloženo u tvoje popise i prioritete.</p>
       </article>
       <article class="card">
+        <div class="thumb"><img src="/img/rem2-t-routines.jpg" width="640" height="267" loading="lazy" alt="Opcije ponavljanja: ne ponavlja se, dnevno, radnim danom"></div>
         <span class="tag">Rutine</span>
         <h3>Ponavljanja bez muke</h3>
         <p>Postavi radne dane, odabrane dane, vlastite intervale i upozorenja unaprijed, bez ponovnog stvaranja istog podsjetnika.</p>
       </article>
       <article class="card">
+        <div class="thumb"><img src="/img/rem2-t-review.jpg" width="640" height="267" loading="lazy" alt="Zaslon pregleda s velikim prikazom vremena"></div>
         <span class="tag">Pregled</span>
         <h3>Pregledaj kad ti odgovara</h3>
         <p>Provjeri što je Nocito razumio, uredi detalje i preslušaj originalnu snimku kad trebaš kontekst.</p>
       </article>
       <article class="card">
+        <div class="thumb"><img src="/img/rem2-t-data.jpg" width="640" height="267" loading="lazy" alt="Čuvanje snimki: zauvijek, 30 dana, 7 dana ili brisanje nakon obrade"></div>
         <span class="tag">Tvoji podaci</span>
         <h3>Tvoji podaci ostaju tvoji</h3>
         <p>Biraš koliko se čuvaju snimke te radiš lokalne sigurnosne kopije i izvoze. Dijeljenje je tvoj izbor.</p>
       </article>
       <article class="card featured">
+        <div class="thumb"><img src="/img/rem2-t-price.jpg" width="640" height="267" loading="lazy" alt="Private AI access: doživotno otključavanje, bez pretplate"></div>
         <span class="tag amber">Jedna cijena</span>
         <h3>Počni besplatno. Glas otključaj jednom.</h3>
         <p>Ručni unos ostaje besplatan. Isprobaj glas i AI, pa ih nastavi koristiti jednokratnom kupnjom — bez pretplate.</p>
@@ -405,7 +424,23 @@
     </div>
   </section>
 
-  <section class="section-tight">
+    <section class="section-tight">
+    <div class="container">
+      <div class="section-head center tight-head">
+        <div class="kicker">Unos</div>
+        <h2>Izgovori, pa gledaj kako radi</h2>
+        <p>Od prvog dodira do gotove stavke. Sve se događa na tvom telefonu, a Nocito ti kaže kad čeka i zašto.</p>
+      </div>
+      <div class="rgal"><div class="rgal-grid">
+        <figure><div class="shot"><img src="/img/rem2-voice.jpg" data-lg="/img/lg-rem2-voice.jpg" width="600" height="1171" loading="lazy" alt="Zaslon snimanja glasa: slušanje, mjerač vremena i valni oblik"></div><figcaption>Sluša: dodirni za kraj, tišina zaustavlja snimanje</figcaption></figure>
+        <figure><div class="shot"><img src="/img/rem2-working.jpg" data-lg="/img/lg-rem2-working.jpg" width="600" height="1171" loading="lazy" alt="Obrada glasa: organizacija teksta na uređaju je u tijeku"></div><figcaption>Radi na tvom telefonu</figcaption></figure>
+        <figure><div class="shot"><img src="/img/rem2-waiting.jpg" data-lg="/img/lg-rem2-waiting.jpg" width="600" height="1171" loading="lazy" alt="Čeka više slobodne memorije; unos je spremljen"></div><figcaption>Nema memorije? Čeka i kaže zašto</figcaption></figure>
+        <figure><div class="shot"><img src="/img/rem2-retry.jpg" data-lg="/img/lg-rem2-retry.jpg" width="600" height="1171" loading="lazy" alt="Pregled ili ponovni pokušaj s gumbima Try again i Delete recording"></div><figcaption>Pokušaj ponovno ili obriši snimku</figcaption></figure>
+      </div></div>
+    </div>
+  </section>
+
+<section class="section-tight">
     <div class="container">
       <div class="section-head center tight-head">
         <div class="kicker">Probaj reći</div>
@@ -524,7 +559,23 @@
     </div>
   </section>
 
-  <section class="section-tight">
+    <section class="section-tight">
+    <div class="container">
+      <div class="section-head center tight-head">
+        <div class="kicker">U postavkama</div>
+        <h2>Sve što kontroliraš, na jednom mjestu</h2>
+        <p>Modeli, alarmi, snimke i povratne informacije su u Settings. Ništa nije skriveno i ništa se ne šalje bez tvog izbora.</p>
+      </div>
+      <div class="rgal"><div class="rgal-grid">
+        <figure><div class="shot"><img src="/img/rem2-models.jpg" data-lg="/img/lg-rem2-models.jpg" width="600" height="1171" loading="lazy" alt="AI modeli: osnove glasa, srednji AI i veliki AI"></div><figcaption>AI modeli: preuzmi, provjeri, ukloni</figcaption></figure>
+        <figure><div class="shot"><img src="/img/rem2-notif.jpg" data-lg="/img/lg-rem2-notif.jpg" width="600" height="1171" loading="lazy" alt="Obavijesti: dozvole su uključene i probni podsjetnik za jednu minutu"></div><figcaption>Dozvole za alarme i probni podsjetnik</figcaption></figure>
+        <figure><div class="shot"><img src="/img/rem2-reports.jpg" data-lg="/img/lg-rem2-reports.jpg" width="600" height="1171" loading="lazy" alt="Zaslon Feedback s opcionalnim izvještajima o greškama, isključenim po zadanom"></div><figcaption>Opcionalni izvještaji o greškama, isključeni po zadanom</figcaption></figure>
+        <figure><div class="shot"><img src="/img/rem2-tips.jpg" data-lg="/img/lg-rem2-tips.jpg" width="600" height="1171" loading="lazy" alt="Kako diktirati: primjeri i savjeti"></div><figcaption>Kako diktirati: primjeri i savjeti</figcaption></figure>
+      </div></div>
+    </div>
+  </section>
+
+<section class="section-tight">
     <div class="container">
       <div class="section-head center">
         <div class="kicker">Prije instalacije</div>
@@ -532,9 +583,9 @@
         <p>Privatni AI radi na tvom telefonu, zato traži prostor i sposoban uređaj. Radije ti to kažemo sad nego nakon instalacije.</p>
       </div>
       <div class="card-grid">
-        <article class="card"><h3>Preuzimanje pri postavljanju</h3><p>Preporučeno postavljanje preuzima oko 4,75 GB AI modela na svježoj instalaciji, uz slobodan prostor za postavljanje i tvoje podatke. Možeš ga odgoditi i koristiti ručni unos.</p></article>
-        <article class="card"><h3>Kompatibilni telefoni</h3><p>Android 8 ili noviji na 64-bitnom ARM telefonu. Veći modeli traže više slobodne memorije; svaki model ne odgovara svakom telefonu. Nema iOS verzije.</p></article>
-        <article class="card"><h3>Samo engleski</h3><p>Prvo izdanje aplikacije podržava samo engleski. Ova hrvatska stranica je prijevod stranice, ne aplikacije.</p></article>
+        <article class="card"><div class="thumb"><img src="/img/rem2-t-setup.jpg" width="640" height="267" loading="lazy" alt="AI modeli: osnove glasa i srednji AI, spremno"></div><h3>Preuzimanje pri postavljanju</h3><p>Preporučeno postavljanje preuzima oko 4,75 GB AI modela na svježoj instalaciji, uz slobodan prostor za postavljanje i tvoje podatke. Možeš ga odgoditi i koristiti ručni unos.</p></article>
+        <article class="card"><div class="thumb"><img src="/img/rem2-t-phones.jpg" width="640" height="267" loading="lazy" alt="AI modeli: srednji i veliki model"></div><h3>Kompatibilni telefoni</h3><p>Android 8 ili noviji na 64-bitnom ARM telefonu. Veći modeli traže više slobodne memorije; svaki model ne odgovara svakom telefonu. Nema iOS verzije.</p></article>
+        <article class="card"><div class="thumb"><img src="/img/rem2-t-english.jpg" width="640" height="267" loading="lazy" alt="Kako diktirati: primjeri na engleskom"></div><h3>Samo engleski</h3><p>Prvo izdanje aplikacije podržava samo engleski. Ova hrvatska stranica je prijevod stranice, ne aplikacije.</p></article>
       </div>
     </div>
   </section>
@@ -548,6 +599,7 @@
       </div>
       <div class="pricing">
         <div class="price-card">
+          <div class="thumb"><img src="/img/rem2-t-free.jpg" width="640" height="267" loading="lazy" alt="Upisana bilješka s gumbima Save i AI organize"></div>
           <h3>Besplatno</h3>
           <p class="price-sub-label">Račun nije potreban</p>
           <div class="price">0 €</div>
@@ -559,6 +611,7 @@
           </ul>
         </div>
         <div class="price-card featured" data-badge="Bez pretplate">
+          <div class="thumb"><img src="/img/rem2-t-price.jpg" width="640" height="267" loading="lazy" alt="Private AI access: doživotno otključavanje, bez pretplate"></div>
           <h3>Otključavanje glasa i AI-ja</h3>
           <p class="price-sub-label">Jednokratna kupnja u aplikaciji</p>
           <div class="price amber-text">3,99 €</div>
