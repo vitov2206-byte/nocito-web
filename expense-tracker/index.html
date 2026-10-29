@@ -500,15 +500,30 @@
   .news-pill { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(245,166,35,.4); background: rgba(245,166,35,.08); color: var(--text); font-size: .9rem; font-weight: 600; text-decoration: none; }
   .news-pill:hover { background: rgba(245,166,35,.16); }
   .news-pill b { color: var(--amber); }
+  .appbar { background: #0A111E; border-bottom: 1px solid var(--line, rgba(255,255,255,.1)); font-size: .84rem; }
+  .appbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 6px 18px; flex-wrap: wrap; min-height: 40px; padding-top: 4px; padding-bottom: 4px; }
+  .appbar a { color: var(--muted, #9AAABB); text-decoration: none; white-space: nowrap; }
+  .appbar a:hover { color: var(--text, #F5EDD6); }
+  .appbar-back { font-weight: 600; }
+  .appbar-tabs { display: flex; gap: 4px; }
+  .appbar-tabs a { padding: 5px 12px; border-radius: 999px; border: 1px solid transparent; }
+  .appbar-tabs a[aria-current="page"] { color: var(--text, #F5EDD6); border-color: rgba(245,166,35,.45); background: rgba(245,166,35,.1); font-weight: 600; }
+  @media (max-width: 640px) { .appbar { font-size: .76rem; } .appbar-inner { flex-wrap: nowrap; gap: 8px; } .appbar-tabs { gap: 0; } .appbar-tabs a { padding: 4px 8px; } .appbar-back { overflow: hidden; text-overflow: ellipsis; } }
+  @media (max-width: 380px) { .appbar-back { font-size: 0; } .appbar-back::before { content: "← Nocito"; font-size: .76rem; } }
 </style>
 <!-- sync3 -->
 <!-- sync8 -->
+<!-- appbar -->
 </head>
 <body>
 
+<div class="appbar"><div class="container appbar-inner">
+  <a class="appbar-back" href="https://nocito.app/">← Nocito Private Apps</a>
+  <nav class="appbar-tabs" aria-label="Nocito apps"><a href="https://nocito.app/expense-tracker/" aria-current="page">Expense Tracker</a><a href="https://nocito.app/reminder/">Reminder</a></nav>
+</div></div>
 <header class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="#top" aria-label="Nocito home">
+    <a class="brand" href="https://nocito.app/" aria-label="Nocito home">
       <span class="brand-icon"><img src="/icon.png" alt="Nocito icon"></span>
       <span class="brand-name">No<span>c</span>ito<sup>™</sup></span>
     </a>
@@ -945,6 +960,7 @@
   <div class="container footer-inner">
     <div>© 2026 Nocito™ · nocito.app</div>
     <div class="footer-links">
+      <a href="https://nocito.app/">Nocito Private Apps</a>
       <a href="https://nocito.app/news/">News</a>
       <a href="https://nocito.app/privacy.html">Privacy Policy</a>
       <a href="https://nocito.app/terms.html">Terms of Service</a>
