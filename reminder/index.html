@@ -291,6 +291,12 @@
   .appbar-tabs a[aria-current="page"] { color: var(--text, #F5EDD6); border-color: rgba(245,166,35,.45); background: rgba(245,166,35,.1); font-weight: 600; }
   @media (max-width: 640px) { .appbar { font-size: .76rem; } .appbar-inner { flex-wrap: nowrap; gap: 8px; } .appbar-tabs { gap: 0; } .appbar-tabs a { padding: 4px 8px; } .appbar-back { overflow: hidden; text-overflow: ellipsis; } }
   @media (max-width: 380px) { .appbar-back { font-size: 0; } .appbar-back::before { content: "← Nocito"; font-size: .76rem; } }
+  .dskwin { max-width: 960px; margin: 34px auto 0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,.14); background: #0b1422; box-shadow: 0 30px 70px rgba(0,0,0,.5); }
+  .dskwin-bar { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #101b30; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .dskwin-dots { display: flex; gap: 6px; } .dskwin-dots i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.22); }
+  .dskwin-url { flex: 1; min-width: 0; text-align: center; font-size: .78rem; color: var(--muted); background: rgba(255,255,255,.06); border-radius: 999px; padding: 4px 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .dskwin img { display: block; width: 100%; height: auto; }
+  .dskwin-cap { text-align: center; color: var(--muted); font-size: .88rem; margin: 14px auto 0; max-width: 60ch; }
 </style>
 <!-- rem-sync-images -->
 <!-- appbar -->
@@ -571,6 +577,8 @@
           <div class="call" style="left:236px;top:118px;width:262px;"><img data-lg="/img/rem-zoom-desktop.jpg" src="/img/rem-zoom-desktop.jpg" width="760" height="825" loading="lazy" alt="Close-up of the Local desktop pairing card: encrypted, local, with the secure address"></div>
         </div></div>
       </div>
+      <div class="dskwin"><div class="dskwin-bar"><span class="dskwin-dots"><i></i><i></i><i></i></span><span class="dskwin-url">https://nocito.local:8787</span></div><img src="/img/rem-desktop.jpg" width="1200" height="530" loading="lazy" alt="Nocito Reminder Local desktop in a browser: Today with open, due today and completed counts, and the Inbox list"></div>
+      <p class="dskwin-cap">The desktop view on your computer: your items, live from your phone. It only works while the local session is on.</p>
     </div>
   </section>
 
