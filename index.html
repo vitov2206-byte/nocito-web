@@ -152,6 +152,11 @@
   .card-price { margin: -4px 0 14px; font-size: .84rem; color: var(--muted); }
   .card-price a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
   .card-price a:hover { color: var(--text); }
+  .tool-grid { grid-template-columns: repeat(3, 1fr); }
+  .tool-card { padding-bottom: 26px; }
+  .tool-card .icon { margin-bottom: 14px; }
+  @media (max-width: 980px) { .tool-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) { .tool-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -164,6 +169,7 @@
     </a>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#products">Products</a>
+      <a href="#tools">Free tools</a>
       <a href="#vision">Vision</a>
       <a href="#privacy">Privacy</a>
       <div class="lang-switcher" id="langSwitcher">
@@ -229,7 +235,22 @@
     </div>
   </section>
 
-  <section class="quote-band section-tight">
+    <section id="tools" class="section-tight">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Free tools</div>
+        <h2>Small tools. Same private approach.</h2>
+        <p>Free helpers we built next to the apps. They run in your browser and need no account.</p>
+      </div>
+      <div class="product-grid tool-grid">
+        <article class="product-card tool-card"><div class="icon"><i class="ti ti-microphone"></i></div><div class="status-tag available">Free</div><h3>Nocito Voice</h3><p>Clone your own voice for free in your browser. Record a sample, enter English text and download AI speech. Audio stays on your device.</p><a class="card-link amber" href="https://voice.nocito.app/" target="_blank" rel="noopener">Open voice.nocito.app →</a></article>
+        <article class="product-card tool-card"><div class="icon"><i class="ti ti-tools"></i></div><div class="status-tag available">Free</div><h3>Nocito Tools</h3><p>Convert images and organise PDFs. Your files stay in your browser, from the first click to the final download.</p><a class="card-link amber" href="https://tools.nocito.app/" target="_blank" rel="noopener">Open tools.nocito.app →</a></article>
+        <article class="product-card tool-card"><div class="icon"><i class="ti ti-file-text"></i></div><div class="status-tag available">Free</div><h3>Nocito transcript</h3><p>Paste a link to a YouTube video, audio or video and download its existing captions.</p><a class="card-link amber" href="https://transcript.nocito.app/" target="_blank" rel="noopener">Open transcript.nocito.app →</a></article>
+      </div>
+    </div>
+  </section>
+
+<section class="quote-band section-tight">
     <div class="container">
       <div class="quote">Most apps ask for your data. <strong>Nocito apps keep it on your phone.</strong></div>
     </div>
@@ -261,6 +282,7 @@
   <div class="container footer-inner">
     <div>© 2026 Nocito™ · nocito.app</div>
     <div class="footer-links">
+      <a href="#tools">Free tools</a>
       <a href="https://nocito.app/news/">News</a>
       <a href="https://nocito.app/privacy.html">Privacy Policy</a>
       <a href="https://nocito.app/terms.html">Terms of Service</a>

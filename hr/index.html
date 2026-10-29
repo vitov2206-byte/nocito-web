@@ -152,6 +152,11 @@
   .card-price { margin: -4px 0 14px; font-size: .84rem; color: var(--muted); }
   .card-price a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
   .card-price a:hover { color: var(--text); }
+  .tool-grid { grid-template-columns: repeat(3, 1fr); }
+  .tool-card { padding-bottom: 26px; }
+  .tool-card .icon { margin-bottom: 14px; }
+  @media (max-width: 980px) { .tool-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) { .tool-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -164,6 +169,7 @@
     </a>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#products">Proizvodi</a>
+      <a href="#tools">Besplatni alati</a>
       <a href="#vision">Vizija</a>
       <a href="#privacy">Privatnost</a>
       <div class="lang-switcher" id="langSwitcher">
@@ -229,7 +235,22 @@
     </div>
   </section>
 
-  <section class="quote-band section-tight">
+    <section id="tools" class="section-tight">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Besplatni alati</div>
+        <h2>Mali alati. Isti privatni pristup.</h2>
+        <p>Besplatni pomoćnici koje smo napravili uz aplikacije. Rade u pregledniku i ne traže račun.</p>
+      </div>
+      <div class="product-grid tool-grid">
+        <article class="product-card tool-card"><div class="icon"><i class="ti ti-microphone"></i></div><div class="status-tag available">Besplatno</div><h3>Nocito Voice</h3><p>Besplatno kloniraj svoj glas u pregledniku. Snimi uzorak, upiši engleski tekst i preuzmi AI govor. Zvuk ostaje na tvom uređaju.</p><a class="card-link amber" href="https://voice.nocito.app/" target="_blank" rel="noopener">Otvori voice.nocito.app →</a></article>
+        <article class="product-card tool-card"><div class="icon"><i class="ti ti-tools"></i></div><div class="status-tag available">Besplatno</div><h3>Nocito Tools</h3><p>Pretvaraj slike i slaži PDF-ove. Tvoje datoteke ostaju u pregledniku, od prvog klika do preuzimanja.</p><a class="card-link amber" href="https://tools.nocito.app/" target="_blank" rel="noopener">Otvori tools.nocito.app →</a></article>
+        <article class="product-card tool-card"><div class="icon"><i class="ti ti-file-text"></i></div><div class="status-tag available">Besplatno</div><h3>Nocito transcript</h3><p>Zalijepi poveznicu na YouTube video, zvuk ili video i preuzmi njegove postojeće titlove.</p><a class="card-link amber" href="https://transcript.nocito.app/" target="_blank" rel="noopener">Otvori transcript.nocito.app →</a></article>
+      </div>
+    </div>
+  </section>
+
+<section class="quote-band section-tight">
     <div class="container">
       <div class="quote">Većina aplikacija traži tvoje podatke. <strong>Nocito aplikacije ih drže na tvom telefonu.</strong></div>
     </div>
@@ -261,6 +282,7 @@
   <div class="container footer-inner">
     <div>© 2026 Nocito™ · nocito.app</div>
     <div class="footer-links">
+      <a href="#tools">Besplatni alati</a>
       <a href="https://nocito.app/hr/novosti/">Novosti</a>
       <a href="https://nocito.app/hr/privacy.html">Pravila privatnosti</a>
       <a href="https://nocito.app/hr/terms.html">Uvjeti korištenja</a>
