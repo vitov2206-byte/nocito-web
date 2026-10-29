@@ -503,6 +503,9 @@
   @media (max-width: 640px) { .card:not(.featured) .thumb img { height: 104px; } }
   .card.featured .thumb { margin: -6px -6px 16px; border-radius: 16px; background: #0b1422; }
   .card.featured .thumb img { height: auto; aspect-ratio: 2.4 / 1; object-fit: cover; object-position: center; width: 100%; }
+  .news-pill { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(245,166,35,.4); background: rgba(245,166,35,.08); color: var(--text); font-size: .9rem; font-weight: 600; text-decoration: none; }
+  .news-pill:hover { background: rgba(245,166,35,.16); }
+  .news-pill b { color: var(--amber); }
 </style>
 <!-- sync3 -->
 <!-- sync5 -->
@@ -571,6 +574,7 @@
           <span class="chip">Bez oglasa</span>
         </div>
         <p class="coming-ios">Uskoro na App Storeu</p>
+        <a class="news-pill" href="https://nocito.app/hr/novosti/"><b>Novo</b> Što je novo u verziji 1.2.0 →</a>
       </div>
 
       <div class="phone-wrap" aria-label="Nocito app preview">
@@ -954,6 +958,7 @@
   <div class="container footer-inner">
     <div>© 2026 Nocito™ · nocito.app</div>
     <div class="footer-links">
+      <a href="https://nocito.app/hr/novosti/">Novosti</a>
       <a href="https://nocito.app/hr/privacy.html">Pravila privatnosti</a>
       <a href="https://nocito.app/hr/terms.html">Uvjeti korištenja</a>
       <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>
