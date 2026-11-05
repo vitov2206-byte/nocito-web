@@ -265,7 +265,7 @@
     .quotes { grid-template-columns: 1fr; }
   }
   /* ad video (click to load) */
-  .ad-video { max-width: 900px; margin: 0 auto; }
+  .ad-video { margin: 0 auto; }
   .ad-video-box { position: relative; aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--line); background: #0F1B2D; box-shadow: 0 24px 64px rgba(0,0,0,.35); }
   .ad-video-box button { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: pointer; }
   .ad-video-box img, .ad-video-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
@@ -355,6 +355,26 @@
           <a class="btn btn-secondary" href="https://nocito.app/reminder/hr/">← Natrag na pregled</a>
           <a class="btn btn-secondary" href="https://nocito.app/reminder/hr/#pricing">Cijena</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!--tutorial-video-->
+  <section class="section-tight" id="tutorial">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Cijeli vodič</div>
+        <h2>Pogledaj cijelu aplikaciju u 3 minute</h2>
+        <p>Od prvog pokretanja i glasovnog upisa do pregleda, lista, pretrage, sigurnosne kopije i prikaza na računalu. Bez govora, samo natpisi i glazba. Video je na engleskom.</p>
+      </div>
+      <div class="ad-video">
+        <div class="ad-video-box" id="adVideo" data-yt="gyVspUiEaMc" data-title="Nocito Private Reminder: full tutorial">
+          <button type="button" aria-label="Pokreni video: Nocito Private Reminder, cijeli vodič">
+            <img src="/img/tutorial-reminder-thumb.jpg" width="1280" height="720" loading="lazy" alt="Nocito Private Reminder: cijeli vodič">
+            <span class="ad-video-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span>
+          </button>
+        </div>
+        <p class="ad-video-note">Video se učitava s YouTubea tek kad ga pokreneš.</p>
       </div>
     </div>
   </section>
