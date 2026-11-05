@@ -267,6 +267,24 @@
       <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/reminder/" />
   </url>
   <url>
+    <loc>https://nocito.app/reminder/features/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/reminder/features/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/reminder/hr/features/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/reminder/features/" />
+  </url>
+  <url>
+    <loc>https://nocito.app/reminder/hr/features/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/reminder/features/" />
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/reminder/hr/features/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/reminder/features/" />
+  </url>
+  <url>
     <loc>https://nocito.app/reminder/privacy/</loc>
     <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>

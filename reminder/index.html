@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<!--slim-->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nocito Private Reminder™ — Speak it. Nocito remembers.</title>
@@ -306,6 +307,39 @@
   .dskwin-url { flex: 1; min-width: 0; text-align: center; font-size: .78rem; color: var(--muted); background: rgba(255,255,255,.06); border-radius: 999px; padding: 4px 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .dskwin img { display: block; width: 100%; height: auto; }
   .dskwin-cap { text-align: center; color: var(--muted); font-size: .88rem; margin: 14px auto 0; max-width: 60ch; }
+  /* slim home: pillars, more band */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .pillar { display: flex; flex-direction: column; padding: 24px 22px 26px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); box-shadow: 0 18px 44px rgba(0,0,0,.16); }
+  .pillar .shot { width: min(100%, 232px); height: 340px; margin: 0 auto 24px; overflow: hidden; border: 8px solid #08101d; border-bottom: 0; border-radius: 30px 30px 0 0; background: #08101d; box-shadow: 0 24px 50px rgba(0,0,0,.5); }
+  .pillar .shot img { width: 100%; height: auto; display: block; }
+  .pillar h3 { font-size: 1.25rem; margin: 0 0 8px; }
+  .pillar p { color: var(--muted); margin: 0; font-size: .96rem; line-height: 1.65; }
+  .more-band { max-width: 760px; margin: 0 auto; text-align: center; }
+  .more-band p { color: var(--muted); line-height: 1.7; margin: 0 auto 22px; }
+  .faq-more { margin: 18px 0 0; color: var(--muted); font-size: .94rem; }
+  .faq-more a { color: var(--amber); font-weight: 700; }
+  @media (max-width: 980px) { .pillars { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+  /* trust strip (hero) */
+  .trust { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 26px 0 0; max-width: 640px; }
+  .trust-item { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 16px 15px 16px; border-radius: 20px; background: linear-gradient(160deg, rgba(42,157,143,.20), rgba(30,49,88,.62) 70%); border: 1px solid rgba(42,157,143,.38); box-shadow: 0 14px 34px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.07); overflow: hidden; }
+  .trust-item::after { content: ""; position: absolute; right: -28px; top: -28px; width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle, rgba(245,166,35,.18), transparent 70%); pointer-events: none; }
+  .trust-ic { width: 58px; height: 58px; border-radius: 17px; display: grid; place-items: center; background: rgba(15,27,45,.78); border: 1px solid rgba(255,255,255,.10); color: var(--teal); }
+  .trust-ic svg { width: 36px; height: 36px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+  .trust-ic .cut { stroke: #14233a; stroke-width: 4; }
+  .trust-ic .slash { stroke: var(--amber); stroke-width: 2.4; stroke-dasharray: 26; stroke-dashoffset: 26; animation: trust-draw .55s .5s ease-out forwards; }
+  .trust-ic .cut { stroke-dasharray: 26; stroke-dashoffset: 26; animation: trust-draw .55s .5s ease-out forwards; }
+  .trust-item:nth-child(2) .slash, .trust-item:nth-child(2) .cut { animation-delay: .7s; }
+  .trust-item:nth-child(3) .slash, .trust-item:nth-child(3) .cut { animation-delay: .9s; }
+  @keyframes trust-draw { to { stroke-dashoffset: 0; } }
+  .trust-t { font-family: var(--font-head); font-weight: 700; font-size: 1.08rem; line-height: 1.15; letter-spacing: -.01em; color: var(--text); }
+  .trust-s { font-size: .82rem; line-height: 1.4; color: var(--muted); margin-top: 5px; }
+  @media (max-width: 560px) {
+    .trust { grid-template-columns: 1fr; gap: 10px; }
+    .trust-item { flex-direction: row; align-items: center; gap: 14px; padding: 12px 14px; }
+    .trust-ic { width: 46px; height: 46px; flex-shrink: 0; }
+    .trust-s { margin-top: 3px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .trust-ic .slash, .trust-ic .cut { animation: none; stroke-dashoffset: 0; } }
 </style>
 <!-- rem-sync-images -->
 <!-- appbar -->
@@ -323,7 +357,7 @@
       <span class="brand-name">Nocito <span class="brand-sub">Private Reminder</span></span>
     </a>
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="#features">Features</a>
+      <a href="https://nocito.app/reminder/features/">Features</a>
       <a href="#how">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
@@ -351,7 +385,21 @@
         <div class="eyebrow">🔒 Private AI on your phone</div>
         <h1><span>Speak it.</span><span class="accent">Nocito remembers.</span></h1>
         <p class="hero-copy">Turn thoughts into reminders, tasks and notes with private AI on your Android phone. Capture by voice, check the details, and get back to your day.</p>
-        <p class="hero-copy"><strong>On-device AI · Offline after setup · No Nocito account · No subscription</strong></p>
+        <!--trust-->
+        <div class="trust" role="group" aria-label="What makes Private Reminder different">
+          <div class="trust-item">
+            <span class="trust-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r=".9" fill="currentColor"/><path class="cut" d="M3.5 3.5L20.5 20.5"/><path class="slash" d="M3.5 3.5L20.5 20.5"/></svg></span>
+            <div><div class="trust-t">Works offline</div><div class="trust-s">After the one-time setup download</div></div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/><path class="cut" d="M3.5 3.5L20.5 20.5"/><path class="slash" d="M3.5 3.5L20.5 20.5"/></svg></span>
+            <div><div class="trust-t">No cloud AI</div><div class="trust-s">Voice and AI run on your phone</div></div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/><path class="cut" d="M3.5 3.5L20.5 20.5"/><path class="slash" d="M3.5 3.5L20.5 20.5"/></svg></span>
+            <div><div class="trust-t">No subscription</div><div class="trust-s">One-time purchase, no account</div></div>
+          </div>
+        </div>
         <div class="hero-actions">
           <span class="soon-badge"><i class="ti ti-clock" aria-hidden="true"></i> Coming soon to Google Play</span>
           <a class="btn btn-secondary" href="#how">See how it works</a>
@@ -377,7 +425,7 @@
     </div>
   </section>
 
-  <!--ad-video-->
+    <!--ad-video-->
   <section class="section-tight" id="video">
     <div class="container">
       <div class="section-head center">
@@ -397,6 +445,35 @@
     </div>
   </section>
 
+  <section class="section-tight" id="pillars">
+    <div class="container">
+      <div class="section-head center">
+        <div class="kicker">Why Private Reminder</div>
+        <h2>Three things to know</h2>
+      </div>
+      <div class="pillars">
+        <article class="pillar">
+          <div class="shot"><img src="/img/rem2-voice.jpg" data-lg="/img/lg-rem2-voice.jpg" width="600" height="1171" loading="lazy" alt="Voice capture screen: listening, timer and waveform"></div>
+          <span class="tag">Voice</span>
+          <h3>Speak it, don’t type it</h3>
+          <p>Tap the microphone and say it. Nocito turns it into a reminder, a task, a note or an event, and you check the details when you are ready.</p>
+        </article>
+        <article class="pillar">
+          <div class="shot"><img src="/img/rem2-working.jpg" data-lg="/img/lg-rem2-working.jpg" width="600" height="1171" loading="lazy" alt="Voice processing: text organization in progress on this device"></div>
+          <span class="tag">Private AI</span>
+          <h3>Works offline, on your phone</h3>
+          <p>Speech recognition and AI run on your phone. No cloud AI, no Nocito account, no subscription. After the one-time setup download, core voice and reminders work without internet.</p>
+        </article>
+        <article class="pillar">
+          <div class="shot"><img src="/img/rem-recur.jpg" data-lg="/img/lg-rem-recur.jpg" width="600" height="1171" loading="lazy" alt="Alerts and repeat options"></div>
+          <span class="tag amber">Never miss it</span>
+          <h3>Rings when it is time</h3>
+          <p>Repeats, alerts before the due time, and Snooze or Done on the alarm screen. Alarms are restored after a restart.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="section-tight" id="how">
     <div class="container">
       <div class="section-head center">
@@ -412,222 +489,17 @@
     </div>
   </section>
 
-  <section class="section-tight" id="features">
-    <div class="container card-grid">
-      <article class="card">
-        <div class="thumb"><img src="/img/rem2-t-privateai.jpg" width="640" height="267" loading="lazy" alt="Processing screen: everything stays on this device"></div>
-        <span class="tag">Private AI</span>
-        <h3>Private AI, not a cloud assistant</h3>
-        <p>Your speech and AI organization are processed on your phone, not uploaded to a cloud AI service.</p>
-      </article>
-      <article class="card">
-        <div class="thumb"><img src="/img/rem2-t-items.jpg" width="640" height="267" loading="lazy" alt="Inbox with a reminder and a note"></div>
-        <span class="tag">More than a reminder</span>
-        <h3>Tasks, notes, reminders and events</h3>
-        <p>Keep them together, organized into your own lists and priorities.</p>
-      </article>
-      <article class="card">
-        <div class="thumb"><img src="/img/rem2-t-routines.jpg" width="640" height="267" loading="lazy" alt="Repeat options: does not repeat, daily, weekdays"></div>
-        <span class="tag">Routines</span>
-        <h3>Make repeat routines easier</h3>
-        <p>Set weekdays, selected days, custom intervals and advance alerts without rebuilding the same reminder each time.</p>
-      </article>
-      <article class="card">
-        <div class="thumb"><img src="/img/rem2-t-review.jpg" width="640" height="267" loading="lazy" alt="Review screen with the due time in large figures"></div>
-        <span class="tag">Review</span>
-        <h3>Review when you're ready</h3>
-        <p>Check what Nocito understood, edit the details, and listen to the original recording when you need context.</p>
-      </article>
-      <article class="card">
-        <div class="thumb"><img src="/img/rem2-t-data.jpg" width="640" height="267" loading="lazy" alt="Keep recordings: forever, 30 days, 7 days or delete after processing"></div>
-        <span class="tag">Your data</span>
-        <h3>Your information stays yours</h3>
-        <p>Choose recording retention and make local backups or exports. Sharing is your choice.</p>
-      </article>
-      <article class="card featured">
-        <div class="thumb"><img src="/img/rem2-t-price.jpg" width="640" height="267" loading="lazy" alt="Private AI access: lifetime unlock, no subscription"></div>
-        <span class="tag amber">One price</span>
-        <h3>Start free. Unlock voice once.</h3>
-        <p>Manual entry stays free. Try voice and AI, then keep using them with a one-time purchase — no subscription.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section-tight">
+  <section class="section-tight" id="more">
     <div class="container">
-      <div class="stage">
-        <div class="stage-txt">
-          <div class="kicker">Capture</div>
-          <h2>Capture the thought, not the paperwork</h2>
-          <p class="lead">Record in a tap, or type a quick note. You do not have to wait for one recording to finish processing before capturing the next thought.</p>
-          <ul class="points">
-          <li><strong>Tap and speak</strong>A visible recording indicator, timer and waveform show you are being heard. Stop with a tap, or let Nocito stop after silence.</li>
-          <li><strong>Several things in one recording</strong>Nocito supports multiple items in one recording. Separate your requests clearly — First … Second … — and review the results.</li>
-          <li><strong>Start from your home screen</strong>Use the Quick Capture widget or the Android Quick Settings tile to jump straight into voice entry.</li>
-        </ul>
-        </div>
-        <div class="stage-vis"><div class="comp">
-          <div class="cphone" style="left:236px;top:22px;width:272px;"><img data-lg="/img/lg-rem-home.jpg" src="/img/rem-home.jpg" width="600" height="1171" loading="lazy" alt="Home screen with the microphone button"></div>
-          <div class="bubble" style="left:6px;top:150px;max-width:232px;">“Remind me in five minutes to check the oven.”</div>
-        </div></div>
-      </div>
-    </div>
-  </section>
-
-    <section class="section-tight">
-    <div class="container">
-      <div class="section-head center tight-head">
-        <div class="kicker">Capture</div>
-        <h2>Say it, then watch it work</h2>
-        <p>From the first tap to the finished item. Everything runs on your phone, and Nocito tells you when it is waiting and why.</p>
-      </div>
-      <div class="rgal"><div class="rgal-grid">
-        <figure><div class="shot"><img src="/img/rem2-voice.jpg" data-lg="/img/lg-rem2-voice.jpg" width="600" height="1171" loading="lazy" alt="Voice capture screen: listening, timer and waveform"></div><figcaption>Listening: tap to finish, silence stops it</figcaption></figure>
-        <figure><div class="shot"><img src="/img/rem2-working.jpg" data-lg="/img/lg-rem2-working.jpg" width="600" height="1171" loading="lazy" alt="Voice processing: text organization in progress on this device"></div><figcaption>Working on your phone</figcaption></figure>
-        <figure><div class="shot"><img src="/img/rem2-waiting.jpg" data-lg="/img/lg-rem2-waiting.jpg" width="600" height="1171" loading="lazy" alt="Waiting for more free memory; your capture is saved"></div><figcaption>Short on memory? It waits and says why</figcaption></figure>
-        <figure><div class="shot"><img src="/img/rem2-retry.jpg" data-lg="/img/lg-rem2-retry.jpg" width="600" height="1171" loading="lazy" alt="Review or retry with Try again and Delete recording"></div><figcaption>Try again or delete the recording</figcaption></figure>
-      </div></div>
-    </div>
-  </section>
-
-<section class="section-tight">
-    <div class="container">
-      <div class="section-head center tight-head">
-        <div class="kicker">Try saying</div>
-        <h2>Plain requests work best</h2>
-        <p>Examples of what you can say (the app currently understands English). Always check important deadlines — speech recognition and AI can still misunderstand.</p>
-      </div>
-      <div class="quotes">
-        <div class="quote-card"><span class="lab">Reminder</span><q lang="en">Remind me in five minutes to check the oven.</q></div>
-        <div class="quote-card"><span class="lab">Task</span><q lang="en">Add a task to send the proposal tomorrow, high priority, Work list.</q></div>
-        <div class="quote-card"><span class="lab">Note</span><q lang="en">Write a note: the campaign should focus on privacy and simplicity.</q></div>
-        <div class="quote-card"><span class="lab">Recurring</span><q lang="en">Remind me every weekday at 9 am to send the report, Work list.</q></div>
-        <div class="quote-card"><span class="lab">Several items</span><q lang="en">First, add a task to buy milk. Second, remind me tomorrow at 10 am to call Sam.</q></div>
+      <div class="more-band">
+        <h2>There is more</h2>
+        <p>Lists, search, repeat patterns, recording retention, backup and export, and the optional local desktop view. All of it in one place.</p>
+        <a class="btn btn-secondary" href="https://nocito.app/reminder/features/">See all features</a>
       </div>
     </div>
   </section>
 
   <section class="section-tight">
-    <div class="container">
-      <div class="stage rev">
-        <div class="stage-txt">
-          <div class="kicker">Review</div>
-          <h2>You stay in control</h2>
-          <p class="lead">Nocito saves the recording and its result on your phone. Review is where you check what it understood: edit the title, content, type, date and time, list, priority, repeat and advance alerts, and listen to the original recording.</p>
-          <p class="lead">A reminder with a valid date and time can still run before you accept it. If essential scheduling information is missing, Nocito flags it and does not schedule that incomplete reminder — open Review to complete it.</p>
-        </div>
-        <div class="stage-vis"><div class="comp">
-          <div class="cphone" style="left:10px;top:48px;"><img data-lg="/img/lg-rem-editor.jpg" src="/img/rem-editor.jpg" width="600" height="1171" loading="lazy" alt="Reminder editor with title, details, type and due date"></div>
-          <div class="call" style="left:238px;top:160px;width:270px;"><img data-lg="/img/rem-zoom-review.jpg" src="/img/rem-zoom-review.jpg" width="760" height="631" loading="lazy" alt="Close-up of the editor: title, details and type"></div>
-        </div></div>
-      </div>
-    </div>
-  </section>
-  <section class="section-tight">
-    <div class="container">
-      <div class="stage">
-        <div class="stage-txt">
-          <div class="kicker">Organization</div>
-          <h2>Built to hold everything, without the clutter</h2>
-          <p class="lead">Inbox, Urgent, Personal and Work lists get you started. Add your own, rename and recolor them, archive them and bring them back.</p>
-          <ul class="points">
-          <li><strong>Four kinds of items, one place</strong>Task, reminder, note and event, each with the right fields. A date on a task or note does not create an alarm you did not ask for.</li>
-          <li><strong>Your lists and priorities</strong>Low, Normal, High and Urgent, with text labels as well as colors. Priority and list are separate choices.</li>
-          <li><strong>Find your own items</strong>Search titles and content by typing or by voice. It searches your real local items — it is not a chatbot or an internet search.</li>
-        </ul>
-        </div>
-        <div class="stage-vis"><div class="comp">
-          <div class="cphone" style="left:34px;top:92px;transform:rotate(-5deg) scale(.94);transform-origin:bottom left;opacity:.9;"><img data-lg="/img/lg-rem-home.jpg" src="/img/rem-home.jpg" width="600" height="1171" loading="lazy" alt="Home screen with the microphone button"></div>
-          <div class="cphone" style="left:186px;top:46px;z-index:2;"><img data-lg="/img/lg-rem-lists.jpg" src="/img/rem-lists.jpg" width="600" height="1171" loading="lazy" alt="Lists screen with search and your own lists"></div>
-        </div></div>
-      </div>
-    </div>
-  </section>
-  <section class="section-tight">
-    <div class="container">
-      <div class="stage rev">
-        <div class="stage-txt">
-          <div class="kicker amber">Recurring reminders</div>
-          <h2>Multiple alerts per item</h2>
-          <p class="lead">From daily repeats to patterns like every other Tuesday. Warn yourself before an appointment, not only at the moment it starts.</p>
-          <ul class="points">
-          <li>Daily, weekly, monthly and yearly</li>
-          <li>Weekdays, weekends, selected days, every N days or weeks</li>
-          <li>Completing one occurrence plans the next one</li>
-          <li>At the time, 10 minutes, an hour or a day before, plus custom minutes</li>
-          <li>Snooze for 10 minutes, 30 minutes or 1 hour from the alarm screen</li>
-          <li>Alarms are restored after a restart, app update or time change</li>
-          </ul>
-          <p class="fine">Android battery settings, missing permissions or a force-stopped app can still block alarms. Nocito checks the permissions it needs and can send a test reminder from Settings.</p>
-        </div>
-        <div class="stage-vis"><div class="comp">
-          <div class="cphone" style="left:262px;top:44px;"><img data-lg="/img/lg-rem-recur.jpg" src="/img/rem-recur.jpg" width="600" height="1171" loading="lazy" alt="Alerts and repeat options"></div>
-          <div class="call" style="left:6px;top:128px;width:300px;"><img data-lg="/img/rem-zoom-alerts.jpg" src="/img/rem-zoom-alerts.jpg" width="760" height="585" loading="lazy" alt="Close-up of advance alerts and repeat options"></div>
-        </div></div>
-      </div>
-    </div>
-  </section>
-  <section class="section-tight">
-    <div class="container">
-      <div class="stage">
-        <div class="stage-txt">
-          <div class="kicker">Your data</div>
-          <h2>Recordings, backups and exports are yours to manage</h2>
-          <p class="lead">There is no Nocito account and no developer-hosted copy of your reminders. You decide what to keep and where to save it.</p>
-          <ul class="points">
-          <li><strong>Original recordings</strong>Keep them forever, 30 days, 7 days or until processing succeeds. Deleting a recording does not delete the reminder text.</li>
-          <li><strong>Local backup and export</strong>A .nocito backup can include available recordings; AI models are not included. JSON is a structured export and CSV is a table of your items.</li>
-          <li><strong>Sharing is your choice</strong>If you save an export to a cloud drive, that is your choice — Nocito does not sync to a cloud. Keep an outside backup for protection against losing the phone.</li>
-        </ul>
-        </div>
-        <div class="stage-vis"><div class="comp">
-          <div class="cphone" style="left:28px;top:76px;transform:rotate(-4deg);transform-origin:bottom center;"><img data-lg="/img/lg-rem-retention.jpg" src="/img/rem-retention.jpg" width="600" height="1171" loading="lazy" alt="Voice recording retention settings"></div>
-          <div class="cphone" style="left:254px;top:42px;transform:rotate(3deg);transform-origin:bottom center;z-index:2;"><img data-lg="/img/lg-rem-backup.jpg" src="/img/rem-backup.jpg" width="600" height="1171" loading="lazy" alt="Local backup and export settings"></div>
-        </div></div>
-      </div>
-    </div>
-  </section>
-  <section class="section-tight">
-    <div class="container">
-      <div class="stage rev">
-        <div class="stage-txt">
-          <div class="kicker">Optional local desktop</div>
-          <h2>A bigger screen. Still your phone's data.</h2>
-          <p class="lead">Enable the optional local desktop connection to work in a paired browser on your trusted home or work network. No separate desktop app and no Nocito cloud account.</p>
-          <ul class="points">
-          <li><strong>Pair with a code</strong>Use a six-digit code or a QR link to pair a computer browser with your phone.</li>
-          <li><strong>Same local network</strong>View, edit and add items and lists, search, and listen to available recordings. Changes apply to the data on your phone.</li>
-          <li><strong>You turn it on, you turn it off</strong>It is off until you enable it. You can disconnect the computer and stop the local server whenever you like.</li>
-        </ul>
-          <div class="notice" id="desktop-note">Local desktop uses an encrypted HTTPS connection with a device-generated certificate, which you verify and trust during setup. Use trusted networks and computers, and turn it off when you are finished. See the FAQ.</div>
-        </div>
-        <div class="stage-vis"><div class="comp">
-          <div class="cphone" style="left:26px;top:48px;"><img data-lg="/img/lg-rem-settings.jpg" src="/img/rem-settings.jpg" width="600" height="1171" loading="lazy" alt="Settings screen with Private AI access, AI models, notifications and backup"></div>
-          <div class="call" style="left:236px;top:118px;width:262px;"><img data-lg="/img/rem-zoom-desktop.jpg" src="/img/rem-zoom-desktop.jpg" width="760" height="825" loading="lazy" alt="Close-up of the Local desktop pairing card: encrypted, local, with the secure address"></div>
-        </div></div>
-      </div>
-      <div class="dskwin"><div class="dskwin-bar"><span class="dskwin-dots"><i></i><i></i><i></i></span><span class="dskwin-url">https://nocito.local:8787</span></div><img src="/img/rem-desktop.jpg" width="1200" height="530" loading="lazy" alt="Nocito Reminder Local desktop in a browser: Today with open, due today and completed counts, and the Inbox list"></div>
-      <p class="dskwin-cap">The desktop view on your computer: your items, live from your phone. It only works while the local session is on.</p>
-    </div>
-  </section>
-
-    <section class="section-tight">
-    <div class="container">
-      <div class="section-head center tight-head">
-        <div class="kicker">In Settings</div>
-        <h2>Everything you control, in one place</h2>
-        <p>Models, alarms, recordings and feedback sit in Settings. Nothing is hidden and nothing is sent without you choosing it.</p>
-      </div>
-      <div class="rgal"><div class="rgal-grid">
-        <figure><div class="shot"><img src="/img/rem2-models.jpg" data-lg="/img/lg-rem2-models.jpg" width="600" height="1171" loading="lazy" alt="AI models: voice essentials, medium AI and large AI"></div><figcaption>AI models: download, check, remove</figcaption></figure>
-        <figure><div class="shot"><img src="/img/rem2-notif.jpg" data-lg="/img/lg-rem2-notif.jpg" width="600" height="1171" loading="lazy" alt="Notifications: permissions allowed and a test reminder in one minute"></div><figcaption>Alarm permissions and a one-minute test</figcaption></figure>
-        <figure><div class="shot"><img src="/img/rem2-reports.jpg" data-lg="/img/lg-rem2-reports.jpg" width="600" height="1171" loading="lazy" alt="Feedback screen with optional error reports, off by default"></div><figcaption>Optional error reports, off by default</figcaption></figure>
-        <figure><div class="shot"><img src="/img/rem2-tips.jpg" data-lg="/img/lg-rem2-tips.jpg" width="600" height="1171" loading="lazy" alt="How to dictate: examples and tips"></div><figcaption>How to dictate: examples and tips</figcaption></figure>
-      </div></div>
-    </div>
-  </section>
-
-<section class="section-tight">
     <div class="container">
       <div class="section-head center">
         <div class="kicker">Before you install</div>
@@ -635,9 +507,9 @@
         <p>Private AI runs on your phone, so it needs room and a capable device. We would rather tell you now than after you install.</p>
       </div>
       <div class="card-grid">
-        <article class="card"><div class="thumb"><img src="/img/rem2-t-setup.jpg" width="640" height="267" loading="lazy" alt="AI models: voice essentials and medium AI, ready"></div><h3>Setup download</h3><p>The recommended setup downloads about 4.75 GB of AI models on a fresh install, plus free space for setup and your data. You can postpone it and use manual entry.</p></article>
-        <article class="card"><div class="thumb"><img src="/img/rem2-t-phones.jpg" width="640" height="267" loading="lazy" alt="AI models: medium and large model sizes"></div><h3>Compatible phones</h3><p>Android 8 or later on a 64-bit ARM phone. Larger models need more free memory; not every phone suits every model. No iOS version.</p></article>
-        <article class="card"><div class="thumb"><img src="/img/rem2-t-english.jpg" width="640" height="267" loading="lazy" alt="How to dictate: examples in English"></div><h3>English only</h3><p>The first release supports English only.</p></article>
+        <article class="card"><h3>Setup download</h3><p>The recommended setup downloads about 4.75 GB of AI models on a fresh install, plus free space for setup and your data. You can postpone it and use manual entry.</p></article>
+        <article class="card"><h3>Compatible phones</h3><p>Android 8 or later on a 64-bit ARM phone. Larger models need more free memory; not every phone suits every model. No iOS version.</p></article>
+        <article class="card"><h3>English only</h3><p>The first release supports English only.</p></article>
       </div>
     </div>
   </section>
@@ -651,7 +523,6 @@
       </div>
       <div class="pricing">
         <div class="price-card">
-          <div class="thumb"><img src="/img/rem2-t-free.jpg" width="640" height="267" loading="lazy" alt="Typed note with Save and AI organize buttons"></div>
           <h3>Free</h3>
           <p class="price-sub-label">No account needed</p>
           <div class="price">€0</div>
@@ -663,7 +534,6 @@
           </ul>
         </div>
         <div class="price-card featured" data-badge="No subscription">
-          <div class="thumb"><img src="/img/rem2-t-price.jpg" width="640" height="267" loading="lazy" alt="Private AI access: lifetime unlock, no subscription"></div>
           <h3>Voice and AI unlock</h3>
           <p class="price-sub-label">One-time in-app purchase</p>
           <div class="price amber-text">€3.99</div>
@@ -690,16 +560,10 @@
       <div class="faq">
         <details class="faq-item" open><summary>Does it need the internet?</summary><p>You need an internet connection to download the AI models and for Google Play purchases or purchase restoration. Once setup is complete, core voice processing and reminders work offline. Optional local desktop access needs your local network.</p></details>
         <details class="faq-item"><summary>Are my recordings sent to cloud AI?</summary><p>No. Speech recognition and AI organization run on your phone. You can separately choose to export files or enable access from a paired browser on your local network.</p></details>
-        <details class="faq-item"><summary>Do I need an account?</summary><p>No Nocito account is required. Google Play handles an optional purchase using your Play account.</p></details>
         <details class="faq-item"><summary>What is free?</summary><p>Manual reminders, tasks and notes, plus access to your existing data and existing reminders. Voice and AI have a trial, followed by an optional one-time unlock.</p></details>
         <details class="faq-item"><summary>Is there a subscription or an automatic charge?</summary><p>No. The trial does not automatically charge you. You choose whether to make the one-time voice and AI purchase.</p></details>
         <details class="faq-item"><summary>How much storage does private AI need?</summary><p>The recommended setup downloads approximately 4.75 GB on a fresh installation. Additional free space is required for setup and your data. Nocito checks storage and missing files; you can postpone setup and use manual entry.</p></details>
-        <details class="faq-item"><summary>How fast is processing?</summary><p>It depends on your phone, the selected model and available resources. Processing can wait when the device is busy or hot. Balanced supports background processing; the largest-model Best accuracy mode currently needs the app in the foreground.</p></details>
-        <details class="faq-item"><summary>What if I don't review a reminder?</summary><p>A reminder with a valid date and time can still run. Review lets you check what Nocito understood. If essential scheduling information is missing, open Review to complete it; Nocito does not schedule that incomplete reminder.</p></details>
-        <details class="faq-item"><summary>Can it understand several things in one recording?</summary><p>Yes, it supports multiple items. Separate the requests clearly, for example First ... Second ..., and review the results. AI can still misunderstand speech or ambiguous instructions.</p></details>
-        <details class="faq-item"><summary>Can I use my computer?</summary><p>Yes, through an optional paired browser on the same local network. The phone stores the data. The connection is encrypted HTTPS directly between your phone and the browser, without a Nocito cloud relay, using a device-generated certificate that you verify and trust during setup. Only enable it on networks and computers you trust.</p></details>
-        <details class="faq-item"><summary>What languages and devices are supported?</summary><p>The initial release supports English on compatible 64-bit ARM Android phones running Android 8 or later. Storage, memory and processing performance matter; larger AI models are not suitable for every phone. No iOS version is available.</p></details>
-        <details class="faq-item"><summary>Will a backup protect me if I lose my phone?</summary><p>Save a portable backup outside the phone if you want protection against device loss. Internal safety snapshots remain on the device. You can optionally include available recordings; downloaded AI models are not included.</p></details>
+        <p class="faq-more">More questions? See the full FAQ on the features page. <a href="https://nocito.app/reminder/features/#faq">All questions and answers</a></p>
       </div>
     </div>
   </section>
