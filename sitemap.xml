@@ -41,7 +41,7 @@
   </url>
   <url>
     <loc>https://nocito.app/hr/expense-tracker/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/expense-tracker/" />
@@ -57,6 +57,13 @@
       <xhtml:link rel="alternate" hreflang="it" href="https://nocito.app/it/expense-tracker/" />
       <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/expense-tracker/" />
       <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/expense-tracker/" />
+  </url>
+  <url>
+    <loc>https://nocito.app/hr/expense-tracker/features/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+      <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/expense-tracker/features/" />
   </url>
   <url>
     <loc>https://nocito.app/de/expense-tracker/</loc>
