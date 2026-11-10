@@ -532,6 +532,18 @@
   .more-band { max-width: 760px; margin: 0 auto; text-align: center; }
   .more-band p { color: var(--muted); line-height: 1.7; margin: 0 auto 22px; }
   .pi-extra .card h3 { font-size: 1.12rem; }
+  /* newsletter */
+  .nl-card { max-width: 720px; margin: 0 auto; padding: 34px 30px 30px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); box-shadow: 0 18px 44px rgba(0,0,0,.16); }
+  .nl-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+  .nl-row input[type=email] { flex: 1 1 260px; min-height: 52px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line); background: rgba(8,16,29,.6); color: var(--text); font: inherit; font-size: 1rem; }
+  .nl-row input[type=email]:focus { outline: 2px solid var(--amber); outline-offset: 2px; }
+  .nl-consent { display: flex; gap: 10px; align-items: flex-start; margin-top: 16px; color: var(--muted); font-size: .9rem; line-height: 1.55; text-align: left; }
+  .nl-consent input { margin-top: 4px; width: 18px; height: 18px; accent-color: #F5A623; flex: none; }
+  .nl-consent a { color: var(--amber); }
+  .nl-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .nl-msg { margin: 14px 0 0; min-height: 1.4em; font-size: .92rem; color: var(--muted); }
+  .nl-msg.ok { color: #2A9D8F; font-weight: 600; }
+  .nl-msg.err { color: #F5A623; }
 </style>
 <!-- sync3 -->
 <!-- sync5 -->
@@ -680,6 +692,28 @@
         <h3>Unos jednim dodirom</h3>
         <p>Slikaj račun, uvezi PDF ili samo progovori. Nocito izvlači iznos, trgovinu, datum i kategoriju u nekoliko sekundi.</p>
       </article>
+    </div>
+  </section>
+
+    <!--newsletter-->
+  <section class="section-tight" id="newsletter">
+    <div class="container">
+      <div class="nl-card">
+        <div class="section-head center" style="margin-bottom:0">
+          <div class="kicker">Novosti</div>
+          <h2>Budi u toku</h2>
+          <p>Povremeno šaljemo novosti o Nocitu i savjete za praćenje cijena i troškova. Samo tvoja e-adresa, bez praćenja.</p>
+        </div>
+        <form id="nlForm" novalidate>
+          <div class="nl-row">
+            <input type="email" id="nlEmail" name="email" autocomplete="email" inputmode="email" maxlength="254" placeholder="tvoja@adresa.hr" aria-label="E-adresa" required>
+            <button type="submit" class="btn btn-primary" id="nlBtn">Prijavi me</button>
+          </div>
+          <div class="nl-hp" aria-hidden="true"><label>Web <input type="text" id="nlWeb" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <label class="nl-consent"><input type="checkbox" id="nlConsent" name="consent"><span>Želim primati Nocito novosti i savjete e-poštom. Odjaviti se mogu bilo kada. <a href="https://nocito.app/hr/privacy.html#newsletter">Pravila privatnosti</a></span></label>
+          <p class="nl-msg" id="nlMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -962,6 +996,32 @@
         box.innerHTML = '';
         box.appendChild(f);
       });
+    });
+  })();
+  // ── Newsletter signup (Supabase Edge Function, Frankfurt) ──
+  (function () {
+    var form = document.getElementById('nlForm');
+    if (!form) return;
+    var msg = document.getElementById('nlMsg'), btn = document.getElementById('nlBtn');
+    var EP = 'https://zeiithcaxunvhfcxsnli.supabase.co/functions/v1/newsletter-signup', KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InplaWl0aGNheHVudmhmY3hzbmxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MTQ3NjUsImV4cCI6MjA5MDk5MDc2NX0.bLjpwIxYevsm92P-uLaRukZ0pAW--KXDU-b1Z9TmY6I';
+    var CONSENT_TEXT = "Želim primati Nocito novosti i savjete e-poštom. Odjaviti se mogu bilo kada.";
+    function say(t, c) { msg.textContent = t; msg.className = 'nl-msg' + (c ? ' ' + c : ''); }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('nlEmail').value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say('Provjeri e-adresu.', 'err'); return; }
+      if (!document.getElementById('nlConsent').checked) { say('Za prijavu označi privolu.', 'err'); return; }
+      btn.disabled = true; say('Šaljem…');
+      fetch(EP, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'apikey': KEY, 'Authorization': 'Bearer ' + KEY },
+        body: JSON.stringify({ email: email, lang: 'hr', source: location.pathname.slice(0, 100), consent_version: 'v1-hr', consent_text: CONSENT_TEXT, consent: true, website: document.getElementById('nlWeb').value })
+      }).then(function (r) {
+        if (r.ok) { say('Hvala! Tvoja prijava je zabilježena.', 'ok'); form.reset(); }
+        else if (r.status === 400) { say('Provjeri e-adresu i privolu.', 'err'); }
+        else { say('Trenutno ne ide. Pokušaj ponovno kasnije.', 'err'); }
+      }).catch(function () { say('Trenutno ne ide. Pokušaj ponovno kasnije.', 'err'); })
+        .then(function () { btn.disabled = false; });
     });
   })();
 </script>
