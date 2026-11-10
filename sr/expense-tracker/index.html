@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="sr">
 <head>
+<!--pi-pill-->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nocito™: cene i troškovi</title>
@@ -507,6 +508,10 @@
   .appbar-tabs a[aria-current="page"] { color: var(--text, #F5EDD6); border-color: rgba(245,166,35,.45); background: rgba(245,166,35,.1); font-weight: 600; }
   @media (max-width: 640px) { .appbar { font-size: .76rem; } .appbar-inner { flex-wrap: nowrap; gap: 8px; } .appbar-tabs { gap: 0; } .appbar-tabs a { padding: 4px 8px; } .appbar-back { overflow: hidden; text-overflow: ellipsis; } }
   @media (max-width: 380px) { .appbar-back { font-size: 0; } .appbar-back::before { content: "← Nocito"; font-size: .76rem; } }
+  /* Price Intelligence market pill */
+  .pi-pill { display: inline-flex; align-items: center; gap: 8px; margin: 14px 8px 0 0; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(245,166,35,.55); background: rgba(245,166,35,.12); color: #F5EDD6; font-size: .86rem; font-weight: 600; text-decoration: none; }
+  .pi-pill:hover { background: rgba(245,166,35,.22); }
+  .pi-pill b { color: #F5A623; }
 </style>
 <!-- sync3 -->
 <!-- sync8 -->
@@ -578,6 +583,7 @@
           <span class="chip">Bez oglasa</span>
         </div>
         <p class="coming-ios">Uskoro na App Storeu</p>
+        <a class="pi-pill" href="https://nocito.app/hr/expense-tracker/#price-intelligence" hreflang="hr"><b>Price Intelligence</b> Samo za hrvatsko tržište →</a>
       </div>
 
       <div class="phone-wrap" aria-label="Nocito app preview">
@@ -662,7 +668,7 @@
       <article class="card featured">
         <span class="tag amber">Novo</span>
         <h3>Price Intelligence</h3>
-        <p>Vidi na što stvarno trošiš — i gdje je jeftinije. Trenutno dostupno za Hrvatsku, uskoro i drugdje.</p>
+        <p>Vidi na što stvarno trošiš — i gdje je jeftinije. Samo za hrvatsko tržište.</p>
       </article>
     </div>
   </section>
@@ -731,7 +737,7 @@
         <div class="kicker amber">Price Intelligence</div>
         <h2>Ne samo gdje trošiš. I gdje je jeftinije.</h2>
         <p>Nocito čita svaki redak tvog računa i uspoređuje ga s javno dostupnim cenovnicima trgovina. Povezivanje se uglavnom odvija na tvom telefonu; cloud AI-ju šalju se samo nazivi proizvoda nakon filtra privatnosti, i to za razrešavanje skraćenih naziva s računa — nikad u potpuno lokalnom režimu.</p>
-        <div class="market-badge">🇭🇷 Dostupno za Hrvatsku · širenje na druga tržišta u planu</div>
+        <div class="market-badge">🇭🇷 Samo za hrvatsko tržište</div>
       </div>
       <div class="card-grid three">
         <article class="card featured">

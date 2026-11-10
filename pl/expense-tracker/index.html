@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="pl">
 <head>
+<!--pi-pill-->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nocito™: ceny i wydatki</title>
@@ -507,6 +508,10 @@
   .appbar-tabs a[aria-current="page"] { color: var(--text, #F5EDD6); border-color: rgba(245,166,35,.45); background: rgba(245,166,35,.1); font-weight: 600; }
   @media (max-width: 640px) { .appbar { font-size: .76rem; } .appbar-inner { flex-wrap: nowrap; gap: 8px; } .appbar-tabs { gap: 0; } .appbar-tabs a { padding: 4px 8px; } .appbar-back { overflow: hidden; text-overflow: ellipsis; } }
   @media (max-width: 380px) { .appbar-back { font-size: 0; } .appbar-back::before { content: "← Nocito"; font-size: .76rem; } }
+  /* Price Intelligence market pill */
+  .pi-pill { display: inline-flex; align-items: center; gap: 8px; margin: 14px 8px 0 0; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(245,166,35,.55); background: rgba(245,166,35,.12); color: #F5EDD6; font-size: .86rem; font-weight: 600; text-decoration: none; }
+  .pi-pill:hover { background: rgba(245,166,35,.22); }
+  .pi-pill b { color: #F5A623; }
 </style>
 <!-- sync3 -->
 <!-- sync8 -->
@@ -578,6 +583,7 @@
           <span class="chip">Bez reklam</span>
         </div>
         <p class="coming-ios">Wkrótce w App Store</p>
+        <a class="pi-pill" href="https://nocito.app/hr/expense-tracker/#price-intelligence" hreflang="hr"><b>Price Intelligence</b> Tylko dla rynku chorwackiego →</a>
       </div>
 
       <div class="phone-wrap" aria-label="Nocito app preview">
@@ -662,7 +668,7 @@
       <article class="card featured">
         <span class="tag amber">Nowość</span>
         <h3>Price Intelligence</h3>
-        <p>Zobacz, na co naprawdę wydajesz — i gdzie jest taniej. Już dostępne na żywo dla kupujących w Chorwacji, kolejne rynki w drodze.</p>
+        <p>Zobacz, na co naprawdę wydajesz — i gdzie jest taniej. Tylko dla rynku chorwackiego.</p>
       </article>
     </div>
   </section>
@@ -731,7 +737,7 @@
         <div class="kicker amber">Price Intelligence</div>
         <h2>Nie tylko na co wydajesz. Także gdzie jest taniej.</h2>
         <p>Nocito czyta każdą linijkę Twojego paragonu i porównuje ją z publicznie dostępnymi cennikami sklepów. Dopasowanie odbywa się głównie na Twoim telefonie; do AI w chmurze trafiają wyłącznie nazwy produktów po filtrze prywatności, służące do rozszyfrowania skróconych nazw z paragonu — w trybie w pełni lokalnym nigdy.</p>
-        <div class="market-badge">🇭🇷 Dostępne w Chorwacji · kolejne rynki w planach</div>
+        <div class="market-badge">🇭🇷 Tylko dla rynku chorwackiego</div>
       </div>
       <div class="card-grid three">
         <article class="card featured">
