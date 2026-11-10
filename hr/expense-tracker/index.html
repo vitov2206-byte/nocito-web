@@ -550,6 +550,15 @@
   .blog-teaser h3 { font-size: 1.3rem; line-height: 1.25; margin: 6px 0 10px; }
   .blog-teaser p { color: var(--muted); margin: 0 0 12px; line-height: 1.65; }
   .blog-teaser .go { color: var(--amber); font-weight: 700; font-size: .92rem; }
+  /* PI points (text only, replaces image cards) */
+  .pi-points { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; max-width: 1040px; margin: 8px auto 0; }
+  .pi-point { padding-top: 16px; border-top: 2px solid rgba(245,166,35,.55); }
+  .pi-point h3 { font-size: 1.05rem; margin: 0 0 8px; }
+  .pi-point p { color: var(--muted); font-size: .94rem; line-height: 1.65; margin: 0; }
+  .nl-blog { text-align: center; margin: 22px 0 0; font-size: .95rem; color: var(--muted); }
+  .nl-blog a { color: var(--amber); font-weight: 700; }
+  @media (max-width: 980px) { .pi-points { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .pi-points { grid-template-columns: 1fr; gap: 22px; } }
 </style>
 <!-- sync3 -->
 <!-- sync5 -->
@@ -614,14 +623,6 @@
           <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.nocito.app"><span class="play-dot"></span> Dostupno na Google Playu</a>
           <a class="btn btn-secondary" href="https://nocito.app/hr/expense-tracker/features/#privacy">Pogledaj opcije privatnosti</a>
         </div>
-        <div class="chips" aria-label="Nocito highlights">
-          <span class="chip">Bez bankovne sinkronizacije</span>
-          <span class="chip">Radi offline</span>
-          <span class="chip">Opcija lokalnog AI-ja</span>
-          <span class="chip">Bez oglasa</span>
-        </div>
-        <p class="coming-ios">Uskoro na App Storeu</p>
-        <a class="news-pill" href="https://nocito.app/hr/novosti/"><b>Novo</b> Što je novo u verziji 1.2.0 →</a>
       </div>
 
       <div class="phone-wrap" aria-label="Nocito app preview">
@@ -731,18 +732,11 @@
         <p>Nocito čita svaki redak tvog računa i uspoređuje ga s javno dostupnim cjenicima trgovina. Povezivanje se uglavnom odvija na tvom telefonu; cloud AI-ju šalju se samo nazivi proizvoda nakon filtra privatnosti, i to za razrješavanje skraćenih naziva s računa — nikad u potpuno lokalnom načinu.</p>
         <div class="market-badge">🇭🇷 Samo za hrvatsko tržište</div>
       </div>
-      <div class="card-grid two">
-        <article class="card featured">
-          <div class="thumb"><img src="/img/hr2-p-zadnji.jpg" width="520" loading="lazy" alt="Zadnji račun i najjeftinija trgovina"></div><h3>Vidi odmah je li jeftinije</h3><p>Svaki skenirani račun automatski pokazuje je li artikl na akciji, je li jeftiniji drugdje ili već kupuješ po najboljoj cijeni — bez ijednog dodatnog koraka.</p>
-        </article>
-        <article class="card featured teal-tint">
-          <div class="thumb"><img src="/img/hr2-p-kupovina.jpg" width="520" loading="lazy" alt="Najbolja kupovina: Spar je najjeftiniji, 4,67 €"></div><h3>Pronađi najbolju kupovinu</h3><p>Dodaj artikle na listu i jednim dodirom usporedi ukupnu cijenu košarice u svim tvojim trgovinama — rangirano, s prikazom uštede. Dodirni najbolju opciju i Google Maps otvara rutu do te trgovine.</p>
-        </article>
-        </div>
-    
-            <div class="card-grid two pi-more" style="margin-top:22px;">
-        <article class="card featured"><div class="thumb"><img src="/img/hr2-p-skeniraj.jpg" width="520" loading="lazy" alt="Pločica Skeniraj"></div><h3>Skeniraj barkod</h3><p>Vidi cijenu bilo kojeg proizvoda u svim svojim trgovinama, po kilogramu ili litri, s istaknutim akcijama.</p></article>
-        <article class="card featured"><div class="thumb"><img src="/img/hr2-p-akcije.jpg" width="520" loading="lazy" alt="Akcije za tvoje artikle"></div><h3>Upozorenja o cijenama</h3><p>Dobij obavijest kad artikl koji kupuješ dođe na akciju ili cijena padne ispod one koju si platio.</p></article>
+      <div class="pi-points">
+        <div class="pi-point"><h3>Vidi odmah je li jeftinije</h3><p>Svaki skenirani račun automatski pokazuje je li artikl na akciji, je li jeftiniji drugdje ili već kupuješ po najboljoj cijeni — bez ijednog dodatnog koraka.</p></div>
+        <div class="pi-point"><h3>Pronađi najbolju kupovinu</h3><p>Dodaj artikle na listu i jednim dodirom usporedi ukupnu cijenu košarice u svim tvojim trgovinama — rangirano, s prikazom uštede. Dodirni najbolju opciju i Google Maps otvara rutu do te trgovine.</p></div>
+        <div class="pi-point"><h3>Skeniraj barkod</h3><p>Vidi cijenu bilo kojeg proizvoda u svim svojim trgovinama, po kilogramu ili litri, s istaknutim akcijama.</p></div>
+        <div class="pi-point"><h3>Upozorenja o cijenama</h3><p>Dobij obavijest kad artikl koji kupuješ dođe na akciju ili cijena padne ispod one koju si platio.</p></div>
       </div>
       <p class="pi-chains">Cjenici 10 lanaca: Konzum, Lidl, Plodine, Spar, Tommy, Studenac, Kaufland, Eurospin, NTL i KTC. Najbolju kupovinu usporedi kao popis ili tablicu, a sve naučiš kroz vodič od 21 koraka.</p>
 
@@ -864,18 +858,6 @@
   </section>
 
   <!--blog-teaser-->
-  <section class="section-tight" id="blog">
-    <div class="container">
-      <a class="blog-teaser" href="https://nocito.app/hr/blog/zakonski-cjenici/">
-        <div class="kicker">Iz bloga</div>
-        <h3>Zakonski cjenici: što trgovci moraju objavljivati</h3>
-        <p>Od 1. listopada 2026. hrvatski trgovci svaki dan objavljuju cjenike u strojno čitljivim datotekama. Evo što je u njima i zašto je to važno za tvoju košaricu.</p>
-        <span class="go">Čitaj članak →</span>
-      </a>
-      <p style="text-align:center;margin:16px 0 0"><a href="https://nocito.app/hr/blog/" style="color:var(--amber);font-weight:700">Svi članci na blogu →</a></p>
-    </div>
-  </section>
-
     <!--newsletter-->
   <section class="section-tight" id="newsletter">
     <div class="container">
@@ -894,6 +876,7 @@
           <label class="nl-consent"><input type="checkbox" id="nlConsent" name="consent"><span>Želim primati Nocito novosti i savjete e-poštom. Odjaviti se mogu bilo kada. <a href="https://nocito.app/hr/privacy.html#newsletter">Pravila privatnosti</a></span></label>
           <p class="nl-msg" id="nlMsg" role="status" aria-live="polite"></p>
         </form>
+        <p class="nl-blog">Iz bloga: <a href="https://nocito.app/hr/blog/zakonski-cjenici/">Zakonski cjenici — što trgovci moraju objavljivati →</a></p>
       </div>
     </div>
   </section>
