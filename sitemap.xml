@@ -759,4 +759,36 @@
       <xhtml:link rel="alternate" hreflang="pt" href="https://nocito.app/pt/terms.html" />
       <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/terms.html" />
   </url>
+  <url>
+    <loc>https://nocito.app/blog/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/blog/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/blog/"/>
+  </url>
+  <url>
+    <loc>https://nocito.app/hr/blog/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/blog/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/blog/"/>
+  </url>
+  <url>
+    <loc>https://nocito.app/blog/croatian-price-lists/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/blog/croatian-price-lists/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/blog/zakonski-cjenici/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/blog/croatian-price-lists/"/>
+  </url>
+  <url>
+    <loc>https://nocito.app/hr/blog/zakonski-cjenici/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nocito.app/blog/croatian-price-lists/"/>
+    <xhtml:link rel="alternate" hreflang="hr" href="https://nocito.app/hr/blog/zakonski-cjenici/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nocito.app/blog/croatian-price-lists/"/>
+  </url>
 </urlset>
