@@ -515,6 +515,12 @@
   .pi-pill { display: inline-flex; align-items: center; gap: 8px; margin: 14px 8px 0 0; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(245,166,35,.55); background: rgba(245,166,35,.12); color: #F5EDD6; font-size: .86rem; font-weight: 600; text-decoration: none; }
   .pi-pill:hover { background: rgba(245,166,35,.22); }
   .pi-pill b { color: #F5A623; }
+  /* blog teaser */
+  .blog-teaser { max-width: 720px; margin: 0 auto; display: block; padding: 26px 28px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.018)); transition: border-color .15s ease, transform .15s ease; }
+  .blog-teaser:hover { border-color: rgba(245,166,35,.4); transform: translateY(-2px); }
+  .blog-teaser h3 { font-size: 1.3rem; line-height: 1.25; margin: 6px 0 10px; }
+  .blog-teaser p { color: var(--muted); margin: 0 0 12px; line-height: 1.65; }
+  .blog-teaser .go { color: var(--amber); font-weight: 700; font-size: .92rem; }
 </style>
 <!-- sync3 -->
 <!-- sync8 -->
@@ -539,6 +545,7 @@
       <a href="#insights">Insights</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
+      <a href="https://nocito.app/blog/">Blog</a>
       <div class="lang-switcher" id="langSwitcher">
         <button type="button" class="lang-trigger" id="langTrigger" aria-haspopup="true" aria-expanded="false" aria-label="Language / Jezik">
           <span class="lang-switcher-icon" aria-hidden="true">🌐</span>
@@ -909,6 +916,19 @@
   </section>
 
   <!-- FAQ -->
+  <!--blog-teaser-->
+  <section class="section-tight" id="blog">
+    <div class="container">
+      <a class="blog-teaser" href="https://nocito.app/blog/croatian-price-lists/">
+        <div class="kicker">From the blog</div>
+        <h3>Croatian price lists: what retailers must publish</h3>
+        <p>Since 1 October 2026 Croatian retailers publish daily price lists in machine-readable files. Here is what is in them and why it matters for your basket.</p>
+        <span class="go">Read the article →</span>
+      </a>
+      <p style="text-align:center;margin:16px 0 0"><a href="https://nocito.app/blog/" style="color:var(--amber);font-weight:700">All blog posts →</a></p>
+    </div>
+  </section>
+
   <section id="faq" class="section">
     <div class="container split">
       <div class="section-head">
@@ -967,6 +987,7 @@
     <div>© 2026 Nocito™ · nocito.app</div>
     <div class="footer-links">
       <a href="https://nocito.app/">Nocito Private Apps</a>
+      <a href="https://nocito.app/blog/">Blog</a>
       <a href="https://nocito.app/news/">News</a>
       <a href="https://nocito.app/privacy.html">Privacy Policy</a>
       <a href="https://nocito.app/terms.html">Terms of Service</a>
