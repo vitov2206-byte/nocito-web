@@ -65,7 +65,7 @@
   <div class="hero-badge">Legal</div>
   <h1>Terms of Service</h1>
   <p>The rules for using Nocito™. Plain language, no surprises.</p>
-  <div class="hero-meta">Effective date: 1 June 2025 &nbsp;·&nbsp; Last updated: October 2026 (v1.2)</div>
+  <div class="hero-meta">Effective date: 1 June 2025 &nbsp;·&nbsp; Last updated: November 2026 (v1.2)</div>
 </div>
 
 <div class="disclaimer-highlight">
@@ -138,13 +138,14 @@
       <li>Maintain your own official financial records separately from Nocito™ if required by law or for business purposes</li>
       <li>Not attempt to reverse-engineer, modify, or redistribute the app</li>
       <li>Not use the app in any way that could harm other users, third parties, or the integrity of the service</li>
+      <li><!--ds-terms-->Not try to bypass the usage limits of the Free plan (for example by reinstalling the app, using a modified app or spoofing device identifiers)</li>
     </ul>
   </div>
 
   <div class="section">
     <h2>5. Subscriptions and Payments</h2>
     <h3>Free tier</h3>
-    <p>Nocito™ offers a free tier with limited AI captures per month. No payment information is required to use the free tier.</p>
+    <p>Nocito™ offers a free tier with limited use of cloud AI features per month (receipt scans, dictation sessions and Price Intelligence item linking). The current limits, including any starter allowance, are shown in the app and on our pricing page. Limits are counted on your phone and also per device on our server (see section 10d of the Privacy Policy). Bypassing the limits, for example by reinstalling the app, using a modified app or spoofing device identifiers, is not allowed and may lead to the cloud features being refused. No payment information is required to use the free tier.</p>
 
     <h3>Paid tiers</h3>
     <p>Nocito™ currently offers a <strong>Pro</strong> subscription tier via Google Play in-app purchases, billed monthly or yearly. Price Intelligence matching (exact and close) is free and does not require a subscription.<!--sync1-terms--> Additional paid tiers are planned for future versions. By purchasing a subscription:</p>
@@ -183,8 +184,10 @@
       <li>Voice dictation uses cloud transcription by default — local on-device transcription is an opt-in setting that requires downloading a local model within the app</li>
       <li>AI expense parsing uses cloud processing by default — local on-device AI is an opt-in setting that requires downloading a local model within the app</li>
       <li>Price Intelligence (Croatia): public price lists are downloaded to your phone; privacy-filtered product names may be sent to cloud AI to link items, unless Local AI Processing is on</li>
-      <li>Crash reports are sent to Sentry for stability monitoring and include technical data such as your IP address and device information</li>
+      <li>Crash reports are sent to Sentry for stability monitoring and include technical data such as device model and app version; the app is set not to send default personal data such as your IP address</li>
       <li>No advertising or analytics SDKs are included in the app</li>
+      <li>When you use a cloud AI feature, the app sends your phone's Android ID and your plan (Free or Pro) to our server, which keeps only a one-way hash of it to count cloud AI calls per device and enforce the usage limits (see the Privacy Policy, section 10d)</li>
+      <li>Your shopping list, its history, receipts and prices stay on your phone. If you share a list, only the text you choose is sent, to the app you choose; Nocito sends nothing itself</li>
     </ul>
   </div>
 
