@@ -82,7 +82,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>Die Kurzfassung</h3>
-      <p>Nocito™ speichert alle deine Ausgaben, Belege, Bilder und Audioaufnahmen <strong>lokal auf deinem Gerät</strong>. Wir haben keinen Server mit deinen Daten. Standardmäßig wird bereinigter OCR-Text zur Ausgabenverarbeitung an einen Cloud-KI-Dienst gesendet, und die Sprachdiktierfunktion nutzt Cloud-Transkription. Du kannst in den Einstellungen auf vollständig lokale KI-Verarbeitung und Transkription umstellen, indem du lokale Modelle aktivierst — dafür ist ein einmaliger Download in der App nötig. Der PDF-Import extrahiert Text standardmäßig lokal; das Senden des vollständigen PDFs in die Cloud ist eine optionale Einstellung. In Kroatien lädt die Funktion Price Intelligence zusätzlich öffentliche Preislisten von Händlern auf dein Telefon und kann nach dem Datenschutzfilter bereinigte Produktnamen an einen Cloud-KI-Dienst senden, um Belegartikel mit diesen Preislisten zu verknüpfen; bei aktivierter lokaler KI-Verarbeitung geschieht das nicht. Die App nutzt Sentry für Absturzberichte, die technische Daten wie deine IP-Adresse enthalten. Alles ist in dieser Erklärung offengelegt.</p>
+      <p>Nocito™ speichert alle deine Ausgaben, Belege, Bilder und Audioaufnahmen <strong>lokal auf deinem Gerät</strong>. Kein Server von uns speichert deine Ausgaben, Belege, Bilder oder Audioaufnahmen. Unser Server leitet nur Cloud-KI-Anfragen weiter und führt einen gehashten Zähler pro Gerät (Abschnitt 10d). Standardmäßig wird bereinigter OCR-Text zur Ausgabenverarbeitung an einen Cloud-KI-Dienst gesendet, und die Sprachdiktierfunktion nutzt Cloud-Transkription. Du kannst in den Einstellungen auf vollständig lokale KI-Verarbeitung und Transkription umstellen, indem du lokale Modelle aktivierst — dafür ist ein einmaliger Download in der App nötig. Der PDF-Import extrahiert Text standardmäßig lokal; das Senden des vollständigen PDFs in die Cloud ist eine optionale Einstellung. In Kroatien lädt die Funktion Price Intelligence zusätzlich öffentliche Preislisten von Händlern auf dein Telefon und kann nach dem Datenschutzfilter bereinigte Produktnamen an einen Cloud-KI-Dienst senden, um Belegartikel mit diesen Preislisten zu verknüpfen; bei aktivierter lokaler KI-Verarbeitung geschieht das nicht. Die App nutzt Sentry für Absturzberichte, die technische Daten wie dein Gerätemodell und die App-Version senden (die App ist so eingestellt, dass sie keine standardmäßigen personenbezogenen Daten wie deine IP-Adresse sendet). Alles ist in dieser Erklärung offengelegt.</p>
     </div>
   </div>
 </div>
@@ -148,10 +148,22 @@
         <td>Nur wenn du Geschäfte für Price Intelligence ausgewählt hast und die lokale KI-Verarbeitung ausgeschaltet ist. Zählt zum monatlichen Kontingent für Artikelverknüpfung.</td>
       </tr>
       <tr>
-        <td>Absturzberichte: Stack-Traces, IP-Adresse, Gerätemodell, Betriebssystem- und App-Version, aktuelle technische Protokolleinträge</td>
+        <td>Absturzberichte: Stacktraces, Gerätemodell, Betriebssystem- und App-Version, aktuelle technische Protokollereignisse (die App ist so eingestellt, dass sie keine standardmäßigen personenbezogenen Daten wie deine IP-Adresse sendet)</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Absturzberichte und Stabilitätsüberwachung</td>
         <td>Automatisch bei einem App-Absturz. Ausgabendaten werden nicht absichtlich übermittelt.</td>
+      </tr>
+      <tr>
+        <td>Gerätekennung (Android-ID) und dein Tarif (Free oder Pro). Unser Server speichert nur einen Einweg-Hash davon.</td>
+        <td>Unser Server (Supabase, EU) — siehe Abschnitt 10d</td>
+        <td>Zählen der Cloud-KI-Aufrufe pro Gerät, um Nutzungsgrenzen durchzusetzen und Missbrauch zu verhindern</td>
+        <td>Bei jeder Cloud-KI-Anfrage (Belegtext, Cloud-Diktat, Price-Intelligence-Zuordnung). Im vollständig lokalen Modus wird sie nicht gesendet.</td>
+      </tr>
+      <tr>
+        <td>Fehlermeldung, die du selbst sendest: deine Nachricht, angehängte Dateien, eine optionale E-Mail-Adresse, App-Version, Android-Version, Handymodell, Sprache und Tarif</td>
+        <td>Unser Server (Supabase) und der E-Mail-Dienst Resend</td>
+        <td>Um deine Meldung zu lesen, das Problem zu beheben und dir zu antworten</td>
+        <td>Nur wenn du in Einstellungen → Fehler melden auf Senden tippst</td>
       </tr>
     </table>
 
@@ -161,8 +173,8 @@
 
     <h3>Daten, die wir niemals erheben</h3>
     <ul>
-      <li>Wir erheben weder deinen Namen, deine E-Mail-Adresse noch Kontoinformationen (es gibt kein Konto)</li>
-      <li>Wir erheben keine Analyse- oder Nutzungsstatistiken</li>
+      <li>Wir erfassen weder deinen Namen noch Kontodaten (es gibt kein Konto). Eine E-Mail-Adresse erhalten wir nur, wenn du sie uns gibst: in einer Fehlermeldung (optional, Abschnitt 10e) oder für den Newsletter auf unserer Website (Abschnitt 10c)</li>
+      <li>Wir verwenden keine Analyse- oder Tracking-SDKs. Die einzigen Nutzungsdaten sind ein gehashter Zähler der Cloud-KI-Aufrufe pro Gerät, der zur Durchsetzung der Nutzungsgrenzen dient (Abschnitt 10d)</li>
       <li>Wir verwenden keine Werbe-SDKs oder Tracking-Pixel</li>
       <li>Wir synchronisieren deine Ausgabendaten mit keinem Server</li>
       <li>Wir verkaufen deine Daten an niemanden</li>
@@ -268,7 +280,7 @@
       <tr>
         <td>Sprachtranskription (wenn Cloud-Transkription aktiviert ist)</td>
         <td>Cloud-KI-Dienst</td>
-        <td>Audioaufnahme (nur Opt-in)</td>
+        <td>Audioaufnahme (standardmäßig aktiv; in den Einstellungen kannst du auf lokale Transkription umstellen)</td>
       </tr>
       <tr>
         <td>Price Intelligence – Verknüpfung von Belegartikeln (Kroatien)</td>
@@ -293,7 +305,17 @@
       <tr>
         <td>Absturzberichte</td>
         <td>Sentry (sentry.io), EU-Datenregion</td>
-        <td>Stack-Traces, IP-Adresse, Gerätemodell, Betriebssystem- und App-Version sowie aktuelle technische Protokolleinträge. Ausgabendaten werden nicht absichtlich übermittelt.</td>
+        <td>Stacktraces, Gerätemodell, Betriebssystemversion, App-Version und aktuelle technische Protokolle. Die App ist so eingestellt, dass sie keine standardmäßigen personenbezogenen Daten (wie deine IP-Adresse) sendet. Ausgabendaten werden nicht absichtlich gesendet.</td>
+      </tr>
+      <tr>
+        <td>Nutzungsgrenzen für Cloud-KI</td>
+        <td>Unsere eigene Serverfunktion (Supabase, EU)</td>
+        <td>Ein Einweg-Hash der Android-ID, dein Tarif und Aufrufzähler. Der Proxy speichert weder Belegtext noch Audio.</td>
+      </tr>
+      <tr>
+        <td>Zustellung von Fehlermeldungen</td>
+        <td>Supabase (Speicherung angehängter Dateien) und Resend (resend.com, E-Mail-Zustellung)</td>
+        <td>Deine Nachricht, angehängte Dateien, optionale E-Mail-Adresse und technische Angaben (App, Android, Handymodell, Sprache, Tarif), gesendet an nocito.support@gmail.com</td>
       </tr>
     </table>
     <p>Die konkret genutzten Cloud-KI-Dienste für Ausgabenextraktion und Transkription können sich ändern, sobald bessere oder datenschutzfreundlichere Optionen verfügbar werden. Jede wesentliche Änderung der übertragenen Datenarten wird in einer aktualisierten Datenschutzerklärung berücksichtigt.</p>
@@ -325,6 +347,8 @@
       <li><strong>Berechtigtes Interesse</strong> — Absturzberichte über Sentry zur Sicherung der App-Stabilität</li>
       <li><strong>Einwilligung</strong> — Senden von Audio an einen Cloud-Transkriptionsdienst (nur wenn die Cloud-Transkription in den Einstellungen aktiviert ist)</li>
       <li><strong>Einwilligung</strong> — Senden vollständiger PDF-Dokumente an einen Cloud-KI-Dienst (nur wenn die Cloud-PDF-Extraktion in den Einstellungen aktiviert ist)</li>
+      <li><strong>Berechtigte Interessen</strong> — Zählen von Cloud-KI-Aufrufen pro Gerät mit einem Einweg-Hash, um Nutzungsgrenzen durchzusetzen und Missbrauch zu verhindern</li>
+      <li><strong>Einwilligung</strong> — Fehlermeldungen, die du selbst sendest (erteilt durch Tippen auf Senden)</li>
     </ul>
     <p>Da die App primär auf dem Gerät und ohne Kontosystem arbeitet, sind die von uns verarbeiteten personenbezogenen Daten minimal. Der primäre Verantwortliche für deine personenbezogenen Daten bist du selbst — sie liegen auf deinem Gerät.</p>
   </div>
@@ -334,7 +358,7 @@
     <ul>
       <li><strong>Auskunft</strong> — exportiere deine Ausgaben als CSV innerhalb der App (Pro-Funktion)</li>
       <li><strong>Sicherung und Wiederherstellung</strong> — exportiere alle deine Daten als JSON-Sicherung und stelle sie auf einem beliebigen Gerät wieder her (für alle Nutzer verfügbar)</li>
-      <li><strong>Löschung</strong> — lösche einzelne Ausgaben oder alle Daten in der App, oder deinstalliere die App, um alles zu löschen</li>
+      <li><strong>Löschung</strong> — lösche einzelne Ausgaben oder alle Daten in der App, oder deinstalliere die App, um alles zu löschen. Zähler auf unserem Server können wir dir nicht zuordnen (siehe Abschnitt 10d); auf Anfrage können wir sie löschen, wenn du uns deine Gerätekennung nennst.</li>
       <li><strong>Datenübertragbarkeit</strong> — exportiere deine Daten jederzeit als CSV oder JSON</li>
       <li><strong>Berichtigung</strong> — bearbeite jede Ausgabe direkt in der App</li>
     </ul>
@@ -348,18 +372,30 @@
       <li>Gerätemodell und Hersteller</li>
       <li>Android-Version</li>
       <li>App-Version</li>
-      <li>Deiner IP-Adresse, die Sentry bei jeder Anfrage erhält</li>
       <li>Einer kurzen Spur der letzten technischen Protokolleinträge vor dem Fehler</li>
     </ul>
-    <p>Die Berichte sind nicht dafür gedacht, deine Ausgabendaten, Belegbilder oder Audioaufnahmen zu enthalten, und wir verwenden sie ausschließlich zum Finden und Beheben von Fehlern. Da sie technische Kennungen wie eine IP-Adresse enthalten, gelten sie nach der DSGVO als personenbezogene Daten. Die Absturzberichterstattung ist in der veröffentlichten App aktiv und lässt sich derzeit in den Einstellungen nicht ausschalten. Datenschutzerklärung von Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+    <p>Berichte sind nicht dafür gedacht, deine Ausgabendaten, Belegbilder oder Audioaufnahmen zu enthalten, und wir nutzen sie nur, um Fehler zu finden und zu beheben. Die App ist so eingestellt, dass sie mit Berichten keine standardmäßigen personenbezogenen Daten (wie deine IP-Adresse) sendet. Ein Bericht kann dennoch technische Kennungen der oben genannten Art enthalten, die nach der DSGVO als personenbezogene Daten gelten können, und die technische Verbindung, über die ein Bericht übermittelt wird, ist für den Dienst sichtbar. Den Geräte-Hash aus Abschnitt 10d fügen wir Absturzberichten nicht hinzu. Die Absturzberichterstattung ist in der veröffentlichten App aktiv und lässt sich derzeit in den Einstellungen nicht ausschalten. Datenschutzerklärung von Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section" id="newsletter">
     <h2>10c. Newsletter (Website)</h2>
     <p>Wenn du dich auf nocito.app für den Nocito-Newsletter anmeldest, speichern wir deine E-Mail-Adresse zusammen mit dem Zeitpunkt deiner Einwilligung, dem genauen Wortlaut der Einwilligung, die du gesehen hast, der Sprache der Seite und der Seite, von der du dich angemeldet hast. Wir verwenden das ausschließlich, um dir Nocito-Neuigkeiten und Tipps per E-Mail zu senden. Rechtsgrundlage: deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</p>
-    <p>Die Daten liegen in unserer eigenen Datenbank, die bei Supabase in Frankfurt (EU) gehostet wird und als unser Auftragsverarbeiter handelt. In dieser Datenbank speichern wir weder deine IP-Adresse noch Gerätedaten und wir verwenden keine Tracking-Pixel. Wir bewahren deine Adresse auf, bis du dich abmeldest oder uns um Löschung bittest. Du kannst deine Einwilligung jederzeit widerrufen, über den Abmeldelink in unseren E-Mails oder per E-Mail an <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
+    <p>Die Daten liegen in unserer eigenen Datenbank, die bei Supabase in Frankfurt (EU) gehostet wird und als unser Auftragsverarbeiter handelt. In der Newsletter-Liste speichern wir weder deine IP-Adresse noch Gerätedaten und wir verwenden keine Tracking-Pixel. Wir bewahren deine Adresse auf, bis du dich abmeldest oder uns um Löschung bittest. Du kannst deine Einwilligung jederzeit widerrufen, über den Abmeldelink in unseren E-Mails oder per E-Mail an <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
     <p>Das ist von der App getrennt: Der Newsletter ist freiwillig und die App funktioniert auch ohne ihn. Die App sendet uns weder deine Ausgaben noch deine Belege.</p>
   </div>
-<div class="section">
+<div class="section"><!--ds-privacy-->
+    <h2>10d. Gerätekennung und Nutzungsgrenzen</h2>
+    <p>Wenn du eine Cloud-KI-Funktion nutzt (Belegtext lesen, Cloud-Diktat oder Artikelzuordnung in Price Intelligence), sendet die App die Android-ID deines Telefons und deinen Tarif (Free oder Pro) zusammen mit der Anfrage an unseren Server. Unser Server speichert davon nur einen <strong>Einweg-Hash</strong> (mit einem Geheimnis gesalzen, das nicht in der Datenbank liegt) und nutzt ihn ausschließlich, um zu zählen, wie viele Cloud-KI-Aufrufe ein Gerät macht, damit die kostenlosen Grenzen nicht durch Neuinstallation oder eine veränderte App umgangen werden können. Er wird nicht für Werbung, Profilbildung oder appübergreifendes Tracking verwendet. Bei vollständig lokaler Verarbeitung wird er nicht gesendet.</p>
+    <p>Die Cloud-Funktionen laufen über unsere eigene Serverfunktion (Supabase, EU-Datenregion), die die Anfrage nur zur Beantwortung dieser einen Anfrage an den KI-Anbieter weiterleitet. Die Funktion speichert weder Belegtext noch Audio noch Ergebnisse. Der Server speichert die gehashten Zähler und eine gesamte Tageszahl der Aufrufe.</p>
+    <p>Den Hash können wir dir nicht zuordnen. Wenn du die Zähler deines Geräts löschen lassen möchtest, schreibe an <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> und gib die Gerätekennung an; wir können nur anhand dieser Kennung löschen. Rechtsgrundlage: unser berechtigtes Interesse an der Verhinderung von Missbrauch und der Verfügbarkeit des Dienstes (Art. 6 Abs. 1 lit. f DSGVO).</p>
+  </div>
+
+  <div class="section">
+    <h2>10e. Ein Problem melden</h2>
+    <p>In den Einstellungen kannst du <strong>Fehler melden</strong> wählen. Das ist freiwillig und es wird nichts gesendet, bis du auf Senden tippst. Eine Meldung enthält deine Nachricht, Dateien, die du anhängen möchtest (Bilder, Video, Audio, PDF oder einfache Dokumente; bis zu 5 Dateien), eine E-Mail-Adresse, falls du eine Antwort möchtest, sowie technische Angaben: App-Version, Android-Version, Handymodell, Sprache und Tarif.</p>
+    <p>Die Meldung geht an unseren Server (Supabase, EU-Datenregion), der sie über den E-Mail-Dienst Resend an unsere Support-Adresse (nocito.support@gmail.com) schickt. Angehängte Dateien liegen in einem privaten Speicher und werden <strong>nach 30 Tagen gelöscht</strong>; die Links dazu in der E-Mail funktionieren dann ebenfalls nicht mehr. Wir verwenden Meldungen nur, um Probleme zu verstehen und zu beheben und um dir zu antworten. Bitte hänge nichts an, was wir nicht sehen sollen, etwa Belege oder Aufnahmen mit persönlichen Angaben. Die E-Mail-Adresse ist optional und die Nachricht bleibt in unserem Support-Postfach, bis wir sie löschen; du kannst die Löschung per E-Mail an <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> verlangen. Rechtsgrundlage: deine Einwilligung, die du durch Tippen auf Senden erteilst (Art. 6 Abs. 1 lit. a DSGVO).</p>
+  </div>
+
+  <div class="section">
     <h2>11. Datenschutz von Kindern</h2>
     <p>Nocito™ richtet sich nicht an Kinder unter 13 Jahren (bzw. unter 16 Jahren in der EU). Wir erheben wissentlich keine personenbezogenen Daten von Kindern. Wenn du glaubst, dass uns ein Kind personenbezogene Daten übermittelt hat, kontaktiere uns bitte unter <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
   </div>

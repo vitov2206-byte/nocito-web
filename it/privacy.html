@@ -82,7 +82,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>La versione breve</h3>
-      <p>Nocito™ memorizza tutte le tue spese, scontrini, immagini e audio <strong>localmente sul tuo dispositivo</strong>. Non abbiamo un server con i tuoi dati. Per impostazione predefinita, il testo OCR pulito viene inviato a un servizio di IA cloud per l'analisi delle spese e il dettato vocale usa la trascrizione cloud. Puoi passare a un'elaborazione e a una trascrizione interamente sul dispositivo attivando i modelli locali nelle Impostazioni — richiede un download una tantum nell'app. L'importazione dei PDF estrae il testo localmente per impostazione predefinita; l'invio del PDF completo al cloud è un'impostazione facoltativa. In Croazia, la funzione Price Intelligence scarica inoltre sul tuo telefono i listini prezzi pubblici dei negozi e può inviare a un servizio di IA cloud i nomi dei prodotti (dopo il filtro privacy) per collegare gli articoli degli scontrini a quei listini; questo non avviene quando l'Elaborazione IA locale è attiva. L'app usa Sentry per la segnalazione dei crash, che include dati tecnici come il tuo indirizzo IP. Tutto è dichiarato in questa informativa.</p>
+      <p>Nocito™ memorizza tutte le tue spese, scontrini, immagini e audio <strong>localmente sul tuo dispositivo</strong>. Nessun server nostro memorizza le tue spese, scontrini, immagini o audio. Il nostro server si limita a inoltrare le richieste di IA cloud e tiene un contatore con hash per dispositivo (sezione 10d). Per impostazione predefinita, il testo OCR pulito viene inviato a un servizio di IA cloud per l'analisi delle spese e il dettato vocale usa la trascrizione cloud. Puoi passare a un'elaborazione e a una trascrizione interamente sul dispositivo attivando i modelli locali nelle Impostazioni — richiede un download una tantum nell'app. L'importazione dei PDF estrae il testo localmente per impostazione predefinita; l'invio del PDF completo al cloud è un'impostazione facoltativa. In Croazia, la funzione Price Intelligence scarica inoltre sul tuo telefono i listini prezzi pubblici dei negozi e può inviare a un servizio di IA cloud i nomi dei prodotti (dopo il filtro privacy) per collegare gli articoli degli scontrini a quei listini; questo non avviene quando l'Elaborazione IA locale è attiva. L'app usa Sentry per la segnalazione dei crash, che invia dati tecnici come il modello del tuo dispositivo e la versione dell'app (l'app è impostata per non inviare dati personali predefiniti, come il tuo indirizzo IP). Tutto è dichiarato in questa informativa.</p>
     </div>
   </div>
 </div>
@@ -148,10 +148,22 @@
         <td>Solo se hai scelto dei negozi per Price Intelligence e l'Elaborazione IA locale è disattivata. Conta nella quota mensile di collegamento articoli.</td>
       </tr>
       <tr>
-        <td>Report di crash: stack trace, indirizzo IP, modello del dispositivo, versione del sistema e dell'app, eventi tecnici recenti</td>
+        <td>Report di crash: stack trace, modello del dispositivo, versione del sistema e dell'app, eventi tecnici recenti (l'app è impostata per non inviare dati personali predefiniti, come il tuo indirizzo IP)</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Segnalazione dei crash e monitoraggio della stabilità</td>
         <td>Automaticamente quando l'app va in crash. I dati delle spese non sono inclusi intenzionalmente.</td>
+      </tr>
+      <tr>
+        <td>Identificatore del dispositivo (Android ID) e il tuo piano (Free o Pro). Il nostro server ne conserva solo un hash irreversibile.</td>
+        <td>Il nostro server (Supabase, UE) — vedi sezione 10d</td>
+        <td>Contare le chiamate all'IA cloud per dispositivo per applicare i limiti di utilizzo e prevenire abusi</td>
+        <td>Con ogni richiesta all'IA cloud (testo dello scontrino, dettato cloud, collegamento di Price Intelligence). Non inviato in modalità completamente locale.</td>
+      </tr>
+      <tr>
+        <td>Segnalazione di bug che scegli di inviare: il tuo messaggio, i file allegati, un indirizzo e-mail facoltativo, versione dell'app, versione di Android, modello del telefono, lingua e piano</td>
+        <td>Il nostro server (Supabase) e il servizio e-mail Resend</td>
+        <td>Per leggere la tua segnalazione, risolvere il problema e risponderti</td>
+        <td>Solo quando tocchi Invia in Impostazioni → Segnala un bug</td>
       </tr>
     </table>
 
@@ -161,8 +173,8 @@
 
     <h3>Dati che non raccogliamo mai</h3>
     <ul>
-      <li>Non raccogliamo il tuo nome, indirizzo e-mail o qualsiasi informazione sull'account (non esiste un account)</li>
-      <li>Non raccogliamo analisi o statistiche di utilizzo</li>
+      <li>Non raccogliamo il tuo nome né dati di account (non esiste un account). Riceviamo un indirizzo e-mail solo se ce lo dai tu: in una segnalazione di bug (facoltativa, sezione 10e) o per la newsletter sul nostro sito (sezione 10c)</li>
+      <li>Non usiamo analytics né SDK di tracciamento. L'unico dato di utilizzo è un contatore con hash, per dispositivo, delle chiamate all'IA cloud, usato per applicare i limiti di utilizzo (sezione 10d)</li>
       <li>Non usiamo SDK pubblicitari o pixel di tracciamento</li>
       <li>Non sincronizziamo i tuoi dati di spesa con alcun server</li>
       <li>Non vendiamo i tuoi dati a nessuno</li>
@@ -268,7 +280,7 @@
       <tr>
         <td>Trascrizione vocale (quando la Trascrizione cloud è attivata)</td>
         <td>Servizio IA cloud</td>
-        <td>Registrazione audio (solo opzionale)</td>
+        <td>Registrazione audio (attiva per impostazione predefinita; nelle Impostazioni puoi passare alla trascrizione locale)</td>
       </tr>
       <tr>
         <td>Price Intelligence – collegamento degli articoli degli scontrini (Croazia)</td>
@@ -293,7 +305,17 @@
       <tr>
         <td>Segnalazione dei crash</td>
         <td>Sentry (sentry.io), regione dati UE</td>
-        <td>Stack trace, indirizzo IP, modello del dispositivo, versione del sistema e dell'app, eventi tecnici recenti. I dati delle spese non sono inclusi intenzionalmente.</td>
+        <td>Stack trace, modello del dispositivo, versione del sistema, versione dell'app e log tecnici recenti. L'app è impostata per non inviare dati personali predefiniti (come il tuo indirizzo IP). I dati delle spese non vengono inviati intenzionalmente.</td>
+      </tr>
+      <tr>
+        <td>Limiti di utilizzo dell'IA cloud</td>
+        <td>La nostra funzione server (Supabase, UE)</td>
+        <td>Un hash irreversibile dell'Android ID, il tuo piano e il numero di chiamate. Il proxy non memorizza testo degli scontrini né audio.</td>
+      </tr>
+      <tr>
+        <td>Consegna delle segnalazioni di bug</td>
+        <td>Supabase (archiviazione dei file allegati) e Resend (resend.com, invio e-mail)</td>
+        <td>Il tuo messaggio, i file allegati, un indirizzo e-mail facoltativo e dati tecnici (app, Android, modello del telefono, lingua, piano), inviati a nocito.support@gmail.com</td>
       </tr>
     </table>
     <p>I servizi IA cloud specifici utilizzati per l'estrazione delle spese e la trascrizione possono cambiare man mano che diventano disponibili opzioni migliori o più rispettose della privacy. Qualsiasi cambiamento significativo nei tipi di dati trasmessi si rifletterà in un'Informativa sulla privacy aggiornata.</p>
@@ -325,6 +347,8 @@
       <li><strong>Legittimo interesse</strong> — segnalazione dei crash tramite Sentry per mantenere la stabilità dell'app</li>
       <li><strong>Consenso</strong> — invio di audio a un servizio di trascrizione cloud (solo quando la Trascrizione cloud è attivata nelle Impostazioni)</li>
       <li><strong>Consenso</strong> — invio di documenti PDF completi a un servizio IA cloud (solo quando l'Estrazione PDF cloud è attivata nelle Impostazioni)</li>
+      <li><strong>Interesse legittimo</strong> — conteggio delle chiamate all'IA cloud per dispositivo con un hash irreversibile, per applicare i limiti di utilizzo e prevenire abusi</li>
+      <li><strong>Consenso</strong> — segnalazioni di bug che scegli di inviare (consenso dato toccando Invia)</li>
     </ul>
     <p>Poiché l'app opera principalmente sul dispositivo senza un sistema di account, i dati personali che trattiamo sono minimi. Il principale titolare del trattamento dei tuoi dati personali sei tu stesso — vivono sul tuo dispositivo.</p>
   </div>
@@ -334,7 +358,7 @@
     <ul>
       <li><strong>Accesso</strong> — esporta le tue spese come CSV direttamente dall'app (funzione Pro)</li>
       <li><strong>Backup e ripristino</strong> — esporta tutti i tuoi dati come backup JSON e ripristinali su qualsiasi dispositivo (disponibile per tutti gli utenti)</li>
-      <li><strong>Cancellazione</strong> — elimina singole spese o tutti i dati direttamente dall'app, oppure disinstalla l'app per eliminare tutto</li>
+      <li><strong>Cancellazione</strong> — elimina singole spese o tutti i dati direttamente dall'app, oppure disinstalla l'app per eliminare tutto. I contatori conservati sul nostro server non possiamo collegarli a te (vedi sezione 10d); su richiesta possiamo cancellarli se ci indichi l'identificatore del tuo dispositivo.</li>
       <li><strong>Portabilità</strong> — esporta i tuoi dati come CSV o JSON in qualsiasi momento</li>
       <li><strong>Rettifica</strong> — modifica qualsiasi spesa direttamente nell'app</li>
     </ul>
@@ -348,18 +372,30 @@
       <li>Modello e produttore del dispositivo</li>
       <li>Versione di Android</li>
       <li>Versione dell'app</li>
-      <li>Il tuo indirizzo IP, che Sentry riceve a ogni richiesta</li>
       <li>Una breve traccia degli eventi tecnici recenti prima dell'errore</li>
     </ul>
-    <p>I report non sono pensati per contenere i tuoi dati di spesa, le immagini degli scontrini o le registrazioni audio e li usiamo esclusivamente per trovare e correggere i bug. Poiché includono identificatori tecnici come l'indirizzo IP, ai sensi del GDPR sono dati personali. La segnalazione dei crash è attiva nell'app pubblicata e al momento non può essere disattivata nelle Impostazioni. Informativa sulla privacy di Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+    <p>I report non sono pensati per contenere i tuoi dati di spesa, le immagini degli scontrini o le registrazioni audio e li usiamo solo per trovare e correggere bug. L'app è impostata per non inviare con i report dati personali predefiniti (come il tuo indirizzo IP). Un report può comunque contenere identificatori tecnici del tipo elencato sopra, che possono essere considerati dati personali ai sensi del GDPR, e la connessione tecnica usata per consegnare un report è visibile al servizio. Non aggiungiamo ai report di crash l'hash del dispositivo della sezione 10d. La segnalazione dei crash è attiva nell'app pubblicata e al momento non può essere disattivata nelle Impostazioni. Informativa sulla privacy di Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section" id="newsletter">
     <h2>10c. Newsletter (sito web)</h2>
     <p>Se ti iscrivi alla newsletter di Nocito su nocito.app, conserviamo il tuo indirizzo e-mail insieme all'ora del tuo consenso, al testo esatto del consenso che hai visto, alla lingua della pagina e alla pagina da cui ti sei iscritto/a. Lo usiamo esclusivamente per inviarti via e-mail novità e consigli di Nocito. Base giuridica: il tuo consenso (art. 6, par. 1, lett. a GDPR).</p>
-    <p>I dati sono conservati nel nostro database ospitato da Supabase a Francoforte (UE), che agisce come nostro responsabile del trattamento. In quel database non conserviamo il tuo indirizzo IP né dati del dispositivo e non usiamo pixel di tracciamento. Conserviamo il tuo indirizzo finché non ti disiscrivi o ne chiedi la cancellazione. Puoi revocare il consenso in qualsiasi momento con il link di disiscrizione nelle nostre e-mail o scrivendo a <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
+    <p>I dati sono conservati nel nostro database ospitato da Supabase a Francoforte (UE), che agisce come nostro responsabile del trattamento. Nell'elenco della newsletter non conserviamo il tuo indirizzo IP né dati del dispositivo e non usiamo pixel di tracciamento. Conserviamo il tuo indirizzo finché non ti disiscrivi o ne chiedi la cancellazione. Puoi revocare il consenso in qualsiasi momento con il link di disiscrizione nelle nostre e-mail o scrivendo a <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
     <p>È separato dall'app: la newsletter è facoltativa e l'app funziona anche senza. L'app non ci invia le tue spese né le tue ricevute.</p>
   </div>
-<div class="section">
+<div class="section"><!--ds-privacy-->
+    <h2>10d. Identificatore del dispositivo e limiti di utilizzo</h2>
+    <p>Quando usi una funzione di IA cloud (lettura del testo degli scontrini, dettato cloud o collegamento degli articoli in Price Intelligence), l'app invia al nostro server l'Android ID del tuo telefono e il tuo piano (Free o Pro) insieme alla richiesta. Il nostro server ne conserva solo un <strong>hash irreversibile</strong> (con un salt segreto che non è memorizzato nel database) e lo usa solo per contare quante chiamate all'IA cloud effettua un dispositivo, in modo che i limiti gratuiti non possano essere aggirati reinstallando l'app o con un'app modificata. Non viene usato per pubblicità, profilazione o tracciamento tra app. Non viene inviato quando usi l'elaborazione completamente locale.</p>
+    <p>Le funzioni cloud passano dalla nostra funzione server (Supabase, regione dati UE), che inoltra la richiesta al fornitore di IA solo per rispondere a quella singola richiesta. La funzione non memorizza testo degli scontrini, audio né risultati. Il server memorizza i contatori con hash e un conteggio giornaliero complessivo delle chiamate.</p>
+    <p>Non possiamo collegare l'hash a te. Se vuoi che i contatori del tuo dispositivo vengano cancellati, scrivi a <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> indicando l'identificatore del dispositivo; possiamo cancellare solo in base a quell'identificatore. Base giuridica: il nostro legittimo interesse a prevenire gli abusi e a mantenere disponibile il servizio (art. 6, par. 1, lett. f GDPR).</p>
+  </div>
+
+  <div class="section">
+    <h2>10e. Segnalare un problema</h2>
+    <p>Nelle Impostazioni puoi scegliere <strong>Segnala un bug</strong>. È facoltativo e non viene inviato nulla finché non tocchi Invia. Una segnalazione contiene il messaggio che scrivi, i file che scegli di allegare (immagini, video, audio, PDF o documenti semplici; fino a 5 file), un indirizzo e-mail se vuoi una risposta e dati tecnici: versione dell'app, versione di Android, modello del telefono, lingua e piano.</p>
+    <p>La segnalazione va al nostro server (Supabase, regione dati UE), che la inoltra via e-mail al nostro indirizzo di assistenza (nocito.support@gmail.com) tramite il servizio e-mail Resend. I file allegati sono conservati in un archivio privato e vengono <strong>cancellati dopo 30 giorni</strong>; i link ai file nell'e-mail smettono di funzionare nello stesso momento. Usiamo le segnalazioni solo per capire e risolvere i problemi e per risponderti. Ti chiediamo di non allegare nulla che non vuoi che vediamo, come scontrini o registrazioni con dati personali. L'indirizzo e-mail è facoltativo e il messaggio resta nella nostra casella di assistenza finché non lo cancelliamo; puoi chiederne la cancellazione scrivendo a <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>. Base giuridica: il tuo consenso, dato toccando Invia (art. 6, par. 1, lett. a GDPR).</p>
+  </div>
+
+  <div class="section">
     <h2>11. Privacy dei minori</h2>
     <p>Nocito™ non è rivolto a minori di 13 anni (o di 16 anni nell'UE). Non raccogliamo consapevolmente informazioni personali dai minori. Se ritieni che un minore ci abbia fornito informazioni personali, contattaci a <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
   </div>

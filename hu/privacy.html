@@ -82,7 +82,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>A rövid verzió</h3>
-      <p>A Nocito™ minden kiadásodat, nyugtádat, képedet és hangfelvételedet <strong>helyben, az eszközödön</strong> tárolja. Nincs szerverünk az adataiddal. Alapértelmezés szerint a megtisztított OCR-szöveg egy felhő alapú AI szolgáltatáshoz kerül a kiadás feldolgozásához, a hangalapú diktálás pedig felhő alapú átírást használ. A Beállításokban a helyi modellek bekapcsolásával teljesen eszközön futó AI-feldolgozásra és átírásra válthatsz — ez egyszeri letöltést igényel az alkalmazásban. A PDF-importálás alapértelmezés szerint helyben nyeri ki a szöveget; a teljes PDF felhőbe küldése opcionális beállítás. Horvátországban a Price Intelligence funkció ezen felül nyilvános kereskedői árlistákat tölt le a telefonodra, és az adatvédelmi szűrőn átment terméknevek elküldhetők egy felhő alapú AI szolgáltatásnak, hogy a nyugták tételeit összekösse ezekkel az árlistákkal; ez nem történik meg, ha a Helyi AI-feldolgozás be van kapcsolva. Az alkalmazás a Sentryt használja az összeomlások jelentésére, amely technikai adatokat, például az IP-címedet is tartalmazza. Minden ebben a szabályzatban szerepel.</p>
+      <p>A Nocito™ minden kiadásodat, nyugtádat, képedet és hangfelvételedet <strong>helyben, az eszközödön</strong> tárolja. Egyetlen szerverünk sem tárolja a kiadásaidat, nyugtáidat, képeidet vagy hangfelvételeidet. A szerverünk csak továbbítja a felhő alapú AI kéréseket, és eszközönként egy hash-elt számlálót vezet (10d szakasz). Alapértelmezés szerint a megtisztított OCR-szöveg egy felhő alapú AI szolgáltatáshoz kerül a kiadás feldolgozásához, a hangalapú diktálás pedig felhő alapú átírást használ. A Beállításokban a helyi modellek bekapcsolásával teljesen eszközön futó AI-feldolgozásra és átírásra válthatsz — ez egyszeri letöltést igényel az alkalmazásban. A PDF-importálás alapértelmezés szerint helyben nyeri ki a szöveget; a teljes PDF felhőbe küldése opcionális beállítás. Horvátországban a Price Intelligence funkció ezen felül nyilvános kereskedői árlistákat tölt le a telefonodra, és az adatvédelmi szűrőn átment terméknevek elküldhetők egy felhő alapú AI szolgáltatásnak, hogy a nyugták tételeit összekösse ezekkel az árlistákkal; ez nem történik meg, ha a Helyi AI-feldolgozás be van kapcsolva. Az alkalmazás a Sentryt használja az összeomlások jelentésére, amely technikai adatokat küld, például az eszközöd modelljét és az alkalmazás verzióját (az alkalmazás úgy van beállítva, hogy ne küldjön alapértelmezett személyes adatokat, például az IP-címedet). Minden ebben a szabályzatban szerepel.</p>
     </div>
   </div>
 </div>
@@ -148,10 +148,22 @@
         <td>Csak ha kiválasztottál üzleteket a Price Intelligence-hez, és a Helyi AI-feldolgozás ki van kapcsolva. Havi tétel-összekapcsolási kvótába számít.</td>
       </tr>
       <tr>
-        <td>Összeomlás-jelentések: stack trace, IP-cím, eszköz modellje, operációs rendszer és alkalmazás verziója, a közelmúlt technikai naplóbejegyzései</td>
+        <td>Összeomlás-jelentések: veremkövetés, eszközmodell, operációs rendszer és alkalmazás verziója, legutóbbi technikai naplóesemények (az alkalmazás úgy van beállítva, hogy ne küldjön alapértelmezett személyes adatokat, például az IP-címedet)</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Összeomlás-jelentés és stabilitásfigyelés</td>
         <td>Automatikusan az alkalmazás összeomlásakor. Kiadási adatokat szándékosan nem tartalmaz.</td>
+      </tr>
+      <tr>
+        <td>Eszközazonosító (Android ID) és a csomagod (Free vagy Pro). A szerverünk csak egyirányú hash-t tárol belőle.</td>
+        <td>A szerverünk (Supabase, EU) — lásd 10d szakasz</td>
+        <td>A felhő alapú AI-hívások eszközönkénti számlálása a használati korlátok érvényesítéséhez és a visszaélések megelőzéséhez</td>
+        <td>Minden felhő alapú AI-kérésnél (nyugtaszöveg, felhő alapú diktálás, Price Intelligence-összekapcsolás). Teljesen helyi módban nem küldjük.</td>
+      </tr>
+      <tr>
+        <td>Hibabejelentés, amelynek elküldése mellett döntesz: az üzeneted, a csatolt fájlok, egy nem kötelező e-mail-cím, az alkalmazás verziója, az Android verziója, a telefon modellje, a nyelv és a csomag</td>
+        <td>A szerverünk (Supabase) és a Resend e-mail-szolgáltatás</td>
+        <td>Hogy elolvassuk a bejelentésedet, kijavítsuk a hibát és válaszoljunk neked</td>
+        <td>Csak akkor, ha a Beállítások → Hiba jelentése alatt a Küldés gombra nyomsz</td>
       </tr>
     </table>
 
@@ -161,8 +173,8 @@
 
     <h3>Adatok, amelyeket soha nem gyűjtünk</h3>
     <ul>
-      <li>Nem gyűjtjük a nevedet, e-mail-címedet vagy bármilyen fiókinformációt (nincs fiók)</li>
-      <li>Nem gyűjtünk elemzési vagy használati statisztikákat</li>
+      <li>Nem gyűjtjük a nevedet vagy fiókadataidat (nincs fiók). E-mail-címet csak akkor kapunk, ha te adod meg: hibabejelentésben (nem kötelező, 10e szakasz) vagy a weboldalunkon a hírlevélhez (10c szakasz)</li>
+      <li>Nem használunk elemzőket vagy követő SDK-kat. Az egyetlen használati adat a felhő alapú AI-hívások eszközönkénti hash-elt számlálója, amely a használati korlátok érvényesítését szolgálja (10d szakasz)</li>
       <li>Nem használunk hirdetési SDK-kat vagy követőpixeleket</li>
       <li>Nem szinkronizáljuk a kiadási adataidat semmilyen szerverre</li>
       <li>Nem adjuk el az adataidat senkinek</li>
@@ -268,7 +280,7 @@
       <tr>
         <td>Hangátirat (ha a Felhő alapú átirat engedélyezve van)</td>
         <td>Felhő alapú AI szolgáltatás</td>
-        <td>Hangfelvétel (csak opt-in)</td>
+        <td>Hangfelvétel (alapértelmezés szerint bekapcsolva; a Beállításokban átválthatsz helyi átírásra)</td>
       </tr>
       <tr>
         <td>Price Intelligence – nyugtatételek összekapcsolása (Horvátország)</td>
@@ -293,7 +305,17 @@
       <tr>
         <td>Összeomlás-jelentés</td>
         <td>Sentry (sentry.io), EU adatrégió</td>
-        <td>Stack trace, IP-cím, eszközmodell, operációs rendszer és alkalmazás verziója, valamint a közelmúlt technikai naplóbejegyzései. Kiadási adatokat szándékosan nem tartalmaz.</td>
+        <td>Veremkövetés, eszközmodell, operációs rendszer verziója, az alkalmazás verziója és legutóbbi technikai naplók. Az alkalmazás úgy van beállítva, hogy ne küldjön alapértelmezett személyes adatokat (például az IP-címedet). A kiadási adatokat nem küldjük szándékosan.</td>
+      </tr>
+      <tr>
+        <td>A felhő alapú AI használati korlátai</td>
+        <td>Saját szerverfunkciónk (Supabase, EU)</td>
+        <td>Az Android ID egyirányú hash-e, a csomagod és a hívások száma. A proxy nem tárol nyugtaszöveget és hangot.</td>
+      </tr>
+      <tr>
+        <td>Hibabejelentések kézbesítése</td>
+        <td>Supabase (a csatolt fájlok tárolása) és Resend (resend.com, e-mail-kézbesítés)</td>
+        <td>Az üzeneted, a csatolt fájlok, egy nem kötelező e-mail-cím és technikai adatok (alkalmazás, Android, telefonmodell, nyelv, csomag), a nocito.support@gmail.com címre küldve</td>
       </tr>
     </table>
     <p>A kiadáskinyeréshez és átirathoz használt konkrét felhő alapú AI szolgáltatások változhatnak, ahogy jobb vagy adatvédelem-barátibb lehetőségek válnak elérhetővé. Az elküldött adatok típusának bármilyen jelentős változása tükröződni fog egy frissített Adatvédelmi szabályzatban.</p>
@@ -325,6 +347,8 @@
       <li><strong>Jogos érdek</strong> — összeomlás-jelentés a Sentryn keresztül az alkalmazás stabilitásának fenntartásához</li>
       <li><strong>Hozzájárulás</strong> — hang küldése egy felhő alapú átiratszolgáltatásnak (csak ha a Felhő alapú átirat engedélyezve van a Beállításokban)</li>
       <li><strong>Hozzájárulás</strong> — teljes PDF-dokumentumok küldése egy felhő alapú AI szolgáltatásnak (csak ha a Felhő alapú PDF-kinyerés engedélyezve van a Beállításokban)</li>
+      <li><strong>Jogos érdek</strong> — a felhő alapú AI-hívások eszközönkénti számlálása egyirányú hash-sel, a használati korlátok érvényesítéséhez és a visszaélések megelőzéséhez</li>
+      <li><strong>Hozzájárulás</strong> — az általad elküldeni kívánt hibabejelentések (a hozzájárulást a Küldés gombra nyomással adod meg)</li>
     </ul>
     <p>Mivel az alkalmazás elsősorban eszközön belül, fiókrendszer nélkül működik, az általunk feldolgozott személyes adatok minimálisak. A személyes adataid elsődleges adatkezelője te magad vagy — az eszközödön élnek.</p>
   </div>
@@ -334,7 +358,7 @@
     <ul>
       <li><strong>Hozzáférés</strong> — exportáld a kiadásaidat CSV-ként az alkalmazáson belül (Pro funkció)</li>
       <li><strong>Biztonsági mentés és visszaállítás</strong> — exportáld az összes adatodat JSON biztonsági mentésként, és állítsd vissza bármely eszközön (minden felhasználó számára elérhető)</li>
-      <li><strong>Törlés</strong> — töröld az egyes kiadásokat vagy az összes adatot az alkalmazáson belül, vagy távolítsd el az alkalmazást minden törléséhez</li>
+      <li><strong>Törlés</strong> — töröld az egyes kiadásokat vagy az összes adatot az alkalmazáson belül, vagy távolítsd el az alkalmazást minden törléséhez. A szerverünkön tárolt számlálókat mi nem tudjuk hozzád kötni (lásd 10d szakasz); kérésre törölhetjük őket, ha megadod az eszközöd azonosítóját.</li>
       <li><strong>Hordozhatóság</strong> — exportáld az adataidat CSV-ként vagy JSON-ként bármikor</li>
       <li><strong>Helyesbítés</strong> — szerkessz bármely kiadást közvetlenül az alkalmazásban</li>
     </ul>
@@ -348,18 +372,30 @@
       <li>Az eszköz modelljét és gyártóját</li>
       <li>Az Android-verziót</li>
       <li>Az alkalmazás verzióját</li>
-      <li>Az IP-címedet, amelyet a Sentry minden kéréssel megkap</li>
       <li>A hibát megelőző legutóbbi technikai naplóbejegyzések rövid sorát</li>
     </ul>
-    <p>A jelentések nem arra szolgálnak, hogy kiadási adataidat, nyugtaképeidet vagy hangfelvételeidet tartalmazzák, és kizárólag hibák megtalálására és javítására használjuk őket. Mivel technikai azonosítókat, például IP-címet tartalmaznak, a GDPR értelmében személyes adatnak minősülnek. Az összeomlás-jelentés a kiadott alkalmazásban aktív, és jelenleg nem kapcsolható ki a Beállításokban. A Sentry adatvédelmi szabályzata: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+    <p>A jelentések nem arra valók, hogy a kiadási adataidat, nyugtaképeidet vagy hangfelvételeidet tartalmazzák, és kizárólag hibák megtalálására és javítására használjuk őket. Az alkalmazás úgy van beállítva, hogy a jelentésekkel ne küldjön alapértelmezett személyes adatokat (például az IP-címedet). A jelentés ennek ellenére tartalmazhat a fent felsoroltakhoz hasonló technikai azonosítókat, amelyek a GDPR szerint személyes adatnak minősülhetnek, a jelentés kézbesítéséhez használt technikai kapcsolat pedig látható a szolgáltatás számára. Az összeomlás-jelentésekhez nem adjuk hozzá a 10d szakaszban leírt eszköz-hash-t. Az összeomlás-jelentés a megjelent alkalmazásban aktív, és a Beállításokban jelenleg nem kapcsolható ki. A Sentry adatvédelmi szabályzata: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section" id="newsletter">
     <h2>10c. Hírlevél (weboldal)</h2>
     <p>Ha a nocito.app oldalon feliratkozol a Nocito hírlevelére, eltároljuk az e-mail-címedet a hozzájárulásod időpontjával, a látott hozzájárulási szöveg pontos szövegével, az oldal nyelvével és azzal az oldallal együtt, ahonnan feliratkoztál. Ezt kizárólag arra használjuk, hogy e-mailben Nocito híreket és tippeket küldjünk neked. Jogalap: a hozzájárulásod (GDPR 6. cikk (1) bekezdés a) pont).</p>
-    <p>Az adatokat saját adatbázisunkban tároljuk, amelyet a Supabase üzemeltet Frankfurtban (EU), és amely az adatfeldolgozónk. Ebben az adatbázisban nem tároljuk az IP-címedet és az eszközadataidat, és nem használunk követőpixeleket. A címedet addig őrizzük, amíg le nem iratkozol vagy nem kéred a törlését. A hozzájárulásodat bármikor visszavonhatod az e-mailjeinkben lévő leiratkozási hivatkozással vagy a <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> címre írva.</p>
+    <p>Az adatokat saját adatbázisunkban tároljuk, amelyet a Supabase üzemeltet Frankfurtban (EU), és amely az adatfeldolgozónk. A hírlevéllistában nem tároljuk az IP-címedet és az eszközadataidat, és nem használunk követőpixeleket. A címedet addig őrizzük, amíg le nem iratkozol vagy nem kéred a törlését. A hozzájárulásodat bármikor visszavonhatod az e-mailjeinkben lévő leiratkozási hivatkozással vagy a <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> címre írva.</p>
     <p>Ez független az alkalmazástól: a hírlevél nem kötelező, és az alkalmazás nélküle is működik. Az alkalmazás nem küldi el nekünk a kiadásaidat vagy a nyugtáidat.</p>
   </div>
-<div class="section">
+<div class="section"><!--ds-privacy-->
+    <h2>10d. Eszközazonosító és használati korlátok</h2>
+    <p>Amikor felhő alapú AI funkciót használsz (nyugtaszöveg olvasása, felhő alapú diktálás vagy tételek összekapcsolása a Price Intelligence-ben), az alkalmazás a kéréssel együtt elküldi a szerverünknek a telefonod Android ID-ját és a csomagodat (Free vagy Pro). A szerverünk ebből csak egy <strong>egyirányú hash-t</strong> tárol (egy olyan titokkal sózva, amelyet nem az adatbázisban tárolunk), és kizárólag annak számlálására használja, hogy egy eszköz hány felhő alapú AI-hívást végez, hogy az ingyenes korlátokat ne lehessen megkerülni az alkalmazás újratelepítésével vagy módosított alkalmazással. Nem használjuk reklámra, profilalkotásra vagy alkalmazások közötti követésre. Teljesen helyi feldolgozás esetén nem küldjük el.</p>
+    <p>A felhő alapú funkciók a saját szerverfunkciónkon (Supabase, EU adatrégió) keresztül mennek, amely a kérést csak az adott kérés megválaszolásához adja tovább az AI-szolgáltatónak. A funkció nem tárol nyugtaszöveget, hangot vagy eredményeket. A szerver a hash-elt számlálókat és egy összesített napi hívásszámot tárol.</p>
+    <p>A hash-t nem tudjuk hozzád kötni. Ha törölni szeretnéd az eszközöd számlálóit, írj a <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> címre, és add meg az eszközazonosítót; csak e azonosító alapján tudunk törölni. Jogalap: jogos érdekünk a visszaélések megelőzésére és a szolgáltatás elérhetőségének fenntartására (GDPR 6. cikk (1) bekezdés f) pont).</p>
+  </div>
+
+  <div class="section">
+    <h2>10e. Probléma bejelentése</h2>
+    <p>A Beállításokban kiválaszthatod a <strong>Hiba jelentése</strong> lehetőséget. Ez nem kötelező, és addig nem küldünk el semmit, amíg a Küldés gombra nem nyomsz. A bejelentés tartalmazza az általad írt üzenetet, a csatolni kívánt fájlokat (képek, videó, hang, PDF vagy egyszerű dokumentumok; legfeljebb 5 fájl), e-mail-címet, ha választ szeretnél, valamint technikai adatokat: az alkalmazás verzióját, az Android verzióját, a telefon modelljét, a nyelvet és a csomagot.</p>
+    <p>A bejelentés a szerverünkre (Supabase, EU adatrégió) kerül, amely a Resend e-mail-szolgáltatással elküldi e-mailben a támogatási címünkre (nocito.support@gmail.com). A csatolt fájlokat privát tárolóban őrizzük, és <strong>30 nap után töröljük</strong>; az e-mailben lévő hivatkozások ugyanekkor megszűnnek működni. A bejelentéseket kizárólag a problémák megértésére és javítására, valamint arra használjuk, hogy válaszoljunk neked. Kérjük, ne csatolj semmit, amit nem szeretnéd, hogy lássunk, például személyes adatokat tartalmazó nyugtákat vagy felvételeket. Az e-mail-cím nem kötelező, az üzenet pedig a támogatási postafiókunkban marad, amíg nem töröljük; a törlést a <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> címre írva kérheted. Jogalap: a hozzájárulásod, amelyet a Küldés gombra nyomással adsz meg (GDPR 6. cikk (1) bekezdés a) pont).</p>
+  </div>
+
+  <div class="section">
     <h2>11. Gyermekek adatvédelme</h2>
     <p>A Nocito™ nem 13 év alatti gyermekeknek (vagy az EU-ban 16 év alattiaknak) szól. Tudatosan nem gyűjtünk személyes adatokat gyermekektől. Ha úgy gondolod, hogy egy gyermek személyes adatokat adott meg számunkra, kérjük, vedd fel velünk a kapcsolatot: <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
   </div>

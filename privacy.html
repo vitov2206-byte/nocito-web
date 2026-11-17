@@ -82,7 +82,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>The short version</h3>
-      <p>Nocito™ stores all your expenses, receipts, images, and audio <strong>locally on your device</strong>. We do not have a server with your data. By default, sanitised OCR text is sent to a cloud AI service for expense parsing, and voice dictation uses cloud transcription. You can switch to fully on-device AI processing and transcription by enabling local models in Settings — this requires a one-time download within the app. PDF import extracts text locally by default; sending the full PDF to the cloud is an opt-in setting. In Croatia, the Price Intelligence feature also downloads public retailer price lists to your phone and may send privacy-filtered product names to a cloud AI service to link your receipt items to those lists; this is not done when Local AI Processing is on. The app uses Sentry for crash reporting, which includes technical data such as your IP address. Everything is disclosed in this policy.</p>
+      <p>Nocito™ stores all your expenses, receipts, images, and audio <strong>locally on your device</strong>. No server of ours stores your expenses, receipts, images or audio. Our server only forwards cloud AI requests and keeps a hashed per-device counter (section 10d). By default, sanitised OCR text is sent to a cloud AI service for expense parsing, and voice dictation uses cloud transcription. You can switch to fully on-device AI processing and transcription by enabling local models in Settings — this requires a one-time download within the app. PDF import extracts text locally by default; sending the full PDF to the cloud is an opt-in setting. In Croatia, the Price Intelligence feature also downloads public retailer price lists to your phone and may send privacy-filtered product names to a cloud AI service to link your receipt items to those lists; this is not done when Local AI Processing is on. The app uses Sentry for crash reporting, which sends technical data such as your device model and app version (the app is set not to send default personal data such as your IP address). Everything is disclosed in this policy.</p>
     </div>
   </div>
 </div>
@@ -149,10 +149,22 @@
         <td>Only if you have selected stores for Price Intelligence and Local AI Processing is off. Counts towards a monthly item-linking quota.</td>
       </tr>
       <tr>
-        <td>Crash reports: stack traces, IP address, device model, OS and app version, recent technical log events</td>
+        <td>Crash reports: stack traces, device model, OS and app version, recent technical log events (the app is set not to send default personal data such as your IP address)</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Crash reporting and stability monitoring</td>
         <td>Automatically when the app crashes. Expense data is not intentionally included.</td>
+      </tr>
+      <tr>
+        <td>Device identifier (Android ID) and your plan (Free or Pro). Our server keeps only a one-way hash of it.</td>
+        <td>Our server (Supabase, EU) — see section 10d</td>
+        <td>Counting cloud AI calls per device to enforce usage limits and prevent abuse</td>
+        <td>With every cloud AI request (receipt text, cloud dictation, Price Intelligence linking). Not sent in fully local mode.</td>
+      </tr>
+      <tr>
+        <td>Bug report you choose to send: your message, files you attach, an optional e-mail address, app version, Android version, phone model, language and plan</td>
+        <td>Our server (Supabase) and the e-mail service Resend</td>
+        <td>To read your report, fix the problem and reply to you</td>
+        <td>Only when you press Send in Settings → Report a bug</td>
       </tr>
     </table>
 
@@ -162,8 +174,8 @@
 
     <h3>Data we never collect</h3>
     <ul>
-      <li>We do not collect your name, email address, or any account information (there is no account)</li>
-      <li>We do not collect analytics or usage statistics</li>
+      <li>We do not collect your name or any account information (there is no account). We receive an email address only if you give it to us: in a bug report (optional, section 10e) or for the newsletter on our website (section 10c)</li>
+      <li>We do not use analytics or tracking SDKs. The only usage data is a hashed per-device count of cloud AI calls, used to enforce usage limits (section 10d)</li>
       <li>We do not use advertising SDKs or tracking pixels</li>
       <li>We do not sync your expense data to any server</li>
       <li>We do not sell your data to anyone</li>
@@ -275,7 +287,7 @@
       <tr>
         <td>Voice transcription (when Cloud Transcription is enabled)</td>
         <td>Cloud AI service</td>
-        <td>Audio recording (opt-in only)</td>
+        <td>Audio recording (on by default; you can switch to local transcription in Settings)</td>
       </tr>
       <tr>
         <td>Price Intelligence – linking receipt items (Croatia)</td>
@@ -300,7 +312,17 @@
       <tr>
         <td>Crash reporting</td>
         <td>Sentry (sentry.io), EU data region</td>
-        <td>Stack traces, IP address, device model, OS version, app version and recent technical log events. Expense data is not intentionally included.</td>
+        <td>Stack traces, device model, OS version, app version and recent technical logs. The app is set not to send default personal data (such as your IP address). Expense data is not sent intentionally.</td>
+      </tr>
+      <tr>
+        <td>Usage limits for cloud AI</td>
+        <td>Our own server function (Supabase, EU)</td>
+        <td>A one-way hash of the Android ID, your plan, and call counts. The proxy does not store receipt text or audio.</td>
+      </tr>
+      <tr>
+        <td>Bug report delivery</td>
+        <td>Supabase (storage of attached files) and Resend (resend.com, e-mail delivery)</td>
+        <td>Your message, attached files, optional e-mail address and technical details (app, Android, phone model, language, plan), sent to nocito.support@gmail.com</td>
       </tr>
     </table>
     <p>The specific cloud AI services used for expense extraction and transcription may change as better or more privacy-preserving options become available. Any material change to the types of data transmitted will be reflected in an updated Privacy Policy.</p>
@@ -335,6 +357,8 @@
       <li><strong>Legitimate interests</strong> — crash reporting via Sentry to maintain app stability</li>
       <li><strong>Consent</strong> — sending audio to a cloud transcription service (only when Cloud Transcription is enabled in Settings)</li>
       <li><strong>Consent</strong> — sending full PDF documents to a cloud AI service (only when Cloud PDF Extraction is enabled in Settings)</li>
+      <li><strong>Legitimate interests</strong> — counting cloud AI calls per device with a one-way hash, to enforce usage limits and prevent abuse</li>
+      <li><strong>Consent</strong> — bug reports you choose to send (given by pressing Send)</li>
     </ul>
     <p>As the app operates primarily on-device with no account system, the personal data we process is minimal. The primary controller of your personal data is you — it lives on your device.</p>
   </div>
@@ -345,7 +369,7 @@
     <ul>
       <li><strong>Access</strong> — export your expenses as CSV from within the app (Pro feature)</li>
       <li><strong>Backup and restore</strong> — export all your data as a JSON backup and restore it on any device (available to all users)</li>
-      <li><strong>Deletion</strong> — delete individual expenses or all data from within the app, or uninstall the app to delete everything</li>
+      <li><strong>Deletion</strong> — delete individual expenses or all data from within the app, or uninstall the app to delete everything. Counters kept on our server cannot be linked to you by us (see section 10d); on request we can delete them if you give us your device identifier.</li>
       <li><strong>Portability</strong> — export your data as CSV or JSON at any time</li>
       <li><strong>Correction</strong> — edit any expense directly in the app</li>
     </ul>
@@ -360,19 +384,31 @@
       <li>Device model and manufacturer</li>
       <li>Android OS version</li>
       <li>App version</li>
-      <li>Your IP address, which Sentry receives with every request</li>
       <li>A short trail of recent technical log events leading up to the error</li>
     </ul>
-    <p>Reports are not meant to contain your expense data, receipt images, or audio recordings, and we use them only to find and fix bugs. Because they include technical identifiers such as an IP address, they count as personal data under the GDPR. Crash reporting is active in the released app and cannot currently be switched off in Settings. Sentry's privacy policy: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+    <p>Reports are not designed to contain your expense data, receipt images or audio recordings, and we use them only to find and fix bugs. The app is set not to send default personal data (such as your IP address) with reports. A report can still contain technical identifiers of the kind listed above, which may count as personal data under the GDPR, and the technical connection used to deliver a report is visible to the service. We do not add the device hash from section 10d to crash reports. Crash reporting is active in the released app and cannot currently be switched off in Settings. Sentry's privacy policy: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 
   <div class="section" id="newsletter">
     <h2>10c. Newsletter (website)</h2>
     <p>If you sign up for the Nocito newsletter on nocito.app, we store your email address together with the time of your consent, the exact consent wording you saw, the language of the page and the page you signed up from. We use this only to send you Nocito news and tips by email. Legal basis: your consent (GDPR Art. 6(1)(a)).</p>
-    <p>The data is stored in our own database hosted by Supabase in Frankfurt (EU), which acts as our processor. We do not store your IP address or device details in that database and we do not use tracking pixels. We keep your address until you unsubscribe or ask us to delete it. You can withdraw your consent at any time with the unsubscribe link in our emails or by writing to <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
+    <p>The data is stored in our own database hosted by Supabase in Frankfurt (EU), which acts as our processor. We do not store your IP address or device details in the newsletter list and we do not use tracking pixels. We keep your address until you unsubscribe or ask us to delete it. You can withdraw your consent at any time with the unsubscribe link in our emails or by writing to <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
     <p>This is separate from the app: the newsletter is optional and the app works without it. The app does not send us your expenses or receipts.</p>
   </div>
-<div class="section">
+<div class="section"><!--ds-privacy-->
+    <h2>10d. Device Identifier and Usage Limits</h2>
+    <p>When you use a cloud AI feature (reading receipt text, cloud dictation or Price Intelligence item linking), the app sends your phone's Android ID and your plan (Free or Pro) to our server together with the request. Our server keeps only a <strong>one-way hash</strong> of it (salted with a secret that is not stored in the database), and uses it only to count how many cloud AI calls a device makes, so that the free limits cannot be bypassed by reinstalling the app or by a modified app. It is not used for advertising, profiling or tracking across apps. It is not sent when you use fully local processing.</p>
+    <p>The cloud features go through our own server function (Supabase, EU data region), which passes the request to the AI provider only to answer that one request. The function does not store receipt text, audio or results. The server stores the hashed counters and one overall daily call count.</p>
+    <p>We cannot link the hash to you. If you want the counters for your device deleted, write to <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> and include the device identifier; we can only delete by that identifier. Legal basis: our legitimate interest in preventing abuse and keeping the service available (GDPR Art. 6(1)(f)).</p>
+  </div>
+
+  <div class="section">
+    <h2>10e. Reporting a Problem</h2>
+    <p>In Settings you can choose <strong>Report a bug</strong>. This is optional and nothing is sent until you press Send. A report contains the message you write, any files you choose to attach (pictures, video, audio, PDF or plain documents; up to 5 files), an e-mail address if you want an answer, and technical details: app version, Android version, phone model, language and plan.</p>
+    <p>The report goes to our server (Supabase, EU data region), which e-mails it to our support address (nocito.support@gmail.com) using the e-mail service Resend. Attached files are kept in private storage and are <strong>deleted after 30 days</strong>; the links to them in the e-mail stop working at the same time. We use reports only to understand and fix problems and to reply to you. Please do not attach anything you do not want us to see, such as receipts or recordings with personal details. The e-mail address is optional and the message stays in our support inbox until we delete it; you can ask us to delete it by writing to <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>. Legal basis: your consent, given by pressing Send (GDPR Art. 6(1)(a)).</p>
+  </div>
+
+  <div class="section">
     <h2>11. Children's Privacy</h2>
     <p>Nocito™ is not directed at children under the age of 13 (or under 16 in the EU). We do not knowingly collect personal information from children. If you believe a child has provided personal information to us, please contact us at <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
   </div>

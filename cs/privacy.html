@@ -82,7 +82,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>Stručná verze</h3>
-      <p>Nocito™ ukládá všechny vaše výdaje, účtenky, obrázky a zvukové záznamy <strong>lokálně ve vašem zařízení</strong>. Nemáme server s vašimi daty. Ve výchozím nastavení se očištěný OCR text odesílá do cloudové AI služby ke zpracování výdaje a hlasové diktování používá cloudový přepis. Na plně lokální zpracování a přepis můžete přepnout zapnutím lokálních modelů v Nastavení — vyžaduje to jednorázové stažení v aplikaci. Import PDF ve výchozím nastavení extrahuje text lokálně; odeslání celého PDF do cloudu je volitelné nastavení. V Chorvatsku funkce Price Intelligence navíc stahuje do telefonu veřejné ceníky obchodů a může cloudové AI službě poslat názvy produktů (po filtru soukromí), aby propojila položky z účtenek s těmito ceníky; při zapnutém Lokálním AI zpracování se to neděje. Aplikace používá Sentry pro hlášení pádů, které zahrnuje technické údaje, například vaši IP adresu. Vše je uvedeno v těchto zásadách.</p>
+      <p>Nocito™ ukládá všechny vaše výdaje, účtenky, obrázky a zvukové záznamy <strong>lokálně ve vašem zařízení</strong>. Žádný náš server neukládá vaše výdaje, účtenky, obrázky ani zvukové záznamy. Náš server pouze přeposílá požadavky na cloudovou AI a vede hashovaný čítač pro každé zařízení (oddíl 10d). Ve výchozím nastavení se očištěný OCR text odesílá do cloudové AI služby ke zpracování výdaje a hlasové diktování používá cloudový přepis. Na plně lokální zpracování a přepis můžete přepnout zapnutím lokálních modelů v Nastavení — vyžaduje to jednorázové stažení v aplikaci. Import PDF ve výchozím nastavení extrahuje text lokálně; odeslání celého PDF do cloudu je volitelné nastavení. V Chorvatsku funkce Price Intelligence navíc stahuje do telefonu veřejné ceníky obchodů a může cloudové AI službě poslat názvy produktů (po filtru soukromí), aby propojila položky z účtenek s těmito ceníky; při zapnutém Lokálním AI zpracování se to neděje. Aplikace používá Sentry pro hlášení pádů, které odesílá technické údaje, například model vašeho zařízení a verzi aplikace (aplikace je nastavena tak, aby neodesílala výchozí osobní údaje, například vaši IP adresu). Vše je uvedeno v těchto zásadách.</p>
     </div>
   </div>
 </div>
@@ -148,10 +148,22 @@
         <td>Pouze pokud jste pro Price Intelligence vybrali obchody a Lokální AI zpracování je vypnuté. Spotřebovává měsíční kvótu propojování položek.</td>
       </tr>
       <tr>
-        <td>Hlášení pádů: stack trace, IP adresa, model zařízení, verze OS a aplikace, nedávné technické záznamy</td>
+        <td>Hlášení o pádech: výpisy zásobníku, model zařízení, verze systému a aplikace, nedávné technické události (aplikace je nastavena tak, aby neodesílala výchozí osobní údaje, například vaši IP adresu)</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Hlášení pádů a sledování stability</td>
         <td>Automaticky při pádu aplikace. Údaje o výdajích se záměrně neodesílají.</td>
+      </tr>
+      <tr>
+        <td>Identifikátor zařízení (Android ID) a váš tarif (Free nebo Pro). Náš server uchovává pouze jeho jednosměrný hash.</td>
+        <td>Náš server (Supabase, EU) — viz oddíl 10d</td>
+        <td>Počítání volání cloudové AI na zařízení za účelem vynucování limitů používání a předcházení zneužití</td>
+        <td>U každého požadavku na cloudovou AI (text účtenky, cloudové diktování, propojení v Price Intelligence). V plně lokálním režimu se neodesílá.</td>
+      </tr>
+      <tr>
+        <td>Hlášení chyby, které se rozhodnete odeslat: vaše zpráva, přiložené soubory, volitelná e-mailová adresa, verze aplikace, verze Androidu, model telefonu, jazyk a tarif</td>
+        <td>Náš server (Supabase) a e-mailová služba Resend</td>
+        <td>Abychom si přečetli vaše hlášení, opravili problém a odpověděli vám</td>
+        <td>Pouze když v Nastavení → Nahlásit chybu stisknete Odeslat</td>
       </tr>
     </table>
 
@@ -161,8 +173,8 @@
 
     <h3>Data, která nikdy neshromažďujeme</h3>
     <ul>
-      <li>Neshromažďujeme vaše jméno, e-mailovou adresu ani jakékoli informace o účtu (žádný účet neexistuje)</li>
-      <li>Neshromažďujeme analytiku ani statistiky používání</li>
+      <li>Neshromažďujeme vaše jméno ani údaje o účtu (žádný účet neexistuje). E-mailovou adresu získáváme, jen pokud nám ji sami poskytnete: v hlášení chyby (volitelné, oddíl 10e) nebo pro newsletter na našem webu (oddíl 10c)</li>
+      <li>Nepoužíváme analytiku ani sledovací SDK. Jediným údajem o používání je hashovaný čítač volání cloudové AI pro každé zařízení, který slouží k vynucování limitů používání (oddíl 10d)</li>
       <li>Nepoužíváme reklamní SDK ani sledovací pixely</li>
       <li>Nesynchronizujeme vaše výdajové údaje na žádný server</li>
       <li>Neprodáváme vaše údaje nikomu</li>
@@ -268,7 +280,7 @@
       <tr>
         <td>Přepis řeči (když je zapnutý Cloudový přepis)</td>
         <td>Cloudová AI služba</td>
-        <td>Zvukový záznam (pouze volitelné)</td>
+        <td>Zvukový záznam (ve výchozím nastavení zapnuto; v Nastavení můžete přepnout na lokální přepis)</td>
       </tr>
       <tr>
         <td>Price Intelligence – propojení položek z účtenek (Chorvatsko)</td>
@@ -293,7 +305,17 @@
       <tr>
         <td>Hlášení pádů aplikace</td>
         <td>Sentry (sentry.io), datový region EU</td>
-        <td>Stack trace, IP adresa, model zařízení, verze OS, verze aplikace a nedávné technické záznamy. Údaje o výdajích se záměrně neodesílají.</td>
+        <td>Výpisy zásobníku, model zařízení, verze systému, verze aplikace a nedávné technické záznamy. Aplikace je nastavena tak, aby neodesílala výchozí osobní údaje (například vaši IP adresu). Údaje o výdajích se neodesílají záměrně.</td>
+      </tr>
+      <tr>
+        <td>Limity používání cloudové AI</td>
+        <td>Naše vlastní serverová funkce (Supabase, EU)</td>
+        <td>Jednosměrný hash Android ID, váš tarif a počty volání. Proxy neukládá text účtenek ani zvuk.</td>
+      </tr>
+      <tr>
+        <td>Doručení hlášení chyb</td>
+        <td>Supabase (ukládání přiložených souborů) a Resend (resend.com, doručování e-mailů)</td>
+        <td>Vaše zpráva, přiložené soubory, volitelná e-mailová adresa a technické údaje (aplikace, Android, model telefonu, jazyk, tarif), odeslané na nocito.support@gmail.com</td>
       </tr>
     </table>
     <p>Konkrétní cloudové AI služby používané pro extrakci výdajů a přepis se mohou měnit, jakmile budou dostupné lepší nebo více soukromí zachovávající možnosti. Jakákoli podstatná změna typů přenášených dat bude odražena v aktualizovaných Zásadách ochrany osobních údajů.</p>
@@ -325,6 +347,8 @@
       <li><strong>Oprávněný zájem</strong> — hlášení pádů přes Sentry pro zajištění stability aplikace</li>
       <li><strong>Souhlas</strong> — odesílání zvuku cloudové přepisové službě (pouze pokud je Cloudový přepis zapnutý v Nastavení)</li>
       <li><strong>Souhlas</strong> — odesílání celých PDF dokumentů cloudové AI službě (pouze pokud je Cloudová extrakce PDF zapnutá v Nastavení)</li>
+      <li><strong>Oprávněné zájmy</strong> — počítání volání cloudové AI na zařízení pomocí jednosměrného hashe za účelem vynucování limitů používání a předcházení zneužití</li>
+      <li><strong>Souhlas</strong> — hlášení chyb, která se rozhodnete odeslat (souhlas udělený stisknutím Odeslat)</li>
     </ul>
     <p>Vzhledem k tomu, že aplikace funguje primárně v zařízení bez systému účtů, jsou osobní údaje, které zpracováváme, minimální. Hlavním správcem vašich osobních údajů jste vy sami — žijí ve vašem zařízení.</p>
   </div>
@@ -334,7 +358,7 @@
     <ul>
       <li><strong>Přístup</strong> — exportujte své výdaje jako CSV přímo v aplikaci (funkce Pro)</li>
       <li><strong>Zálohu a obnovení</strong> — exportujte všechna svá data jako zálohu JSON a obnovte je na jakémkoli zařízení (dostupné všem uživatelům)</li>
-      <li><strong>Vymazání</strong> — smažte jednotlivé výdaje nebo všechna data přímo v aplikaci, nebo odinstalujte aplikaci a smažte vše</li>
+      <li><strong>Vymazání</strong> — smažte jednotlivé výdaje nebo všechna data přímo v aplikaci, nebo odinstalujte aplikaci a smažte vše. Čítače uložené na našem serveru s vámi nemůžeme spojit (viz oddíl 10d); na požádání je můžeme smazat, pokud nám sdělíte identifikátor svého zařízení.</li>
       <li><strong>Přenositelnost</strong> — kdykoli exportujte svá data jako CSV nebo JSON</li>
       <li><strong>Opravu</strong> — upravte jakýkoli výdaj přímo v aplikaci</li>
     </ul>
@@ -348,18 +372,30 @@
       <li>Model a výrobce zařízení</li>
       <li>Verzi systému Android</li>
       <li>Verzi aplikace</li>
-      <li>Vaši IP adresu, kterou Sentry obdrží s každým požadavkem</li>
       <li>Krátkou stopu nedávných technických záznamů před chybou</li>
     </ul>
-    <p>Hlášení nejsou určena k tomu, aby obsahovala vaše údaje o výdajích, obrázky účtenek ani zvukové záznamy, a používáme je výhradně k nalezení a opravě chyb. Protože obsahují technické identifikátory, jako je IP adresa, jsou podle GDPR osobními údaji. Hlášení pádů je ve vydané aplikaci aktivní a v Nastavení ho v současnosti nelze vypnout. Zásady ochrany soukromí Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+    <p>Hlášení nejsou navržena tak, aby obsahovala vaše údaje o výdajích, obrázky účtenek ani zvukové záznamy, a používáme je jen k hledání a opravě chyb. Aplikace je nastavena tak, aby s hlášeními neodesílala výchozí osobní údaje (například vaši IP adresu). Hlášení přesto může obsahovat technické identifikátory výše uvedeného druhu, které mohou podle GDPR být osobními údaji, a technické spojení použité k doručení hlášení je pro službu viditelné. K hlášením o pádech nepřidáváme hash zařízení z oddílu 10d. Hlášení pádů je aktivní ve vydané aplikaci a v Nastavení ho zatím nelze vypnout. Zásady ochrany osobních údajů Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section" id="newsletter">
     <h2>10c. Newsletter (web)</h2>
     <p>Pokud se na nocito.app přihlásíš k odběru newsletteru Nocito, uložíme tvou e-mailovou adresu spolu s časem souhlasu, přesným zněním souhlasu, které sis přečetl(a), jazykem stránky a stránkou, ze které ses přihlásil(a). Používáme je výhradně k zasílání novinek a tipů Nocito e-mailem. Právní základ: tvůj souhlas (GDPR čl. 6 odst. 1 písm. a).</p>
-    <p>Data jsou uložena v naší databázi hostované u Supabase ve Frankfurtu (EU), který je naším zpracovatelem. V této databázi neukládáme tvou IP adresu ani údaje o zařízení a nepoužíváme sledovací pixely. Adresu uchováváme, dokud se neodhlásíš nebo nepožádáš o smazání. Souhlas můžeš kdykoli odvolat odkazem pro odhlášení v našich e-mailech nebo e-mailem na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
+    <p>Data jsou uložena v naší databázi hostované u Supabase ve Frankfurtu (EU), který je naším zpracovatelem. V seznamu newsletteru neukládáme tvou IP adresu ani údaje o zařízení a nepoužíváme sledovací pixely. Adresu uchováváme, dokud se neodhlásíš nebo nepožádáš o smazání. Souhlas můžeš kdykoli odvolat odkazem pro odhlášení v našich e-mailech nebo e-mailem na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
     <p>Je to oddělené od aplikace: newsletter je dobrovolný a aplikace funguje i bez něj. Aplikace nám neposílá tvé výdaje ani účtenky.</p>
   </div>
-<div class="section">
+<div class="section"><!--ds-privacy-->
+    <h2>10d. Identifikátor zařízení a limity používání</h2>
+    <p>Když používáte funkci cloudové AI (čtení textu účtenek, cloudové diktování nebo propojování položek v Price Intelligence), aplikace spolu s požadavkem odešle na náš server Android ID vašeho telefonu a váš tarif (Free nebo Pro). Náš server z něj uchovává pouze <strong>jednosměrný hash</strong> (osolený tajemstvím, které se neukládá v databázi) a používá ho jen k počítání, kolik volání cloudové AI zařízení provede, aby bezplatné limity nešlo obejít přeinstalováním aplikace ani upravenou aplikací. Nepoužívá se k reklamě, profilování ani sledování napříč aplikacemi. Při plně lokálním zpracování se neodesílá.</p>
+    <p>Cloudové funkce procházejí naší vlastní serverovou funkcí (Supabase, datová oblast EU), která požadavek předá poskytovateli AI jen proto, aby na tento jeden požadavek odpověděl. Funkce neukládá text účtenek, zvuk ani výsledky. Server ukládá hashované čítače a jeden celkový denní počet volání.</p>
+    <p>Hash s vámi nemůžeme spojit. Pokud chcete smazat čítače svého zařízení, napište na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> a uveďte identifikátor zařízení; mazat můžeme pouze podle tohoto identifikátoru. Právní základ: náš oprávněný zájem na předcházení zneužití a zachování dostupnosti služby (čl. 6 odst. 1 písm. f GDPR).</p>
+  </div>
+
+  <div class="section">
+    <h2>10e. Nahlášení problému</h2>
+    <p>V Nastavení můžete zvolit <strong>Nahlásit chybu</strong>. Je to dobrovolné a nic se neodešle, dokud nestisknete Odeslat. Hlášení obsahuje zprávu, kterou napíšete, soubory, které se rozhodnete přiložit (obrázky, video, zvuk, PDF nebo prosté dokumenty; až 5 souborů), e-mailovou adresu, pokud chcete odpověď, a technické údaje: verzi aplikace, verzi Androidu, model telefonu, jazyk a tarif.</p>
+    <p>Hlášení jde na náš server (Supabase, datová oblast EU), který je e-mailem odešle na naši adresu podpory (nocito.support@gmail.com) pomocí e-mailové služby Resend. Přiložené soubory jsou uloženy v soukromém úložišti a <strong>po 30 dnech se mažou</strong>; odkazy na ně v e-mailu přestanou ve stejnou chvíli fungovat. Hlášení používáme jen k pochopení a opravě problémů a k odpovědi vám. Nepřikládejte prosím nic, co nechcete, abychom viděli, například účtenky nebo nahrávky s osobními údaji. E-mailová adresa je volitelná a zpráva zůstává v naší schránce podpory, dokud ji nesmažeme; o smazání můžete požádat na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>. Právní základ: váš souhlas, který udělíte stisknutím Odeslat (čl. 6 odst. 1 písm. a GDPR).</p>
+  </div>
+
+  <div class="section">
     <h2>11. Ochrana soukromí dětí</h2>
     <p>Nocito™ není určeno dětem mladším 13 let (nebo mladším 16 let v EU). Vědomě neshromažďujeme osobní údaje od dětí. Pokud se domníváte, že nám dítě poskytlo osobní údaje, kontaktujte nás prosím na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
   </div>

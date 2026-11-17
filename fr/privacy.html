@@ -82,7 +82,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>La version courte</h3>
-      <p>Nocito™ stocke toutes vos dépenses, reçus, images et fichiers audio <strong>localement sur votre appareil</strong>. Nous n'avons pas de serveur contenant vos données. Par défaut, le texte OCR assaini est envoyé à un service d'IA dans le cloud pour l'analyse des dépenses, et la dictée vocale utilise la transcription dans le cloud. Vous pouvez passer à un traitement et une transcription entièrement sur l'appareil en activant les modèles locaux dans les Réglages — cela nécessite un téléchargement unique dans l'application. L'import de PDF extrait le texte localement par défaut ; l'envoi du PDF complet dans le cloud est un réglage optionnel. En Croatie, la fonction Price Intelligence télécharge en outre sur votre téléphone les listes de prix publiques des enseignes et peut envoyer des noms de produits (après le filtre de confidentialité) à un service d'IA dans le cloud afin de relier les articles de vos reçus à ces listes ; cela n'a pas lieu lorsque le Traitement IA local est activé. L'application utilise Sentry pour signaler les plantages, ce qui inclut des données techniques comme votre adresse IP. Tout est détaillé dans cette politique.</p>
+      <p>Nocito™ stocke toutes vos dépenses, reçus, images et fichiers audio <strong>localement sur votre appareil</strong>. Aucun serveur à nous ne stocke vos dépenses, reçus, images ou fichiers audio. Notre serveur ne fait que transmettre les requêtes d'IA dans le cloud et tient un compteur haché par appareil (section 10d). Par défaut, le texte OCR assaini est envoyé à un service d'IA dans le cloud pour l'analyse des dépenses, et la dictée vocale utilise la transcription dans le cloud. Vous pouvez passer à un traitement et une transcription entièrement sur l'appareil en activant les modèles locaux dans les Réglages — cela nécessite un téléchargement unique dans l'application. L'import de PDF extrait le texte localement par défaut ; l'envoi du PDF complet dans le cloud est un réglage optionnel. En Croatie, la fonction Price Intelligence télécharge en outre sur votre téléphone les listes de prix publiques des enseignes et peut envoyer des noms de produits (après le filtre de confidentialité) à un service d'IA dans le cloud afin de relier les articles de vos reçus à ces listes ; cela n'a pas lieu lorsque le Traitement IA local est activé. L'application utilise Sentry pour signaler les plantages, ce qui envoie des données techniques comme le modèle de votre appareil et la version de l'application (l'application est configurée pour ne pas envoyer de données personnelles par défaut, comme votre adresse IP). Tout est détaillé dans cette politique.</p>
     </div>
   </div>
 </div>
@@ -148,10 +148,22 @@
         <td>Uniquement si vous avez choisi des magasins pour Price Intelligence et que le Traitement IA local est désactivé. Compte dans un quota mensuel de liaison d'articles.</td>
       </tr>
       <tr>
-        <td>Rapports de plantage : stack trace, adresse IP, modèle de l'appareil, version du système et de l'application, événements techniques récents</td>
+        <td>Rapports de plantage : traces de pile, modèle de l'appareil, version du système et de l'application, événements techniques récents (l'application est configurée pour ne pas envoyer de données personnelles par défaut, comme votre adresse IP)</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Signalement des plantages et suivi de la stabilité</td>
         <td>Automatiquement lors d'un plantage de l'application. Les données de dépenses ne sont pas incluses intentionnellement.</td>
+      </tr>
+      <tr>
+        <td>Identifiant de l'appareil (Android ID) et votre formule (Free ou Pro). Notre serveur n'en conserve qu'un hachage irréversible.</td>
+        <td>Notre serveur (Supabase, UE) — voir section 10d</td>
+        <td>Compter les appels à l'IA dans le cloud par appareil pour appliquer les limites d'utilisation et prévenir les abus</td>
+        <td>Avec chaque requête d'IA dans le cloud (texte du reçu, dictée dans le cloud, liaison Price Intelligence). Non envoyé en mode entièrement local.</td>
+      </tr>
+      <tr>
+        <td>Rapport de bug que vous choisissez d'envoyer : votre message, les fichiers joints, une adresse e-mail facultative, version de l'application, version d'Android, modèle du téléphone, langue et formule</td>
+        <td>Notre serveur (Supabase) et le service d'e-mail Resend</td>
+        <td>Pour lire votre rapport, corriger le problème et vous répondre</td>
+        <td>Uniquement lorsque vous appuyez sur Envoyer dans Réglages → Signaler un bug</td>
       </tr>
     </table>
 
@@ -161,8 +173,8 @@
 
     <h3>Données que nous ne collectons jamais</h3>
     <ul>
-      <li>Nous ne collectons pas votre nom, adresse e-mail ni aucune information de compte (il n'y a pas de compte)</li>
-      <li>Nous ne collectons pas d'analyses ni de statistiques d'utilisation</li>
+      <li>Nous ne collectons ni votre nom ni aucune information de compte (il n'y a pas de compte). Nous ne recevons une adresse e-mail que si vous nous la donnez : dans un rapport de bug (facultatif, section 10e) ou pour la newsletter de notre site web (section 10c)</li>
+      <li>Nous n'utilisons ni outils d'analyse ni SDK de suivi. La seule donnée d'usage est un compteur haché, par appareil, des appels à l'IA dans le cloud, utilisé pour appliquer les limites d'utilisation (section 10d)</li>
       <li>Nous n'utilisons pas de SDK publicitaires ni de pixels de suivi</li>
       <li>Nous ne synchronisons pas vos données de dépenses avec un quelconque serveur</li>
       <li>Nous ne vendons vos données à personne</li>
@@ -268,7 +280,7 @@
       <tr>
         <td>Transcription vocale (lorsque la Transcription dans le cloud est activée)</td>
         <td>Service d'IA dans le cloud</td>
-        <td>Enregistrement audio (facultatif uniquement)</td>
+        <td>Enregistrement audio (activé par défaut ; vous pouvez passer à la transcription locale dans les Réglages)</td>
       </tr>
       <tr>
         <td>Price Intelligence – liaison des articles des reçus (Croatie)</td>
@@ -293,7 +305,17 @@
       <tr>
         <td>Signalement des plantages</td>
         <td>Sentry (sentry.io), région de données UE</td>
-        <td>Stack trace, adresse IP, modèle de l'appareil, version du système et de l'application, événements techniques récents. Les données de dépenses ne sont pas incluses intentionnellement.</td>
+        <td>Traces de pile, modèle de l'appareil, version du système, version de l'application et journaux techniques récents. L'application est configurée pour ne pas envoyer de données personnelles par défaut (comme votre adresse IP). Les données de dépenses ne sont pas envoyées intentionnellement.</td>
+      </tr>
+      <tr>
+        <td>Limites d'utilisation de l'IA dans le cloud</td>
+        <td>Notre propre fonction serveur (Supabase, UE)</td>
+        <td>Un hachage irréversible de l'Android ID, votre formule et le nombre d'appels. Le proxy ne stocke ni texte de reçus ni audio.</td>
+      </tr>
+      <tr>
+        <td>Acheminement des rapports de bug</td>
+        <td>Supabase (stockage des fichiers joints) et Resend (resend.com, envoi d'e-mails)</td>
+        <td>Votre message, les fichiers joints, une adresse e-mail facultative et des informations techniques (application, Android, modèle du téléphone, langue, formule), envoyés à nocito.support@gmail.com</td>
       </tr>
     </table>
     <p>Les services d'IA dans le cloud spécifiques utilisés pour l'extraction des dépenses et la transcription peuvent changer à mesure que de meilleures options ou des options plus respectueuses de la confidentialité deviennent disponibles. Tout changement important dans les types de données transmises sera reflété dans une Politique de confidentialité mise à jour.</p>
@@ -325,6 +347,8 @@
       <li><strong>Intérêt légitime</strong> — signalement des plantages via Sentry pour maintenir la stabilité de l'application</li>
       <li><strong>Consentement</strong> — envoi d'audio à un service de transcription dans le cloud (uniquement lorsque la Transcription dans le cloud est activée dans les Paramètres)</li>
       <li><strong>Consentement</strong> — envoi de documents PDF complets à un service d'IA dans le cloud (uniquement lorsque l'Extraction PDF dans le cloud est activée dans les Paramètres)</li>
+      <li><strong>Intérêts légitimes</strong> — compter les appels à l'IA dans le cloud par appareil avec un hachage irréversible, pour appliquer les limites d'utilisation et prévenir les abus</li>
+      <li><strong>Consentement</strong> — rapports de bug que vous choisissez d'envoyer (consentement donné en appuyant sur Envoyer)</li>
     </ul>
     <p>Comme l'application fonctionne principalement sur l'appareil sans système de compte, les données personnelles que nous traitons sont minimes. Le responsable principal de vos données personnelles est vous-même — elles vivent sur votre appareil.</p>
   </div>
@@ -334,7 +358,7 @@
     <ul>
       <li><strong>Accès</strong> — exportez vos dépenses au format CSV depuis l'application (fonctionnalité Pro)</li>
       <li><strong>Sauvegarde et restauration</strong> — exportez toutes vos données sous forme de sauvegarde JSON et restaurez-les sur n'importe quel appareil (disponible pour tous les utilisateurs)</li>
-      <li><strong>Suppression</strong> — supprimez des dépenses individuelles ou toutes les données depuis l'application, ou désinstallez l'application pour tout supprimer</li>
+      <li><strong>Suppression</strong> — supprimez des dépenses individuelles ou toutes les données depuis l'application, ou désinstallez l'application pour tout supprimer. Nous ne pouvons pas relier à vous les compteurs conservés sur notre serveur (voir section 10d) ; sur demande, nous pouvons les supprimer si vous nous indiquez l'identifiant de votre appareil.</li>
       <li><strong>Portabilité</strong> — exportez vos données au format CSV ou JSON à tout moment</li>
       <li><strong>Rectification</strong> — modifiez toute dépense directement dans l'application</li>
     </ul>
@@ -348,18 +372,30 @@
       <li>Modèle et fabricant de l'appareil</li>
       <li>Version d'Android</li>
       <li>Version de l'application</li>
-      <li>Votre adresse IP, que Sentry reçoit avec chaque requête</li>
       <li>Une courte trace des événements techniques récents précédant l'erreur</li>
     </ul>
-    <p>Les rapports ne sont pas destinés à contenir vos données de dépenses, images de reçus ou enregistrements audio, et nous ne les utilisons que pour trouver et corriger des bugs. Comme ils comprennent des identifiants techniques tels qu'une adresse IP, ils constituent des données personnelles au sens du RGPD. Le signalement des plantages est actif dans l'application publiée et ne peut actuellement pas être désactivé dans les Réglages. Politique de confidentialité de Sentry : <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+    <p>Les rapports ne sont pas conçus pour contenir vos données de dépenses, images de reçus ou enregistrements audio, et nous ne les utilisons que pour trouver et corriger des bugs. L'application est configurée pour ne pas envoyer de données personnelles par défaut (comme votre adresse IP) avec les rapports. Un rapport peut néanmoins contenir des identifiants techniques du type indiqué ci-dessus, qui peuvent être considérés comme des données personnelles au sens du RGPD, et la connexion technique utilisée pour transmettre un rapport est visible par le service. Nous n'ajoutons pas aux rapports de plantage le hachage de l'appareil décrit en section 10d. Le signalement des plantages est actif dans l'application publiée et ne peut actuellement pas être désactivé dans les Réglages. Politique de confidentialité de Sentry : <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section" id="newsletter">
     <h2>10c. Newsletter (site web)</h2>
     <p>Si tu t'inscris à la newsletter Nocito sur nocito.app, nous enregistrons ton adresse e-mail avec la date de ton consentement, le libellé exact du consentement que tu as vu, la langue de la page et la page depuis laquelle tu t'es inscrit(e). Nous l'utilisons uniquement pour t'envoyer par e-mail des nouveautés et des conseils Nocito. Base juridique : ton consentement (art. 6, par. 1, point a du RGPD).</p>
-    <p>Les données sont stockées dans notre propre base de données hébergée par Supabase à Francfort (UE), qui agit comme notre sous-traitant. Dans cette base, nous ne stockons ni ton adresse IP ni les données de ton appareil et nous n'utilisons pas de pixels de suivi. Nous conservons ton adresse jusqu'à ce que tu te désinscrives ou demandes sa suppression. Tu peux retirer ton consentement à tout moment via le lien de désinscription de nos e-mails ou en écrivant à <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
+    <p>Les données sont stockées dans notre propre base de données hébergée par Supabase à Francfort (UE), qui agit comme notre sous-traitant. Dans la liste de la newsletter, nous ne stockons ni ton adresse IP ni les données de ton appareil et nous n'utilisons pas de pixels de suivi. Nous conservons ton adresse jusqu'à ce que tu te désinscrives ou demandes sa suppression. Tu peux retirer ton consentement à tout moment via le lien de désinscription de nos e-mails ou en écrivant à <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
     <p>C'est distinct de l'application : la newsletter est facultative et l'application fonctionne sans elle. L'application ne nous envoie ni tes dépenses ni tes reçus.</p>
   </div>
-<div class="section">
+<div class="section"><!--ds-privacy-->
+    <h2>10d. Identifiant de l'appareil et limites d'utilisation</h2>
+    <p>Lorsque vous utilisez une fonction d'IA dans le cloud (lecture du texte des reçus, dictée dans le cloud ou liaison des articles dans Price Intelligence), l'application envoie à notre serveur l'Android ID de votre téléphone et votre formule (Free ou Pro) avec la requête. Notre serveur n'en conserve qu'un <strong>hachage irréversible</strong> (salé avec un secret qui n'est pas stocké dans la base de données) et ne l'utilise que pour compter le nombre d'appels à l'IA dans le cloud effectués par un appareil, afin que les limites gratuites ne puissent pas être contournées par une réinstallation ou une application modifiée. Il n'est pas utilisé pour la publicité, le profilage ou le suivi entre applications. Il n'est pas envoyé lorsque vous utilisez le traitement entièrement local.</p>
+    <p>Les fonctions cloud passent par notre propre fonction serveur (Supabase, région de données UE), qui transmet la requête au fournisseur d'IA uniquement pour répondre à cette requête. La fonction ne stocke ni texte de reçus, ni audio, ni résultats. Le serveur stocke les compteurs hachés et un nombre total d'appels par jour.</p>
+    <p>Nous ne pouvons pas relier le hachage à vous. Si vous souhaitez faire supprimer les compteurs de votre appareil, écrivez à <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> en indiquant l'identifiant de l'appareil ; nous ne pouvons supprimer que sur la base de cet identifiant. Base juridique : notre intérêt légitime à prévenir les abus et à maintenir le service disponible (art. 6, par. 1, point f du RGPD).</p>
+  </div>
+
+  <div class="section">
+    <h2>10e. Signaler un problème</h2>
+    <p>Dans les Réglages, vous pouvez choisir <strong>Signaler un bug</strong>. C'est facultatif et rien n'est envoyé tant que vous n'appuyez pas sur Envoyer. Un rapport contient le message que vous écrivez, les fichiers que vous choisissez de joindre (images, vidéo, audio, PDF ou documents simples ; jusqu'à 5 fichiers), une adresse e-mail si vous souhaitez une réponse, ainsi que des informations techniques : version de l'application, version d'Android, modèle du téléphone, langue et formule.</p>
+    <p>Le rapport est envoyé à notre serveur (Supabase, région de données UE), qui le transmet par e-mail à notre adresse de support (nocito.support@gmail.com) via le service d'e-mail Resend. Les fichiers joints sont conservés dans un stockage privé et sont <strong>supprimés après 30 jours</strong> ; les liens qui y mènent dans l'e-mail cessent de fonctionner au même moment. Nous n'utilisons les rapports que pour comprendre et corriger les problèmes et pour vous répondre. Merci de ne joindre rien que vous ne souhaitiez pas que nous voyions, comme des reçus ou des enregistrements contenant des données personnelles. L'adresse e-mail est facultative et le message reste dans notre boîte de support jusqu'à sa suppression ; vous pouvez demander sa suppression en écrivant à <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>. Base juridique : votre consentement, donné en appuyant sur Envoyer (art. 6, par. 1, point a du RGPD).</p>
+  </div>
+
+  <div class="section">
     <h2>11. Confidentialité des enfants</h2>
     <p>Nocito™ ne s'adresse pas aux enfants de moins de 13 ans (ou de moins de 16 ans dans l'UE). Nous ne collectons pas sciemment d'informations personnelles auprès d'enfants. Si vous pensez qu'un enfant nous a fourni des informations personnelles, veuillez nous contacter à <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
   </div>

@@ -82,7 +82,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>A versão curta</h3>
-      <p>A Nocito™ guarda todas as suas despesas, recibos, imagens e áudios <strong>localmente no seu dispositivo</strong>. Não temos um servidor com os seus dados. Por predefinição, o texto OCR tratado é enviado para um serviço de IA na nuvem para processar a despesa, e o ditado por voz usa transcrição na nuvem. Pode passar a um processamento e a uma transcrição totalmente no dispositivo ativando os modelos locais nas Definições — requer uma transferência única dentro da app. A importação de PDF extrai o texto localmente por predefinição; enviar o PDF completo para a nuvem é uma definição opcional. Na Croácia, a funcionalidade Price Intelligence transfere ainda para o seu telemóvel listas de preços públicas das lojas e pode enviar nomes de produtos (depois do filtro de privacidade) para um serviço de IA na nuvem, para associar os artigos dos seus recibos a essas listas; isto não acontece quando o Processamento de IA local está ativado. A app usa o Sentry para comunicar falhas, o que inclui dados técnicos como o seu endereço IP. Tudo está divulgado nesta política.</p>
+      <p>A Nocito™ guarda todas as suas despesas, recibos, imagens e áudios <strong>localmente no seu dispositivo</strong>. Nenhum servidor nosso armazena as suas despesas, recibos, imagens ou áudios. O nosso servidor apenas encaminha pedidos de IA na nuvem e mantém um contador com hash por dispositivo (secção 10d). Por predefinição, o texto OCR tratado é enviado para um serviço de IA na nuvem para processar a despesa, e o ditado por voz usa transcrição na nuvem. Pode passar a um processamento e a uma transcrição totalmente no dispositivo ativando os modelos locais nas Definições — requer uma transferência única dentro da app. A importação de PDF extrai o texto localmente por predefinição; enviar o PDF completo para a nuvem é uma definição opcional. Na Croácia, a funcionalidade Price Intelligence transfere ainda para o seu telemóvel listas de preços públicas das lojas e pode enviar nomes de produtos (depois do filtro de privacidade) para um serviço de IA na nuvem, para associar os artigos dos seus recibos a essas listas; isto não acontece quando o Processamento de IA local está ativado. A app usa o Sentry para comunicar falhas, o que envia dados técnicos como o modelo do seu dispositivo e a versão da app (a app está configurada para não enviar dados pessoais por predefinição, como o seu endereço IP). Tudo está divulgado nesta política.</p>
     </div>
   </div>
 </div>
@@ -148,10 +148,22 @@
         <td>Apenas se tiver escolhido lojas para o Price Intelligence e o Processamento de IA local estiver desativado. Conta para uma quota mensal de associação de artigos.</td>
       </tr>
       <tr>
-        <td>Relatórios de falhas: stack trace, endereço IP, modelo do dispositivo, versão do sistema e da app, eventos técnicos recentes</td>
+        <td>Relatórios de falhas: rastreios de pilha, modelo do dispositivo, versão do sistema e da app, eventos técnicos recentes (a app está configurada para não enviar dados pessoais por predefinição, como o seu endereço IP)</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Comunicação de falhas e monitorização da estabilidade</td>
         <td>Automaticamente quando a app falha. Os dados de despesas não são incluídos intencionalmente.</td>
+      </tr>
+      <tr>
+        <td>Identificador do dispositivo (Android ID) e o seu plano (Free ou Pro). O nosso servidor guarda apenas um hash irreversível.</td>
+        <td>O nosso servidor (Supabase, UE) — ver secção 10d</td>
+        <td>Contar as chamadas à IA na nuvem por dispositivo para aplicar os limites de utilização e evitar abusos</td>
+        <td>Com cada pedido de IA na nuvem (texto do recibo, ditado na nuvem, associação do Price Intelligence). Não é enviado no modo totalmente local.</td>
+      </tr>
+      <tr>
+        <td>Relatório de erro que decide enviar: a sua mensagem, os ficheiros anexados, um endereço de e-mail opcional, versão da app, versão do Android, modelo do telemóvel, idioma e plano</td>
+        <td>O nosso servidor (Supabase) e o serviço de e-mail Resend</td>
+        <td>Para ler o seu relatório, corrigir o problema e responder-lhe</td>
+        <td>Só quando prime Enviar em Definições → Reportar um erro</td>
       </tr>
     </table>
 
@@ -161,8 +173,8 @@
 
     <h3>Dados que nunca recolhemos</h3>
     <ul>
-      <li>Não recolhemos o seu nome, endereço de email nem qualquer informação de conta (não existe conta)</li>
-      <li>Não recolhemos estatísticas de análise ou de utilização</li>
+      <li>Não recolhemos o seu nome nem dados de conta (não existe conta). Só recebemos um endereço de e-mail se o der a nós: num relatório de erro (opcional, secção 10e) ou para a newsletter do nosso site (secção 10c)</li>
+      <li>Não usamos análises nem SDKs de rastreamento. O único dado de utilização é um contador com hash, por dispositivo, das chamadas à IA na nuvem, usado para aplicar os limites de utilização (secção 10d)</li>
       <li>Não usamos SDKs de publicidade nem píxeis de rastreio</li>
       <li>Não sincronizamos os seus dados de despesas com qualquer servidor</li>
       <li>Não vendemos os seus dados a ninguém</li>
@@ -268,7 +280,7 @@
       <tr>
         <td>Transcrição de voz (quando a Transcrição na Nuvem está ativada)</td>
         <td>Serviço de IA na nuvem</td>
-        <td>Gravação de áudio (apenas opcional)</td>
+        <td>Gravação de áudio (ativada por predefinição; pode mudar para a transcrição local nas Definições)</td>
       </tr>
       <tr>
         <td>Price Intelligence – associação de artigos dos recibos (Croácia)</td>
@@ -293,7 +305,17 @@
       <tr>
         <td>Comunicação de falhas</td>
         <td>Sentry (sentry.io), região de dados da UE</td>
-        <td>Stack trace, endereço IP, modelo do dispositivo, versão do sistema e da app, e eventos técnicos recentes. Os dados de despesas não são incluídos intencionalmente.</td>
+        <td>Rastreios de pilha, modelo do dispositivo, versão do sistema, versão da app e registos técnicos recentes. A app está configurada para não enviar dados pessoais por predefinição (como o seu endereço IP). Os dados de despesas não são enviados intencionalmente.</td>
+      </tr>
+      <tr>
+        <td>Limites de utilização da IA na nuvem</td>
+        <td>A nossa própria função de servidor (Supabase, UE)</td>
+        <td>Um hash irreversível do Android ID, o seu plano e o número de chamadas. O proxy não guarda texto de recibos nem áudio.</td>
+      </tr>
+      <tr>
+        <td>Entrega de relatórios de erro</td>
+        <td>Supabase (armazenamento dos ficheiros anexados) e Resend (resend.com, envio de e-mail)</td>
+        <td>A sua mensagem, ficheiros anexados, endereço de e-mail opcional e dados técnicos (app, Android, modelo do telemóvel, idioma, plano), enviados para nocito.support@gmail.com</td>
       </tr>
     </table>
     <p>Os serviços específicos de IA na nuvem usados para extração de despesas e transcrição podem mudar à medida que surjam opções melhores ou mais respeitadoras da privacidade. Qualquer alteração material aos tipos de dados transmitidos será refletida numa Política de Privacidade atualizada.</p>
@@ -325,6 +347,8 @@
       <li><strong>Interesse legítimo</strong> — comunicação de falhas através do Sentry para manter a estabilidade da app</li>
       <li><strong>Consentimento</strong> — envio de áudio para um serviço de transcrição na nuvem (apenas quando a Transcrição na Nuvem está ativada nas Definições)</li>
       <li><strong>Consentimento</strong> — envio de documentos PDF completos para um serviço de IA na nuvem (apenas quando a Extração de PDF na Nuvem está ativada nas Definições)</li>
+      <li><strong>Interesses legítimos</strong> — contar as chamadas à IA na nuvem por dispositivo com um hash irreversível, para aplicar os limites de utilização e evitar abusos</li>
+      <li><strong>Consentimento</strong> — relatórios de erro que decide enviar (consentimento dado ao premir Enviar)</li>
     </ul>
     <p>Uma vez que a aplicação funciona sobretudo no dispositivo e sem sistema de contas, os dados pessoais que tratamos são mínimos. O principal responsável pelo tratamento dos seus dados pessoais é o próprio utilizador — eles residem no seu dispositivo.</p>
   </div>
@@ -334,7 +358,7 @@
     <ul>
       <li><strong>Acesso</strong> — exportar as suas despesas em CSV dentro da aplicação (funcionalidade Pro)</li>
       <li><strong>Cópia de segurança e restauro</strong> — exportar todos os seus dados como cópia de segurança JSON e restaurá-los em qualquer dispositivo (disponível para todos os utilizadores)</li>
-      <li><strong>Eliminação</strong> — eliminar despesas individuais ou todos os dados dentro da aplicação, ou desinstalar a aplicação para eliminar tudo</li>
+      <li><strong>Eliminação</strong> — eliminar despesas individuais ou todos os dados dentro da aplicação, ou desinstalar a aplicação para eliminar tudo. Os contadores guardados no nosso servidor não podem ser associados a si por nós (ver secção 10d); a seu pedido, podemos eliminá-los se nos indicar o identificador do seu dispositivo.</li>
       <li><strong>Portabilidade</strong> — exportar os seus dados em CSV ou JSON a qualquer momento</li>
       <li><strong>Retificação</strong> — editar qualquer despesa diretamente na aplicação</li>
     </ul>
@@ -348,18 +372,30 @@
       <li>Modelo e fabricante do dispositivo</li>
       <li>Versão do Android</li>
       <li>Versão da app</li>
-      <li>O seu endereço IP, que o Sentry recebe a cada pedido</li>
       <li>Um breve rasto dos eventos técnicos recentes anteriores ao erro</li>
     </ul>
-    <p>Os relatórios não se destinam a conter os seus dados de despesas, imagens de recibos ou gravações de áudio e só os usamos para encontrar e corrigir erros. Como incluem identificadores técnicos, como um endereço IP, são dados pessoais nos termos do RGPD. A comunicação de falhas está ativa na app publicada e, atualmente, não pode ser desativada nas Definições. Política de privacidade do Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+    <p>Os relatórios não se destinam a conter os seus dados de despesas, imagens de recibos ou gravações de áudio, e usamo-los apenas para encontrar e corrigir erros. A app está configurada para não enviar dados pessoais por predefinição (como o seu endereço IP) com os relatórios. Um relatório pode, ainda assim, conter identificadores técnicos do tipo indicado acima, que podem ser considerados dados pessoais nos termos do RGPD, e a ligação técnica usada para entregar um relatório é visível para o serviço. Não adicionamos aos relatórios de falhas o hash do dispositivo da secção 10d. O relatório de falhas está ativo na app publicada e, de momento, não pode ser desativado nas Definições. Política de privacidade do Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section" id="newsletter">
     <h2>10c. Newsletter (site)</h2>
     <p>Se subscreveres a newsletter da Nocito em nocito.app, guardamos o teu endereço de e-mail juntamente com a hora do teu consentimento, o texto exato do consentimento que viste, o idioma da página e a página a partir da qual subscreveste. Usamos isto exclusivamente para te enviar novidades e dicas da Nocito por e-mail. Base jurídica: o teu consentimento (art. 6.º, n.º 1, al. a) do RGPD).</p>
-    <p>Os dados são guardados na nossa própria base de dados alojada pela Supabase em Frankfurt (UE), que atua como nosso subcontratante. Nessa base de dados não guardamos o teu endereço IP nem dados do dispositivo e não usamos pixels de rastreamento. Guardamos o teu endereço até cancelares a subscrição ou pedires a sua eliminação. Podes retirar o consentimento a qualquer momento através da ligação de cancelamento nos nossos e-mails ou escrevendo para <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
+    <p>Os dados são guardados na nossa própria base de dados alojada pela Supabase em Frankfurt (UE), que atua como nosso subcontratante. Na lista da newsletter não guardamos o teu endereço IP nem dados do dispositivo e não usamos pixels de rastreamento. Guardamos o teu endereço até cancelares a subscrição ou pedires a sua eliminação. Podes retirar o consentimento a qualquer momento através da ligação de cancelamento nos nossos e-mails ou escrevendo para <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
     <p>Isto é independente da app: a newsletter é opcional e a app funciona sem ela. A app não nos envia as tuas despesas nem os teus recibos.</p>
   </div>
-<div class="section">
+<div class="section"><!--ds-privacy-->
+    <h2>10d. Identificador do dispositivo e limites de utilização</h2>
+    <p>Quando usa uma funcionalidade de IA na nuvem (leitura do texto de recibos, ditado na nuvem ou associação de artigos no Price Intelligence), a app envia ao nosso servidor o Android ID do seu telemóvel e o seu plano (Free ou Pro) juntamente com o pedido. O nosso servidor guarda apenas um <strong>hash irreversível</strong> dele (com um segredo que não é guardado na base de dados) e usa-o apenas para contar quantas chamadas à IA na nuvem um dispositivo faz, para que os limites gratuitos não possam ser contornados reinstalando a app ou com uma app modificada. Não é usado para publicidade, definição de perfis ou rastreamento entre apps. Não é enviado quando usa o processamento totalmente local.</p>
+    <p>As funcionalidades na nuvem passam pela nossa própria função de servidor (Supabase, região de dados da UE), que reencaminha o pedido ao fornecedor de IA apenas para responder a esse pedido. A função não guarda texto de recibos, áudio nem resultados. O servidor guarda os contadores com hash e uma contagem diária total de chamadas.</p>
+    <p>Não conseguimos associar o hash a si. Se quiser que os contadores do seu dispositivo sejam eliminados, escreva para <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> e indique o identificador do dispositivo; só podemos eliminar com base nesse identificador. Base jurídica: o nosso interesse legítimo em prevenir abusos e manter o serviço disponível (art. 6.º, n.º 1, al. f) do RGPD).</p>
+  </div>
+
+  <div class="section">
+    <h2>10e. Reportar um problema</h2>
+    <p>Nas Definições pode escolher <strong>Reportar um erro</strong>. É opcional e nada é enviado até premir Enviar. Um relatório contém a mensagem que escreve, os ficheiros que decidir anexar (imagens, vídeo, áudio, PDF ou documentos simples; até 5 ficheiros), um endereço de e-mail se quiser resposta e dados técnicos: versão da app, versão do Android, modelo do telemóvel, idioma e plano.</p>
+    <p>O relatório vai para o nosso servidor (Supabase, região de dados da UE), que o envia por e-mail para o nosso endereço de apoio (nocito.support@gmail.com) através do serviço de e-mail Resend. Os ficheiros anexados ficam num armazenamento privado e são <strong>eliminados após 30 dias</strong>; as ligações para eles no e-mail deixam de funcionar ao mesmo tempo. Usamos os relatórios apenas para compreender e corrigir problemas e para lhe responder. Por favor, não anexe nada que não queira que vejamos, como recibos ou gravações com dados pessoais. O endereço de e-mail é opcional e a mensagem fica na nossa caixa de apoio até a eliminarmos; pode pedir a eliminação escrevendo para <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>. Base jurídica: o seu consentimento, dado ao premir Enviar (art. 6.º, n.º 1, al. a) do RGPD).</p>
+  </div>
+
+  <div class="section">
     <h2>11. Privacidade de menores</h2>
     <p>A Nocito™ não se destina a crianças com menos de 13 anos (ou menos de 16 anos na UE). Não recolhemos conscientemente dados pessoais de crianças. Se acredita que uma criança nos forneceu dados pessoais, contacte-nos através de <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
   </div>

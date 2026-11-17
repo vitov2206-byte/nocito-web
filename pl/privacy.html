@@ -82,7 +82,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>Krótka wersja</h3>
-      <p>Nocito™ przechowuje wszystkie Twoje wydatki, paragony, zdjęcia i nagrania audio <strong>lokalnie na Twoim urządzeniu</strong>. Nie posiadamy serwera z Twoimi danymi. Domyślnie oczyszczony tekst OCR jest wysyłany do usługi AI w chmurze w celu przetworzenia wydatku, a dyktowanie głosowe korzysta z transkrypcji w chmurze. Możesz przejść na w pełni lokalne przetwarzanie AI i transkrypcję, włączając lokalne modele w Ustawieniach — wymaga to jednorazowego pobrania w aplikacji. Import PDF domyślnie wyodrębnia tekst lokalnie; wysyłanie całego pliku PDF do chmury jest ustawieniem opcjonalnym. W Chorwacji funkcja Price Intelligence dodatkowo pobiera na Twój telefon publiczne cenniki sklepów i może wysyłać do usługi AI w chmurze nazwy produktów (po filtrze prywatności), aby powiązać pozycje z paragonów z tymi cennikami; nie dzieje się tak, gdy włączone jest Lokalne przetwarzanie AI. Aplikacja używa Sentry do raportowania awarii, co obejmuje dane techniczne, takie jak Twój adres IP. Wszystko jest ujawnione w tej polityce.</p>
+      <p>Nocito™ przechowuje wszystkie Twoje wydatki, paragony, zdjęcia i nagrania audio <strong>lokalnie na Twoim urządzeniu</strong>. Żaden nasz serwer nie przechowuje Twoich wydatków, paragonów, zdjęć ani nagrań audio. Nasz serwer jedynie przekazuje żądania do AI w chmurze i prowadzi zahaszowany licznik dla urządzenia (sekcja 10d). Domyślnie oczyszczony tekst OCR jest wysyłany do usługi AI w chmurze w celu przetworzenia wydatku, a dyktowanie głosowe korzysta z transkrypcji w chmurze. Możesz przejść na w pełni lokalne przetwarzanie AI i transkrypcję, włączając lokalne modele w Ustawieniach — wymaga to jednorazowego pobrania w aplikacji. Import PDF domyślnie wyodrębnia tekst lokalnie; wysyłanie całego pliku PDF do chmury jest ustawieniem opcjonalnym. W Chorwacji funkcja Price Intelligence dodatkowo pobiera na Twój telefon publiczne cenniki sklepów i może wysyłać do usługi AI w chmurze nazwy produktów (po filtrze prywatności), aby powiązać pozycje z paragonów z tymi cennikami; nie dzieje się tak, gdy włączone jest Lokalne przetwarzanie AI. Aplikacja używa Sentry do raportowania awarii, co wysyła dane techniczne, takie jak model Twojego urządzenia i wersja aplikacji (aplikacja jest ustawiona tak, by nie wysyłać domyślnych danych osobowych, takich jak Twój adres IP). Wszystko jest ujawnione w tej polityce.</p>
     </div>
   </div>
 </div>
@@ -148,10 +148,22 @@
         <td>Tylko jeśli wybierzesz sklepy dla Price Intelligence, a Lokalne przetwarzanie AI jest wyłączone. Zużywa miesięczny limit powiązań pozycji.</td>
       </tr>
       <tr>
-        <td>Raporty o awariach: stack trace, adres IP, model urządzenia, wersja systemu i aplikacji, ostatnie wpisy techniczne</td>
+        <td>Raporty o awariach: ślady stosu, model urządzenia, wersja systemu i aplikacji, ostatnie zdarzenia techniczne (aplikacja jest ustawiona tak, by nie wysyłać domyślnych danych osobowych, takich jak Twój adres IP)</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Raportowanie awarii i monitorowanie stabilności</td>
         <td>Automatycznie przy awarii aplikacji. Dane o wydatkach nie są celowo przesyłane.</td>
+      </tr>
+      <tr>
+        <td>Identyfikator urządzenia (Android ID) i Twój plan (Free lub Pro). Nasz serwer przechowuje tylko jego jednokierunkowy hasz.</td>
+        <td>Nasz serwer (Supabase, UE) — zob. sekcja 10d</td>
+        <td>Liczenie wywołań AI w chmurze dla urządzenia, aby egzekwować limity użytkowania i zapobiegać nadużyciom</td>
+        <td>Przy każdym żądaniu AI w chmurze (tekst paragonu, dyktowanie w chmurze, powiązanie w Price Intelligence). Nie jest wysyłany w trybie w pełni lokalnym.</td>
+      </tr>
+      <tr>
+        <td>Zgłoszenie błędu, które postanowisz wysłać: Twoja wiadomość, załączone pliki, opcjonalny adres e-mail, wersja aplikacji, wersja Androida, model telefonu, język i plan</td>
+        <td>Nasz serwer (Supabase) i usługa e-mail Resend</td>
+        <td>Aby przeczytać zgłoszenie, naprawić problem i odpowiedzieć Ci</td>
+        <td>Tylko gdy naciśniesz Wyślij w Ustawienia → Zgłoś błąd</td>
       </tr>
     </table>
 
@@ -161,8 +173,8 @@
 
     <h3>Dane, których nigdy nie zbieramy</h3>
     <ul>
-      <li>Nie zbieramy Twojego imienia, adresu e-mail ani żadnych informacji o koncie (nie ma konta)</li>
-      <li>Nie zbieramy analiz ani statystyk użytkowania</li>
+      <li>Nie zbieramy Twojego imienia ani danych konta (nie ma konta). Adres e-mail otrzymujemy tylko wtedy, gdy sam(a) go nam podasz: w zgłoszeniu błędu (opcjonalnie, sekcja 10e) lub w newsletterze na naszej stronie (sekcja 10c)</li>
+      <li>Nie używamy analityki ani SDK śledzących. Jedyną daną o użytkowaniu jest zahaszowany licznik wywołań AI w chmurze dla urządzenia, służący do egzekwowania limitów użytkowania (sekcja 10d)</li>
       <li>Nie używamy reklamowych SDK ani pikseli śledzących</li>
       <li>Nie synchronizujemy Twoich danych o wydatkach z żadnym serwerem</li>
       <li>Nie sprzedajemy Twoich danych nikomu</li>
@@ -268,7 +280,7 @@
       <tr>
         <td>Transkrypcja głosu (gdy włączona jest Transkrypcja w chmurze)</td>
         <td>Usługa AI w chmurze</td>
-        <td>Nagranie audio (tylko opcjonalnie)</td>
+        <td>Nagranie audio (domyślnie włączone; w Ustawieniach możesz przełączyć się na transkrypcję lokalną)</td>
       </tr>
       <tr>
         <td>Price Intelligence – powiązanie pozycji z paragonów (Chorwacja)</td>
@@ -293,7 +305,17 @@
       <tr>
         <td>Raportowanie awarii</td>
         <td>Sentry (sentry.io), region danych UE</td>
-        <td>Stack trace, adres IP, model urządzenia, wersja systemu i aplikacji oraz ostatnie wpisy techniczne. Dane o wydatkach nie są celowo przesyłane.</td>
+        <td>Ślady stosu, model urządzenia, wersja systemu, wersja aplikacji i ostatnie logi techniczne. Aplikacja jest ustawiona tak, by nie wysyłać domyślnych danych osobowych (takich jak Twój adres IP). Dane o wydatkach nie są wysyłane celowo.</td>
+      </tr>
+      <tr>
+        <td>Limity użytkowania AI w chmurze</td>
+        <td>Nasza własna funkcja serwerowa (Supabase, UE)</td>
+        <td>Jednokierunkowy hasz Android ID, Twój plan i liczba wywołań. Proxy nie przechowuje tekstu paragonów ani audio.</td>
+      </tr>
+      <tr>
+        <td>Dostarczanie zgłoszeń błędów</td>
+        <td>Supabase (przechowywanie załączonych plików) i Resend (resend.com, wysyłka e-maili)</td>
+        <td>Twoja wiadomość, załączone pliki, opcjonalny adres e-mail i dane techniczne (aplikacja, Android, model telefonu, język, plan), wysłane na adres nocito.support@gmail.com</td>
       </tr>
     </table>
     <p>Konkretne usługi AI w chmurze wykorzystywane do ekstrakcji wydatków i transkrypcji mogą się zmieniać w miarę pojawiania się lepszych lub bardziej przyjaznych dla prywatności opcji. Wszelkie istotne zmiany rodzajów przesyłanych danych zostaną odzwierciedlone w zaktualizowanej Polityce prywatności.</p>
@@ -325,6 +347,8 @@
       <li><strong>Prawnie uzasadniony interes</strong> — raportowanie awarii przez Sentry w celu utrzymania stabilności aplikacji</li>
       <li><strong>Zgoda</strong> — wysyłanie audio do usługi transkrypcji w chmurze (tylko gdy Transkrypcja w chmurze jest włączona w Ustawieniach)</li>
       <li><strong>Zgoda</strong> — wysyłanie pełnych dokumentów PDF do usługi AI w chmurze (tylko gdy Ekstrakcja PDF w chmurze jest włączona w Ustawieniach)</li>
+      <li><strong>Uzasadniony interes</strong> — liczenie wywołań AI w chmurze dla urządzenia za pomocą jednokierunkowego hasza, aby egzekwować limity użytkowania i zapobiegać nadużyciom</li>
+      <li><strong>Zgoda</strong> — zgłoszenia błędów, które postanowisz wysłać (zgoda wyrażana przez naciśnięcie Wyślij)</li>
     </ul>
     <p>Ponieważ aplikacja działa głównie na urządzeniu bez systemu kont, dane osobowe, które przetwarzamy, są minimalne. Głównym administratorem Twoich danych osobowych jesteś Ty sam/a — żyją one na Twoim urządzeniu.</p>
   </div>
@@ -334,7 +358,7 @@
     <ul>
       <li><strong>Dostępu</strong> — eksportuj swoje wydatki jako CSV z poziomu aplikacji (funkcja Pro)</li>
       <li><strong>Kopii zapasowej i przywracania</strong> — eksportuj wszystkie swoje dane jako kopię zapasową JSON i przywróć je na dowolnym urządzeniu (dostępne dla wszystkich użytkowników)</li>
-      <li><strong>Usunięcia</strong> — usuń poszczególne wydatki lub wszystkie dane z poziomu aplikacji, lub odinstaluj aplikację, aby usunąć wszystko</li>
+      <li><strong>Usunięcia</strong> — usuń poszczególne wydatki lub wszystkie dane z poziomu aplikacji, lub odinstaluj aplikację, aby usunąć wszystko. Liczników przechowywanych na naszym serwerze nie możemy powiązać z Tobą (zob. sekcja 10d); na Twoje żądanie możemy je usunąć, jeśli podasz nam identyfikator swojego urządzenia.</li>
       <li><strong>Przenoszenia</strong> — eksportuj swoje dane jako CSV lub JSON w dowolnym momencie</li>
       <li><strong>Korekty</strong> — edytuj dowolny wydatek bezpośrednio w aplikacji</li>
     </ul>
@@ -348,18 +372,30 @@
       <li>Model i producenta urządzenia</li>
       <li>Wersję systemu Android</li>
       <li>Wersję aplikacji</li>
-      <li>Twój adres IP, który Sentry otrzymuje przy każdym zapytaniu</li>
       <li>Krótki ślad ostatnich wpisów technicznych poprzedzających błąd</li>
     </ul>
-    <p>Raporty nie są przeznaczone do zawierania Twoich danych o wydatkach, zdjęć paragonów ani nagrań audio i wykorzystujemy je wyłącznie do znajdowania i naprawiania błędów. Ponieważ zawierają identyfikatory techniczne, takie jak adres IP, w rozumieniu RODO stanowią dane osobowe. Raportowanie awarii jest aktywne w wydanej aplikacji i obecnie nie można go wyłączyć w Ustawieniach. Polityka prywatności Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+    <p>Raporty nie są przeznaczone do zawierania Twoich danych o wydatkach, zdjęć paragonów ani nagrań audio, a używamy ich wyłącznie do znajdowania i naprawiania błędów. Aplikacja jest ustawiona tak, by nie wysyłać z raportami domyślnych danych osobowych (takich jak Twój adres IP). Raport może jednak zawierać identyfikatory techniczne wymienione powyżej, które mogą być danymi osobowymi w rozumieniu RODO, a połączenie techniczne użyte do dostarczenia raportu jest widoczne dla usługi. Do raportów o awariach nie dodajemy hasza urządzenia z sekcji 10d. Raportowanie awarii jest aktywne w opublikowanej aplikacji i obecnie nie można go wyłączyć w Ustawieniach. Polityka prywatności Sentry: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section" id="newsletter">
     <h2>10c. Newsletter (strona internetowa)</h2>
     <p>Jeśli zapiszesz się na newsletter Nocito na nocito.app, przechowujemy Twój adres e-mail wraz z czasem zgody, dokładnym brzmieniem zgody, którą widziałeś(-aś), językiem strony i stroną, z której się zapisałeś(-aś). Używamy tego wyłącznie do wysyłania Ci e-mailem nowości i porad Nocito. Podstawa prawna: Twoja zgoda (art. 6 ust. 1 lit. a RODO).</p>
-    <p>Dane są przechowywane w naszej własnej bazie danych hostowanej przez Supabase we Frankfurcie (UE), który działa jako nasz podmiot przetwarzający. W tej bazie nie przechowujemy Twojego adresu IP ani danych urządzenia i nie używamy pikseli śledzących. Adres przechowujemy, dopóki się nie wypiszesz lub nie poprosisz o usunięcie. Zgodę możesz wycofać w każdej chwili za pomocą linku do wypisania się w naszych e-mailach lub pisząc na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
+    <p>Dane są przechowywane w naszej własnej bazie danych hostowanej przez Supabase we Frankfurcie (UE), który działa jako nasz podmiot przetwarzający. Na liście newslettera nie przechowujemy Twojego adresu IP ani danych urządzenia i nie używamy pikseli śledzących. Adres przechowujemy, dopóki się nie wypiszesz lub nie poprosisz o usunięcie. Zgodę możesz wycofać w każdej chwili za pomocą linku do wypisania się w naszych e-mailach lub pisząc na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
     <p>To jest oddzielne od aplikacji: newsletter jest dobrowolny, a aplikacja działa bez niego. Aplikacja nie wysyła nam Twoich wydatków ani paragonów.</p>
   </div>
-<div class="section">
+<div class="section"><!--ds-privacy-->
+    <h2>10d. Identyfikator urządzenia i limity użytkowania</h2>
+    <p>Gdy korzystasz z funkcji AI w chmurze (odczyt tekstu paragonu, dyktowanie w chmurze lub powiązywanie pozycji w Price Intelligence), aplikacja wysyła do naszego serwera Android ID Twojego telefonu i Twój plan (Free lub Pro) razem z żądaniem. Nasz serwer przechowuje z tego tylko <strong>jednokierunkowy hasz</strong> (z solą będącą sekretem, który nie jest zapisany w bazie danych) i używa go wyłącznie do liczenia, ile wywołań AI w chmurze wykonuje urządzenie, aby darmowych limitów nie dało się obejść ponowną instalacją aplikacji ani zmodyfikowaną aplikacją. Nie jest używany do reklam, profilowania ani śledzenia między aplikacjami. Nie jest wysyłany, gdy korzystasz z w pełni lokalnego przetwarzania.</p>
+    <p>Funkcje w chmurze działają przez naszą własną funkcję serwerową (Supabase, region danych UE), która przekazuje żądanie dostawcy AI wyłącznie po to, by odpowiedzieć na to jedno żądanie. Funkcja nie przechowuje tekstu paragonów, audio ani wyników. Serwer przechowuje zahaszowane liczniki oraz jedną łączną dzienną liczbę wywołań.</p>
+    <p>Nie możemy powiązać hasza z Tobą. Jeśli chcesz usunąć liczniki swojego urządzenia, napisz na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> i podaj identyfikator urządzenia; możemy usuwać wyłącznie na podstawie tego identyfikatora. Podstawa prawna: nasz prawnie uzasadniony interes w zapobieganiu nadużyciom i utrzymaniu dostępności usługi (art. 6 ust. 1 lit. f RODO).</p>
+  </div>
+
+  <div class="section">
+    <h2>10e. Zgłaszanie problemu</h2>
+    <p>W Ustawieniach możesz wybrać <strong>Zgłoś błąd</strong>. Jest to opcjonalne i nic nie jest wysyłane, dopóki nie naciśniesz Wyślij. Zgłoszenie zawiera wiadomość, którą piszesz, pliki, które postanowisz załączyć (zdjęcia, wideo, audio, PDF lub zwykłe dokumenty; do 5 plików), adres e-mail, jeśli chcesz otrzymać odpowiedź, oraz dane techniczne: wersję aplikacji, wersję Androida, model telefonu, język i plan.</p>
+    <p>Zgłoszenie trafia na nasz serwer (Supabase, region danych UE), który wysyła je e-mailem na nasz adres wsparcia (nocito.support@gmail.com) za pomocą usługi e-mail Resend. Załączone pliki są przechowywane w prywatnej pamięci i <strong>usuwane po 30 dniach</strong>; linki do nich w e-mailu przestają wtedy działać. Zgłoszeń używamy wyłącznie do zrozumienia i naprawy problemów oraz do odpowiedzi Tobie. Prosimy, nie załączaj niczego, czego nie chcesz nam pokazywać, np. paragonów lub nagrań z danymi osobowymi. Adres e-mail jest opcjonalny, a wiadomość pozostaje w naszej skrzynce wsparcia, dopóki jej nie usuniemy; możesz poprosić o usunięcie, pisząc na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>. Podstawa prawna: Twoja zgoda, wyrażona przez naciśnięcie Wyślij (art. 6 ust. 1 lit. a RODO).</p>
+  </div>
+
+  <div class="section">
     <h2>11. Prywatność dzieci</h2>
     <p>Nocito™ nie jest skierowane do dzieci poniżej 13 roku życia (lub poniżej 16 roku życia w UE). Świadomie nie zbieramy danych osobowych od dzieci. Jeśli uważasz, że dziecko przekazało nam dane osobowe, skontaktuj się z nami pod adresem <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
   </div>

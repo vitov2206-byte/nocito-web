@@ -82,7 +82,7 @@
     <div class="highlight-icon">🔒</div>
     <div>
       <h3>Kratka verzija</h3>
-      <p>Nocito™ pohranjuje sve tvoje troškove, račune, slike i audio zapise <strong>lokalno na tvom uređaju</strong>. Nemamo server s tvojim podacima. Prema zadanim postavkama, pročišćeni OCR tekst se šalje cloud AI servisu radi obrade troška, a glasovno diktiranje koristi cloud transkripciju. Možeš prijeći na potpunu obradu na uređaju i transkripciju uključivanjem lokalnih modela u Postavkama — to zahtijeva jednokratno preuzimanje unutar aplikacije. Uvoz PDF-a prema zadanim postavkama izvlači tekst lokalno; slanje cijelog PDF-a u cloud je opcionalna postavka koju sam uključuješ. U Hrvatskoj značajka Price Intelligence dodatno preuzima javne cenovnike trgovina na tvoj telefon i može cloud AI servisu poslati nazive proizvoda (nakon filtra privatnosti) radi povezivanja artikala s računa s tim cenovnicima; to se ne događa kad je uključena Lokalna AI obrada. Aplikacija koristi Sentry za prijavu padova, što uključuje tehničke podatke poput tvoje IP adrese. Sve je otkriveno u ovim pravilima.</p>
+      <p>Nocito™ pohranjuje sve tvoje troškove, račune, slike i audio zapise <strong>lokalno na tvom uređaju</strong>. Nijedan naš server ne čuva tvoje troškove, račune, slike ni audio zapise. Naš server samo prosleđuje cloud AI zahteve i vodi heširani brojač po uređaju (odeljak 10d). Prema zadanim postavkama, pročišćeni OCR tekst se šalje cloud AI servisu radi obrade troška, a glasovno diktiranje koristi cloud transkripciju. Možeš prijeći na potpunu obradu na uređaju i transkripciju uključivanjem lokalnih modela u Postavkama — to zahtijeva jednokratno preuzimanje unutar aplikacije. Uvoz PDF-a prema zadanim postavkama izvlači tekst lokalno; slanje cijelog PDF-a u cloud je opcionalna postavka koju sam uključuješ. U Hrvatskoj značajka Price Intelligence dodatno preuzima javne cenovnike trgovina na tvoj telefon i može cloud AI servisu poslati nazive proizvoda (nakon filtra privatnosti) radi povezivanja artikala s računa s tim cenovnicima; to se ne događa kad je uključena Lokalna AI obrada. Aplikacija koristi Sentry za prijavu padova, što šalje tehničke podatke poput modela uređaja i verzije aplikacije (aplikacija je podešena tako da ne šalje podrazumevane lične podatke poput tvoje IP adrese). Sve je otkriveno u ovim pravilima.</p>
     </div>
   </div>
 </div>
@@ -148,10 +148,22 @@
         <td>Samo ako si odabrao/odabrala trgovine za Price Intelligence i Lokalna AI obrada je isključena. Troši mesečnu kvotu povezivanja artikala.</td>
       </tr>
       <tr>
-        <td>Izveštaji o padovima: stack traces, IP adresa, model uređaja, verzija OS-a i aplikacije, nedavni tehnički zapisi</td>
+        <td>Izveštaji o padovima: stack trace, model uređaja, verzija OS-a i aplikacije, nedavni tehnički zapisi (aplikacija je podešena tako da ne šalje podrazumevane lične podatke poput tvoje IP adrese)</td>
         <td><span class="tag tag-cloud">Sentry</span></td>
         <td>Prijava padova i praćenje stabilnosti</td>
         <td>Automatski kod pada aplikacije. Podaci o troškovima se ne šalju namjerno.</td>
+      </tr>
+      <tr>
+        <td>Identifikator uređaja (Android ID) i tvoj paket (Free ili Pro). Naš server čuva samo jednosmerni heš.</td>
+        <td>Naš server (Supabase, EU) — vidi odeljak 10d</td>
+        <td>Brojanje cloud AI poziva po uređaju radi sprovođenja ograničenja i sprečavanja zloupotrebe</td>
+        <td>Uz svaki cloud AI zahtev (tekst računa, cloud diktiranje, povezivanje u Price Intelligence). Ne šalje se u potpuno lokalnom režimu.</td>
+      </tr>
+      <tr>
+        <td>Prijava greške koju odlučiš da pošalješ: tvoja poruka, priložene datoteke, neobavezna adresa e-pošte, verzija aplikacije, verzija Androida, model telefona, jezik i paket</td>
+        <td>Naš server (Supabase) i servis za e-poštu Resend</td>
+        <td>Da pročitamo prijavu, ispravimo problem i odgovorimo ti</td>
+        <td>Samo kad pritisneš Pošalji u Podešavanja → Prijavi grešku</td>
       </tr>
     </table>
 
@@ -161,8 +173,8 @@
 
     <h3>Podatke koje nikad ne prikupljamo</h3>
     <ul>
-      <li>Ne prikupljamo tvoje ime, email adresu niti bilo kakve podatke o računu (računa ni nema)</li>
-      <li>Ne prikupljamo analitiku ni statistiku korišćenja</li>
+      <li>Ne prikupljamo tvoje ime ni podatke o nalogu (nalog ne postoji). Adresu e-pošte dobijamo samo ako nam je sam/a daš: u prijavi greške (neobavezno, odeljak 10e) ili za newsletter na našem sajtu (odeljak 10c)</li>
+      <li>Ne koristimo analitiku ni SDK-ove za praćenje. Jedini podatak o korišćenju je heširani brojač cloud AI poziva po uređaju, koji služi za sprovođenje ograničenja korišćenja (odeljak 10d)</li>
       <li>Ne koristimo oglašivačke SDK-ove ni piksele za praćenje</li>
       <li>Ne sinkroniziramo tvoje podatke o troškovima ni na jedan server</li>
       <li>Ne prodajemo tvoje podatke nikome</li>
@@ -268,7 +280,7 @@
       <tr>
         <td>Transkripcija govora (kad je Cloud transkripcija uključena)</td>
         <td>Cloud AI servis</td>
-        <td>Audio zapis (samo opcionalno)</td>
+        <td>Audio snimak (uključeno podrazumevano; u Podešavanjima možeš preći na lokalnu transkripciju)</td>
       </tr>
       <tr>
         <td>Price Intelligence – povezivanje artikala s računa (Hrvatska)</td>
@@ -293,7 +305,17 @@
       <tr>
         <td>Prijava padova aplikacije</td>
         <td>Sentry (sentry.io), EU region podataka</td>
-        <td>Stack traces, IP adresa, model uređaja, verzija OS-a, verzija aplikacije i nedavni tehnički zapisi. Podaci o troškovima se ne šalju namjerno.</td>
+        <td>Stack trace, model uređaja, verzija OS-a, verzija aplikacije i nedavni tehnički zapisi. Aplikacija je podešena tako da ne šalje podrazumevane lične podatke (poput tvoje IP adrese). Podaci o troškovima se ne šalju namerno.</td>
+      </tr>
+      <tr>
+        <td>Ograničenja korišćenja cloud AI-ja</td>
+        <td>Naša sopstvena serverska funkcija (Supabase, EU)</td>
+        <td>Jednosmerni heš Android ID-a, tvoj paket i broj poziva. Proxy ne čuva tekst računa ni audio.</td>
+      </tr>
+      <tr>
+        <td>Slanje prijave greške</td>
+        <td>Supabase (čuvanje priloženih datoteka) i Resend (resend.com, isporuka e-pošte)</td>
+        <td>Tvoja poruka, priložene datoteke, neobavezna adresa e-pošte i tehnički podaci (aplikacija, Android, model telefona, jezik, paket), poslato na nocito.support@gmail.com</td>
       </tr>
     </table>
     <p>Specifični cloud AI servisi koji se koriste za izvlačenje troškova i transkripciju mogu se mijenjati kako postaju dostupne bolje ili privatnije opcije. Svaka značajnija promena vrste podataka koji se šalju bit će odražena u ažuriranim Pravilima privatnosti.</p>
@@ -325,6 +347,8 @@
       <li><strong>Legitimni interes</strong> — prijava padova putem Sentryja radi održavanja stabilnosti aplikacije</li>
       <li><strong>Pristanak</strong> — slanje audia cloud servisu za transkripciju (samo kad je Cloud transkripcija uključena u Postavkama)</li>
       <li><strong>Pristanak</strong> — slanje cijelih PDF dokumenata cloud AI servisu (samo kad je Cloud PDF ekstrakcija uključena u Postavkama)</li>
+      <li><strong>Legitimni interes</strong> — brojanje cloud AI poziva po uređaju pomoću jednosmernog heša radi sprovođenja ograničenja korišćenja i sprečavanja zloupotrebe</li>
+      <li><strong>Pristanak</strong> — prijave grešaka koje odlučiš da pošalješ (saglasnost se daje pritiskom na Pošalji)</li>
     </ul>
     <p>Budući da aplikacija radi prvenstveno na uređaju bez sustava računa, osobni podaci koje obrađujemo su minimalni. Glavni voditelj obrade tvojih osobnih podataka si ti sam/sama — oni žive na tvom uređaju.</p>
   </div>
@@ -334,7 +358,7 @@
     <ul>
       <li><strong>Pristup</strong> — izvezi svoje troškove kao CSV unutar aplikacije (Pro značajka)</li>
       <li><strong>Rezervnu kopiju i vraćanje</strong> — izvezi sve svoje podatke kao JSON rezervnu kopiju i vrati ih na bilo kojem uređaju (dostupno svim korisnicima)</li>
-      <li><strong>Brisanje</strong> — izbriši pojedinačne troškove ili sve podatke unutar aplikacije, ili deinstaliraj aplikaciju da izbrišeš sve</li>
+      <li><strong>Brisanje</strong> — izbriši pojedinačne troškove ili sve podatke unutar aplikacije, ili deinstaliraj aplikaciju da izbrišeš sve. Brojače sačuvane na našem serveru ne možemo povezati s tobom (vidi odeljak 10d); na zahtev ih možemo obrisati ako nam navedeš identifikator svog uređaja.</li>
       <li><strong>Prenosivost</strong> — izvezi svoje podatke kao CSV ili JSON u bilo kojem trenutku</li>
       <li><strong>Ispravak</strong> — uredi bilo koji trošak izravno u aplikaciji</li>
     </ul>
@@ -348,18 +372,30 @@
       <li>Model i proizvođača uređaja</li>
       <li>Verziju Android OS-a</li>
       <li>Verziju aplikacije</li>
-      <li>Tvoju IP adresu, koju Sentry prima uz svaki zahtjev</li>
       <li>Kratak slijed nedavnih tehničkih zapisa prije greške</li>
     </ul>
-    <p>Izveštaji nisu namijenjeni tome da sadrže tvoje podatke o troškovima, slike računa ni audio zapise i koristimo ih isključivo za pronalaženje i ispravljanje grešaka. Budući da uključuju tehničke identifikatore poput IP adrese, prema GDPR-u smatraju se osobnim podacima. Prijava padova aktivna je u objavljenoj aplikaciji i trenutno se ne može isključiti u Postavkama. Pravila privatnosti Sentryja: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
+    <p>Izveštaji nisu zamišljeni da sadrže tvoje podatke o troškovima, slike računa ni audio zapise, a koristimo ih samo za pronalaženje i ispravljanje grešaka. Aplikacija je podešena tako da uz izveštaje ne šalje podrazumevane lične podatke (poput tvoje IP adrese). Izveštaj ipak može sadržati tehničke identifikatore navedene gore, koji prema GDPR-u mogu biti lični podaci, a tehnička veza kojom se izveštaj isporučuje vidljiva je servisu. U izveštaje o padovima ne dodajemo heš uređaja iz odeljka 10d. Prijava padova je aktivna u objavljenoj aplikaciji i trenutno se ne može isključiti u Podešavanjima. Sentry pravila privatnosti: <a href="https://sentry.io/privacy/" target="_blank">sentry.io/privacy</a></p>
   </div>
 <div class="section" id="newsletter">
     <h2>10c. Newsletter (veb stranica)</h2>
     <p>Ako se na nocito.app prijaviš na Nocito newsletter, čuvamo tvoju adresu e-pošte zajedno s vremenom saglasnosti, tačnim tekstom saglasnosti koji si video/videla, jezikom stranice i stranicom s koje si se prijavio/prijavila. To koristimo isključivo za slanje Nocito novosti i saveta e-poštom. Pravni osnov: tvoja saglasnost (GDPR čl. 6. st. 1. t. (a)).</p>
-    <p>Podaci se čuvaju u našoj bazi koju hostuje Supabase u Frankfurtu (EU) i koji je naš obrađivač. U toj bazi ne čuvamo tvoju IP adresu ni podatke o uređaju i ne koristimo piksele za praćenje. Adresu čuvamo dok se ne odjaviš ili ne zatražiš brisanje. Saglasnost možeš povući bilo kada putem linka za odjavu u našim porukama ili pisanjem na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
+    <p>Podaci se čuvaju u našoj bazi koju hostuje Supabase u Frankfurtu (EU) i koji je naš obrađivač. Na listi za newsletter ne čuvamo tvoju IP adresu ni podatke o uređaju i ne koristimo piksele za praćenje. Adresu čuvamo dok se ne odjaviš ili ne zatražiš brisanje. Saglasnost možeš povući bilo kada putem linka za odjavu u našim porukama ili pisanjem na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
     <p>Ovo je odvojeno od aplikacije: newsletter je neobavezan i aplikacija radi i bez njega. Aplikacija nam ne šalje tvoje troškove ni račune.</p>
   </div>
-<div class="section">
+<div class="section"><!--ds-privacy-->
+    <h2>10d. Identifikator uređaja i ograničenja korišćenja</h2>
+    <p>Kad koristiš cloud AI funkciju (čitanje teksta računa, cloud diktiranje ili povezivanje artikala u Price Intelligence), aplikacija uz zahtev šalje našem serveru Android ID tvog telefona i tvoj paket (Free ili Pro). Naš server čuva samo <strong>jednosmerni heš</strong> toga (posoljen tajnom koja se ne čuva u bazi) i koristi ga isključivo za brojanje koliko cloud AI poziva uređaj napravi, kako se besplatna ograničenja ne bi mogla zaobići ponovnom instalacijom ili izmenjenom aplikacijom. Ne koristi se za oglašavanje, profilisanje ni praćenje među aplikacijama. Ne šalje se kad koristiš potpuno lokalnu obradu.</p>
+    <p>Cloud funkcije prolaze kroz našu sopstvenu serversku funkciju (Supabase, EU region), koja zahtev prosleđuje AI provajderu samo da odgovori na taj jedan zahtev. Funkcija ne čuva tekst računa, audio ni rezultate. Server čuva heširane brojače i jedan ukupni dnevni broj poziva.</p>
+    <p>Heš ne možemo povezati s tobom. Ako želiš da se brojači tvog uređaja obrišu, piši na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a> i navedi identifikator uređaja; brisati možemo samo prema tom identifikatoru. Pravni osnov: naš legitimni interes za sprečavanje zloupotrebe i održavanje dostupnosti usluge (GDPR čl. 6. st. 1. t. (f)).</p>
+  </div>
+
+  <div class="section">
+    <h2>10e. Prijava problema</h2>
+    <p>U Podešavanjima možeš izabrati <strong>Prijavi grešku</strong>. To je neobavezno i ništa se ne šalje dok ne pritisneš Pošalji. Prijava sadrži poruku koju napišeš, datoteke koje odlučiš da priložiš (slike, video, audio, PDF ili obične dokumente; do 5 datoteka), adresu e-pošte ako želiš odgovor i tehničke podatke: verziju aplikacije, verziju Androida, model telefona, jezik i paket.</p>
+    <p>Prijava ide na naš server (Supabase, EU region), koji je e-poštom šalje na našu adresu podrške (nocito.support@gmail.com) preko servisa za e-poštu Resend. Priložene datoteke čuvaju se u privatnom skladištu i <strong>brišu se nakon 30 dana</strong>; linkovi na njih u e-poruci prestaju da rade istovremeno. Prijave koristimo samo da razumemo i ispravimo probleme i da ti odgovorimo. Molimo te da ne prilažeš ništa što ne želiš da vidimo, poput računa ili snimaka s ličnim podacima. Adresa e-pošte je neobavezna, a poruka ostaje u našem sandučetu podrške dok je ne obrišemo; brisanje možeš zatražiti pisanjem na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>. Pravni osnov: tvoja saglasnost, data pritiskom na Pošalji (GDPR čl. 6. st. 1. t. (a)).</p>
+  </div>
+
+  <div class="section">
     <h2>11. Privatnost dece</h2>
     <p>Nocito™ nije namijenjen deci mlađoj od 13 godina (odnosno mlađoj od 16 godina u EU). Svjesno ne prikupljamo osobne podatke od dece. Ako smatraš da nam je dete dostavilo osobne podatke, molimo kontaktiraj nas na <a href="mailto:nocito.support@gmail.com">nocito.support@gmail.com</a>.</p>
   </div>
