@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0F1B2D">
+<link rel="canonical" href="https://nocito.app/stanje-a84af51462/">
+<title>Nocito · stanje</title>
+<!--
+  Owner's read-only health page (docs/reference/HEALTH_MONITOR_PLAN_PHASE1.md, step 6). Static file:
+  it holds no data and no key. Open it as <page url>#k=<HEALTH_PAGE_KEY>; the key stays in the
+  fragment (never sent to the web server) and is sent only as header x-page-key to the health-page
+  Edge Function. Design: mockup approved 19.11.2026 (bg #0F1B2D, cards #1B2A4A, radius 12 px).
+-->
+<style>
+  :root { --bg:#0F1B2D; --card:#1B2A4A; --text:#F5EDD6; --muted:#8899AA; --green:#2A9D8F; --amber:#F5A623; --red:#C25B4E; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Roboto, "Segoe UI", sans-serif; overflow-x: hidden; }
+  main { max-width: 480px; margin: 0 auto; padding: 16px; }
+  .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  h1 { font-size: 18px; font-weight: 700; margin: 0; }
+  button.refresh { background: none; border: 0; color: var(--muted); font: inherit; font-size: 12px; padding: 8px 0 8px 12px; cursor: pointer; }
+  .summary { background: var(--card); border: 1px solid var(--green); border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; }
+  .summary.amber { border-color: var(--amber); } .summary.red { border-color: var(--red); }
+  .summary .head { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; }
+  .summary .sub { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.45; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; margin-right: 10px; background: var(--green); }
+  .summary .dot { width: 14px; height: 14px; margin-right: 0; }
+  .dot.amber { background: var(--amber); } .dot.red { background: var(--red); }
+  .label { font-size: 12px; color: var(--muted); letter-spacing: .5px; margin: 0 0 6px 4px; text-transform: uppercase; }
+  .card { background: var(--card); border-radius: 12px; padding: 4px 0; margin-bottom: 16px; font-size: 14px; }
+  .row { padding: 8px 14px; border-bottom: 1px solid var(--bg); }
+  .row:last-child { border-bottom: 0; }
+  .row.amber { background: #2A2F35; } .row.red { background: #3A2A30; }
+  .line { display: flex; align-items: center; }
+  .name { flex: 1; min-width: 0; }
+  .val { color: var(--muted); font-size: 13px; text-align: right; margin-left: 8px; }
+  .row.amber .val, .row.amber .why { color: var(--amber); }
+  .row.red .val, .row.red .why { color: var(--red); }
+  .why { font-size: 12px; margin: 4px 0 0 20px; line-height: 1.4; word-break: break-word; }
+  .more { color: var(--muted); font-size: 13px; cursor: pointer; }
+  .more .name { padding-left: 20px; }
+  .foot { font-size: 12px; color: var(--muted); text-align: center; margin-top: 4px; }
+  .msg { background: var(--card); border-radius: 12px; padding: 16px; font-size: 14px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<main>
+  <div class="top"><h1>Nocito · stanje</h1><button class="refresh" id="refresh" type="button">↻ <span id="stamp">…</span></button></div>
+  <div id="app"><div class="msg">Učitavam…</div></div>
+  <div class="foot">Samo za čitanje · podaci bez korisnika</div>
+</main>
+<script>
+(function () {
+  var ENDPOINT = 'https://zeiithcaxunvhfcxsnli.supabase.co/functions/v1/health-page';
+  var CHAINS = { konzum: 'Konzum', lidl: 'Lidl', plodine: 'Plodine', spar: 'Spar', tommy: 'Tommy', studenac: 'Studenac',
+    kaufland: 'Kaufland', eurospin: 'Eurospin', ntl: 'NTL', ktc: 'KTC' };
+  var FUNCTIONS = { 'gemini-proxy': 'AI (Gemini)', 'whisper-proxy': 'Diktiranje (Whisper)', 'report-bug': 'Prijava greške',
+    'newsletter-signup': 'Newsletter', 'health-ingest': 'Provjera poslužitelja' };
+  var GREEN_ROWS_SHOWN = 5;
+  var RANK = { red: 0, amber: 1, green: 2 };
+
+  function readKey() {
+    var m = /(?:^#|&)k=([^&]+)/.exec(location.hash || '');
+    var key = m ? decodeURIComponent(m[1]) : '';
+    try {
+      if (key) localStorage.setItem('nocitoHealthKey', key);
+      else key = localStorage.getItem('nocitoHealthKey') || '';
+    } catch (e) { /* storage blocked: the link must carry the key */ }
+    return key;
+  }
+
+  /** Fixed display order (the order of the name map); unknown subjects go last. */
+  function orderOf(map, subject) {
+    var i = Object.keys(map).indexOf(subject);
+    return i < 0 ? 99 : i;
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function num(n) { return Number(n || 0).toLocaleString('hr-HR'); }
+  function zg(iso, opts) { return new Intl.DateTimeFormat('hr-HR', Object.assign({ timeZone: 'Europe/Zagreb' }, opts)).format(new Date(iso)); }
+  function hm(iso) { return zg(iso, { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }); }
+  function dayMonth(isoDay) { var p = String(isoDay || '').split('-'); return p.length === 3 ? Number(p[2]) + '.' + Number(p[1]) + '.' : '—'; }
+  function weekdayDate(iso) { return zg(iso, { weekday: 'short' }) + ' ' + zg(iso, { day: 'numeric', month: 'numeric' }); }
+
+  function priceRow(r) {
+    var d = r.detail || {}, reason = String(d.reason || ''), why = '', val;
+    if (r.status === 'green') val = num(d.parsedRows) + ' · ' + dayMonth(d.listDate);
+    else {
+      val = d.listDate ? dayMonth(d.listDate) : num(d.parsedRows) + ' cijena';
+      var m;
+      if (/^today's list not published/.test(reason)) why = 'Današnji cjenik još nije objavljen';
+      else if (/^0 rows/.test(reason)) { val = '0 cijena'; why = 'Cjenik preuzet, a nijedna cijena pročitana: promijenjen format? (' + reason.replace(/^0 rows:\s*/, '') + ')'; }
+      else if ((m = /newest list is (\d+) days old/.exec(reason))) why = 'Najnoviji cjenik star je ' + m[1] + ' dana';
+      else if ((m = /^(\d+) rows, last good run had (\d+)/.exec(reason))) why = 'Samo ' + num(m[1]) + ' cijena, prošli put ' + num(m[2]);
+      else if (/^error:/.test(reason)) why = 'Greška pri preuzimanju: ' + reason.replace(/^error:\s*/, '');
+      else why = reason;
+    }
+    return { status: r.status, name: CHAINS[r.subject] || r.subject, val: val, why: why, order: orderOf(CHAINS, r.subject) };
+  }
+
+  function functionRow(r) {
+    var d = r.detail || {}, val;
+    if (d.callsToday != null && d.dailyCap) val = num(d.callsToday) + ' / ' + num(d.dailyCap) + ' danas';
+    else if (d.callsToday != null) val = num(d.callsToday) + ' danas';
+    else val = r.status === 'green' ? 'radi' : '';
+    return { status: r.status, name: FUNCTIONS[r.subject] || r.subject, val: val, order: orderOf(FUNCTIONS, r.subject),
+      why: r.status === 'green' ? '' : 'Problem: ' + String(d.reason || '') };
+  }
+
+  function rowHtml(x) {
+    return '<div class="row ' + x.status + '"><div class="line"><span class="dot ' + x.status + '"></span><span class="name">' +
+      esc(x.name) + '</span><span class="val">' + esc(x.val) + '</span></div>' +
+      (x.why ? '<div class="why">' + esc(x.why) + '</div>' : '') + '</div>';
+  }
+
+  function listHtml(rows, collapse) {
+    rows.sort(function (a, b) { return RANK[a.status] - RANK[b.status] || a.order - b.order; });
+    var shown = rows, hidden = [];
+    if (collapse) {
+      var bad = rows.filter(function (x) { return x.status !== 'green'; });
+      var good = rows.filter(function (x) { return x.status === 'green'; });
+      var room = Math.max(0, GREEN_ROWS_SHOWN - bad.length);
+      if (good.length > room + 1) { shown = bad.concat(good.slice(0, room)); hidden = good.slice(room); }
+    }
+    var html = shown.map(rowHtml).join('');
+    if (hidden.length) {
+      html += '<div class="row more" data-more><div class="line"><span class="name">+ ' +
+        esc(hidden.map(function (x) { return x.name; }).join(', ')) + '</span><span class="val">sve zeleno</span></div></div>' +
+        '<div data-hidden style="display:none">' + hidden.map(rowHtml).join('') + '</div>';
+    }
+    return '<div class="card">' + html + '</div>';
+  }
+
+  function nextSlot(schedule, nowIso) {
+    var now = new Date(nowIso);
+    var mins = Number(zg(nowIso, { hour: '2-digit', hourCycle: 'h23' })) * 60 + Number(zg(nowIso, { minute: '2-digit' }));
+    for (var i = 0; i < schedule.length; i++) {
+      var p = schedule[i].split(':');
+      if (Number(p[0]) * 60 + Number(p[1]) > mins) return 'danas ' + schedule[i];
+    }
+    return 'sutra ' + schedule[0];
+  }
+
+  function plural(n, one, few, many) {
+    var m10 = n % 10, m100 = n % 100;
+    if (m10 === 1 && m100 !== 11) return one;
+    if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
+    return many;
+  }
+
+  function render(data) {
+    var latest = data.latest, results = latest ? latest.results : [];
+    var prices = results.filter(function (r) { return r.kind === 'price_list'; }).map(priceRow);
+    var fns = results.filter(function (r) { return r.kind === 'function'; }).map(functionRow);
+    if (latest && fns.length === 0) fns.push({ status: 'amber', name: 'Poslužitelji', val: '', why: 'Nisu provjereni u zadnjoj provjeri' });
+
+    var system = [];
+    var ageH = data.lastRunAt ? (new Date(data.now) - new Date(data.lastRunAt)) / 36e5 : Infinity;
+    system.push({ status: 'green', name: 'Supabase budan', val: data.lastRunAt ? 'zadnje ' + hm(data.lastRunAt) : 'odgovara', why: '' });
+    var runStatus = ageH > 26 ? 'red' : data.runsToday < data.expectedRunsToday ? 'amber' : 'green';
+    system.push({ status: runStatus, name: 'Dnevna provjera',
+      val: data.runsToday <= data.schedule.length ? data.runsToday + ' od ' + data.schedule.length + ' danas' : data.runsToday + ' danas',
+      why: runStatus === 'red' ? 'Nijedna provjera u zadnjih 26 sati' :
+        runStatus === 'amber' ? 'GitHub kasni: ' + data.expectedRunsToday + ' je trebalo do sada' : '' });
+
+    var all = prices.concat(fns, system);
+    var count = { green: 0, amber: 0, red: 0 };
+    all.forEach(function (x) { count[x.status]++; });
+    var top = count.red ? 'red' : count.amber ? 'amber' : 'green';
+    var head = count.red ? count.red + (count.red === 1 ? ' ne radi' : ' ne rade') :
+      count.amber ? count.amber + ' ' + plural(count.amber, 'upozorenje', 'upozorenja', 'upozorenja') : 'Sve radi';
+    var when = latest ? 'Zadnja provjera ' + weekdayDate(latest.checkedAt) + ' u ' + hm(latest.checkedAt) : 'Još nema provjera';
+
+    document.getElementById('app').innerHTML =
+      '<div class="summary ' + top + '"><div class="head"><span class="dot ' + top + '"></span>' + esc(head) + '</div>' +
+      '<div class="sub">' + count.green + ' zeleno · ' + count.amber + ' žuto · ' + count.red + ' crveno<br>' +
+      esc(when) + ' · sljedeća ' + esc(nextSlot(data.schedule, data.now)) + '</div></div>' +
+      (prices.length ? '<div class="label">Cjenici</div>' + listHtml(prices, true) : '') +
+      '<div class="label">Poslužitelji</div>' + listHtml(fns, false) +
+      '<div class="label">Sustav</div>' + listHtml(system, false);
+    document.getElementById('stamp').textContent = hm(data.now);
+
+    var more = document.querySelector('[data-more]');
+    if (more) more.addEventListener('click', function () {
+      more.style.display = 'none';
+      document.querySelector('[data-hidden]').style.display = '';
+    });
+  }
+
+  function showError(title, text) {
+    document.getElementById('app').innerHTML =
+      '<div class="summary red"><div class="head"><span class="dot red"></span>' + esc(title) + '</div>' +
+      '<div class="sub">' + esc(text) + '</div></div>';
+  }
+
+  var key = readKey();
+  function load() {
+    if (!key) { showError('Link nije potpun', 'Otvori stranicu preko tajnog linka (s #k= na kraju).'); return; }
+    document.getElementById('stamp').textContent = '…';
+    fetch(ENDPOINT, { headers: { 'x-page-key': key }, cache: 'no-store' })
+      .then(function (res) {
+        if (res.status === 401) throw new Error('key');
+        if (!res.ok) throw new Error('http ' + res.status);
+        return res.json();
+      })
+      .then(render)
+      .catch(function (e) {
+        if (e.message === 'key') showError('Link nije ispravan', 'Ključ u linku ne odgovara. Otvori tajni link ponovo.');
+        else showError('Supabase ne odgovara', 'Podaci se nisu mogli učitati (' + e.message + '). Ako ovo traje, Supabase je možda uspavan ili ne radi.');
+        document.getElementById('stamp').textContent = 'greška';
+      });
+  }
+  document.getElementById('refresh').addEventListener('click', load);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) load(); });
+  setInterval(function () { if (!document.hidden) load(); }, 5 * 60 * 1000);
+  load();
+})();
+</script>
+</body>
+</html>
