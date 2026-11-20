@@ -57,6 +57,8 @@
 
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 0 20px; border-radius: 999px; font-weight: 700; font-family: var(--font-body); border: 1px solid transparent; transition: transform .18s ease; white-space: nowrap; }
   .btn:hover { transform: translateY(-2px); }
+  .btn[href*="play.google.com/store/apps/details"] { color: var(--navy); background: var(--amber); white-space: normal; text-align: center; padding: 12px 20px; }
+  .btn[href*="play.google.com/store/apps/details"]:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; }
   .btn-secondary { color: var(--text); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12); }
 
   .section { padding: 84px 0; }
@@ -643,7 +645,7 @@
         <h2>Izgovori. Nocito pamti.</h2>
         <p>Privatni AI na tvom telefonu. Počni besplatno, glas otključaj jednom.</p>
         <div class="hero-actions" style="justify-content:center;">
-          <span class="soon-badge"><i class="ti ti-clock" aria-hidden="true"></i> Uskoro na Google Playu</span>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.nocito.reminder" target="_blank" rel="noopener"><i class="ti ti-brand-google-play" aria-hidden="true"></i> Preuzmi na Google Playu</a>
           <a class="btn btn-secondary" href="https://nocito.app/hr/">Istraži Nocito Private Apps</a>
           <a class="btn btn-secondary" href="https://nocito.app/reminder/privacy/">Pročitaj politiku privatnosti (engleski)</a>
         </div>
