@@ -355,6 +355,12 @@
   .nl-msg.err { color: #F5A623; }
   .nl-blog { text-align: center; margin: 22px 0 0; font-size: .95rem; color: var(--muted); }
   .nl-blog a { color: var(--amber); font-weight: 700; }
+  /* ios wishlist */
+  .ios-apps { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: center; margin-top: 20px; color: var(--text); font-size: 1rem; }
+  .ios-apps legend { position: absolute; left: -9999px; }
+  .ios-apps label { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+  .ios-apps input { width: 18px; height: 18px; accent-color: #F5A623; }
+  .coming-ios a, .card a { color: var(--amber); }
 </style>
 <!-- rem-sync-images -->
 <!-- appbar -->
@@ -524,7 +530,7 @@
       </div>
       <div class="card-grid">
         <article class="card"><h3>Setup download</h3><p>The recommended setup downloads about 4.75 GB of AI models on a fresh install, plus free space for setup and your data. You can postpone it and use manual entry.</p></article>
-        <article class="card"><h3>Compatible phones</h3><p>Android 8 or later on a 64-bit ARM phone. Larger models need more free memory; not every phone suits every model. No iOS version.</p></article>
+        <article class="card"><h3>Compatible phones</h3><p>Android 8 or later on a 64-bit ARM phone. Larger models need more free memory; not every phone suits every model. No iOS version yet. <a href="#ios">Join the iOS wishlist</a>.</p></article>
         <article class="card"><h3>English only</h3><p>The first release supports English only.</p></article>
       </div>
     </div>
@@ -595,6 +601,32 @@
           <a class="btn btn-secondary" href="https://nocito.app/">Explore Nocito Private Apps</a>
           <a class="btn btn-secondary" href="https://nocito.app/reminder/privacy/">Read the Privacy Policy</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight" id="ios">
+    <div class="container">
+      <div class="nl-card">
+        <div class="section-head center" style="margin-bottom:0">
+          <div class="kicker">iOS</div>
+          <h2>Want Nocito on iPhone?</h2>
+          <p>The iOS versions are not ready yet. Join the wishlist and we will email you once when they are. Just your email address, no tracking.</p>
+        </div>
+        <form id="iosForm" novalidate>
+          <fieldset class="ios-apps" style="border:0;padding:0;margin-left:0;margin-right:0;min-width:0">
+            <legend>Which app?</legend>
+            <label><input type="checkbox" name="app" value="tracker"> Nocito (expense tracker)</label>
+            <label><input type="checkbox" name="app" value="reminder" checked> Nocito Reminder</label>
+          </fieldset>
+          <div class="nl-row">
+            <input type="email" id="iosEmail" name="email" autocomplete="email" inputmode="email" maxlength="254" placeholder="your@email.com" aria-label="Email address" required>
+            <button type="submit" class="btn btn-primary" id="iosBtn">Join the wishlist</button>
+          </div>
+          <div class="nl-hp" aria-hidden="true"><label>Web <input type="text" id="iosWeb" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <label class="nl-consent"><input type="checkbox" id="iosConsent" name="consent"><span>Email me once when the iOS version of the selected app is available. I can withdraw this at any time. <a href="https://nocito.app/privacy.html#newsletter">Privacy policy</a></span></label>
+          <p class="nl-msg" id="iosMsg" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </div>
   </section>
@@ -716,6 +748,35 @@
         .then(function () { btn.disabled = false; });
     });
   })();
+</script>
+<script>
+(function () {
+  var form = document.getElementById('iosForm');
+  if (!form) return;
+  var msg = document.getElementById('iosMsg'), btn = document.getElementById('iosBtn');
+  var EP = "https://zeiithcaxunvhfcxsnli.supabase.co/functions/v1/newsletter-signup", KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InplaWl0aGNheHVudmhmY3hzbmxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MTQ3NjUsImV4cCI6MjA5MDk5MDc2NX0.bLjpwIxYevsm92P-uLaRukZ0pAW--KXDU-b1Z9TmY6I";
+  var CONSENT_TEXT = "Email me once when the iOS version of the selected app is available. I can withdraw this at any time.";
+  function say(t, c) { msg.textContent = t; msg.className = 'nl-msg' + (c ? ' ' + c : ''); }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('iosEmail').value.trim();
+    var apps = [].slice.call(form.querySelectorAll('input[name=app]:checked')).map(function (x) { return x.value; });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say("Please check your email address.", 'err'); return; }
+    if (!apps.length) { say("Please choose at least one app.", 'err'); return; }
+    if (!document.getElementById('iosConsent').checked) { say("Please tick the consent box to join.", 'err'); return; }
+    btn.disabled = true; say("Sending…");
+    fetch(EP, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': KEY, 'Authorization': 'Bearer ' + KEY },
+      body: JSON.stringify({ email: email, lang: "en", source: ('ios:' + apps.join('+') + ':' + location.pathname).slice(0, 100), consent_version: "ios-v1-en", consent_text: CONSENT_TEXT, consent: true, website: document.getElementById('iosWeb').value })
+    }).then(function (r) {
+      if (r.ok) { say("Thank you! You are on the iOS wishlist.", 'ok'); form.reset(); }
+      else if (r.status === 400) { say("Please check your email address and consent.", 'err'); }
+      else { say("Not working right now. Please try again later.", 'err'); }
+    }).catch(function () { say("Not working right now. Please try again later.", 'err'); })
+      .then(function () { btn.disabled = false; });
+  });
+})();
 </script>
 </body>
 </html>

@@ -559,6 +559,12 @@
   .nl-blog a { color: var(--amber); font-weight: 700; }
   @media (max-width: 980px) { .pi-points { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .pi-points { grid-template-columns: 1fr; gap: 22px; } }
+  /* ios wishlist */
+  .ios-apps { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: center; margin-top: 20px; color: var(--text); font-size: 1rem; }
+  .ios-apps legend { position: absolute; left: -9999px; }
+  .ios-apps label { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+  .ios-apps input { width: 18px; height: 18px; accent-color: #F5A623; }
+  .coming-ios a, .card a { color: var(--amber); }
 </style>
 <!-- sync3 -->
 <!-- sync5 -->
@@ -837,7 +843,7 @@
         </details>
         <details>
           <summary>Je li Nocito dostupan na iPhoneu?</summary>
-          <p>Još ne. Nocito je trenutno dostupan na Androidu, a iOS je planiran kasnije.</p>
+          <p>Još ne. Nocito je trenutno dostupan na Androidu, a iOS je planiran kasnije. <a href="#ios">Upiši se na iOS listu želja</a> i javit ćemo ti se jednom kad bude spreman.</p>
         </details>
       </div>
     </div>
@@ -852,13 +858,39 @@
         <div class="hero-actions" style="justify-content:center;">
           <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.nocito.app"><span class="play-dot"></span> Dostupno na Google Playu</a>
         </div>
-        <p class="coming-ios">Uskoro na App Storeu</p>
+        <p class="coming-ios">Uskoro na App Storeu · <a href="#ios">Upiši se na iOS listu želja</a></p>
       </div>
     </div>
   </section>
 
   <!--blog-teaser-->
     <!--newsletter-->
+  <section class="section-tight" id="ios">
+    <div class="container">
+      <div class="nl-card">
+        <div class="section-head center" style="margin-bottom:0">
+          <div class="kicker">iOS</div>
+          <h2>Želiš Nocito na iPhoneu?</h2>
+          <p>iOS verzije još nisu gotove. Upiši se na listu želja i javit ćemo ti se jednom e-poštom kad budu dostupne. Samo tvoja e-adresa, bez praćenja.</p>
+        </div>
+        <form id="iosForm" novalidate>
+          <fieldset class="ios-apps" style="border:0;padding:0;margin-left:0;margin-right:0;min-width:0">
+            <legend>Koja aplikacija?</legend>
+            <label><input type="checkbox" name="app" value="tracker" checked> Nocito (praćenje troškova)</label>
+            <label><input type="checkbox" name="app" value="reminder"> Nocito Reminder</label>
+          </fieldset>
+          <div class="nl-row">
+            <input type="email" id="iosEmail" name="email" autocomplete="email" inputmode="email" maxlength="254" placeholder="tvoja@adresa.hr" aria-label="E-adresa" required>
+            <button type="submit" class="btn btn-primary" id="iosBtn">Upiši me</button>
+          </div>
+          <div class="nl-hp" aria-hidden="true"><label>Web <input type="text" id="iosWeb" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <label class="nl-consent"><input type="checkbox" id="iosConsent" name="consent"><span>Želim da me se jednom obavijesti e-poštom kad iOS verzija odabrane aplikacije bude dostupna. Privolu mogu povući bilo kada. <a href="https://nocito.app/hr/privacy.html#newsletter">Pravila privatnosti</a></span></label>
+          <p class="nl-msg" id="iosMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <section class="section-tight" id="newsletter">
     <div class="container">
       <div class="nl-card">
@@ -1028,6 +1060,35 @@
         .then(function () { btn.disabled = false; });
     });
   })();
+</script>
+<script>
+(function () {
+  var form = document.getElementById('iosForm');
+  if (!form) return;
+  var msg = document.getElementById('iosMsg'), btn = document.getElementById('iosBtn');
+  var EP = "https://zeiithcaxunvhfcxsnli.supabase.co/functions/v1/newsletter-signup", KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InplaWl0aGNheHVudmhmY3hzbmxpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU0MTQ3NjUsImV4cCI6MjA5MDk5MDc2NX0.bLjpwIxYevsm92P-uLaRukZ0pAW--KXDU-b1Z9TmY6I";
+  var CONSENT_TEXT = "Želim da me se jednom obavijesti e-poštom kad iOS verzija odabrane aplikacije bude dostupna. Privolu mogu povući bilo kada.";
+  function say(t, c) { msg.textContent = t; msg.className = 'nl-msg' + (c ? ' ' + c : ''); }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('iosEmail').value.trim();
+    var apps = [].slice.call(form.querySelectorAll('input[name=app]:checked')).map(function (x) { return x.value; });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say("Provjeri e-adresu.", 'err'); return; }
+    if (!apps.length) { say("Odaberi barem jednu aplikaciju.", 'err'); return; }
+    if (!document.getElementById('iosConsent').checked) { say("Za upis označi privolu.", 'err'); return; }
+    btn.disabled = true; say("Šaljem…");
+    fetch(EP, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': KEY, 'Authorization': 'Bearer ' + KEY },
+      body: JSON.stringify({ email: email, lang: "hr", source: ('ios:' + apps.join('+') + ':' + location.pathname).slice(0, 100), consent_version: "ios-v1-hr", consent_text: CONSENT_TEXT, consent: true, website: document.getElementById('iosWeb').value })
+    }).then(function (r) {
+      if (r.ok) { say("Hvala! Upisan/a si na iOS listu želja.", 'ok'); form.reset(); }
+      else if (r.status === 400) { say("Provjeri e-adresu i privolu.", 'err'); }
+      else { say("Trenutno ne ide. Pokušaj ponovno kasnije.", 'err'); }
+    }).catch(function () { say("Trenutno ne ide. Pokušaj ponovno kasnije.", 'err'); })
+      .then(function () { btn.disabled = false; });
+  });
+})();
 </script>
 </body>
 </html>
