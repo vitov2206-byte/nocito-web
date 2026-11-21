@@ -1155,17 +1155,22 @@
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say("Please check your email address.", 'err'); return; }
       if (!opts.length) { say("Please tick at least one option.", 'err'); return; }
       btn.disabled = true; say("Sending…");
-      var text = opts.map(function (o) { return PARTS[o]; }).join(' ') + TAIL;
-      fetch(EP, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'apikey': KEY, 'Authorization': 'Bearer ' + KEY },
-        body: JSON.stringify({ email: email, lang: "en", source: (opts.join('+') + ':' + location.pathname).slice(0, 100), consent_version: "v2-en", consent_text: text, consent: true, website: document.getElementById('nlWeb').value })
-      }).then(function (r) {
-        if (r.ok) { say("Thank you! You are signed up.", 'ok'); form.reset(); }
-        else if (r.status === 400) { say("Please check your email address.", 'err'); }
+      var reqs = [], path = location.pathname;
+      if (opts.indexOf('newsletter') > -1) reqs.push({ v: 'v2-en', t: PARTS.newsletter + TAIL, s: path.slice(0, 100) });
+      var apps = ['tracker', 'reminder'].filter(function (a) { return opts.indexOf('ios-' + a) > -1; });
+      if (apps.length) reqs.push({ v: 'ios-v1-en', t: apps.map(function (a) { return PARTS['ios-' + a]; }).join(' ') + TAIL, s: ('ios:' + apps.join('+') + ':' + path).slice(0, 100) });
+      Promise.all(reqs.map(function (q) {
+        return fetch(EP, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'apikey': KEY, 'Authorization': 'Bearer ' + KEY },
+          body: JSON.stringify({ email: email, lang: "en", source: q.s, consent_version: q.v, consent_text: q.t, consent: true, website: document.getElementById('nlWeb').value })
+        }).then(function (r) { return r.status; }).catch(function () { return 0; });
+      })).then(function (st) {
+        var bad = st.filter(function (x) { return x < 200 || x >= 300; });
+        if (!bad.length) { say("Thank you! You are signed up.", 'ok'); form.reset(); }
+        else if (bad.indexOf(400) > -1) { say("Please check your email address.", 'err'); }
         else { say("Not working right now. Please try again later.", 'err'); }
-      }).catch(function () { say("Not working right now. Please try again later.", 'err'); })
-        .then(function () { btn.disabled = false; });
+      }).then(function () { btn.disabled = false; });
     });
   })();
 </script>
